@@ -67,10 +67,13 @@ public static class AmonRaMovementPatches
     //   (up to HoldAngle away, e.g. one diagonal step on a keyboard) keeps the speed, so a well-driven chair keeps its
     //   momentum through rooms and corridors.
     // - Yanking the stick far away from the heading skids: the chair loses speed, the more the sharper the input.
+    // - Cornering hard (input more than AlignAngle away) also costs speed for every degree actually turned, so a sharp
+    //   90 degree turn at full speed ends at ~80% speed, while smooth diagonal steering loses next to nothing.
     // - Walls take away the speed going into them (the velocity is read back after the physics step).
     private const float AlignAngle = 25f;  // within this the chair accelerates
     private const float HoldAngle = 60f;   // up to this speed is kept while turning
     private const float SkidStrength = 4f; // braking multiplier for a full 180 degree input
+    private const float CornerDrag = 0.35f; // fraction of speed lost per 90 degrees turned at full cornering
     private const float StartSpeedFraction = 0.05f;
 
     private static Vector2 ComputeVelocity(Vector2 current, Vector2 desired, float baseSpeed, float dt, AmonRaOptions options)
@@ -110,6 +113,13 @@ public static class AmonRaMovementPatches
             // Sloppy steering skids: 0 at HoldAngle, SkidStrength x rolling deceleration at 180 degrees.
             var skid = (absAngle - HoldAngle) / (180f - HoldAngle);
             speed = Mathf.Max(speed - (rollRate * SkidStrength * skid * dt), 0f);
+        }
+
+        if (absAngle > AlignAngle)
+        {
+            // Cornering drag: 0 at AlignAngle, full from 90 degrees on, proportional to how far the chair turned.
+            var cornering = Mathf.InverseLerp(AlignAngle, 90f, absAngle);
+            speed -= speed * CornerDrag * cornering * (Mathf.Abs(turn) / 90f);
         }
 
         return Vector2.ClampMagnitude(newHeading * speed, maxSpeed);

@@ -19,8 +19,9 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 - **AmonRa: new steering that rewards good driving.** The chair turns quickly when slow but needs wide turns at full
   speed. Smooth steering keeps the momentum through rooms and corridors; yanking the controls far away from the
-  current direction makes it skid and lose speed. The "Turning Grip" option was replaced by "Turn Speed At Top Speed".
-- **AmonRa:** bigger rear wheel placed further back, so the legs no longer peek out.
+  current direction makes it skid and lose speed. Sharp turns at full speed cost noticeably more speed than smooth
+  ones. The "Turning Grip" option was replaced by "Turn Speed At Top Speed" (150°/s by default).
+- **AmonRa:** bigger rear wheel placed further back and a leg rest plate in front, so the legs no longer peek out.
 - **AmonRa:** listed as a *Universal Passive* modifier (like Drunk) instead of *Universal Visibility*.
 - **Startup screen:** the Innersloth, AU Avengers and AmonRa Edition logos form a centered triangle.
 
@@ -37,9 +38,10 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 - **AmonRa: nowe sterowanie, które nagradza dobrą jazdę.** Wolno jadący wózek skręca szybko, ale przy pełnej prędkości
   potrzebuje szerokich łuków. Płynne prowadzenie zachowuje rozpęd w pomieszczeniach i korytarzach, a szarpnięcie
-  w kierunku dalekim od kierunku jazdy powoduje poślizg i utratę prędkości. Opcję „Przyczepność na zakrętach”
-  zastąpiła „Szybkość skrętu przy pełnej prędkości”.
-- **AmonRa:** większe tylne koło, przesunięte do tyłu, dzięki czemu nie widać już nóg.
+  w kierunku dalekim od kierunku jazdy powoduje poślizg i utratę prędkości. Ostry skręt przy pełnej prędkości kosztuje
+  wyraźnie więcej prędkości niż płynny. Opcję „Przyczepność na zakrętach” zastąpiła „Szybkość skrętu przy pełnej
+  prędkości” (domyślnie 150°/s).
+- **AmonRa:** większe tylne koło przesunięte do tyłu i osłona na nogi z przodu, dzięki czemu nie widać już nóg.
 - **AmonRa:** kategoria *Universal Passive* (jak Drunk) zamiast *Universal Visibility*.
 - **Ekran startowy:** loga Innersloth, AU Avengers i AmonRa Edition tworzą wyśrodkowany trójkąt.
 

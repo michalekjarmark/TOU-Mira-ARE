@@ -35,7 +35,7 @@ public sealed class AmonRaOptions : AbstractTouModifierOptionGroup<AmonRaModifie
     ///     (up to <see cref="SlowTurnSpeed"/>), so tight corners need slowing down: steering well keeps the speed.
     /// </summary>
     [ModdedNumberOption("TouOptionAmonRaTurnSpeed", 60f, 360f, 15f, MiraNumberSuffixes.None, "0")]
-    public float TurnSpeed { get; set; } = 180f;
+    public float TurnSpeed { get; set; } = 150f;
 
     [ModdedToggleOption("TouOptionAmonRaShowWheelchair")]
     public bool ShowWheelchair { get; set; } = true;

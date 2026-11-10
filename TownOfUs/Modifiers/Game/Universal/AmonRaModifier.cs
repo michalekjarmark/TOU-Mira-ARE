@@ -145,8 +145,10 @@ public sealed class AmonRaModifier : UniversalGameModifier, IWikiDiscoverable
         var localScale = new Vector3(scale, scale, 1f);
         _front!.transform.localScale = localScale;
         _back!.transform.localScale = localScale;
-        _front.transform.localPosition = new Vector3(bounds.center.x, centerY, FrontZ);
-        _back.transform.localPosition = new Vector3(bounds.center.x, centerY, BackZ);
+        // flipX mirrors the body around its pivot, not around the center of its bounds.
+        var centerX = flip ? -bounds.center.x : bounds.center.x;
+        _front.transform.localPosition = new Vector3(centerX, centerY, FrontZ);
+        _back.transform.localPosition = new Vector3(centerX, centerY, BackZ);
 
         // The wheel is a child of the front part: position in front-sprite units, mirrored when facing left.
         var wheelX = (WheelCenterXPx - CanvasCenterPx) * unitsPerPx;

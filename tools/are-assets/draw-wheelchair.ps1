@@ -68,6 +68,12 @@ Save $bmp $g "WheelchairBack.png"
 # ---- Front layer (in front of the player): seat frame, caster, footrest (the big wheel is a separate sprite) ----
 # The big wheel's center in this 256px canvas is (112, 176) with radius 70 -> keep in sync with AmonRaModifier constants.
 $c = New-Canvas 256; $bmp = $c[0]; $g = $c[1]
+# Leg rest plate: covers the front of the body/legs between the big wheel and the leg tube (the body sprite is wider
+# than the wheel, round 2 test showed the legs there).
+$plate = [System.Drawing.PointF[]](@(@(150, 166), @(200, 166), @(212, 212), @(200, 242), @(150, 248)) |
+    ForEach-Object { New-Object System.Drawing.PointF $_[0], $_[1] })
+$g.FillPolygon((New-Object System.Drawing.SolidBrush $seat), $plate)
+$g.DrawPolygon((Pen $outline 6), $plate)
 Tube $g @(@(84, 168), @(196, 168)) 10 $frame                       # seat rail
 Tube $g @(@(190, 168), @(204, 214), @(228, 214)) 9 $frame          # leg tube + footrest
 Tube $g @(@(112, 176), @(196, 226)) 7 $frame                       # lower brace to caster

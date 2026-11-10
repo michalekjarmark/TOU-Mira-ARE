@@ -4046,16 +4046,18 @@ No one can interact with you.</string>
 
   <!-- AmonRa Edition - AmonRa (Universal Modifier) -->
   <string name="TownOfUsMira.Modifier.AmonRa">AmonRa</string>
-  <string name="TownOfUsMira.Modifier.AmonRa.TabDescription">You ride a wheelchair: slow to start, slides in turns, but reaches [topSpeed]x speed on straight lines.</string>
-  <string name="TownOfUsMira.Modifier.AmonRa.WikiDescription">AmonRa rides a wheelchair. Movement has inertia: it takes time to speed up, you keep rolling after letting go and you slide when turning. On long straight lines you reach [topSpeed]x of the normal speed. Vents, ladders and other map interactions work as usual.</string>
+  <string name="TownOfUsMira.Modifier.AmonRa.TabDescription">You ride a wheelchair: steer smoothly to keep your momentum and reach [topSpeed]x speed. Sharp turns make you skid.</string>
+  <string name="TownOfUsMira.Modifier.AmonRa.WikiDescription">AmonRa rides a wheelchair. It takes time to speed up and you keep rolling after letting go. The chair turns quickly when slow, but needs wide turns at full speed. Smooth steering keeps your momentum (up to [topSpeed]x of the normal speed), while yanking the controls the other way or hitting walls slows you down. Vents, ladders and other map interactions work as usual.</string>
   <string name="TouOptionAmonRaAmount">AmonRa Amount</string>
   <string name="TouOptionAmonRaChance">AmonRa Chance</string>
   <string name="TouOptionAmonRaTopSpeed">Top Speed (Straight Line)</string>
   <string name="TouOptionAmonRaAccelerationTime">Time To Reach Top Speed</string>
   <string name="TouOptionAmonRaBrakingTime">Time To Roll To A Stop</string>
-  <string name="TouOptionAmonRaTurnGrip">Turning Grip</string>
+  <string name="TouOptionAmonRaTurnSpeed">Turn Speed At Top Speed (°/s)</string>
   <string name="TouOptionAmonRaShowWheelchair">Show Wheelchair</string>
   <string name="TouOptionAmonRaHideInCamouflage">Hide Wheelchair During Camouflage</string>
+  <string name="TouOptionAmonRaRollingSound">Rolling Sound</string>
+  <string name="TouOptionAmonRaOthersHearRolling">Others Hear The Wheelchair Nearby</string>
   <!-- AmonRa Edition - Updater -->
   <string name="AreUpdaterDownloading">Downloading update [version]... [progress]%
 Please wait, do not close the game.</string>

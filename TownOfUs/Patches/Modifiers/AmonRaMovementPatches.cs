@@ -13,10 +13,10 @@ namespace TownOfUs.Patches.Modifiers;
 /// <summary>
 ///     ARE: wheelchair movement for <see cref="AmonRaModifier"/>.
 ///     Vanilla <see cref="PlayerPhysics.FixedUpdate"/> sets the body velocity straight from the input. For the local
-///     AmonRa player we take that velocity as the *target* and move the real velocity towards it with limited
-///     acceleration: speeding up takes time, letting go rolls on, and sideways speed decays slowly (sliding in turns).
-///     In exchange the top speed on straight lines is higher. Movement is client-authoritative in Among Us, so changing
-///     the local body velocity is automatically synced to the other players.
+///     AmonRa player we take that velocity as the *input* of a small vehicle model (see <see cref="ComputeVelocity"/>):
+///     speeding up takes time, letting go rolls on, turning is rate-limited and sloppy steering skids. Driving well
+///     keeps the momentum and a higher top speed. Movement is client-authoritative in Among Us, so changing the local
+///     body velocity is automatically synced to the other players.
 /// </summary>
 [HarmonyPatch(typeof(PlayerPhysics))]
 public static class AmonRaMovementPatches
@@ -52,49 +52,67 @@ public static class AmonRaMovementPatches
         }
 
         _captured = false;
-        var options = OptionGroupSingleton<AmonRaOptions>.Instance;
-        var dt = Time.fixedDeltaTime;
+        __instance.body.velocity = ComputeVelocity(
+            _velocityBeforeStep,
+            __instance.body.velocity, // what vanilla wants: input * speed, incl. other speed modifiers
+            Mathf.Max(__instance.TrueSpeed, 0.01f),
+            Time.fixedDeltaTime,
+            OptionGroupSingleton<AmonRaOptions>.Instance);
+    }
 
-        var baseSpeed = Mathf.Max(__instance.TrueSpeed, 0.01f);
-        var desired = __instance.body.velocity; // what vanilla wants (input * speed, incl. other speed modifiers)
-        var target = desired * options.TopSpeed;
-        var current = _velocityBeforeStep;
+    // Skill model: the chair has a heading and a speed instead of following the input directly.
+    // - The heading turns towards the input at a limited rate. The rate is high when slow and low at top speed,
+    //   so fast driving needs wide, early turns (or slowing down before a corner).
+    // - Speed only grows while the input points where the chair is going (precise steering). Gentle steering
+    //   (up to HoldAngle away, e.g. one diagonal step on a keyboard) keeps the speed, so a well-driven chair keeps its
+    //   momentum through rooms and corridors.
+    // - Yanking the stick far away from the heading skids: the chair loses speed, the more the sharper the input.
+    // - Walls take away the speed going into them (the velocity is read back after the physics step).
+    private const float AlignAngle = 25f;  // within this the chair accelerates
+    private const float HoldAngle = 60f;   // up to this speed is kept while turning
+    private const float SkidStrength = 4f; // braking multiplier for a full 180 degree input
+    private const float StartSpeedFraction = 0.05f;
 
-        var accelRate = baseSpeed * options.TopSpeed / Mathf.Max(options.AccelerationTime, 0.05f);
-        var brakeRate = baseSpeed / Mathf.Max(options.BrakingTime, 0.05f);
+    private static Vector2 ComputeVelocity(Vector2 current, Vector2 desired, float baseSpeed, float dt, AmonRaOptions options)
+    {
+        var maxSpeed = baseSpeed * options.TopSpeed;
+        var accelRate = maxSpeed / Mathf.Max(options.AccelerationTime, 0.05f);
+        var rollRate = baseSpeed / Mathf.Max(options.BrakingTime, 0.05f);
+        var speed = current.magnitude;
 
-        Vector2 next;
-        if (target.sqrMagnitude < 0.0001f)
+        if (desired.sqrMagnitude < 0.0001f)
         {
-            // No input: roll to a stop.
-            next = Vector2.MoveTowards(current, Vector2.zero, brakeRate * dt);
-        }
-        else
-        {
-            var dir = target.normalized;
-            var targetSpeed = target.magnitude;
-            var forward = Vector2.Dot(current, dir);
-            var sideways = current - (dir * forward);
-
-            // Forward: accelerate towards the target speed. Moving backwards (sharp U-turn) brakes + accelerates.
-            float newForward;
-            if (forward < targetSpeed)
-            {
-                var rate = forward < 0f ? accelRate + brakeRate : accelRate;
-                newForward = Mathf.Min(forward + (rate * dt), targetSpeed);
-            }
-            else
-            {
-                newForward = Mathf.Max(forward - (brakeRate * dt), targetSpeed);
-            }
-
-            // Sideways: old momentum fades slowly -> sliding when turning.
-            var newSideways = Vector2.MoveTowards(sideways, Vector2.zero, brakeRate * options.TurnGrip * dt);
-            next = (dir * newForward) + newSideways;
+            // No input: roll on and slowly stop.
+            return Vector2.MoveTowards(current, Vector2.zero, rollRate * dt);
         }
 
-        next = Vector2.ClampMagnitude(next, baseSpeed * options.TopSpeed);
-        __instance.body.velocity = next;
+        var inputDir = desired.normalized;
+        var targetSpeed = Mathf.Min(desired.magnitude * options.TopSpeed, maxSpeed);
+
+        // Standing (almost) still: the chair can start in any direction.
+        var heading = speed < baseSpeed * StartSpeedFraction ? inputDir : current / speed;
+        var angle = Vector2.SignedAngle(heading, inputDir);
+        var absAngle = Mathf.Abs(angle);
+
+        // Turn towards the input, slower the faster we go.
+        var turnRate = Mathf.Lerp(AmonRaOptions.SlowTurnSpeed, options.TurnSpeed, Mathf.Clamp01(speed / maxSpeed));
+        var turn = Mathf.Clamp(angle, -turnRate * dt, turnRate * dt);
+        var newHeading = (Vector2)(Quaternion.Euler(0f, 0f, turn) * heading);
+
+        if (absAngle <= AlignAngle)
+        {
+            speed = speed < targetSpeed
+                ? Mathf.Min(speed + (accelRate * dt), targetSpeed)
+                : Mathf.Max(speed - (rollRate * dt), targetSpeed);
+        }
+        else if (absAngle > HoldAngle)
+        {
+            // Sloppy steering skids: 0 at HoldAngle, SkidStrength x rolling deceleration at 180 degrees.
+            var skid = (absAngle - HoldAngle) / (180f - HoldAngle);
+            speed = Mathf.Max(speed - (rollRate * SkidStrength * skid * dt), 0f);
+        }
+
+        return Vector2.ClampMagnitude(newHeading * speed, maxSpeed);
     }
 
     /// <summary>

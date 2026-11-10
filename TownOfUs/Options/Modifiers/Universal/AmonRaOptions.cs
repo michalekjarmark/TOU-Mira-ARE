@@ -31,14 +31,29 @@ public sealed class AmonRaOptions : AbstractTouModifierOptionGroup<AmonRaModifie
     public float BrakingTime { get; set; } = 1f;
 
     /// <summary>
-    ///     How quickly sideways sliding is cancelled when turning. Lower = more drifting.
+    ///     How fast the wheelchair can turn at top speed, in degrees per second. When slow it turns much faster
+    ///     (up to <see cref="SlowTurnSpeed"/>), so tight corners need slowing down: steering well keeps the speed.
     /// </summary>
-    [ModdedNumberOption("TouOptionAmonRaTurnGrip", 0.25f, 3f, 0.25f, MiraNumberSuffixes.Multiplier, "0.00")]
-    public float TurnGrip { get; set; } = 1f;
+    [ModdedNumberOption("TouOptionAmonRaTurnSpeed", 60f, 360f, 15f, MiraNumberSuffixes.None, "0")]
+    public float TurnSpeed { get; set; } = 180f;
 
     [ModdedToggleOption("TouOptionAmonRaShowWheelchair")]
     public bool ShowWheelchair { get; set; } = true;
 
     [ModdedToggleOption("TouOptionAmonRaHideInCamouflage")]
     public bool HideInCamouflage { get; set; } = true;
+
+    [ModdedToggleOption("TouOptionAmonRaRollingSound")]
+    public bool RollingSound { get; set; } = true;
+
+    /// <summary>
+    ///     Whether nearby players hear someone else's wheelchair (only while they can see it).
+    /// </summary>
+    [ModdedToggleOption("TouOptionAmonRaOthersHearRolling")]
+    public bool OthersHearRolling { get; set; } = false;
+
+    /// <summary>
+    ///     Turn rate when (almost) standing still, degrees per second.
+    /// </summary>
+    public const float SlowTurnSpeed = 720f;
 }

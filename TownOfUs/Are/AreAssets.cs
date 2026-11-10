@@ -22,10 +22,16 @@ public static class AreAssets
         new LoadableResourceAsset($"{CustomPath}.AmonRaIcon.png", typeof(TownOfUsPlugin).Assembly, 128f);
 
     /// <summary>
-    ///     Seat frame, big rear wheel, caster and footrest, drawn in front of the player. Faces right.
+    ///     Seat frame, caster and footrest, drawn in front of the player. Faces right. 256px canvas.
     /// </summary>
     public static LoadableAsset<Sprite> WheelchairFront { get; } =
         new LoadableResourceAsset($"{CustomPath}.WheelchairFront.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Big rear wheel (rotates while moving), drawn in front of the frame. 160px canvas, wheel centered.
+    /// </summary>
+    public static LoadableAsset<Sprite> WheelchairWheel { get; } =
+        new LoadableResourceAsset($"{CustomPath}.WheelchairWheel.png", typeof(TownOfUsPlugin).Assembly, 100f);
 
     /// <summary>
     ///     Backrest and push handle, drawn behind the player. Faces right.

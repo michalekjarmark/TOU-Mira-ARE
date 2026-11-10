@@ -65,16 +65,21 @@ $g.FillRectangle((New-Object System.Drawing.SolidBrush $outline), 70, 84, 26, 74
 $g.FillRectangle((New-Object System.Drawing.SolidBrush $seat), 75, 89, 16, 64)
 Save $bmp $g "WheelchairBack.png"
 
-# ---- Front layer (in front of the player): seat frame, big wheel, caster, footrest ----
+# ---- Front layer (in front of the player): seat frame, caster, footrest (the big wheel is a separate sprite) ----
+# The big wheel's center in this 256px canvas is (112, 176) with radius 70 -> keep in sync with AmonRaModifier constants.
 $c = New-Canvas 256; $bmp = $c[0]; $g = $c[1]
-Tube $g @(@(88, 168), @(196, 168)) 10 $frame                       # seat rail
+Tube $g @(@(84, 168), @(196, 168)) 10 $frame                       # seat rail
 Tube $g @(@(190, 168), @(204, 214), @(228, 214)) 9 $frame          # leg tube + footrest
-Tube $g @(@(120, 176), @(196, 226)) 7 $frame                       # lower brace to caster
-Wheel $g 118 178 64 1.0                                             # big rear wheel
+Tube $g @(@(112, 176), @(196, 226)) 7 $frame                       # lower brace to caster
 Circle $g 200 230 17 $outline                                       # caster
 Circle $g 200 230 12 $tire
 Circle $g 200 230 4 $rim
 Save $bmp $g "WheelchairFront.png"
+
+# ---- Big rear wheel (rotates while moving): 160px canvas, wheel centered, radius 70 ----
+$c = New-Canvas 160; $bmp = $c[0]; $g = $c[1]
+Wheel $g 80 80 70 1.0
+Save $bmp $g "WheelchairWheel.png"
 
 # ---- Icon (128px): simplified full chair ----
 $c = New-Canvas 128; $bmp = $c[0]; $g = $c[1]

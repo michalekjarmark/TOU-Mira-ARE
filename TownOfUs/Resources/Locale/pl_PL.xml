@@ -1344,16 +1344,18 @@ Nie można z tobą wchodzić w interakcję.</string>
   <string name="TownOfUsMira.TownOfPolus.Role.Engineer.WikiDescription">Inżynier jest Załogantem potrafiącym naprawić jeden sabotaż na grę, niezależnie od tego gdzie się znajduje.</string>
   <!-- AmonRa Edition - AmonRa (Universal Modifier) -->
   <string name="TownOfUsMira.Modifier.AmonRa">AmonRa</string>
-  <string name="TownOfUsMira.Modifier.AmonRa.TabDescription">Jeździsz na wózku: wolno ruszasz, ślizgasz się na zakrętach, ale na prostej osiągasz [topSpeed]x prędkości.</string>
-  <string name="TownOfUsMira.Modifier.AmonRa.WikiDescription">AmonRa jeździ na wózku. Ruch ma bezwładność: rozpędzanie trwa, po puszczeniu sterowania wózek jeszcze się toczy, a na zakrętach się ślizga. Na długich prostych osiąga [topSpeed]x normalnej prędkości. Wenty, drabiny i inne interakcje z mapą działają normalnie.</string>
+  <string name="TownOfUsMira.Modifier.AmonRa.TabDescription">Jeździsz na wózku: prowadź płynnie, żeby nie tracić rozpędu i osiągnąć [topSpeed]x prędkości. Ostre skręty wpadają w poślizg.</string>
+  <string name="TownOfUsMira.Modifier.AmonRa.WikiDescription">AmonRa jeździ na wózku. Rozpędzanie trwa, a po puszczeniu sterowania wózek jeszcze się toczy. Wolno jadący wózek skręca szybko, ale przy pełnej prędkości potrzebuje szerokich łuków. Płynne prowadzenie zachowuje rozpęd (do [topSpeed]x normalnej prędkości), a gwałtowne szarpnięcie w inną stronę albo uderzenie w ścianę wytraca prędkość. Wenty, drabiny i inne interakcje z mapą działają normalnie.</string>
   <string name="TouOptionAmonRaAmount">Liczba AmonRa</string>
   <string name="TouOptionAmonRaChance">Szansa na AmonRa</string>
   <string name="TouOptionAmonRaTopSpeed">Prędkość maks. (na prostej)</string>
   <string name="TouOptionAmonRaAccelerationTime">Czas rozpędzania</string>
   <string name="TouOptionAmonRaBrakingTime">Czas wytaczania się</string>
-  <string name="TouOptionAmonRaTurnGrip">Przyczepność na zakrętach</string>
+  <string name="TouOptionAmonRaTurnSpeed">Szybkość skrętu przy pełnej prędkości (°/s)</string>
   <string name="TouOptionAmonRaShowWheelchair">Pokazuj wózek</string>
   <string name="TouOptionAmonRaHideInCamouflage">Ukryj wózek podczas kamuflażu</string>
+  <string name="TouOptionAmonRaRollingSound">Dźwięk toczenia</string>
+  <string name="TouOptionAmonRaOthersHearRolling">Inni słyszą wózek w pobliżu</string>
   <!-- AmonRa Edition - Updater -->
   <string name="AreUpdaterDownloading">Pobieranie aktualizacji [version]... [progress]%
 Proszę czekać, nie zamykaj gry.</string>

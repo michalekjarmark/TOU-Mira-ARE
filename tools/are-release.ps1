@@ -17,11 +17,16 @@
 
 .PARAMETER Yes
     Publishes without asking for confirmation (for non-interactive runs, e.g. from Claude Code).
+
+.PARAMETER NoUpload
+    Tags, pushes and creates the GitHub release as a draft without files (for a slow upload). Prints the commands
+    that upload the files and publish the release later. Friends' updaters ignore drafts until then.
 #>
 param(
     [string]$NotesFile = "",
     [switch]$DryRun,
-    [switch]$Yes
+    [switch]$Yes,
+    [switch]$NoUpload
 )
 
 $ErrorActionPreference = "Stop"
@@ -148,6 +153,16 @@ git push origin $Branch
 if ($LASTEXITCODE -ne 0) { Fail "git push of branch failed." }
 git push origin $tag
 if ($LASTEXITCODE -ne 0) { Fail "git push of tag failed." }
+
+if ($NoUpload) {
+    gh release create $tag --repo $Repo --title "AmonRa Edition $version" --notes-file $NotesFile --draft
+    if ($LASTEXITCODE -ne 0) { Fail "gh release create --draft failed (the tag is already pushed - fix and rerun it)." }
+    $relStage = $stage.Substring($Root.Length + 1)
+    Write-Host "Draft created (no files yet). To finish, from the repo root:" -ForegroundColor Green
+    Write-Host "  gh release upload $tag $relStage\* --repo $Repo --clobber"
+    Write-Host "  gh release edit $tag --repo $Repo --draft=false --latest"
+    exit 0
+}
 
 $assets = Get-ChildItem $stage -File | ForEach-Object { $_.FullName }
 $ghArgs = @("release", "create", $tag) + $assets + @("--repo", $Repo, "--title", "AmonRa Edition $version", "--latest")

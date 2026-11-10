@@ -9,6 +9,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
+## [1.7.9-are.2] - 2026-11-10
+
 ### Added
 
 - **AmonRa:** the big rear wheel turns while rolling.
@@ -47,7 +49,7 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 </details>
 
-## [1.7.9-are.1] - 2026-11-11
+## [1.7.9-are.1] - 2026-11-10
 
 First release of AmonRa Edition. Based on Town of Us: Mira 1.7.9 (`dev` branch), Among Us 2026.9.29.
 
@@ -103,5 +105,6 @@ Pierwsze wydanie AmonRa Edition. Bazuje na Town of Us: Mira 1.7.9 (branch `dev`)
 
 </details>
 
-[Unreleased]: https://github.com/michalekjarmark/TOU-Mira-ARE/compare/v1.7.9-are.1...are
+[Unreleased]: https://github.com/michalekjarmark/TOU-Mira-ARE/compare/v1.7.9-are.2...are
+[1.7.9-are.2]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.2
 [1.7.9-are.1]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.1

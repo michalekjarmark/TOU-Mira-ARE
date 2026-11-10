@@ -68,7 +68,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 
 | | Nazwa | Typ | Opis |
 |:-:|:--|:--|:--|
-| <img src="TownOfUs/Resources/Custom/AmonRaIcon.png" width="48"/> | **AmonRa** | Modyfikator (uniwersalny) | Postać jeździ na wózku. Rozpędza się stopniowo, toczy się po puszczeniu klawiszy i ślizga na zakrętach, ale na długich prostych jest szybsza od innych. Wenty, drabiny i taski działają normalnie. |
+| <img src="TownOfUs/Resources/Custom/AmonRaIcon.png" width="48"/> | **AmonRa** | Modyfikator (uniwersalny) | Postać jeździ na wózku z obracającym się kołem i dźwiękiem toczenia. Rozpędza się stopniowo i toczy się po puszczeniu klawiszy. Wolno jadąc, skręca szybko, ale przy pełnej prędkości potrzebuje szerokich łuków: płynna jazda zachowuje rozpęd i jest szybsza od innych, a ostre skręty dają poślizg i utratę prędkości. Wenty, drabiny i taski działają normalnie. |
 
 Oprócz tego: automatyczne aktualizacje, pełna paczka instalacyjna i własne logo na ekranie startowym.
 
@@ -76,6 +76,7 @@ Oprócz tego: automatyczne aktualizacje, pełna paczka instalacyjna i własne lo
 
 | Among Us | AmonRa Edition | Bazuje na Town of Us: Mira | Pobierz |
 |:--|:--|:--|:--|
+| 2026.9.29 | 1.7.9-are.2 | 1.7.9 (`dev`) | [Pobierz](https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.2) |
 | 2026.9.29 | 1.7.9-are.1 | 1.7.9 (`dev`) | [Pobierz](https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.1) |
 
 # Problemy

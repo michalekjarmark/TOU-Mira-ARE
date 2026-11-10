@@ -1441,4 +1441,23 @@ Uruchom grę ponownie, aktualizacja spróbuje jeszcze raz.</string>
   <string name="TouOptionAuditorNotifyTarget">Cel wie, że jest audytowany</string>
   <string name="TouOptionAuditorPublicAudits">Audyty publiczne na grę</string>
   <string name="TouOptionAuditorSanction">Może zamrozić głos (raz)</string>
+  <!-- AmonRa Edition - Rigger (Impostor Support) -->
+  <string name="TownOfUsMira.Role.Rigger">Monter</string>
+  <string name="TownOfUsMira.Role.Rigger.IntroBlurb">Przerób stanowiska i czekaj.</string>
+  <string name="TownOfUsMira.Role.Rigger.TabDescription">Przerabiaj stanowiska zadań: dowiesz się, gdy ktoś z nich skorzysta.</string>
+  <string name="TownOfUsMira.Role.Rigger.WikiDescription">Monter to rola Impostor Support, która przerabia prawdziwe stanowiska zadań. Gdy załogant otworzy przerobione zadanie, Impostorzy dostają alarm ze strzałką do stanowiska, a zadanie może się zaciąć i zamknąć po chwili, przez co załogant traci czas, stojąc w miejscu. Przerobione stanowiska iskrzą z bliska, więc uważni załoganci mogą je zauważyć. Przeróbki znikają na każdym spotkaniu.</string>
+  <string name="TownOfUsMira.Role.RiggerRig">Przerób</string>
+  <string name="TownOfUsMira.Role.RiggerRig.WikiDescription">Przerób stanowisko zadania, przy którym stoisz. Naraz można mieć przerobioną tylko ograniczoną liczbę stanowisk.</string>
+  <string name="TownOfUsMira.Role.RiggerRigged">Przerobiono: [console]</string>
+  <string name="TownOfUsMira.Role.RiggerTriggered">Ktoś używa przerobionego stanowiska: [console]!</string>
+  <string name="TownOfUsMira.Role.RiggerJammed">Awaria stanowiska! Spróbuj ponownie za chwilę.</string>
+  <string name="TownOfUsMira.Role.RiggerStillJammed">To stanowisko nadal nie działa. Spróbuj ponownie za chwilę.</string>
+  <string name="TouOptionRiggerRigCooldown">Cooldown przeróbki</string>
+  <string name="TouOptionRiggerMaxActiveRigs">Maks. przerobionych stanowisk naraz</string>
+  <string name="TouOptionRiggerAlertAllImpostors">Alarm dla wszystkich Impostorów</string>
+  <string name="TouOptionRiggerArrowDuration">Czas strzałki</string>
+  <string name="TouOptionRiggerJamConsole">Przerobione zadanie się zacina</string>
+  <string name="TouOptionRiggerJamDelay">Zacięcie po</string>
+  <string name="TouOptionRiggerJamLockout">Stanowisko nieczynne po zacięciu</string>
+  <string name="TouOptionRiggerSparksVisible">Przerobione stanowiska iskrzą z bliska</string>
 </resources>

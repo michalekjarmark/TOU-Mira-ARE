@@ -168,6 +168,8 @@ public enum TownOfUsRpc : uint
     AuditorNotifyTarget,
     AuditorPublishReport,
     AuditorSanction,
+    RiggerRig,
+    RiggerTriggered,
 }
 
 internal enum TownOfUsInternalRpc : uint

@@ -68,6 +68,7 @@ Everything below is new in AmonRa Edition. For all roles and modifiers of Town o
 | <img src="TownOfUs/Resources/Custom/AmonRaIcon.png" width="48"/> | **AmonRa** | Modifier (Universal) | The player rides a wheelchair with a rolling wheel and sound. Speeds up gradually and keeps rolling after letting go. Turns quickly when slow but needs wide turns at full speed: smooth driving keeps the momentum and is faster than everyone else, sharp turns skid and lose speed. Vents, ladders and tasks work as usual. |
 | <img src="TownOfUs/Resources/Custom/GamblerIcon.png" width="48"/> | **Gambler** | Role (Neutral Evil) | In every meeting, before the votes are revealed, secretly bets on who gets ejected (or that no one is). Correct bets give a point, wrong ones take one away. Collecting enough points while alive wins the game. Optionally everyone is warned (or the Gambler is revealed) when they are close to winning. |
 | <img src="TownOfUs/Resources/Custom/AuditorIcon.png" width="48"/> | **Auditor** | Role (Crewmate Investigative) | Secretly audits a nearby player for a while: the report in the next meeting shows tasks completed, task stations where they stood without progress and a single count of irregularities (vents, kills, role abilities, crewmate abilities included). Gets more audits by doing tasks. Once per game can publish a report to everyone, revealing themselves. Optionally the target is told it is audited, and the Auditor can freeze one vote. |
+| <img src="TownOfUs/Resources/Custom/RiggerIcon.png" width="48"/> | **Rigger** | Role (Impostor Support) | Rigs real task stations (up to 2 at once). When a crewmate opens a rigged task, the impostors get an alert and an arrow to the station, and the task jams and closes after a moment. Rigged stations spark up close, so careful crewmates can notice them. Rigs are cleared at every meeting. |
 
 Also: a "Settings" button in Freeplay (change the lobby settings without leaving practice), automatic updates,
 a full installation package and our own logo on the startup screen.
@@ -124,8 +125,9 @@ More about the mod: [Town of Us: Mira wiki](https://au-avengers.github.io/docs.t
 
 ## Roles and modifiers
 
-Click an icon to open its page on the Town of Us: Mira wiki. The wheelchair among the universal modifiers is
-**AmonRa**, the chip among the Neutral Evil roles is the **Gambler** and the clipboard among the Crewmate Investigative roles is the **Auditor**, our additions ([description](#amonra-edition-additions)).
+Click an icon to open its page on the Town of Us: Mira wiki. Our additions link to
+[their description](#amonra-edition-additions) instead: **AmonRa** (wheelchair, universal modifiers), **Gambler** (chip,
+Neutral Evil), **Auditor** (clipboard, Crewmate Investigative) and **Rigger** (wrench, Impostor Support).
 
 
 <p align="center">
@@ -198,6 +200,7 @@ Click an icon to open its page on the Town of Us: Mira wiki. The wheelchair amon
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Hypnotist"><img width="10%" src="Images/Icons/Hypnotist.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Janitor"><img width="10%" src="Images/Icons/Janitor.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Miner"><img width="10%" src="Images/Icons/Miner.png" /></a>
+  <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/RiggerIcon.png" alt="Rigger (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Undertaker"><img width="10%" src="Images/Icons/Undertaker.png" /></a>
 
   <img src="Images/Groups/NeutAfterlife.png" />

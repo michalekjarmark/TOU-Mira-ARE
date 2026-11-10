@@ -4143,4 +4143,23 @@ Restart the game, the update will be tried again.</string>
   <string name="TouOptionAuditorNotifyTarget">Target Knows It Is Audited</string>
   <string name="TouOptionAuditorPublicAudits">Public Audits Per Game</string>
   <string name="TouOptionAuditorSanction">Can Freeze A Vote (Once)</string>
+  <!-- AmonRa Edition - Rigger (Impostor Support) -->
+  <string name="TownOfUsMira.Role.Rigger">Rigger</string>
+  <string name="TownOfUsMira.Role.Rigger.IntroBlurb">Rig the task stations and wait.</string>
+  <string name="TownOfUsMira.Role.Rigger.TabDescription">Rig task stations: you'll know when someone uses them.</string>
+  <string name="TownOfUsMira.Role.Rigger.WikiDescription">The Rigger is an Impostor Support role that rigs real task stations. When a crewmate opens a rigged task, the impostors get an alert with an arrow to the station, and the task can jam and close after a moment, so the crewmate loses time standing there. Rigged stations spark up close, so careful crewmates can notice them. Rigs are cleared at every meeting.</string>
+  <string name="TownOfUsMira.Role.RiggerRig">Rig</string>
+  <string name="TownOfUsMira.Role.RiggerRig.WikiDescription">Rig the task station you are standing at. Only a limited number of stations can be rigged at once.</string>
+  <string name="TownOfUsMira.Role.RiggerRigged">Rigged: [console]</string>
+  <string name="TownOfUsMira.Role.RiggerTriggered">Someone is using the rigged [console]!</string>
+  <string name="TownOfUsMira.Role.RiggerJammed">Station failure! Try again in a moment.</string>
+  <string name="TownOfUsMira.Role.RiggerStillJammed">This station is still failing. Try again in a moment.</string>
+  <string name="TouOptionRiggerRigCooldown">Rig Cooldown</string>
+  <string name="TouOptionRiggerMaxActiveRigs">Max Rigged Stations At Once</string>
+  <string name="TouOptionRiggerAlertAllImpostors">Alert All Impostors</string>
+  <string name="TouOptionRiggerArrowDuration">Arrow Duration</string>
+  <string name="TouOptionRiggerJamConsole">Rigged Task Jams</string>
+  <string name="TouOptionRiggerJamDelay">Jam After</string>
+  <string name="TouOptionRiggerJamLockout">Station Unusable After Jam</string>
+  <string name="TouOptionRiggerSparksVisible">Rigged Stations Spark Up Close</string>
 </resources>

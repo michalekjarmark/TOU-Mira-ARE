@@ -71,6 +71,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/AmonRaIcon.png" width="48"/> | **AmonRa** | Modyfikator (uniwersalny) | Postać jeździ na wózku z obracającym się kołem i dźwiękiem toczenia. Rozpędza się stopniowo i toczy się po puszczeniu klawiszy. Wolno jadąc, skręca szybko, ale przy pełnej prędkości potrzebuje szerokich łuków: płynna jazda zachowuje rozpęd i jest szybsza od innych, a ostre skręty dają poślizg i utratę prędkości. Wenty, drabiny i taski działają normalnie. |
 | <img src="TownOfUs/Resources/Custom/GamblerIcon.png" width="48"/> | **Hazardzista** (Gambler) | Rola (Neutral Evil) | Na każdym spotkaniu, zanim głosy zostaną ujawnione, potajemnie obstawia, kto zostanie wyrzucony (albo że nikt). Trafny zakład daje punkt, chybiony go zabiera. Zebranie wystarczającej liczby punktów za życia oznacza wygraną. Opcjonalnie wszyscy dostają ostrzeżenie (albo Hazardzista zostaje ujawniony), gdy jest blisko wygranej. |
 | <img src="TownOfUs/Resources/Custom/AuditorIcon.png" width="48"/> | **Audytor** (Auditor) | Rola (Crewmate Investigative) | Potajemnie audytuje pobliskiego gracza przez jakiś czas: raport na najbliższym spotkaniu pokazuje ukończone zadania, stanowiska, przy których cel stał bez postępu, i jedną zbiorczą liczbę nieprawidłowości (wenty, zabójstwa, zdolności ról, także załogantów). Kolejne audyty zdobywa, robiąc zadania. Raz na grę może pokazać raport wszystkim, ujawniając się. Opcjonalnie cel wie, że jest audytowany, a Audytor może zamrozić jeden głos. |
+| <img src="TownOfUs/Resources/Custom/RiggerIcon.png" width="48"/> | **Monter** (Rigger) | Rola (Impostor Support) | Przerabia prawdziwe stanowiska zadań (do 2 naraz). Gdy załogant otworzy przerobione zadanie, Impostorzy dostają alarm i strzałkę do stanowiska, a zadanie zacina się i zamyka po chwili. Przerobione stanowiska iskrzą z bliska, więc uważni załoganci mogą je zauważyć. Przeróbki znikają na każdym spotkaniu. |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), automatyczne
 aktualizacje, pełna paczka instalacyjna i własne logo na ekranie startowym.
@@ -101,8 +102,9 @@ Zobacz [For developers](README.md#for-developers) w wersji angielskiej.
 
 # Role i modyfikatory
 
-Kliknij ikonę, aby otworzyć jej stronę na wiki Town of Us: Mira (po angielsku). Wózek wśród modyfikatorów
-uniwersalnych to **AmonRa**, żeton wśród ról Neutral Evil to **Hazardzista**, a podkładka wśród ról Crewmate Investigative to **Audytor**, nasze dodatki ([opis](#dodatki-amonra-edition)). Kluczowe różnice Town of Us: Mira,
+Kliknij ikonę, aby otworzyć jej stronę na wiki Town of Us: Mira (po angielsku). Nasze dodatki prowadzą zamiast tego do
+[opisu](#dodatki-amonra-edition): **AmonRa** (wózek, modyfikatory uniwersalne), **Hazardzista** (żeton, Neutral Evil),
+**Audytor** (podkładka, Crewmate Investigative) i **Monter** (klucz, Impostor Support). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -176,6 +178,7 @@ obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskie
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Hypnotist"><img width="10%" src="Images/Icons/Hypnotist.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Janitor"><img width="10%" src="Images/Icons/Janitor.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Miner"><img width="10%" src="Images/Icons/Miner.png" /></a>
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/RiggerIcon.png" alt="Monter (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Undertaker"><img width="10%" src="Images/Icons/Undertaker.png" /></a>
 
   <img src="Images/Groups/NeutAfterlife.png" />

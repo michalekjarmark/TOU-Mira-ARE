@@ -32,6 +32,11 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   - Public audit: once per game, in a meeting, the Auditor can show the latest report to everyone, which reveals them.
   - Optional: the target is told it is being audited, and the Auditor can once per game freeze the vote of a player
     whose audit found irregularities (off by default).
+- **Rigger** (new Impostor Support role): rigs real task stations (up to 2 at once). When a crewmate opens a rigged
+  task, the impostors get an alert with an arrow to the station, and the task jams and closes after a moment (no task
+  progress is lost, the station just doesn't work for a few seconds). Rigged stations spark up close, so careful
+  crewmates can notice them. Rigs are cleared at every meeting. Everything is configurable (cooldown, number of rigs,
+  who gets the alert, jam and its timing, sparks).
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -60,6 +65,11 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   - Audyt publiczny: raz na grę, na spotkaniu, Audytor może pokazać wszystkim ostatni raport, co go ujawnia.
   - Opcjonalnie: cel wie, że jest audytowany, a Audytor może raz na grę zamrozić głos gracza, u którego audyt wykazał
     nieprawidłowości (domyślnie wyłączone).
+- **Monter** (Rigger, nowa rola Impostor Support): przerabia prawdziwe stanowiska zadań (do 2 naraz). Gdy załogant
+  otworzy przerobione zadanie, Impostorzy dostają alarm ze strzałką do stanowiska, a zadanie zacina się i zamyka po
+  chwili (postęp zadań nie przepada, stanowisko po prostu przez kilka sekund nie działa). Przerobione stanowiska iskrzą
+  z bliska, więc uważni załoganci mogą je zauważyć. Przeróbki znikają na każdym spotkaniu. Wszystko jest
+  konfigurowalne (cooldown, liczba przeróbek, kto dostaje alarm, zacięcie i jego czasy, iskry).
 
 </details>
 

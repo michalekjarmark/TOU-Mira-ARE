@@ -75,4 +75,22 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> AuditButton { get; } =
         new LoadableResourceAsset($"{CustomPath}.AuditorButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Rigger role icon (wrench and lightning). 128px. Drawn by tools/are-assets/draw-rigger-icons.ps1.
+    /// </summary>
+    public static LoadableAsset<Sprite> RiggerIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.RiggerIcon.png", typeof(TownOfUsPlugin).Assembly, 128f);
+
+    /// <summary>
+    ///     Rigger "Rig" ability button. 100px like the other ARE buttons.
+    /// </summary>
+    public static LoadableAsset<Sprite> RiggerButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.RiggerButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Flickering spark over a rigged task console. 64px, about 0.4 units.
+    /// </summary>
+    public static LoadableAsset<Sprite> RigSpark { get; } =
+        new LoadableResourceAsset($"{CustomPath}.RigSpark.png", typeof(TownOfUsPlugin).Assembly, 160f);
 }

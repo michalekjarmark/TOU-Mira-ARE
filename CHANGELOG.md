@@ -11,13 +11,16 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ### Added
 
-- **Gambler** (new Neutral Evil role): in every meeting, before the votes are revealed, the Gambler secretly bets on
+- **Gambler** (new Neutral Evil role): in every meeting, within a limited betting time, the Gambler secretly bets on
   who gets ejected, or that no one is (skip or tie), by clicking a chip next to a player or next to Skip Vote. A correct
-  bet gives a point, a wrong one takes a point away (never below zero). If the player they bet on dies during the
+  bet gives a point, a wrong one takes a point away (never below zero). Betting that no one is ejected can win only
+  once per game by default, because early meetings usually end with a skip. If the player they bet on dies during the
   meeting, the bet is cancelled. Collecting enough points while alive wins the game.
+  - Betting time: by default 20 seconds from the start of the meeting (countdown under the chips), so the Gambler can't
+    just wait until everyone agreed on a vote. Can be changed to "until voting starts" or "whole meeting".
   - When the Gambler gets close to winning, everyone sees a flash and a warning, so the win doesn't come out of
     nowhere. Optionally the Gambler's role is also revealed on their name.
-  - Lobby options: points needed to win, wrong bet takes a point, can bet on no ejection, win ends the game (or the
+  - Lobby options: betting time and its limit, points needed to win (4 by default), wrong bet takes a point, how many "no ejection" bets can win, win ends the game (or the
     Gambler wins together with the winners at the end), can use the emergency button, warn others when close to
     winning (off / alert / alert and reveal) and at how many points left.
 
@@ -26,13 +29,16 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 **Dodano**
 
-- **Hazardzista** (Gambler, nowa rola Neutral Evil): na każdym spotkaniu, zanim głosy zostaną ujawnione, Hazardzista
+- **Hazardzista** (Gambler, nowa rola Neutral Evil): na każdym spotkaniu, w ograniczonym czasie, Hazardzista
   potajemnie obstawia, kto zostanie wyrzucony, albo że nikt (skip lub remis). Klika w tym celu żeton obok gracza albo
-  obok Skip Vote. Trafny zakład daje punkt, chybiony zabiera punkt (nigdy poniżej zera). Jeśli obstawiony gracz zginie
+  obok Skip Vote. Trafny zakład daje punkt, chybiony zabiera punkt (nigdy poniżej zera). Zakład, że nikt nie wyleci, domyślnie może wygrać
+  tylko raz na grę, bo pierwsze spotkania zwykle kończą się skipem. Jeśli obstawiony gracz zginie
   w trakcie spotkania, zakład przepada bez straty. Zebranie wystarczającej liczby punktów za życia oznacza wygraną.
+  - Czas na zakład: domyślnie 20 sekund od początku spotkania (odliczanie pod żetonami), żeby Hazardzista nie mógł po
+    prostu poczekać, aż wszyscy uzgodnią głos. Można zmienić na „do początku głosowania” albo „całe spotkanie”.
   - Gdy Hazardzista jest blisko wygranej, wszyscy widzą błysk ekranu i ostrzeżenie, więc wygrana nie spada znikąd.
     Opcjonalnie jego rola zostaje też ujawniona przy nicku.
-  - Opcje w lobby: punkty potrzebne do wygranej, chybiony zakład zabiera punkt, można obstawić brak wyrzucenia,
+  - Opcje w lobby: czas na zakład i jego limit, punkty potrzebne do wygranej (domyślnie 4), chybiony zakład zabiera punkt, ile zakładów „nikt nie wyleci” może wygrać,
     wygrana kończy grę (albo Hazardzista wygrywa razem ze zwycięzcami na końcu), może użyć przycisku spotkania,
     ostrzeganie innych przed wygraną (wyłączone / alert / alert i ujawnienie) i przy ilu brakujących punktach.
 

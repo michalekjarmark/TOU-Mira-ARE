@@ -1,5 +1,6 @@
 using MiraAPI.Utilities;
 using Reactor.Utilities.Extensions;
+using TMPro;
 using UnityEngine;
 using UObject = UnityEngine.Object;
 
@@ -25,6 +26,7 @@ public sealed class GamblerBetMenu
 
     private readonly Action<byte> _onBet;
     private readonly Dictionary<byte, GameObject> _chips = [];
+    private readonly List<TextMeshPro> _labels = [];
 
     public GamblerBetMenu(Action<byte> onBet)
     {
@@ -50,7 +52,7 @@ public sealed class GamblerBetMenu
         {
             if (area != null && canBetOn(area))
             {
-                CreateChip(template.gameObject, area.transform, PlayerChipPosition, area.PlayerId);
+                CreateChip(meeting, template.gameObject, area.transform, PlayerChipPosition, area.PlayerId);
             }
         }
 
@@ -59,7 +61,21 @@ public sealed class GamblerBetMenu
         var skip = meeting.SkipVoteButton;
         if (allowNoEjection && skip != null)
         {
-            CreateChip(template.gameObject, skip.transform, SkipChipPosition(skip), SkipId);
+            CreateChip(meeting, template.gameObject, skip.transform, SkipChipPosition(skip), SkipId);
+        }
+    }
+
+    /// <summary>
+    ///     Text under every chip (the remaining betting time), empty to clear it.
+    /// </summary>
+    public void SetLabel(string text)
+    {
+        foreach (var label in _labels)
+        {
+            if (label)
+            {
+                label.text = text;
+            }
         }
     }
 
@@ -102,9 +118,10 @@ public sealed class GamblerBetMenu
         }
 
         _chips.Clear();
+        _labels.Clear();
     }
 
-    private void CreateChip(GameObject template, Transform parent, Vector3 localPosition, byte id)
+    private void CreateChip(MeetingHud meeting, GameObject template, Transform parent, Vector3 localPosition, byte id)
     {
         var chip = UObject.Instantiate(template, parent);
         chip.name = $"GamblerBet{id}";
@@ -128,6 +145,21 @@ public sealed class GamblerBetMenu
         if (chip.transform.childCount > 0)
         {
             chip.transform.GetChild(0).gameObject.DeepDestroy();
+        }
+
+        // Countdown label under the chip, made like the MeetingMenu ability labels.
+        if (meeting.MeetingAbilityButton != null && meeting.MeetingAbilityButton.buttonLabelText != null)
+        {
+            var labelObject = UObject.Instantiate(meeting.MeetingAbilityButton.buttonLabelText.gameObject, chip.transform);
+            labelObject.transform.localPosition = new Vector3(0f, -0.36f, 0f);
+            var label = labelObject.GetComponent<TextMeshPro>();
+            label.color = Color.white;
+            label.text = string.Empty;
+            label.fontSize = 2.2f;
+            label.fontSizeMax = 2.2f;
+            label.fontSizeMin = 2.2f;
+            label.m_enableWordWrapping = false;
+            _labels.Add(label);
         }
 
         _chips[id] = chip;

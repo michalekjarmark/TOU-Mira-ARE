@@ -1,3 +1,4 @@
+using System.Collections;
 using AmongUs.GameOptions;
 using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.GameOptions;
@@ -37,6 +38,12 @@ public sealed class GamblerRole(IntPtr cppPtr)
     public byte CurrentBet { get; set; } = NoBet;
 
     public bool ReachedGoal { get; set; }
+
+    /// <summary>Won "no one is ejected" bets, limited by the NoEjectionWinsLimit option.</summary>
+    public int NoEjectionWins { get; set; }
+
+    public bool CanBetOnNoEjection =>
+        NoEjectionWins < (int)OptionGroupSingleton<GamblerOptions>.Instance.NoEjectionWinsLimit;
 
     /// <summary>Result of the last resolved bet, shown to the Gambler when the next round starts.</summary>
     public GamblerBetResult LastResult { get; set; }
@@ -183,12 +190,73 @@ public sealed class GamblerRole(IntPtr cppPtr)
         }
 
         _betMenu ??= new GamblerBetMenu(PlaceBet);
-        _betMenu.Show(meeting, CanBetOn, OptionGroupSingleton<GamblerOptions>.Instance.CanBetOnNoEjection);
+        _betMenu.Show(meeting, CanBetOn, CanBetOnNoEjection);
+        _bettingOpen = true;
+        Coroutines.Start(CoBetWindow(meeting));
+    }
+
+    // Local (Gambler only): betting is allowed in this meeting and the window from the options is not over yet.
+    private bool _bettingOpen;
+
+    /// <summary>
+    ///     Counts down the betting window under the chips and removes them when it ends.
+    /// </summary>
+    [HideFromIl2Cpp]
+    private IEnumerator CoBetWindow(MeetingHud meeting)
+    {
+        // The meeting intro animation doesn't count.
+        while (meeting && meeting.state is MeetingHud.MeetingStates.Animating)
+        {
+            yield return null;
+        }
+
+        var opts = OptionGroupSingleton<GamblerOptions>.Instance;
+        var mode = opts.BetWindow;
+        var discussionTime = GameOptionsManager.Instance.CurrentGameOptions.GetInt(Int32OptionNames.DiscussionTime);
+        if (mode is GamblerBetWindow.Discussion && discussionTime <= 0)
+        {
+            mode = GamblerBetWindow.Timer;
+        }
+
+        var deadline = Time.time + opts.BetTime.Value;
+        while (meeting && _bettingOpen && CurrentBet == NoBet && IsBettingOpen(meeting))
+        {
+            float? left = mode switch
+            {
+                GamblerBetWindow.Timer => deadline - Time.time,
+                GamblerBetWindow.Discussion => meeting.state is MeetingHud.MeetingStates.Discussion
+                    ? discussionTime - meeting.discussionTimer
+                    : 0f,
+                _ => null
+            };
+
+            if (left is <= 0f)
+            {
+                break;
+            }
+
+            _betMenu?.SetLabel(left is { } seconds ? $"{Mathf.CeilToInt(seconds)}s" : string.Empty);
+            yield return null;
+        }
+
+        _betMenu?.SetLabel(string.Empty);
+        if (!meeting || CurrentBet != NoBet || !_bettingOpen)
+        {
+            yield break;
+        }
+
+        _bettingOpen = false;
+        _betMenu?.Hide();
+        if (IsBettingOpen(meeting))
+        {
+            Notify(MiraLocaleManager.Get("TownOfUsMira.Role.GamblerBettingClosed"));
+        }
     }
 
     public override void OnVotingComplete()
     {
         RoleBehaviourStubs.OnVotingComplete(this);
+        _bettingOpen = false;
         _betMenu?.Hide();
     }
 
@@ -212,10 +280,12 @@ public sealed class GamblerRole(IntPtr cppPtr)
     private void PlaceBet(byte targetId)
     {
         var meeting = MeetingHud.Instance;
-        if (meeting == null || CurrentBet != NoBet || !IsBettingOpen(meeting) || Player.HasDied())
+        if (meeting == null || !_bettingOpen || CurrentBet != NoBet || !IsBettingOpen(meeting) || Player.HasDied())
         {
             return;
         }
+
+        _bettingOpen = false;
 
         RpcGamblerPlaceBet(Player, targetId);
         _betMenu?.Lock(targetId);
@@ -253,6 +323,10 @@ public sealed class GamblerRole(IntPtr cppPtr)
         {
             Points++;
             LastResult = GamblerBetResult.Won;
+            if (bet == NoEjectionBet)
+            {
+                NoEjectionWins++;
+            }
         }
         else if (bet != NoEjectionBet && GameData.Instance.GetPlayerById(bet) is not { IsDead: false, Disconnected: false })
         {

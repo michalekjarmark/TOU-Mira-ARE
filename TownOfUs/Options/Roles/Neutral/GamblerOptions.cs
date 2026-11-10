@@ -14,13 +14,25 @@ public sealed class GamblerOptions : AbstractRoleOptionGroup<GamblerRole>
     public override string GroupName => MiraLocaleManager.Get("TownOfUsMira.Role.Gambler", "Gambler");
 
     [ModdedNumberOption("TouOptionGamblerPointsToWin", 1f, 6f, 1f, MiraNumberSuffixes.None, "0")]
-    public float PointsToWin { get; set; } = 3f;
+    public float PointsToWin { get; set; } = 4f;
+
+    [ModdedEnumOption<GamblerBetWindow>("TouOptionGamblerBetWindow",
+        ["TouOptionGamblerBetWindowEnumTimer", "TouOptionGamblerBetWindowEnumDiscussion",
+            "TouOptionGamblerBetWindowEnumWholeMeeting"])]
+    public GamblerBetWindow BetWindow { get; set; } = GamblerBetWindow.Timer;
+
+    public ModdedNumberOption BetTime { get; set; } =
+        new("TouOptionGamblerBetTime", 20f, 5f, 120f, 5f, MiraNumberSuffixes.Seconds, "0")
+        {
+            Visible = () => OptionGroupSingleton<GamblerOptions>.Instance.BetWindow is not GamblerBetWindow.WholeMeeting
+        };
 
     [ModdedToggleOption("TouOptionGamblerWrongBetLosesPoint")]
     public bool WrongBetLosesPoint { get; set; } = true;
 
-    [ModdedToggleOption("TouOptionGamblerCanBetOnNoEjection")]
-    public bool CanBetOnNoEjection { get; set; } = true;
+    // Early meetings usually end with a skip, so "no one is ejected" would be a free point. 0 = can't bet on it.
+    [ModdedNumberOption("TouOptionGamblerNoEjectionWinsLimit", 0f, 6f, 1f, MiraNumberSuffixes.None, "0")]
+    public float NoEjectionWinsLimit { get; set; } = 1f;
 
     [ModdedToggleOption("TouOptionGamblerWinEndsGame")]
     public bool WinEndsGame { get; set; } = true;
@@ -37,6 +49,21 @@ public sealed class GamblerOptions : AbstractRoleOptionGroup<GamblerRole>
         {
             Visible = () => OptionGroupSingleton<GamblerOptions>.Instance.WarnOthers is not GamblerWarning.Off
         };
+}
+
+/// <summary>
+///     How long the Gambler can bet in a meeting. Without a limit they could wait until everyone agreed on a vote.
+/// </summary>
+public enum GamblerBetWindow
+{
+    /// <summary>BetTime seconds from the moment the meeting can be interacted with.</summary>
+    Timer,
+
+    /// <summary>Until the voting starts. With a discussion time of 0 it falls back to the timer.</summary>
+    Discussion,
+
+    /// <summary>Until the votes are revealed (no limit).</summary>
+    WholeMeeting
 }
 
 /// <summary>

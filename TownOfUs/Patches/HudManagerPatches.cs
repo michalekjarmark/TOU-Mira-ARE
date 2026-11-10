@@ -665,6 +665,7 @@ public static class HudManagerPatches
         (GameStartManager.Instance.RulesViewPanel &&
          GameStartManager.Instance.RulesViewPanel.active ||
          GameSettingMenu.Instance) ||
+        Are.AreFreeplaySettings.IsOpen || // ARE: settings menu opened in Freeplay (no GameStartManager there)
         AchievementsAPIHelper.HasOpenMenu();
 
     public static bool ShouldBlockWikiMenu =>

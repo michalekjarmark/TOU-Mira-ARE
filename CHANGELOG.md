@@ -9,6 +9,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
+## [1.7.9-are.3] - 2026-11-10
+
 ### Added
 
 - **Freeplay:** a "Settings" button next to "Set Roles" / "Set Modifiers" opens the lobby settings menu, so you can
@@ -19,6 +21,11 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 - **Main menu:** "Source Code" opens the AmonRa Edition repository and "Discord Server" opens our Discord server
   instead of the Town of Us: Mira ones.
+
+### Fixed
+
+- **Updates:** an update no longer fails when an antivirus briefly locks the downloaded files ("being used by another
+  process"); the updater waits a moment and tries again. Works for updates from this version on.
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -33,6 +40,11 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 - **Menu główne:** „Source Code” otwiera repozytorium AmonRa Edition, a „Discord Server” nasz serwer Discord zamiast
   tych od Town of Us: Mira.
+
+**Naprawiono**
+
+- **Aktualizacje:** aktualizacja nie kończy się już błędem, gdy antywirus na chwilę blokuje pobrane pliki („being used
+  by another process”); updater chwilę czeka i próbuje ponownie. Działa przy aktualizacjach od tej wersji.
 
 </details>
 
@@ -132,6 +144,7 @@ Pierwsze wydanie AmonRa Edition. Bazuje na Town of Us: Mira 1.7.9 (branch `dev`)
 
 </details>
 
-[Unreleased]: https://github.com/michalekjarmark/TOU-Mira-ARE/compare/v1.7.9-are.2...are
+[Unreleased]: https://github.com/michalekjarmark/TOU-Mira-ARE/compare/v1.7.9-are.3...are
+[1.7.9-are.3]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.3
 [1.7.9-are.2]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.2
 [1.7.9-are.1]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.1

@@ -77,6 +77,7 @@ aktualizacje, pełna paczka instalacyjna i własne logo na ekranie startowym.
 
 | Among Us | AmonRa Edition | Bazuje na Town of Us: Mira | Pobierz |
 |:--|:--|:--|:--|
+| 2026.9.29 | 1.7.9-are.3 | 1.7.9 (`dev`) | [Pobierz](https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.3) |
 | 2026.9.29 | 1.7.9-are.2 | 1.7.9 (`dev`) | [Pobierz](https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.2) |
 | 2026.9.29 | 1.7.9-are.1 | 1.7.9 (`dev`) | [Pobierz](https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.1) |
 

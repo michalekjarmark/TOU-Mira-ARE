@@ -300,9 +300,9 @@ public static class AreUpdater
             {
                 var oldPath = item.TargetPath + OldSuffix;
                 TryDelete(oldPath);
-                File.Move(item.TargetPath, oldPath);
+                MoveWithRetry(item.TargetPath, oldPath);
                 swapped.Add(item);
-                File.Move(item.TargetPath + DownloadSuffix, item.TargetPath);
+                MoveWithRetry(item.TargetPath + DownloadSuffix, item.TargetPath);
             }
         }
         catch
@@ -313,11 +313,34 @@ public static class AreUpdater
                 TryDelete(item.TargetPath);
                 if (File.Exists(oldPath))
                 {
-                    File.Move(oldPath, item.TargetPath);
+                    MoveWithRetry(oldPath, item.TargetPath);
                 }
             }
 
             throw;
+        }
+    }
+
+    /// <summary>
+    ///     File.Move that waits out short locks. Antivirus software (e.g. Windows Defender) scans freshly written or
+    ///     copied DLLs and briefly holds them open, which made the first update attempt fail with "being used by
+    ///     another process" (round 4 test). Up to ~10 s in total.
+    /// </summary>
+    private static void MoveWithRetry(string source, string destination)
+    {
+        const int attempts = 10;
+        for (var attempt = 1; ; attempt++)
+        {
+            try
+            {
+                File.Move(source, destination);
+                return;
+            }
+            catch (IOException e) when (attempt < attempts && File.Exists(source) && !File.Exists(destination))
+            {
+                Warning($"ARE Updater: {Path.GetFileName(source)} is locked ({e.Message}), retry {attempt}/{attempts - 1}");
+                Thread.Sleep(200 * attempt);
+            }
         }
     }
 

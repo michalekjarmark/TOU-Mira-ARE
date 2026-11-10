@@ -15,7 +15,7 @@
 
         <VersionPrefix>1.7.9</VersionPrefix>
         <!-- ARE: bump for every release given to friends (are.1, are.2, ...). Local test builds: -p:VersionSuffix=are-dev -->
-        <VersionSuffix>are.2</VersionSuffix>
+        <VersionSuffix>are.3</VersionSuffix>
 
         <Authors>Atony, AlchlcSystm, angxlwtf, MyDragonBreath, Nix, Satire, xerminator, XtraCube, whichtwix, Zeo</Authors>
         <Company>Among Us Avengers</Company>

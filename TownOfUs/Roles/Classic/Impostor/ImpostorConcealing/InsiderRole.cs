@@ -65,10 +65,11 @@ public sealed class InsiderRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUs
         }
     }
 
-    // The tasks are real: replace the vanilla "Fake Tasks:" header.
+    // The tasks are real: our own header instead of the vanilla "Fake Tasks:" one.
+    // Never call base.X() on IL2CPP methods in an injected role: it dispatches back to this override (endless recursion,
+    // the game crashes without any log). Use RoleBehaviourStubs, or do it yourself like here.
     public override void SpawnTaskHeader(PlayerControl playerControl)
     {
-        base.SpawnTaskHeader(playerControl);
         if (!playerControl.AmOwner)
         {
             return;

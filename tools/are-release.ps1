@@ -9,7 +9,8 @@
     Requirements: clean working tree on branch 'are', dotnet SDK, gh CLI logged in (gh auth status).
 
 .PARAMETER NotesFile
-    Optional markdown file with release notes. Without it, GitHub generates notes from the commits.
+    Optional markdown file with release notes. By default the "## [<version>]" section of CHANGELOG.md is used
+    (the script refuses to release without it).
 
 .PARAMETER DryRun
     Builds and prepares the files, but does not tag, push or publish anything.
@@ -45,6 +46,21 @@ if (git status --porcelain) {
     else { Fail "Working tree is not clean. Commit or stash your changes first." }
 }
 if (git tag -l $tag) { Fail "Tag $tag already exists. Bump VersionSuffix in Directory.Build.props." }
+
+# --- Release notes from CHANGELOG.md ----------------------------------------
+# The section "## [<version>] - <date>" becomes the GitHub release notes, so the changelog can't be forgotten.
+if (-not $NotesFile) {
+    $changelog = Get-Content (Join-Path $Root "CHANGELOG.md") -Raw -Encoding UTF8
+    $pattern = "(?ms)^## \[" + [regex]::Escape($version) + "\][^\n]*\n(.*?)(?=^## \[|^\[[^\]]+\]:|\z)"
+    $match = [regex]::Match($changelog, $pattern)
+    if (-not $match.Success -or -not $match.Groups[1].Value.Trim()) {
+        Fail "CHANGELOG.md has no section '## [$version] - <date>'. Rename [Unreleased] to it (and add a new empty [Unreleased])."
+    }
+    $NotesFile = Join-Path $env:TEMP "are-release-notes-$tag.md"
+    $notes = $match.Groups[1].Value.Trim() + "`n`nInstalacja: pobierz plik ``TOU-Mira-ARE-$tag-x64-Steam-Epic.zip`` i postępuj zgodnie z ``INSTALACJA.txt``. Kto ma już AmonRa Edition, dostanie tę wersję automatycznie."
+    [System.IO.File]::WriteAllText($NotesFile, $notes, (New-Object System.Text.UTF8Encoding $false))
+    Write-Host "Release notes taken from CHANGELOG.md" -ForegroundColor Cyan
+}
 
 # --- Build -----------------------------------------------------------------
 dotnet build TownOfUs-Mira.sln -c Release -v minimal
@@ -129,7 +145,7 @@ if ($LASTEXITCODE -ne 0) { Fail "git push of tag failed." }
 
 $assets = Get-ChildItem $stage -File | ForEach-Object { $_.FullName }
 $ghArgs = @("release", "create", $tag) + $assets + @("--repo", $Repo, "--title", "AmonRa Edition $version", "--latest")
-if ($NotesFile) { $ghArgs += @("--notes-file", $NotesFile) } else { $ghArgs += "--generate-notes" }
+$ghArgs += @("--notes-file", $NotesFile)
 gh @ghArgs
 if ($LASTEXITCODE -ne 0) { Fail "gh release create failed (the tag is already pushed - fix and rerun 'gh release create $tag ...')." }
 

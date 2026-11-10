@@ -17,8 +17,7 @@ public sealed class GamblerOptions : AbstractRoleOptionGroup<GamblerRole>
     public float PointsToWin { get; set; } = 4f;
 
     [ModdedEnumOption<GamblerBetWindow>("TouOptionGamblerBetWindow",
-        ["TouOptionGamblerBetWindowEnumTimer", "TouOptionGamblerBetWindowEnumDiscussion",
-            "TouOptionGamblerBetWindowEnumWholeMeeting"])]
+        ["TouOptionGamblerBetWindowEnumTimer", "TouOptionGamblerBetWindowEnumWholeMeeting"])]
     public GamblerBetWindow BetWindow { get; set; } = GamblerBetWindow.Timer;
 
     public ModdedNumberOption BetTime { get; set; } =
@@ -56,13 +55,10 @@ public sealed class GamblerOptions : AbstractRoleOptionGroup<GamblerRole>
 /// </summary>
 public enum GamblerBetWindow
 {
-    /// <summary>BetTime seconds from the moment the meeting can be interacted with.</summary>
+    /// <summary>The first BetTime seconds of the voting (the vote popups only open in the voting phase).</summary>
     Timer,
 
-    /// <summary>Until the voting starts. With a discussion time of 0 it falls back to the timer.</summary>
-    Discussion,
-
-    /// <summary>Until the votes are revealed (no limit).</summary>
+    /// <summary>The whole voting, until the votes are revealed (no limit).</summary>
     WholeMeeting
 }
 

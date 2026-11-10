@@ -87,6 +87,10 @@ $folderName = "TOU-Mira-ARE-$tag-x64-Steam-Epic"
 $pkg = Join-Path $work $folderName
 Rename-Item $inner.FullName $folderName
 foreach ($f in $files) { Copy-Item $f (Join-Path $pkg "BepInEx\plugins") -Force }
+# Doorstop as version.dll instead of winhttp.dll: with winhttp.dll BepInEx crashed on first start
+# (AccessViolation in WinHttpOpen while downloading unity-libs, confirmed on Windows 11 build 26300).
+$proxy = Join-Path $pkg "winhttp.dll"
+if (Test-Path $proxy) { Rename-Item $proxy "version.dll" }
 $readme = (Get-Content (Join-Path $PSScriptRoot "are-release\INSTALACJA.txt") -Raw -Encoding UTF8).Replace("{VERSION}", $version).Replace("{FOLDER}", $folderName)
 [System.IO.File]::WriteAllText((Join-Path $pkg "INSTALACJA.txt"), $readme, (New-Object System.Text.UTF8Encoding $true))
 $fullZip = Join-Path $stage "$folderName.zip"

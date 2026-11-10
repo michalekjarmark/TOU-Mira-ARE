@@ -9,17 +9,20 @@ INSTALACJA
    - Steam: w Bibliotece prawy przycisk na "Among Us" -> Zarządzaj -> Przeglądaj pliki lokalne.
    - Epic: zwykle C:\Program Files\Epic Games\AmongUs
 3. Skopiuj CAŁĄ zawartość folderu "{FOLDER}" (BepInEx, dotnet, CorsacCosmetics,
-   winhttp.dll i resztę plików) do folderu z grą. Jeśli Windows zapyta, wybierz "Zamień pliki".
-4. Uruchom grę normalnie. Pierwsze uruchomienie może potrwać kilka minut (otwiera się czarne okno
-   konsoli, to normalne). Nie zamykaj go.
+   version.dll i resztę plików) do folderu z grą. Jeśli Windows zapyta, wybierz "Zamień pliki".
+   Jeśli w folderze gry jest plik "winhttp.dll" z innego moda, usuń go.
+4. Uruchom grę normalnie. Pierwsze uruchomienie może potrwać kilka minut (może otworzyć się
+   okno ładowania BepInEx albo czarne okno konsoli, to normalne). Nie zamykaj go.
+5. W menu głównym, w lewym górnym rogu, powinien być napis
+   "Town of Us: Mira - AmonRa Edition {VERSION}".
 
 AKTUALIZACJE
 Mod aktualizuje się sam. Gdy w menu gry pojawi się komunikat o aktualizacji, poczekaj aż się
 pobierze i uruchom grę ponownie.
 
 PROBLEMY
-- Gra się zamyka przy pierwszym uruchomieniu: w folderze gry zmień nazwę pliku "winhttp.dll"
-  na "version.dll" i spróbuj ponownie.
-- Wyłączenie moda: usuń plik winhttp.dll (lub version.dll) z folderu gry.
-- Całkowite odinstalowanie: Steam -> Właściwości -> Zainstalowane pliki -> Sprawdź spójność plików,
-  a potem usuń foldery BepInEx, dotnet i CorsacCosmetics.
+- Gra startuje bez moda (brak napisu z punktu 5): w folderze gry zmień nazwę pliku "version.dll"
+  na "winhttp.dll" i spróbuj ponownie.
+- Wyłączenie moda: usuń plik version.dll z folderu gry (albo zmień mu nazwę).
+- Całkowite odinstalowanie: usuń foldery BepInEx, dotnet, CorsacCosmetics i plik version.dll,
+  a potem Steam -> Właściwości -> Zainstalowane pliki -> Sprawdź spójność plików.

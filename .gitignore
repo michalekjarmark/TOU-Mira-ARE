@@ -12,3 +12,5 @@ TownOfUs/Properties/
 *.DS_Store
 
 .fake
+# Manual test sheets (local only, see CLAUDE.md)
+/manual_tests

@@ -130,7 +130,14 @@ public static class RiggerSystem
         JammedUntil.Clear();
     }
 
-    /// <summary>Sparks: always visible to impostors and the dead, to crewmates only up close (option).</summary>
+    // Crewmates up close only see a short flash every SparkPeriod seconds (round 5: a steady spark was too obvious).
+    private const float SparkPeriod = 1.6f;
+    private const float SparkFlash = 0.12f;
+
+    /// <summary>
+    ///     Sparks: a dim steady marker for impostors and the dead (so the Rigger knows what is rigged), and for crewmates
+    ///     (option) only a short flash now and then, and only up close.
+    /// </summary>
     private static IEnumerator CoUpdateSparks()
     {
         while (Rigs.Count > 0)
@@ -138,19 +145,33 @@ public static class RiggerSystem
             var local = PlayerControl.LocalPlayer;
             var seesAll = local == null || local.Data == null || local.Data.IsDead || local.Data.Role.IsImpostor;
             var sparksOn = OptionGroupSingleton<RiggerOptions>.Instance.SparksVisible;
-            var flicker = 0.55f + 0.45f * Mathf.Abs(Mathf.Sin(Time.time * 7f));
+            var time = Time.time;
 
-            foreach (var rig in Rigs.Values)
+            foreach (var (index, rig) in Rigs)
             {
                 if (!rig.Renderer)
                 {
                     continue;
                 }
 
-                var visible = seesAll || (sparksOn && local != null &&
-                    Vector2.Distance(local.GetTruePosition(), rig.Spark.transform.position) <= SparkVisibleDistance);
-                rig.Renderer.enabled = visible && !MeetingHud.Instance;
-                rig.Renderer.color = new Color(1f, 1f, 1f, flicker);
+                float alpha;
+                if (seesAll)
+                {
+                    alpha = 0.35f + 0.2f * Mathf.Abs(Mathf.Sin(time * 3f + index));
+                }
+                else if (sparksOn && local != null &&
+                         Vector2.Distance(local.GetTruePosition(), rig.Spark.transform.position) <= SparkVisibleDistance)
+                {
+                    // Every console flashes at its own moment.
+                    alpha = (time + index * 0.37f) % SparkPeriod < SparkFlash ? 0.75f : 0f;
+                }
+                else
+                {
+                    alpha = 0f;
+                }
+
+                rig.Renderer.enabled = alpha > 0.01f && !MeetingHud.Instance;
+                rig.Renderer.color = new Color(1f, 1f, 1f, alpha);
             }
 
             yield return null;

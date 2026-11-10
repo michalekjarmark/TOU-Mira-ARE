@@ -37,6 +37,13 @@
       <Folder Include="Modules\Rainbow\" />
     </ItemGroup>
 
+    <!-- ARE: private build settings (e.g. the owner's Discord invite) from the git-ignored are.local.props,
+         see are.local.props.example. Read at runtime by TownOfUs/Are/AreInfo.cs. -->
+    <Import Project="../are.local.props" Condition="Exists('../are.local.props')"/>
+    <ItemGroup Condition="'$(AreDiscordUrl)' != ''">
+        <AssemblyMetadata Include="AreDiscordUrl" Value="$(AreDiscordUrl)" />
+    </ItemGroup>
+
     <Import Project="../AmongUs.props" Condition="!$(Configuration.StartsWith('Publish'))"/>
     <Import Project="../AmongUsPublish.props" Condition="$(Configuration.StartsWith('Publish'))"/>
 

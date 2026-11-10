@@ -56,6 +56,16 @@ if (git status --porcelain) {
 }
 if (git tag -l $tag) { Fail "Tag $tag already exists. Bump VersionSuffix in Directory.Build.props." }
 
+# --- Private build settings (git-ignored are.local.props) -----------------
+# Without it the release would silently open the upstream Discord server from the main menu.
+$localProps = Join-Path $Root "are.local.props"
+$discordUrl = $null
+if (Test-Path $localProps) {
+    [xml]$lp = Get-Content $localProps -Raw -Encoding UTF8
+    $discordUrl = @($lp.Project.PropertyGroup | ForEach-Object { $_.AreDiscordUrl } | Where-Object { $_ -and $_.Trim() }) | Select-Object -First 1
+}
+if (-not $discordUrl) { Fail "are.local.props with <AreDiscordUrl> is missing (copy are.local.props.example and fill it in)." }
+
 # --- Release notes from CHANGELOG.md ----------------------------------------
 # The section "## [<version>] - <date>" becomes the GitHub release notes, so the changelog can't be forgotten.
 if (-not $NotesFile) {

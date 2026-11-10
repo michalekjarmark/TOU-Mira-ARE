@@ -1,0 +1,13 @@
+<!--
+  AmonRa Edition: private build settings that should not be in the public repository.
+  Copy this file to "are.local.props" (git-ignored) next to it and fill in the values.
+  Note: the values end up inside TownOfUsMira.dll, so everyone who has the mod can read them.
+  They are only kept out of the source code.
+-->
+<Project>
+    <PropertyGroup>
+        <!-- Discord invite opened by the "Discord Server" button in the main menu (https://discord.gg/...).
+             Empty or missing: the button opens the Town of Us: Mira server. -->
+        <AreDiscordUrl></AreDiscordUrl>
+    </PropertyGroup>
+</Project>

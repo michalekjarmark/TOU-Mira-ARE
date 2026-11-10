@@ -14,3 +14,6 @@ TownOfUs/Properties/
 .fake
 # Manual test sheets (local only, see CLAUDE.md)
 /manual_tests
+
+# ARE: private build settings (Discord invite...), template: are.local.props.example
+/are.local.props

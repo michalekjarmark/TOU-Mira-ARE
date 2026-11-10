@@ -29,4 +29,22 @@ public static class AreInfo
     ///     Mod news are always loaded from the embedded resources, as upstream's online news do not match this fork.
     /// </summary>
     public const bool NewsAlwaysLocal = true;
+
+    /// <summary>
+    ///     Discord invite for the main menu "Discord Server" button, set at build time from the git-ignored
+    ///     are.local.props (AssemblyMetadata "AreDiscordUrl"), so it is not in the public source code.
+    ///     Null when not set or not a Discord invite link: the button then keeps the Town of Us: Mira server.
+    /// </summary>
+    public static string? DiscordUrl { get; } = ReadDiscordUrl();
+
+    private static string? ReadDiscordUrl()
+    {
+        var value = typeof(AreInfo).Assembly.GetCustomAttributes(typeof(System.Reflection.AssemblyMetadataAttribute), false)
+            .OfType<System.Reflection.AssemblyMetadataAttribute>()
+            .FirstOrDefault(a => a.Key == "AreDiscordUrl")?.Value?.Trim();
+        var isInvite = value != null &&
+                       (value.StartsWith("https://discord.gg/", StringComparison.Ordinal) ||
+                        value.StartsWith("https://discord.com/invite/", StringComparison.Ordinal));
+        return isInvite ? value : null;
+    }
 }

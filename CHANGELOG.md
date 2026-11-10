@@ -15,6 +15,11 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   change options (e.g. AmonRa speed) without going back to a lobby. Changes are saved like in the lobby.
 - **Updates:** an "Update" button in the main menu reopens the update progress window after it was closed.
 
+### Changed
+
+- **Main menu:** "Source Code" opens the AmonRa Edition repository and "Discord Server" opens our Discord server
+  instead of the Town of Us: Mira ones.
+
 <details>
 <summary><i>Po polsku</i></summary>
 
@@ -23,6 +28,11 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 - **Freeplay:** przycisk „Ustawienia” obok „Set Roles” / „Set Modifiers” otwiera menu ustawień lobby, więc opcje
   (np. prędkość AmonRa) można zmieniać bez wracania do lobby. Zmiany zapisują się tak jak w lobby.
 - **Aktualizacje:** przycisk „Aktualizacja” w menu głównym ponownie otwiera okno postępu aktualizacji po jego zamknięciu.
+
+**Zmieniono**
+
+- **Menu główne:** „Source Code” otwiera repozytorium AmonRa Edition, a „Discord Server” nasz serwer Discord zamiast
+  tych od Town of Us: Mira.
 
 </details>
 

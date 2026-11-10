@@ -15,10 +15,10 @@ public static class AprilFoolsPatches
 {
     public static int CurrentMode;
 #pragma warning disable S1075 // URIs should not be hardcoded
-    public static string DiscordServerUrl =
+    // ARE: our Discord (from are.local.props) and our fork instead of upstream's.
+    public static string DiscordServerUrl = Are.AreInfo.DiscordUrl ??
         "https://discord.gg/XtfYcAkfSR";
-    public static string SourceCodeUrl =
-        "https://github.com/AU-Avengers/TOU-Mira";
+    public static string SourceCodeUrl = Are.AreInfo.RepoUrl;
 #pragma warning restore S1075 // URIs should not be hardcoded
 
     [HarmonyPatch(typeof(MainMenuManager), nameof(MainMenuManager.Start))]

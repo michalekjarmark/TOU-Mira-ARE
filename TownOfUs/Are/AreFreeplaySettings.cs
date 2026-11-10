@@ -52,13 +52,34 @@ public static class AreFreeplaySettings
             player.moveable = false;
         }
 
+        // Keep the clone's name: OnEnable registers the menu in ControllerManager under it, and the overlay has to be
+        // closed under the same name (a rename left a stale "open menu" that blocked all input).
         var go = Object.Instantiate(_prefab!, Camera.main.transform, false);
-        go.name = "AreFreeplaySettingsMenu";
         go.transform.localPosition = new Vector3(_position.x, _position.y, MenuZ);
         go.SetActive(true);
-        _openMenu = go.GetComponent<GameSettingMenu>();
-        Info($"ARE Freeplay settings: opened (prefab {_prefab!.name}, lobby position {_position}).");
-        Coroutines.Start(CoRestoreWhenClosed(go));
+        _openMenu = go.GetComponent<GameSettingMenu>() ?? go.GetComponentInChildren<GameSettingMenu>(true);
+        if (_openMenu == null)
+        {
+            Warning("ARE Freeplay settings: the prefab has no GameSettingMenu, closing.");
+            Object.Destroy(go);
+            RestorePlayer();
+            return;
+        }
+
+        Info($"ARE Freeplay settings: opened {go.name} (lobby position {_position}).");
+        Coroutines.Start(CoRestoreWhenClosed(go, _openMenu.name));
+    }
+
+    /// <summary>
+    ///     Vanilla Update closes the menu right away outside of a lobby (seen in Player.log: Update ->
+    ///     CloseOverlayMenu + destroy, bypassing the Close patch). Our menu needs none of it: tabs and the close button
+    ///     work through their own button events, Esc through the ControllerManager back button.
+    /// </summary>
+    [HarmonyPatch(typeof(GameSettingMenu), nameof(GameSettingMenu.Update))]
+    [HarmonyPrefix]
+    public static bool GameSettingMenuUpdatePrefix(GameSettingMenu __instance)
+    {
+        return !IsOurs(__instance);
     }
 
     /// <summary>
@@ -78,33 +99,49 @@ public static class AreFreeplaySettings
     [HarmonyPrefix]
     public static bool GameSettingMenuClosePrefix(GameSettingMenu __instance)
     {
-        if (_openMenu == null || __instance != _openMenu)
+        if (!IsOurs(__instance))
         {
             return true;
         }
 
-        try
-        {
-            ControllerManager.Instance?.CloseOverlayMenu(__instance.name);
-        }
-        catch (Exception e)
-        {
-            Warning($"ARE Freeplay settings: CloseOverlayMenu failed: {e.Message}");
-        }
-
+        CloseOverlay(__instance.name);
         Object.Destroy(__instance.gameObject);
-        _openMenu = null;
         return false;
     }
 
-    private static IEnumerator CoRestoreWhenClosed(GameObject menu)
+    private static bool IsOurs(GameSettingMenu menu)
+    {
+        return _openMenu != null && menu != null && menu.Pointer == _openMenu.Pointer;
+    }
+
+    private static IEnumerator CoRestoreWhenClosed(GameObject menu, string overlayName)
     {
         while (menu != null)
         {
             yield return null;
         }
 
+        // However it was closed, never leave the overlay registered (it blocks the HUD and movement).
+        CloseOverlay(overlayName);
         _openMenu = null;
+        RestorePlayer();
+        Info("ARE Freeplay settings: closed.");
+    }
+
+    private static void CloseOverlay(string overlayName)
+    {
+        try
+        {
+            ControllerManager.Instance?.CloseOverlayMenu(overlayName);
+        }
+        catch (Exception e)
+        {
+            Warning($"ARE Freeplay settings: CloseOverlayMenu failed: {e.Message}");
+        }
+    }
+
+    private static void RestorePlayer()
+    {
         if (PlayerControl.LocalPlayer != null)
         {
             PlayerControl.LocalPlayer.moveable = true;

@@ -4067,6 +4067,8 @@ Restart the game to play the new version.</string>
 [error]
 
 Download it manually: [url]</string>
+  <string name="AreUpdaterLocked">Update [version] is downloaded, but the mod files are in use right now.
+Restart the game, the update will be tried again.</string>
   <string name="AreUpdaterButton">Update</string>
   <!-- AmonRa Edition - Freeplay settings -->
   <string name="AreFreeplaySettingsButton">Settings</string>

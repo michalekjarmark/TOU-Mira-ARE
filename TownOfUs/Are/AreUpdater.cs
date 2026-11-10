@@ -49,6 +49,12 @@ public static class AreUpdater
     /// </summary>
     public static bool UpdateFound => RemoteVersion != null;
 
+    /// <summary>
+    ///     The update failed only because the mod files were locked while swapping them (nothing was changed):
+    ///     restarting the game retries it.
+    /// </summary>
+    public static bool FilesLocked { get; private set; }
+
     public static float Progress
     {
         get
@@ -116,6 +122,7 @@ public static class AreUpdater
             if (remote <= current)
             {
                 Message($"ARE Updater: up to date ({current}, latest release {remote}).");
+                DeleteDownloads();
                 _state = AreUpdateState.UpToDate;
                 return;
             }
@@ -138,7 +145,18 @@ public static class AreUpdater
                 await DownloadAndVerifyAsync(client, item).ConfigureAwait(false);
             }
 
-            SwapAll(plan);
+            ReleaseBepInExFileHandles();
+            try
+            {
+                SwapAll(plan);
+            }
+            catch (IOException)
+            {
+                // Seen on the first start after the DLLs were replaced by hand: a file stays locked for the whole
+                // session (retries don't help), the next start works. SwapAll rolled back, so just ask for a restart.
+                FilesLocked = true;
+                throw;
+            }
 
             Message($"ARE Updater: updated to {remote}. Restart required.");
             _state = AreUpdateState.Updated;
@@ -147,9 +165,13 @@ public static class AreUpdater
         {
             Error($"ARE Updater: failed - {e}");
             LastError = e.Message;
-            foreach (var item in plan)
+            if (!FilesLocked)
             {
-                TryDelete(item.TargetPath + DownloadSuffix);
+                // Verified downloads are kept when only the swap failed: the next start reuses them.
+                foreach (var item in plan)
+                {
+                    TryDelete(item.TargetPath + DownloadSuffix);
+                }
             }
 
             _state = AreUpdateState.Failed;
@@ -235,6 +257,16 @@ public static class AreUpdater
     private static async Task DownloadAndVerifyAsync(HttpClient client, UpdateItem item)
     {
         var tempPath = item.TargetPath + DownloadSuffix;
+
+        // A previous attempt may have downloaded it already (the swap failed on locked files): reuse it, but only
+        // if it matches the release's SHA-256 digest exactly.
+        if (File.Exists(tempPath) && await IsVerifiedSha256Async(tempPath, item.Asset).ConfigureAwait(false))
+        {
+            Message($"ARE Updater: reusing the already downloaded {item.Asset.Name}.");
+            Interlocked.Add(ref _bytesDone, item.Asset.Size);
+            return;
+        }
+
         TryDelete(tempPath);
 
         using (var response = await client.GetAsync(item.Asset.Url, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false))
@@ -264,18 +296,9 @@ public static class AreUpdater
         }
 
         // GitHub publishes a "sha256:<hex>" digest for release assets.
-        if (item.Asset.Digest?.StartsWith("sha256:", StringComparison.OrdinalIgnoreCase) == true)
+        if (HasSha256Digest(item.Asset))
         {
-            string actual;
-            var stream = File.OpenRead(tempPath);
-            await using (stream.ConfigureAwait(false))
-            {
-                using var sha = SHA256.Create();
-                actual = Convert.ToHexString(await sha.ComputeHashAsync(stream).ConfigureAwait(false));
-            }
-
-            var expected = item.Asset.Digest["sha256:".Length..];
-            if (!actual.Equals(expected, StringComparison.OrdinalIgnoreCase))
+            if (!await IsVerifiedSha256Async(tempPath, item.Asset).ConfigureAwait(false))
             {
                 throw new InvalidDataException($"{item.Asset.Name}: SHA-256 mismatch.");
             }
@@ -283,6 +306,59 @@ public static class AreUpdater
         else
         {
             Warning($"ARE Updater: {item.Asset.Name} has no digest, only the size was verified.");
+        }
+    }
+
+    private static bool HasSha256Digest(AssetInfo asset)
+    {
+        return asset.Digest?.StartsWith("sha256:", StringComparison.OrdinalIgnoreCase) == true;
+    }
+
+    /// <summary>
+    ///     True only if the asset has a SHA-256 digest and the file has the expected size and hash.
+    /// </summary>
+    private static async Task<bool> IsVerifiedSha256Async(string path, AssetInfo asset)
+    {
+        if (!HasSha256Digest(asset) || new FileInfo(path).Length != asset.Size)
+        {
+            return false;
+        }
+
+        string actual;
+        var stream = File.OpenRead(path);
+        await using (stream.ConfigureAwait(false))
+        {
+            using var sha = SHA256.Create();
+            actual = Convert.ToHexString(await sha.ComputeHashAsync(stream).ConfigureAwait(false));
+        }
+
+        return actual.Equals(asset.Digest!["sha256:".Length..], StringComparison.OrdinalIgnoreCase);
+    }
+
+    /// <summary>
+    ///     On the first start after the plugin DLLs changed, BepInEx rebuilds its type cache and its Mono.Cecil
+    ///     resolver (<c>TypeLoader.CecilResolver</c>) keeps the referenced plugin assemblies (e.g. MiraAPI.dll) open
+    ///     for the whole session, without delete sharing, so they can't be renamed (round 4 test). The resolver is
+    ///     only needed while plugins are discovered; disposing it closes those files (its cache is simply cleared).
+    ///     Reflection, so we don't need a compile-time reference to Mono.Cecil.
+    /// </summary>
+    [SuppressMessage("Design", "CA1031:Do not catch general exception types",
+        Justification = "Best effort: if it fails, the swap reports the lock as before.")]
+    private static void ReleaseBepInExFileHandles()
+    {
+        try
+        {
+            var field = typeof(BepInEx.Bootstrap.TypeLoader).GetField("CecilResolver",
+                System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+            if (field?.GetValue(null) is IDisposable resolver)
+            {
+                resolver.Dispose();
+                Message("ARE Updater: released BepInEx's cached assembly files before swapping.");
+            }
+        }
+        catch (Exception e)
+        {
+            Warning($"ARE Updater: could not release BepInEx's cached assembly files: {e.Message}");
         }
     }
 
@@ -354,8 +430,21 @@ public static class AreUpdater
                 continue;
             }
 
+            // *.download is kept: a verified download from a failed swap is reused (see DownloadAndVerifyAsync).
+            // Stale ones are removed once the game turns out to be up to date (DeleteDownloads).
             TryDelete(path + OldSuffix);
-            TryDelete(path + DownloadSuffix);
+        }
+    }
+
+    private static void DeleteDownloads()
+    {
+        foreach (var fileName in AreInfo.UpdatableAssets)
+        {
+            var path = FindLoadedAssemblyPath(fileName);
+            if (path != null)
+            {
+                TryDelete(path + DownloadSuffix);
+            }
         }
     }
 

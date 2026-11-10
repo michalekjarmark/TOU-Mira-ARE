@@ -1365,6 +1365,8 @@ Uruchom grę ponownie, aby grać na nowej wersji.</string>
 [error]
 
 Pobierz ją ręcznie: [url]</string>
+  <string name="AreUpdaterLocked">Aktualizacja [version] jest pobrana, ale pliki moda są teraz w użyciu.
+Uruchom grę ponownie, aktualizacja spróbuje jeszcze raz.</string>
   <string name="AreUpdaterButton">Aktualizacja</string>
   <!-- AmonRa Edition - Freeplay settings -->
   <string name="AreFreeplaySettingsButton">Ustawienia</string>

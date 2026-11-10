@@ -136,6 +136,9 @@ public static class AreUpdaterMenuPatch
             AreUpdateState.Updated => MiraLocaleManager.Get("AreUpdaterUpdated",
                     "Updated to version <version>!\nRestart the game to play the new version.")
                 .Replace("<version>", version),
+            AreUpdateState.Failed when AreUpdater.FilesLocked => MiraLocaleManager.Get("AreUpdaterLocked",
+                    "Update <version> is downloaded, but the mod files are in use right now.\nRestart the game, the update will be tried again.")
+                .Replace("<version>", version),
             AreUpdateState.Failed => MiraLocaleManager.Get("AreUpdaterFailed",
                     "Automatic update to <version> failed:\n<error>\n\nDownload it manually: <url>")
                 .Replace("<version>", version)

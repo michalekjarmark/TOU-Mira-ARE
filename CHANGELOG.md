@@ -24,8 +24,9 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ### Fixed
 
-- **Updates:** an update no longer fails when an antivirus briefly locks the downloaded files ("being used by another
-  process"); the updater waits a moment and tries again. Works for updates from this version on.
+- **Updates:** the update no longer fails with "being used by another process" on the first start after the mod files
+  were replaced (BepInEx kept them open). If the files are still locked, the downloaded update is kept and installed
+  after a restart without downloading it again. Works for updates from this version on.
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -43,8 +44,9 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 **Naprawiono**
 
-- **Aktualizacje:** aktualizacja nie kończy się już błędem, gdy antywirus na chwilę blokuje pobrane pliki („being used
-  by another process”); updater chwilę czeka i próbuje ponownie. Działa przy aktualizacjach od tej wersji.
+- **Aktualizacje:** aktualizacja nie kończy się już błędem „being used by another process” przy pierwszym uruchomieniu
+  po podmianie plików moda (BepInEx trzymał je otwarte). Jeśli pliki nadal są zablokowane, pobrana aktualizacja zostaje
+  na dysku i instaluje się po ponownym uruchomieniu bez ponownego pobierania. Działa przy aktualizacjach od tej wersji.
 
 </details>
 

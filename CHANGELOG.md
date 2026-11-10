@@ -9,6 +9,35 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
+### Added
+
+- **Gambler** (new Neutral Evil role): in every meeting, before the votes are revealed, the Gambler secretly bets on
+  who gets ejected, or that no one is (skip or tie), by clicking a chip next to a player or next to Skip Vote. A correct
+  bet gives a point, a wrong one takes a point away (never below zero). If the player they bet on dies during the
+  meeting, the bet is cancelled. Collecting enough points while alive wins the game.
+  - When the Gambler gets close to winning, everyone sees a flash and a warning, so the win doesn't come out of
+    nowhere. Optionally the Gambler's role is also revealed on their name.
+  - Lobby options: points needed to win, wrong bet takes a point, can bet on no ejection, win ends the game (or the
+    Gambler wins together with the winners at the end), can use the emergency button, warn others when close to
+    winning (off / alert / alert and reveal) and at how many points left.
+
+<details>
+<summary><i>Po polsku</i></summary>
+
+**Dodano**
+
+- **Hazardzista** (Gambler, nowa rola Neutral Evil): na każdym spotkaniu, zanim głosy zostaną ujawnione, Hazardzista
+  potajemnie obstawia, kto zostanie wyrzucony, albo że nikt (skip lub remis). Klika w tym celu żeton obok gracza albo
+  obok Skip Vote. Trafny zakład daje punkt, chybiony zabiera punkt (nigdy poniżej zera). Jeśli obstawiony gracz zginie
+  w trakcie spotkania, zakład przepada bez straty. Zebranie wystarczającej liczby punktów za życia oznacza wygraną.
+  - Gdy Hazardzista jest blisko wygranej, wszyscy widzą błysk ekranu i ostrzeżenie, więc wygrana nie spada znikąd.
+    Opcjonalnie jego rola zostaje też ujawniona przy nicku.
+  - Opcje w lobby: punkty potrzebne do wygranej, chybiony zakład zabiera punkt, można obstawić brak wyrzucenia,
+    wygrana kończy grę (albo Hazardzista wygrywa razem ze zwycięzcami na końcu), może użyć przycisku spotkania,
+    ostrzeganie innych przed wygraną (wyłączone / alert / alert i ujawnienie) i przy ilu brakujących punktach.
+
+</details>
+
 ## [1.7.9-are.3] - 2026-11-10
 
 ### Added

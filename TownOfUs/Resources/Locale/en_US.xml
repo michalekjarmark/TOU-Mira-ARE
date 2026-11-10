@@ -4073,4 +4073,31 @@ Restart the game, the update will be tried again.</string>
   <!-- AmonRa Edition - Freeplay settings -->
   <string name="AreFreeplaySettingsButton">Settings</string>
   <string name="AreFreeplaySettingsUnavailable">The settings menu is not available here. Open a local lobby once and try again.</string>
+  <!-- AmonRa Edition - Gambler (Neutral Evil) -->
+  <string name="TownOfUsMira.Role.Gambler">Gambler</string>
+  <string name="TownOfUsMira.Role.Gambler.IntroBlurb">Bet on who gets ejected!</string>
+  <string name="TownOfUsMira.Role.Gambler.TabDescription">Bet on the outcome of every meeting. Win [points] points to win the game.</string>
+  <string name="TownOfUsMira.Role.Gambler.WikiDescription">The Gambler is a Neutral Evil role that wins by predicting meetings. In every meeting, before the votes are revealed, they can bet on the player who will be ejected, or that no one will be ejected (skip or tie). A correct bet gives a point, a wrong one can take a point away (never below zero). If the bet player dies during the meeting, the bet is cancelled. The Gambler wins after collecting [points] points while alive. Bets are secret and cannot be changed.</string>
+  <string name="TownOfUsMira.Role.GamblerBet">Bet</string>
+  <string name="TownOfUsMira.Role.GamblerBet.WikiDescription">During a meeting, click the chip next to a player, or next to Skip Vote to bet that no one is ejected. One bet per meeting, it cannot be changed. The result is shown after the ejection.</string>
+  <string name="TownOfUsMira.Role.GamblerBetPlaced">You bet that [player] gets ejected.</string>
+  <string name="TownOfUsMira.Role.GamblerBetPlacedNoEjection">You bet that no one gets ejected.</string>
+  <string name="TownOfUsMira.Role.GamblerBetWon">Bet won! Points: [points]/[goal]</string>
+  <string name="TownOfUsMira.Role.GamblerBetLost">Bet lost! Points: [points]/[goal]</string>
+  <string name="TownOfUsMira.Role.GamblerBetVoid">Bet cancelled: the player died before the votes were counted. Points: [points]/[goal]</string>
+  <string name="TownOfUsMira.Role.GamblerGoalReached">You won your gamble! You will win together with the winners at the end of the game.</string>
+  <string name="TouOptionGamblerPointsToWin">Points Needed To Win</string>
+  <string name="TouOptionGamblerWrongBetLosesPoint">Wrong Bet Takes A Point</string>
+  <string name="TouOptionGamblerCanBetOnNoEjection">Can Bet On No Ejection</string>
+  <string name="TouOptionGamblerWinEndsGame">Win Ends The Game</string>
+  <string name="TouOptionGamblerCanButton">Can Use Button</string>
+  <string name="TouOptionGamblerWarnOthers">Warn Others When Close To Winning</string>
+  <string name="TouOptionGamblerWarnEnumOff">Off</string>
+  <string name="TouOptionGamblerWarnEnumAlert">Alert</string>
+  <string name="TouOptionGamblerWarnEnumReveal">Alert And Reveal</string>
+  <string name="TouOptionGamblerWarnAtPointsLeft">Warn When Points Left</string>
+  <string name="TownOfUsMira.Role.GamblerWarning">A Gambler is only [left] point(s) away from winning!</string>
+  <string name="TownOfUsMira.Role.GamblerWarningReveal">[player] is the Gambler and is only [left] point(s) away from winning!</string>
+  <string name="TownOfUsMira.Role.GamblerWarnedSelf">Everyone now knows that a Gambler is close to winning.</string>
+  <string name="TownOfUsMira.Role.GamblerWarnedSelfReveal">Everyone now knows that you are the Gambler!</string>
 </resources>

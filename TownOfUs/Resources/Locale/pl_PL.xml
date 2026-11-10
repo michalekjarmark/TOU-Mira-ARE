@@ -1371,4 +1371,31 @@ Uruchom grę ponownie, aktualizacja spróbuje jeszcze raz.</string>
   <!-- AmonRa Edition - Freeplay settings -->
   <string name="AreFreeplaySettingsButton">Ustawienia</string>
   <string name="AreFreeplaySettingsUnavailable">Menu ustawień nie jest tu dostępne. Otwórz raz lokalne lobby i spróbuj ponownie.</string>
+  <!-- AmonRa Edition - Gambler (Neutral Evil) -->
+  <string name="TownOfUsMira.Role.Gambler">Hazardzista</string>
+  <string name="TownOfUsMira.Role.Gambler.IntroBlurb">Obstawiaj, kto zostanie wyrzucony!</string>
+  <string name="TownOfUsMira.Role.Gambler.TabDescription">Obstawiaj wynik każdego spotkania. Zdobądź [points] pkt, aby wygrać.</string>
+  <string name="TownOfUsMira.Role.Gambler.WikiDescription">Hazardzista to rola Neutral Evil, która wygrywa, przewidując wyniki spotkań. Na każdym spotkaniu, zanim głosy zostaną ujawnione, może obstawić gracza, który zostanie wyrzucony, albo że nikt nie zostanie wyrzucony (skip lub remis). Trafny zakład daje punkt, a chybiony może go odebrać (nigdy poniżej zera). Jeśli obstawiony gracz zginie w trakcie spotkania, zakład przepada bez straty. Hazardzista wygrywa po zebraniu [points] pkt, jeśli żyje. Zakłady są tajne i nie można ich zmienić.</string>
+  <string name="TownOfUsMira.Role.GamblerBet">Zakład</string>
+  <string name="TownOfUsMira.Role.GamblerBet.WikiDescription">Na spotkaniu kliknij żeton obok gracza albo obok Skip Vote, żeby obstawić, że nikt nie zostanie wyrzucony. Jeden zakład na spotkanie, bez możliwości zmiany. Wynik zobaczysz po wyrzuceniu.</string>
+  <string name="TownOfUsMira.Role.GamblerBetPlaced">Obstawiasz, że [player] zostanie wyrzucony/a.</string>
+  <string name="TownOfUsMira.Role.GamblerBetPlacedNoEjection">Obstawiasz, że nikt nie zostanie wyrzucony.</string>
+  <string name="TownOfUsMira.Role.GamblerBetWon">Wygrany zakład! Punkty: [points]/[goal]</string>
+  <string name="TownOfUsMira.Role.GamblerBetLost">Przegrany zakład! Punkty: [points]/[goal]</string>
+  <string name="TownOfUsMira.Role.GamblerBetVoid">Zakład anulowany: gracz zginął przed liczeniem głosów. Punkty: [points]/[goal]</string>
+  <string name="TownOfUsMira.Role.GamblerGoalReached">Wygrałeś swój zakład! Na końcu gry wygrasz razem ze zwycięzcami.</string>
+  <string name="TouOptionGamblerPointsToWin">Punkty potrzebne do wygranej</string>
+  <string name="TouOptionGamblerWrongBetLosesPoint">Chybiony zakład zabiera punkt</string>
+  <string name="TouOptionGamblerCanBetOnNoEjection">Można obstawić brak wyrzucenia</string>
+  <string name="TouOptionGamblerWinEndsGame">Wygrana kończy grę</string>
+  <string name="TouOptionGamblerCanButton">Może użyć przycisku</string>
+  <string name="TouOptionGamblerWarnOthers">Ostrzeż innych przed wygraną</string>
+  <string name="TouOptionGamblerWarnEnumOff">Wyłączone</string>
+  <string name="TouOptionGamblerWarnEnumAlert">Alert</string>
+  <string name="TouOptionGamblerWarnEnumReveal">Alert i ujawnienie</string>
+  <string name="TouOptionGamblerWarnAtPointsLeft">Ostrzeż, gdy brakuje punktów</string>
+  <string name="TownOfUsMira.Role.GamblerWarning">Hazardziście brakuje już tylko [left] pkt do wygranej!</string>
+  <string name="TownOfUsMira.Role.GamblerWarningReveal">[player] to Hazardzista i brakuje mu już tylko [left] pkt do wygranej!</string>
+  <string name="TownOfUsMira.Role.GamblerWarnedSelf">Wszyscy wiedzą już, że Hazardzista jest blisko wygranej.</string>
+  <string name="TownOfUsMira.Role.GamblerWarnedSelfReveal">Wszyscy wiedzą już, że to Ty jesteś Hazardzistą!</string>
 </resources>

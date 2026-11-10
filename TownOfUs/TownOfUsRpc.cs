@@ -162,6 +162,9 @@ public enum TownOfUsRpc : uint
     DraftCreateNotif,
     DraftBroadcastRecap,
     DraftShuffleLimitedNotification,
+
+    // AmonRa Edition (always append at the end)
+    GamblerPlaceBet,
 }
 
 internal enum TownOfUsInternalRpc : uint

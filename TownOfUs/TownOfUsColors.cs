@@ -85,6 +85,7 @@ public static class TownOfUsColors
 
     public static Color Doomsayer => new Color32(0, 255, 128, 255);
     public static Color Executioner => new Color32(99, 59, 31, 255);
+    public static Color Gambler => new Color32(0, 150, 136, 255); // ARE
     public static Color Jester => new Color32(255, 191, 204, 255);
     public static Color SoulCollector => new Color32(153, 255, 204, 255);
     public static Color Death => new Color32(76, 76, 84, 255);

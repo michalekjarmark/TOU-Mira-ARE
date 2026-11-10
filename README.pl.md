@@ -69,6 +69,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | | Nazwa | Typ | Opis |
 |:-:|:--|:--|:--|
 | <img src="TownOfUs/Resources/Custom/AmonRaIcon.png" width="48"/> | **AmonRa** | Modyfikator (uniwersalny) | Postać jeździ na wózku z obracającym się kołem i dźwiękiem toczenia. Rozpędza się stopniowo i toczy się po puszczeniu klawiszy. Wolno jadąc, skręca szybko, ale przy pełnej prędkości potrzebuje szerokich łuków: płynna jazda zachowuje rozpęd i jest szybsza od innych, a ostre skręty dają poślizg i utratę prędkości. Wenty, drabiny i taski działają normalnie. |
+| <img src="TownOfUs/Resources/Custom/GamblerIcon.png" width="48"/> | **Hazardzista** (Gambler) | Rola (Neutral Evil) | Na każdym spotkaniu, zanim głosy zostaną ujawnione, potajemnie obstawia, kto zostanie wyrzucony (albo że nikt). Trafny zakład daje punkt, chybiony go zabiera. Zebranie wystarczającej liczby punktów za życia oznacza wygraną. Opcjonalnie wszyscy dostają ostrzeżenie (albo Hazardzista zostaje ujawniony), gdy jest blisko wygranej. |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), automatyczne
 aktualizacje, pełna paczka instalacyjna i własne logo na ekranie startowym.
@@ -100,7 +101,7 @@ Zobacz [For developers](README.md#for-developers) w wersji angielskiej.
 # Role i modyfikatory
 
 Kliknij ikonę, aby otworzyć jej stronę na wiki Town of Us: Mira (po angielsku). Wózek wśród modyfikatorów
-uniwersalnych to **AmonRa**, nasz dodatek ([opis](#dodatki-amonra-edition)). Kluczowe różnice Town of Us: Mira,
+uniwersalnych to **AmonRa**, a żeton wśród ról Neutral Evil to **Hazardzista**, nasze dodatki ([opis](#dodatki-amonra-edition)). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -185,6 +186,7 @@ obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskie
   <img src="Images/Groups/NeutEvil.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/evil/Doomsayer"><img width="10%" src="Images/Icons/Doomsayer.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/evil/Executioner"><img width="10%" src="Images/Icons/Executioner.png" /></a>
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/GamblerIcon.png" alt="Hazardzista (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/evil/Jester"><img width="10%" src="Images/Icons/Jester.png" /></a>
   <img src="Images/Groups/NeutKilling.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/killing/Arsonist"><img width="10%" src="Images/Icons/Arsonist.png" /></a>

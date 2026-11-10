@@ -51,4 +51,16 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> WheelchairBack { get; } =
         new LoadableResourceAsset($"{CustomPath}.WheelchairBack.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Gambler role icon (chip and die). 128px. Drawn by tools/are-assets/draw-gambler-icons.ps1.
+    /// </summary>
+    public static LoadableAsset<Sprite> GamblerIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.GamblerIcon.png", typeof(TownOfUsPlugin).Assembly, 128f);
+
+    /// <summary>
+    ///     Gambler's meeting "Bet" chip shown next to players and Skip Vote. 100px, about 0.55 units in game.
+    /// </summary>
+    public static LoadableAsset<Sprite> GamblerBetButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.GamblerBetButton.png", typeof(TownOfUsPlugin).Assembly, 180f);
 }

@@ -1,6 +1,6 @@
 {
-  "Name": "Town of Us: Mira",
-  "Description": "Town of Us, but with a visual and internal overhaul, running on MiraAPI.",
+  "Name": "Town of Us: Mira - AmonRa Edition",
+  "Description": "AmonRa Edition: a private fork of Town of Us: Mira with custom roles and modifiers.",
   "Tags": [
     "mods"
   ],
@@ -19,7 +19,7 @@
     "Zeo"
   ],
   "Links": {
-    "Source": "https://github.com/AU-Avengers/TOU-Mira",
+    "Source": "https://github.com/michalekjarmark/TOU-Mira-ARE",
     "Wiki": "https://au-avengers.github.io/docs.toum.gg/",
     "Discord": "https://discord.gg/ugyc4EVUYZ"
     }

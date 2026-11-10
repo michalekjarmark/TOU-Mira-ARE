@@ -9,7 +9,7 @@ namespace TownOfUs.Patches.Misc;
 [HarmonyPatch(typeof(ActivityManager))]
 public static class DiscordStatus
 {
-    private static readonly string ModInfo = $"TOU:M v{TownOfUsPlugin.Version}" + (TownOfUsPlugin.IsDevBuild && !TownOfUsPlugin.Version.Contains("beta") ? " (DEV)" : string.Empty);
+    private static readonly string ModInfo = $"{TownOfUs.Are.AreInfo.DiscordName} v{TownOfUsPlugin.Version}" + (TownOfUsPlugin.IsDevBuild && !TownOfUsPlugin.Version.Contains("beta") ? " (DEV)" : string.Empty);
     private static readonly string _smallIcon = "???";
 
     [HarmonyPrefix]

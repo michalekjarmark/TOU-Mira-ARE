@@ -467,7 +467,7 @@ internal static class PerfectCommsRuntime
 
     private static void RegisterOptions(string id)
     {
-        PerfectCommsApi.RegisterModTab(id, "TOU Mira");
+        PerfectCommsApi.RegisterModTab(id, TownOfUs.Are.AreInfo.ShortName);
 
         RegisterToggle(MuteBlackmailedInMeetings,
         $"<color=#FF0000><b>{MiraLocaleManager.Get("TownOfUsMira.Role.Blackmailer", "Blackmailer")}</b></color>: {MiraLocaleManager.Get("TouPerfectCommsMuteBlackmailedInMeetings", "Mute Blackmailed in Meetings")}", true,

@@ -200,6 +200,29 @@ public sealed class UniversalModifierOptions : AbstractOptionGroup
         Visible = () => OptionGroupSingleton<UniversalModifierOptions>.Instance.SleuthAmount > 0
     };
 
+    // ARE: AmonRa (wheelchair movement) modifier
+    public AmountChanceOption AmonRaAmount { get; } = new("TouOptionAmonRaAmount", 0, 0, 5, 1,
+        color: TownOfUsColors.AmonRa, asset: Are.AreAssets.AmonRaIcon,
+        assetName: "TouMira.Modifier.Universal.AmonRa", assetScale: 1.45f)
+    {
+        ChangedEvent = _amonRaNotif,
+    };
+
+    public AmountChanceOption AmonRaChance { get; } = new("TouOptionAmonRaChance", 50f, 0, 100f, 10f, "#", "#",
+        MiraNumberSuffixes.Percent, color: TownOfUsColors.AmonRa, asset: Are.AreAssets.AmonRaIcon,
+        assetName: "TouMira.Modifier.Universal.AmonRa", assetScale: 1.45f)
+    {
+        ChangedEvent = _amonRaNotif,
+        Visible = () => OptionGroupSingleton<UniversalModifierOptions>.Instance.AmonRaAmount > 0
+    };
+
+    private static Action<float> _amonRaNotif = x =>
+    {
+        var optAmount = OptionGroupSingleton<UniversalModifierOptions>.Instance.AmonRaAmount;
+        var opt = OptionGroupSingleton<UniversalModifierOptions>.Instance.AmonRaChance;
+        RunNotif(opt, optAmount, "TownOfUsMira.Modifier.AmonRa");
+    };
+
     private static Action<float> _drunkNotif = x =>
     {
         var optAmount = OptionGroupSingleton<UniversalModifierOptions>.Instance.DrunkAmount;

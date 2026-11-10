@@ -14,11 +14,12 @@
         <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
 
         <VersionPrefix>1.7.9</VersionPrefix>
-        <VersionSuffix>dev</VersionSuffix>
+        <!-- ARE: bump for every release given to friends (are.1, are.2, ...). Local test builds: -p:VersionSuffix=are-dev -->
+        <VersionSuffix>are.1</VersionSuffix>
 
         <Authors>Atony, AlchlcSystm, angxlwtf, MyDragonBreath, Nix, Satire, xerminator, XtraCube, whichtwix, Zeo</Authors>
         <Company>Among Us Avengers</Company>
-        <RepositoryUrl>https://github.com/AU-Avengers/TOU-Mira</RepositoryUrl>
+        <RepositoryUrl>https://github.com/michalekjarmark/TOU-Mira-ARE</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
 
         <!-- SourceLink -->

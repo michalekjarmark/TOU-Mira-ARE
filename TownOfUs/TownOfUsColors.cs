@@ -120,6 +120,7 @@ public static class TownOfUsColors
     public static Color Overclocker => new Color32(252, 145, 46, 255);
 
     // Universal Modifiers
+    public static Color AmonRa => new Color32(214, 168, 64, 255); // ARE
     public static Color ButtonBarry => new Color32(179, 51, 204, 255);
     public static Color Flash => new Color32(255, 128, 128, 255);
     public static Color Giant => new Color32(255, 179, 77, 255);

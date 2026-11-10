@@ -59,7 +59,7 @@ public static class ModNewsFetcher
     public static void CheckForNews()
     {
         Error($"Running Mod News Fetcher...");
-        if ( /*Environment.Is64BitProcess || */TownOfUsPlugin.IsDevBuild)
+        if ( /*Environment.Is64BitProcess || */TownOfUs.Are.AreInfo.NewsAlwaysLocal || TownOfUsPlugin.IsDevBuild)
         {
             Error($"Loading News Locally, as this is a DEVELOPER BUILD");
             LoadTouMiraModNewsFromResources();

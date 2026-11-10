@@ -25,7 +25,7 @@ namespace TownOfUs;
 /// <summary>
 ///     Plugin class for Town of Us.
 /// </summary>
-[BepInAutoPlugin("auavengers.tou.mira", "Town of Us Mira")]
+[BepInAutoPlugin("auavengers.tou.mira", "Town of Us: Mira - AmonRa Edition")] // ARE: GUID kept on purpose, see Are/AreInfo.cs
 [BepInProcess("Among Us.exe")]
 [BepInDependency(ReactorPlugin.Id)]
 [BepInDependency(MiraApiPlugin.Id)]
@@ -60,7 +60,7 @@ public partial class TownOfUsPlugin : BasePlugin, IMiraPlugin
     public static bool IsWipBuild => Version.Contains("dev", StringComparison.OrdinalIgnoreCase) || Version.Contains("ci", StringComparison.OrdinalIgnoreCase);
 
     /// <inheritdoc />
-    public string OptionsTitleText => "TOU Mira";
+    public string OptionsTitleText => Are.AreInfo.ShortName;
 
     /// <inheritdoc />
     public string CustomOptionMenuNameOne => MiraLocaleManager.Get("TouTabOptionBetterMaps");
@@ -93,7 +93,8 @@ public partial class TownOfUsPlugin : BasePlugin, IMiraPlugin
             "If enabled, assets will appear like they did in TOU Reactivated / Polus.gg / Town of Us.");
         AutoDownloadCosmetics = Config.Bind("LocalSettings", "AutoDownloadCosmetics", true,
             "If enabled, cosmetics will automatically be downloaded for Corsac Cosmetics.");
-        ReactorCredits.Register("Town Of Us: Mira", Version, IsDevBuild, ReactorCredits.AlwaysShow);
+        ReactorCredits.Register(Are.AreInfo.DisplayName, Version, IsDevBuild, ReactorCredits.AlwaysShow);
+        Are.AreUpdater.Initialize(Config);
         LocalizationManager.Register(new TaskProvider());
         MiraLocaleManager.Register("auavengers.tou.mira", "TownOfUs", TouAssembly);
 

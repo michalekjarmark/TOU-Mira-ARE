@@ -1365,4 +1365,8 @@ Uruchom grę ponownie, aby grać na nowej wersji.</string>
 [error]
 
 Pobierz ją ręcznie: [url]</string>
+  <string name="AreUpdaterButton">Aktualizacja</string>
+  <!-- AmonRa Edition - Freeplay settings -->
+  <string name="AreFreeplaySettingsButton">Ustawienia</string>
+  <string name="AreFreeplaySettingsUnavailable">Menu ustawień nie jest tu dostępne. Otwórz raz lokalne lobby i spróbuj ponownie.</string>
 </resources>

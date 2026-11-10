@@ -4067,4 +4067,8 @@ Restart the game to play the new version.</string>
 [error]
 
 Download it manually: [url]</string>
+  <string name="AreUpdaterButton">Update</string>
+  <!-- AmonRa Edition - Freeplay settings -->
+  <string name="AreFreeplaySettingsButton">Settings</string>
+  <string name="AreFreeplaySettingsUnavailable">The settings menu is not available here. Open a local lobby once and try again.</string>
 </resources>

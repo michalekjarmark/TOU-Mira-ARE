@@ -18,6 +18,19 @@ public static class AreAssets
     public static LoadableAsset<Sprite> AreLogo { get; } =
         new LoadableResourceAsset($"{CustomPath}.AreLogo.png", typeof(TownOfUsPlugin).Assembly, 200f);
 
+    /// <summary>
+    ///     Main menu "Update" button icon (reopens the updater popup). 130px like TouAssets.SourceCode.
+    ///     Drawn by tools/are-assets/draw-ui-icons.ps1.
+    /// </summary>
+    public static LoadableAsset<Sprite> AreUpdateIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.AreUpdateIcon.png", typeof(TownOfUsPlugin).Assembly);
+
+    /// <summary>
+    ///     Freeplay "Settings" ability button (opens the lobby settings menu). Drawn by tools/are-assets/draw-ui-icons.ps1.
+    /// </summary>
+    public static LoadableAsset<Sprite> SettingsButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.AreSettingsButton.png", typeof(TownOfUsPlugin).Assembly);
+
     public static LoadableAsset<Sprite> AmonRaIcon { get; } =
         new LoadableResourceAsset($"{CustomPath}.AmonRaIcon.png", typeof(TownOfUsPlugin).Assembly, 128f);
 

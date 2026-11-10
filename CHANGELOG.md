@@ -9,6 +9,23 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
+### Added
+
+- **Freeplay:** a "Settings" button next to "Set Roles" / "Set Modifiers" opens the lobby settings menu, so you can
+  change options (e.g. AmonRa speed) without going back to a lobby. Changes are saved like in the lobby.
+- **Updates:** an "Update" button in the main menu reopens the update progress window after it was closed.
+
+<details>
+<summary><i>Po polsku</i></summary>
+
+**Dodano**
+
+- **Freeplay:** przycisk „Ustawienia” obok „Set Roles” / „Set Modifiers” otwiera menu ustawień lobby, więc opcje
+  (np. prędkość AmonRa) można zmieniać bez wracania do lobby. Zmiany zapisują się tak jak w lobby.
+- **Aktualizacje:** przycisk „Aktualizacja” w menu głównym ponownie otwiera okno postępu aktualizacji po jego zamknięciu.
+
+</details>
+
 ## [1.7.9-are.2] - 2026-11-10
 
 ### Added

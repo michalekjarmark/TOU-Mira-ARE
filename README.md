@@ -67,7 +67,8 @@ Everything below is new in AmonRa Edition. For all roles and modifiers of Town o
 |:-:|:--|:--|:--|
 | <img src="TownOfUs/Resources/Custom/AmonRaIcon.png" width="48"/> | **AmonRa** | Modifier (Universal) | The player rides a wheelchair with a rolling wheel and sound. Speeds up gradually and keeps rolling after letting go. Turns quickly when slow but needs wide turns at full speed: smooth driving keeps the momentum and is faster than everyone else, sharp turns skid and lose speed. Vents, ladders and tasks work as usual. |
 
-Also: automatic updates, a full installation package and our own logo on the startup screen.
+Also: a "Settings" button in Freeplay (change the lobby settings without leaving practice), automatic updates,
+a full installation package and our own logo on the startup screen.
 
 # Releases
 

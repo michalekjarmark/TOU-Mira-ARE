@@ -2,6 +2,7 @@ using System.Collections;
 using System.Globalization;
 using HarmonyLib;
 using Reactor.Utilities;
+using TownOfUs.Patches.AprilFools;
 using Twitch;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -15,17 +16,56 @@ namespace TownOfUs.Are;
 [HarmonyPatch(typeof(MainMenuManager), nameof(MainMenuManager.Start))]
 public static class AreUpdaterMenuPatch
 {
+    // Below the Legacy / Discord / Source Code buttons TOU adds to the main menu (AprilFoolsPatches).
+    private static readonly Vector2 ButtonAnchor = new(0.815f, 0.52f);
+
     private static bool _running;
     private static GenericPopup? _popup;
 
-    public static void Postfix()
+    public static void Postfix(MainMenuManager __instance)
     {
-        if (_running || TownOfUsPlugin.IsMobile || AreUpdater.State is AreUpdateState.Disabled or AreUpdateState.UpToDate)
+        if (TownOfUsPlugin.IsMobile || AreUpdater.State is AreUpdateState.Disabled or AreUpdateState.UpToDate)
         {
             return;
         }
 
-        Coroutines.Start(CoShowUpdatePopup());
+        Coroutines.Start(CoShowUpdateButton(__instance));
+        if (!_running)
+        {
+            Coroutines.Start(CoShowUpdatePopup());
+        }
+    }
+
+    /// <summary>
+    ///     Main menu button that reopens the popup (it can be closed during the download). Shown once an update was
+    ///     found, until the game is restarted.
+    /// </summary>
+    private static IEnumerator CoShowUpdateButton(MainMenuManager menu)
+    {
+        while (AreUpdater.State is AreUpdateState.Idle or AreUpdateState.Checking)
+        {
+            yield return null;
+        }
+
+        if (!AreUpdater.UpdateFound || menu == null || menu.newsButton == null)
+        {
+            yield break;
+        }
+
+        PassiveButton button;
+        try
+        {
+            button = menu.newsButton.CloneMenuItem("AreUpdateButton", ButtonAnchor, AreAssets.AreUpdateIcon.LoadAsset(),
+                "AreUpdaterButton", "Update");
+        }
+        catch (Exception e)
+        {
+            Warning($"ARE Updater: could not create the main menu button: {e.Message}");
+            yield break;
+        }
+
+        button.OnClick = new UnityEngine.UI.Button.ButtonClickedEvent();
+        button.OnClick.AddListener((Action)(() => ShowOrUpdate(GetText())));
     }
 
     private static IEnumerator CoShowUpdatePopup()

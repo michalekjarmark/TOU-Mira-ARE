@@ -63,4 +63,16 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> GamblerBetButton { get; } =
         new LoadableResourceAsset($"{CustomPath}.GamblerBetButton.png", typeof(TownOfUsPlugin).Assembly, 180f);
+
+    /// <summary>
+    ///     Auditor role icon (clipboard and magnifier). 128px. Drawn by tools/are-assets/draw-auditor-icons.ps1.
+    /// </summary>
+    public static LoadableAsset<Sprite> AuditorIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.AuditorIcon.png", typeof(TownOfUsPlugin).Assembly, 128f);
+
+    /// <summary>
+    ///     Auditor "Audit" ability button and meeting buttons. 100px like the Freeplay settings button.
+    /// </summary>
+    public static LoadableAsset<Sprite> AuditButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.AuditorButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 }

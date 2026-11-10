@@ -165,6 +165,9 @@ public enum TownOfUsRpc : uint
 
     // AmonRa Edition (always append at the end)
     GamblerPlaceBet,
+    AuditorNotifyTarget,
+    AuditorPublishReport,
+    AuditorSanction,
 }
 
 internal enum TownOfUsInternalRpc : uint

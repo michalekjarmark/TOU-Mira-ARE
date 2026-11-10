@@ -23,6 +23,15 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   - Lobby options: betting time and its limit, points needed to win (4 by default), wrong bet takes a point, how many "no ejection" bets can win, win ends the game (or the
     Gambler wins together with the winners at the end), can use the emergency button, warn others when close to
     winning (off / alert / alert and reveal) and at how many points left.
+- **Auditor** (new Crewmate Investigative role): secretly audits a nearby player for 25 seconds, even after walking
+  away. The report in the next meeting shows the tasks the target completed, the task stations where they stood without
+  finishing anything (typical for faking tasks, but also for the first step of a longer task) and one number of
+  irregularities: vents, kills and role abilities, crewmate abilities included. Verdict: verified, unverified,
+  irregularities or inconclusive. Auditing counts as an interaction, so a Veteran on alert kills the Auditor.
+  - Starts with one audit and gets another for every 3 completed tasks (up to 3 per game).
+  - Public audit: once per game, in a meeting, the Auditor can show the latest report to everyone, which reveals them.
+  - Optional: the target is told it is being audited, and the Auditor can once per game freeze the vote of a player
+    whose audit found irregularities (off by default).
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -41,6 +50,16 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   - Opcje w lobby: czas na zakład i jego limit, punkty potrzebne do wygranej (domyślnie 4), chybiony zakład zabiera punkt, ile zakładów „nikt nie wyleci” może wygrać,
     wygrana kończy grę (albo Hazardzista wygrywa razem ze zwycięzcami na końcu), może użyć przycisku spotkania,
     ostrzeganie innych przed wygraną (wyłączone / alert / alert i ujawnienie) i przy ilu brakujących punktach.
+- **Audytor** (Auditor, nowa rola Crewmate Investigative): potajemnie audytuje pobliskiego gracza przez 25 sekund,
+  nawet po odejściu. Raport na najbliższym spotkaniu pokazuje ukończone przez cel zadania, stanowiska, przy których stał
+  bez ukończenia czegokolwiek (typowe dla udawania zadań, ale też dla pierwszego etapu dłuższego zadania), i jedną
+  liczbę nieprawidłowości: wenty, zabójstwa i zdolności ról, także załogantów. Werdykt: zweryfikowany,
+  niezweryfikowany, nieprawidłowości albo nierozstrzygnięty. Audyt liczy się jako interakcja, więc Veteran na alercie
+  zabija Audytora.
+  - Na start jeden audyt, kolejny za każde 3 ukończone zadania (maks. 3 na grę).
+  - Audyt publiczny: raz na grę, na spotkaniu, Audytor może pokazać wszystkim ostatni raport, co go ujawnia.
+  - Opcjonalnie: cel wie, że jest audytowany, a Audytor może raz na grę zamrozić głos gracza, u którego audyt wykazał
+    nieprawidłowości (domyślnie wyłączone).
 
 </details>
 

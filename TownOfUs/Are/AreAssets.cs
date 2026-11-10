@@ -93,4 +93,10 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> RigSpark { get; } =
         new LoadableResourceAsset($"{CustomPath}.RigSpark.png", typeof(TownOfUsPlugin).Assembly, 160f);
+
+    /// <summary>
+    ///     Insider role icon (plug with a checkmark). 128px. Drawn by tools/are-assets/draw-insider-icon.ps1.
+    /// </summary>
+    public static LoadableAsset<Sprite> InsiderIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.InsiderIcon.png", typeof(TownOfUsPlugin).Assembly, 128f);
 }

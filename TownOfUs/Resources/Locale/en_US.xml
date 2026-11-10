@@ -4162,4 +4162,15 @@ Restart the game, the update will be tried again.</string>
   <string name="TouOptionRiggerJamDelay">Jam After</string>
   <string name="TouOptionRiggerJamLockout">Station Unusable After Jam</string>
   <string name="TouOptionRiggerSparksVisible">Rigged Stations Spark Up Close</string>
+  <!-- AmonRa Edition - Insider (Impostor Concealing) -->
+  <string name="TownOfUsMira.Role.Insider">Insider</string>
+  <string name="TownOfUsMira.Role.Insider.IntroBlurb">Do real tasks. Kill faster.</string>
+  <string name="TownOfUsMira.Role.Insider.TabDescription">Your tasks are real: each one lowers your kill cooldown by [reduction] s.</string>
+  <string name="TownOfUsMira.Role.Insider.WikiDescription">The Insider is an Impostor Concealing role that can really do the tasks from their list. Everyone can see them being done, including visual tasks and Auditor reports. Every completed task permanently lowers the Insider's kill cooldown a little, down to a minimum. By default their tasks also count as crew progress, so working for a faster kill also brings the crew closer to a task win.</string>
+  <string name="TownOfUsMira.Role.InsiderTaskHeader">Sabotage and kill everyone.
+Your tasks are real: each one lowers your kill cooldown by [reduction] s.</string>
+  <string name="TownOfUsMira.Role.InsiderTaskDone">Task done: kill cooldown is now [cooldown] s.</string>
+  <string name="TouOptionInsiderReductionPerTask">Kill Cooldown Reduction Per Task</string>
+  <string name="TouOptionInsiderMinKillCooldown">Minimum Kill Cooldown</string>
+  <string name="TouOptionInsiderTasksHelpCrew">Tasks Count As Crew Progress</string>
 </resources>

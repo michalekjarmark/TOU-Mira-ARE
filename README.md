@@ -69,6 +69,7 @@ Everything below is new in AmonRa Edition. For all roles and modifiers of Town o
 | <img src="TownOfUs/Resources/Custom/GamblerIcon.png" width="48"/> | **Gambler** | Role (Neutral Evil) | In every meeting, before the votes are revealed, secretly bets on who gets ejected (or that no one is). Correct bets give a point, wrong ones take one away. Collecting enough points while alive wins the game. Optionally everyone is warned (or the Gambler is revealed) when they are close to winning. |
 | <img src="TownOfUs/Resources/Custom/AuditorIcon.png" width="48"/> | **Auditor** | Role (Crewmate Investigative) | Secretly audits a nearby player for a while: the report in the next meeting shows tasks completed, task stations where they stood without progress and a single count of irregularities (vents, kills, role abilities, crewmate abilities included). Gets more audits by doing tasks. Once per game can publish a report to everyone, revealing themselves. Optionally the target is told it is audited, and the Auditor can freeze one vote. |
 | <img src="TownOfUs/Resources/Custom/RiggerIcon.png" width="48"/> | **Rigger** | Role (Impostor Support) | Rigs real task stations (up to 2 at once). When a crewmate opens a rigged task, the impostors get an alert and an arrow to the station, and the task jams and closes after a moment. Rigged stations spark up close, so careful crewmates can notice them. Rigs are cleared at every meeting. |
+| <img src="TownOfUs/Resources/Custom/InsiderIcon.png" width="48"/> | **Insider** | Role (Impostor Concealing) | An impostor who can really do the tasks from their list, so everyone (and the Auditor) sees real work. Every completed task permanently lowers their kill cooldown a little (1 s by default, down to a minimum). By default their tasks also count as crew progress, so a faster kill also brings the crew closer to a task win. |
 
 Also: a "Settings" button in Freeplay (change the lobby settings without leaving practice), automatic updates,
 a full installation package and our own logo on the startup screen.
@@ -127,7 +128,8 @@ More about the mod: [Town of Us: Mira wiki](https://au-avengers.github.io/docs.t
 
 Click an icon to open its page on the Town of Us: Mira wiki. Our additions link to
 [their description](#amonra-edition-additions) instead: **AmonRa** (wheelchair, universal modifiers), **Gambler** (chip,
-Neutral Evil), **Auditor** (clipboard, Crewmate Investigative) and **Rigger** (wrench, Impostor Support).
+Neutral Evil), **Auditor** (clipboard, Crewmate Investigative), **Rigger** (wrench, Impostor Support) and **Insider** (plug,
+Impostor Concealing).
 
 
 <p align="center">
@@ -179,6 +181,7 @@ Neutral Evil), **Auditor** (clipboard, Crewmate Investigative) and **Rigger** (w
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Eclipsal"><img width="10%" src="Images/Icons/Eclipsal.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Escapist"><img width="10%" src="Images/Icons/Escapist.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Grenadier"><img width="10%" src="Images/Icons/Grenadier.png" /></a>
+  <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/InsiderIcon.png" alt="Insider (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Morphling"><img width="10%" src="Images/Icons/Morphling.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Swooper"><img width="10%" src="Images/Icons/Swooper.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Venerer"><img width="10%" src="Images/Icons/Venerer.png" /></a>

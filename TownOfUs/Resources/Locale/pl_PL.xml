@@ -1460,4 +1460,15 @@ Uruchom grę ponownie, aktualizacja spróbuje jeszcze raz.</string>
   <string name="TouOptionRiggerJamDelay">Zacięcie po</string>
   <string name="TouOptionRiggerJamLockout">Stanowisko nieczynne po zacięciu</string>
   <string name="TouOptionRiggerSparksVisible">Przerobione stanowiska iskrzą z bliska</string>
+  <!-- AmonRa Edition - Insider (Impostor Concealing) -->
+  <string name="TownOfUsMira.Role.Insider">Wtyczka</string>
+  <string name="TownOfUsMira.Role.Insider.IntroBlurb">Rób prawdziwe zadania. Zabijaj szybciej.</string>
+  <string name="TownOfUsMira.Role.Insider.TabDescription">Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.</string>
+  <string name="TownOfUsMira.Role.Insider.WikiDescription">Wtyczka to rola Impostor Concealing, która naprawdę może robić zadania ze swojej listy. Wszyscy widzą, że są wykonywane, łącznie z zadaniami wizualnymi i raportami Audytora. Każde ukończone zadanie na stałe trochę skraca cooldown zabójstwa Wtyczki, aż do minimum. Domyślnie jej zadania liczą się też do postępu załogi, więc praca na szybsze zabójstwo przybliża też załogę do wygranej na zadania.</string>
+  <string name="TownOfUsMira.Role.InsiderTaskHeader">Sabotuj i zabijaj wszystkich.
+Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.</string>
+  <string name="TownOfUsMira.Role.InsiderTaskDone">Zadanie wykonane: cooldown zabójstwa wynosi teraz [cooldown] s.</string>
+  <string name="TouOptionInsiderReductionPerTask">Skrócenie cooldownu za zadanie</string>
+  <string name="TouOptionInsiderMinKillCooldown">Minimalny cooldown zabójstwa</string>
+  <string name="TouOptionInsiderTasksHelpCrew">Zadania liczą się do postępu załogi</string>
 </resources>

@@ -57,7 +57,7 @@ if (-not $NotesFile) {
         Fail "CHANGELOG.md has no section '## [$version] - <date>'. Rename [Unreleased] to it (and add a new empty [Unreleased])."
     }
     $NotesFile = Join-Path $env:TEMP "are-release-notes-$tag.md"
-    $notes = $match.Groups[1].Value.Trim() + "`n`nInstalacja: pobierz plik ``TOU-Mira-ARE-$tag-x64-Steam-Epic.zip`` i postępuj zgodnie z ``INSTALACJA.txt``. Kto ma już AmonRa Edition, dostanie tę wersję automatycznie."
+    $notes = $match.Groups[1].Value.Trim() + "`n`n---`n`n**New installation:** download ``TOU-Mira-ARE-$tag-x64-Steam-Epic.zip`` and follow ``INSTALACJA.txt`` / the [README](https://github.com/$Repo#installation). Existing installations update automatically.`n`n**Nowa instalacja:** pobierz ``TOU-Mira-ARE-$tag-x64-Steam-Epic.zip`` i postępuj zgodnie z ``INSTALACJA.txt``. Kto ma już AmonRa Edition, dostanie tę wersję automatycznie."
     [System.IO.File]::WriteAllText($NotesFile, $notes, (New-Object System.Text.UTF8Encoding $false))
     Write-Host "Release notes taken from CHANGELOG.md" -ForegroundColor Cyan
 }

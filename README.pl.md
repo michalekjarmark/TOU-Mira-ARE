@@ -76,7 +76,7 @@ Oprócz tego: automatyczne aktualizacje, pełna paczka instalacyjna i własne lo
 
 | Among Us | AmonRa Edition | Bazuje na Town of Us: Mira | Pobierz |
 |:--|:--|:--|:--|
-| 2026.9.29 | 1.7.9-are.1 (w przygotowaniu) | 1.7.9 (`dev`) | wkrótce |
+| 2026.9.29 | 1.7.9-are.1 | 1.7.9 (`dev`) | [Pobierz](https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.1) |
 
 # Problemy
 

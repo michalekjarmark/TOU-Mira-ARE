@@ -14,10 +14,14 @@
 
 .PARAMETER DryRun
     Builds and prepares the files, but does not tag, push or publish anything.
+
+.PARAMETER Yes
+    Publishes without asking for confirmation (for non-interactive runs, e.g. from Claude Code).
 #>
 param(
     [string]$NotesFile = "",
-    [switch]$DryRun
+    [switch]$DryRun,
+    [switch]$Yes
 )
 
 $ErrorActionPreference = "Stop"
@@ -133,8 +137,10 @@ Get-ChildItem $stage -File | ForEach-Object { "{0,-50} {1,14:N0} B" -f $_.Name, 
 
 if ($DryRun) { Write-Host "Dry run - nothing was published." -ForegroundColor Yellow; exit 0 }
 
-$answer = Read-Host "Publish $tag to github.com/$Repo ? (y/n)"
-if ($answer -ne "y") { Write-Host "Aborted."; exit 0 }
+if (-not $Yes) {
+    $answer = Read-Host "Publish $tag to github.com/$Repo ? (y/n)"
+    if ($answer -ne "y") { Write-Host "Aborted."; exit 0 }
+}
 
 # --- Publish ---------------------------------------------------------------
 git tag -a $tag -m "Town of Us: Mira - AmonRa Edition $version"

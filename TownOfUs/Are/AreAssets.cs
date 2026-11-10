@@ -10,6 +10,14 @@ public static class AreAssets
 {
     private const string CustomPath = "TownOfUs.Resources.Custom";
 
+    /// <summary>
+    ///     AmonRa Edition logo shown on the startup splash under the Innersloth and AU Avengers logos.
+    ///     1600x800, transparent, same pixels-per-unit as the AU Avengers logo. Currently a placeholder
+    ///     (tools/are-assets/draw-logo-placeholder.ps1) - just replace the PNG with the real logo.
+    /// </summary>
+    public static LoadableAsset<Sprite> AreLogo { get; } =
+        new LoadableResourceAsset($"{CustomPath}.AreLogo.png", typeof(TownOfUsPlugin).Assembly, 200f);
+
     public static LoadableAsset<Sprite> AmonRaIcon { get; } =
         new LoadableResourceAsset($"{CustomPath}.AmonRaIcon.png", typeof(TownOfUsPlugin).Assembly, 128f);
 

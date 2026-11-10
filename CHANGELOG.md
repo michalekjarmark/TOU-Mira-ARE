@@ -37,6 +37,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   progress is lost, the station just doesn't work for a few seconds). Rigged stations spark up close, so careful
   crewmates can notice them. Rigs are cleared at every meeting. Everything is configurable (cooldown, number of rigs,
   who gets the alert, jam and its timing, sparks).
+  - Optional lethal traps (off by default): the crewmate who opens a rigged task dies after the jam delay, while the
+    Rigger is alive, up to a number of trap kills per game. Shields protect as usual.
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -70,6 +72,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   chwili (postęp zadań nie przepada, stanowisko po prostu przez kilka sekund nie działa). Przerobione stanowiska iskrzą
   z bliska, więc uważni załoganci mogą je zauważyć. Przeróbki znikają na każdym spotkaniu. Wszystko jest
   konfigurowalne (cooldown, liczba przeróbek, kto dostaje alarm, zacięcie i jego czasy, iskry).
+  - Opcjonalnie zabójcze pułapki (domyślnie wyłączone): załogant, który otworzy przerobione zadanie, ginie po czasie
+    zacięcia, jeśli Monter żyje, do limitu zabójstw z pułapek na grę. Tarcze chronią jak zwykle.
 
 </details>
 

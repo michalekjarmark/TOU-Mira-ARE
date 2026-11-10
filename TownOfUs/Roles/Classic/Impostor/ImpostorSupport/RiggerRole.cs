@@ -1,10 +1,12 @@
 using AmongUs.GameOptions;
 using Il2CppInterop.Runtime.Attributes;
 using MiraAPI.GameOptions;
+using MiraAPI.Networking;
 using MiraAPI.Roles;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
 using TownOfUs.Are;
+using TownOfUs.Networking;
 using TownOfUs.Options.Roles.Impostor;
 using TownOfUs.Roles.Crewmate;
 using UnityEngine;
@@ -50,6 +52,30 @@ public sealed class RiggerRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsR
     {
         return MiraLocaleManager.Get($"TownOfUsMira.Role.{IdPart}.WikiDescription") +
                MiscUtils.AppendOptionsText(GetType());
+    }
+
+    /// <summary>Lethal traps used so far (Rigger's client), limited by MaxTrapKills.</summary>
+    public int TrapKills { get; set; }
+
+    /// <summary>
+    ///     Kills the crewmate who opened a rigged task, after the jam delay. Indirect like the Bootlegger's poison: no
+    ///     teleport, the Rigger's kill cooldown isn't reset, shields still protect, a Veteran on alert doesn't strike back.
+    /// </summary>
+    [HideFromIl2Cpp]
+    private static System.Collections.IEnumerator CoTrapKill(PlayerControl rigger, PlayerControl victim, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (MeetingHud.Instance || ExileController.Instance || rigger == null || rigger.HasDied() ||
+            rigger.Data.Role is not RiggerRole || victim == null || victim.HasDied())
+        {
+            yield break;
+        }
+
+        rigger.RpcSpecialMurder(victim, MeetingCheck.OutsideMeeting, isIndirect: true, resetKillTimer: false,
+            teleportMurderer: false, causeOfDeath: "RiggerTrap");
+        RiggerSystem.Notify(MiraLocaleManager.Get("TownOfUsMira.Role.RiggerTrapKilled")
+            .Replace("<player>", victim.Data.PlayerName));
     }
 
     [MethodRpc((uint)TownOfUsRpc.RiggerRig)]
@@ -99,6 +125,14 @@ public sealed class RiggerRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsR
         }
 
         var opts = OptionGroupSingleton<RiggerOptions>.Instance;
+
+        // Lethal trap: the Rigger's own client does the kill, like any other kill of theirs.
+        if (local.PlayerId == riggerId && local.Data.Role is RiggerRole rigger && opts.TrapsKill &&
+            rigger.TrapKills < (int)opts.MaxTrapKills.Value && user != null && !user.HasDied())
+        {
+            rigger.TrapKills++;
+            Coroutines.Start(CoTrapKill(local, user, opts.JamDelay.Value));
+        }
         if (!opts.AlertAllImpostors && local.PlayerId != riggerId)
         {
             return;

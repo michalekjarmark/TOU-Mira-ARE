@@ -1460,6 +1460,10 @@ Uruchom grę ponownie, aktualizacja spróbuje jeszcze raz.</string>
   <string name="TouOptionRiggerJamDelay">Zacięcie po</string>
   <string name="TouOptionRiggerJamLockout">Stanowisko nieczynne po zacięciu</string>
   <string name="TouOptionRiggerSparksVisible">Przerobione stanowiska iskrzą z bliska</string>
+  <string name="TouOptionRiggerTrapsKill">Przerobione zadania zabijają</string>
+  <string name="TouOptionRiggerMaxTrapKills">Maks. zabójstw z pułapek na grę</string>
+  <string name="TownOfUsMira.Role.RiggerTrapKilled">Twoja pułapka zabiła: [player]!</string>
+  <string name="DiedToRiggerTrap">Wpadł w pułapkę</string>
   <!-- AmonRa Edition - Insider (Impostor Concealing) -->
   <string name="TownOfUsMira.Role.Insider">Wtyczka</string>
   <string name="TownOfUsMira.Role.Insider.IntroBlurb">Rób prawdziwe zadania. Zabijaj szybciej.</string>

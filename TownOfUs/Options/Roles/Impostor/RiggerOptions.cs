@@ -28,10 +28,12 @@ public sealed class RiggerOptions : AbstractRoleOptionGroup<RiggerRole>
     [ModdedToggleOption("TouOptionRiggerJamConsole")]
     public bool JamConsole { get; set; } = true;
 
+    // Also the delay of a lethal trap.
     public ModdedNumberOption JamDelay { get; set; } =
         new("TouOptionRiggerJamDelay", 1.5f, 0.5f, 5f, 0.5f, MiraNumberSuffixes.Seconds, "0.0")
         {
-            Visible = () => OptionGroupSingleton<RiggerOptions>.Instance.JamConsole
+            Visible = () => OptionGroupSingleton<RiggerOptions>.Instance.JamConsole ||
+                            OptionGroupSingleton<RiggerOptions>.Instance.TrapsKill
         };
 
     public ModdedNumberOption JamLockout { get; set; } =
@@ -42,4 +44,14 @@ public sealed class RiggerOptions : AbstractRoleOptionGroup<RiggerRole>
 
     [ModdedToggleOption("TouOptionRiggerSparksVisible")]
     public bool SparksVisible { get; set; } = true;
+
+    // Idea of the owner's friend: the rigged task kills the crewmate who opened it (while the Rigger is alive).
+    [ModdedToggleOption("TouOptionRiggerTrapsKill")]
+    public bool TrapsKill { get; set; } = false;
+
+    public ModdedNumberOption MaxTrapKills { get; set; } =
+        new("TouOptionRiggerMaxTrapKills", 1f, 1f, 5f, 1f, MiraNumberSuffixes.None, "0")
+        {
+            Visible = () => OptionGroupSingleton<RiggerOptions>.Instance.TrapsKill
+        };
 }

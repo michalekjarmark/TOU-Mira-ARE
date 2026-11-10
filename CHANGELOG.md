@@ -37,6 +37,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   progress is lost, the station just doesn't work for a few seconds). Rigged stations spark up close, so careful
   crewmates can notice them. Rigs are cleared at every meeting. Everything is configurable (cooldown, number of rigs,
   who gets the alert, jam and its timing, sparks).
+  - Optional lethal traps (off by default): the crewmate who opens a rigged task dies after the jam delay, while the
+    Rigger is alive, up to a number of trap kills per game. Shields protect as usual.
 - **Insider** (new Impostor Concealing role): an impostor who can really do the tasks from their list. Everyone sees
   them being done (visual tasks too, and the Auditor reports them as verified). Every completed task permanently lowers
   the Insider's kill cooldown a little (1 s by default, down to a minimum of 10 s). By default their tasks also count
@@ -75,6 +77,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   chwili (postęp zadań nie przepada, stanowisko po prostu przez kilka sekund nie działa). Przerobione stanowiska iskrzą
   z bliska, więc uważni załoganci mogą je zauważyć. Przeróbki znikają na każdym spotkaniu. Wszystko jest
   konfigurowalne (cooldown, liczba przeróbek, kto dostaje alarm, zacięcie i jego czasy, iskry).
+  - Opcjonalnie zabójcze pułapki (domyślnie wyłączone): załogant, który otworzy przerobione zadanie, ginie po czasie
+    zacięcia, jeśli Monter żyje, do limitu zabójstw z pułapek na grę. Tarcze chronią jak zwykle.
 - **Wtyczka** (Insider, nowa rola Impostor Concealing): Impostor, który naprawdę może robić zadania ze swojej listy.
   Wszyscy widzą, że są wykonywane (także zadania wizualne, a Audytor raportuje go jako zweryfikowanego). Każde ukończone
   zadanie na stałe trochę skraca cooldown zabójstwa Wtyczki (domyślnie o 1 s, do minimum 10 s). Domyślnie jej zadania

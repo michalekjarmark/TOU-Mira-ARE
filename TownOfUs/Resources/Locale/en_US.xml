@@ -4162,6 +4162,10 @@ Restart the game, the update will be tried again.</string>
   <string name="TouOptionRiggerJamDelay">Jam After</string>
   <string name="TouOptionRiggerJamLockout">Station Unusable After Jam</string>
   <string name="TouOptionRiggerSparksVisible">Rigged Stations Spark Up Close</string>
+  <string name="TouOptionRiggerTrapsKill">Rigged Tasks Kill</string>
+  <string name="TouOptionRiggerMaxTrapKills">Max Trap Kills Per Game</string>
+  <string name="TownOfUsMira.Role.RiggerTrapKilled">Your trap killed [player]!</string>
+  <string name="DiedToRiggerTrap">Trapped</string>
   <!-- AmonRa Edition - Insider (Impostor Concealing) -->
   <string name="TownOfUsMira.Role.Insider">Insider</string>
   <string name="TownOfUsMira.Role.Insider.IntroBlurb">Do real tasks. Kill faster.</string>

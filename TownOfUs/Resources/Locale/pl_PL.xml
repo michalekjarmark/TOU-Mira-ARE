@@ -1375,9 +1375,9 @@ Uruchom grę ponownie, aktualizacja spróbuje jeszcze raz.</string>
   <string name="TownOfUsMira.Role.Gambler">Hazardzista</string>
   <string name="TownOfUsMira.Role.Gambler.IntroBlurb">Obstawiaj, kto zostanie wyrzucony!</string>
   <string name="TownOfUsMira.Role.Gambler.TabDescription">Obstawiaj wynik każdego spotkania. Zdobądź [points] pkt, aby wygrać.</string>
-  <string name="TownOfUsMira.Role.Gambler.WikiDescription">Hazardzista to rola Neutral Evil, która wygrywa, przewidując wyniki spotkań. Na każdym spotkaniu, w czasie na zakład (domyślnie pierwsze sekundy spotkania, żeby nie mógł po prostu poczekać, aż wszyscy się dogadają), może obstawić gracza, który zostanie wyrzucony, albo że nikt nie zostanie wyrzucony (skip lub remis). Trafny zakład daje punkt, a chybiony może go odebrać (nigdy poniżej zera). Zakład, że nikt nie wyleci, może wygrać tylko ograniczoną liczbę razy na grę, bo pierwsze spotkania często kończą się skipem. Jeśli obstawiony gracz zginie w trakcie spotkania, zakład przepada bez straty. Hazardzista wygrywa po zebraniu [points] pkt, jeśli żyje. Zakłady są tajne i nie można ich zmienić.</string>
+  <string name="TownOfUsMira.Role.Gambler.WikiDescription">Hazardzista to rola Neutral Evil, która wygrywa, przewidując wyniki spotkań. Na każdym spotkaniu, w czasie na zakład (domyślnie pierwsze sekundy głosowania, żeby nie mógł po prostu poczekać, aż wszyscy się dogadają), może obstawić gracza, który zostanie wyrzucony, albo że nikt nie zostanie wyrzucony (skip lub remis). Trafny zakład daje punkt, a chybiony może go odebrać (nigdy poniżej zera). Zakład, że nikt nie wyleci, może wygrać tylko ograniczoną liczbę razy na grę, bo pierwsze spotkania często kończą się skipem. Jeśli obstawiony gracz zginie w trakcie spotkania, zakład przepada bez straty. Hazardzista wygrywa po zebraniu [points] pkt, jeśli żyje. Zakłady są tajne i nie można ich zmienić.</string>
   <string name="TownOfUsMira.Role.GamblerBet">Zakład</string>
-  <string name="TownOfUsMira.Role.GamblerBet.WikiDescription">Na spotkaniu kliknij żeton obok gracza albo obok Skip Vote, żeby obstawić, że nikt nie zostanie wyrzucony (tylko dopóki takie zakłady nie osiągnęły limitu na grę). Jeden zakład na spotkanie, tylko w czasie odliczanym pod żetonami i bez możliwości zmiany. Wynik zobaczysz po wyrzuceniu.</string>
+  <string name="TownOfUsMira.Role.GamblerBet.WikiDescription">W czasie głosowania kliknij gracza (albo Skip Vote, żeby obstawić, że nikt nie wyleci, dopóki takie zakłady nie osiągnęły limitu na grę) i wybierz żeton obok „Potwierdź”. Jeden zakład na spotkanie, tylko w czasie na zakład i przed oddaniem własnego głosu, bez możliwości zmiany.</string>
   <string name="TownOfUsMira.Role.GamblerBetPlaced">Obstawiasz, że [player] zostanie wyrzucony/a.</string>
   <string name="TownOfUsMira.Role.GamblerBetPlacedNoEjection">Obstawiasz, że nikt nie zostanie wyrzucony.</string>
   <string name="TownOfUsMira.Role.GamblerBetWon">Wygrany zakład! Punkty: [points]/[goal]</string>
@@ -1399,10 +1399,12 @@ Uruchom grę ponownie, aktualizacja spróbuje jeszcze raz.</string>
   <string name="TownOfUsMira.Role.GamblerWarnedSelf">Wszyscy wiedzą już, że Hazardzista jest blisko wygranej.</string>
   <string name="TownOfUsMira.Role.GamblerWarnedSelfReveal">Wszyscy wiedzą już, że to Ty jesteś Hazardzistą!</string>
   <string name="TownOfUsMira.Role.GamblerBettingClosed">Zakłady na tym spotkaniu są już zamknięte.</string>
+  <string name="TownOfUsMira.Role.GamblerBettingOpen">Obstaw przed głosowaniem: kliknij gracza (albo Skip Vote) i wybierz żeton obok „Potwierdź”. [window]</string>
+  <string name="TownOfUsMira.Role.GamblerWindowTimer">Masz [seconds] s.</string>
+  <string name="TownOfUsMira.Role.GamblerWindowWholeMeeting">Zakłady zamykają się, gdy głosy zostaną ujawnione.</string>
   <string name="TouOptionGamblerBetWindow">Czas na zakład</string>
   <string name="TouOptionGamblerBetWindowEnumTimer">Limit czasu</string>
-  <string name="TouOptionGamblerBetWindowEnumDiscussion">Do początku głosowania</string>
-  <string name="TouOptionGamblerBetWindowEnumWholeMeeting">Całe spotkanie</string>
+  <string name="TouOptionGamblerBetWindowEnumWholeMeeting">Całe głosowanie</string>
   <string name="TouOptionGamblerBetTime">Limit czasu na zakład</string>
   <!-- AmonRa Edition - Auditor (Crewmate Investigative) -->
   <string name="TownOfUsMira.Role.Auditor">Audytor</string>

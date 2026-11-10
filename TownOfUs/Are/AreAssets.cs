@@ -89,10 +89,10 @@ public static class AreAssets
         new LoadableResourceAsset($"{CustomPath}.RiggerButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 
     /// <summary>
-    ///     Flickering spark over a rigged task console. 64px, about 0.4 units.
+    ///     Spark over a rigged task console. 64px, about 0.25 units (small on purpose, round 5 feedback).
     /// </summary>
     public static LoadableAsset<Sprite> RigSpark { get; } =
-        new LoadableResourceAsset($"{CustomPath}.RigSpark.png", typeof(TownOfUsPlugin).Assembly, 160f);
+        new LoadableResourceAsset($"{CustomPath}.RigSpark.png", typeof(TownOfUsPlugin).Assembly, 256f);
 
     /// <summary>
     ///     Insider role icon (plug with a checkmark). 128px. Drawn by tools/are-assets/draw-insider-icon.ps1.

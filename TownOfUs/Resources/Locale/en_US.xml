@@ -4077,9 +4077,9 @@ Restart the game, the update will be tried again.</string>
   <string name="TownOfUsMira.Role.Gambler">Gambler</string>
   <string name="TownOfUsMira.Role.Gambler.IntroBlurb">Bet on who gets ejected!</string>
   <string name="TownOfUsMira.Role.Gambler.TabDescription">Bet on the outcome of every meeting. Win [points] points to win the game.</string>
-  <string name="TownOfUsMira.Role.Gambler.WikiDescription">The Gambler is a Neutral Evil role that wins by predicting meetings. In every meeting, within the betting time (by default the first seconds of the meeting, so they can't just wait until everyone agreed), they can bet on the player who will be ejected, or that no one will be ejected (skip or tie). A correct bet gives a point, a wrong one can take a point away (never below zero). Bets that no one is ejected can only win a limited number of times per game, because early meetings often end with a skip. If the bet player dies during the meeting, the bet is cancelled. The Gambler wins after collecting [points] points while alive. Bets are secret and cannot be changed.</string>
+  <string name="TownOfUsMira.Role.Gambler.WikiDescription">The Gambler is a Neutral Evil role that wins by predicting meetings. In every meeting, within the betting time (by default the first seconds of the voting, so they can't just wait until everyone agreed), they can bet on the player who will be ejected, or that no one will be ejected (skip or tie). A correct bet gives a point, a wrong one can take a point away (never below zero). Bets that no one is ejected can only win a limited number of times per game, because early meetings often end with a skip. If the bet player dies during the meeting, the bet is cancelled. The Gambler wins after collecting [points] points while alive. Bets are secret and cannot be changed.</string>
   <string name="TownOfUsMira.Role.GamblerBet">Bet</string>
-  <string name="TownOfUsMira.Role.GamblerBet.WikiDescription">During a meeting, click the chip next to a player, or next to Skip Vote to bet that no one is ejected (only until such bets reached their limit for the game). One bet per meeting, only within the betting time shown under the chips, and it cannot be changed. The result is shown after the ejection.</string>
+  <string name="TownOfUsMira.Role.GamblerBet.WikiDescription">During the voting, click a player (or Skip Vote to bet that no one is ejected, until such bets reached their limit for the game) and pick the chip next to Confirm. One bet per meeting, only within the betting time and before casting your own vote, and it cannot be changed.</string>
   <string name="TownOfUsMira.Role.GamblerBetPlaced">You bet that [player] gets ejected.</string>
   <string name="TownOfUsMira.Role.GamblerBetPlacedNoEjection">You bet that no one gets ejected.</string>
   <string name="TownOfUsMira.Role.GamblerBetWon">Bet won! Points: [points]/[goal]</string>
@@ -4101,10 +4101,12 @@ Restart the game, the update will be tried again.</string>
   <string name="TownOfUsMira.Role.GamblerWarnedSelf">Everyone now knows that a Gambler is close to winning.</string>
   <string name="TownOfUsMira.Role.GamblerWarnedSelfReveal">Everyone now knows that you are the Gambler!</string>
   <string name="TownOfUsMira.Role.GamblerBettingClosed">Betting is closed for this meeting.</string>
+  <string name="TownOfUsMira.Role.GamblerBettingOpen">Bet before you vote: click a player (or Skip Vote) and pick the chip next to Confirm. [window]</string>
+  <string name="TownOfUsMira.Role.GamblerWindowTimer">You have [seconds] s.</string>
+  <string name="TownOfUsMira.Role.GamblerWindowWholeMeeting">Betting closes when the votes are revealed.</string>
   <string name="TouOptionGamblerBetWindow">Betting Time</string>
   <string name="TouOptionGamblerBetWindowEnumTimer">Time Limit</string>
-  <string name="TouOptionGamblerBetWindowEnumDiscussion">Until Voting Starts</string>
-  <string name="TouOptionGamblerBetWindowEnumWholeMeeting">Whole Meeting</string>
+  <string name="TouOptionGamblerBetWindowEnumWholeMeeting">Whole Voting</string>
   <string name="TouOptionGamblerBetTime">Betting Time Limit</string>
   <!-- AmonRa Edition - Auditor (Crewmate Investigative) -->
   <string name="TownOfUsMira.Role.Auditor">Auditor</string>

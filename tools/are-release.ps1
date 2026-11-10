@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Publishes a new Town of Us: Mira - AmonRa Edition release on GitHub.
     Friends' games download it automatically on the next start (TownOfUs/Are/AreUpdater.cs).

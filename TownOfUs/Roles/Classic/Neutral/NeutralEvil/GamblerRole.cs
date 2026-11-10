@@ -28,9 +28,9 @@ public sealed class GamblerRole(IntPtr cppPtr)
     : NeutralRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable, ICrewVariant, IProgressTally
 {
     public const byte NoBet = byte.MaxValue;
-    public const byte NoEjectionBet = GamblerBetMenu.SkipId;
 
-    private GamblerBetMenu? _betMenu;
+    /// <summary>Player id of <see cref="MeetingHud.SkipVoteButton" /> (vanilla skipped vote, set in MeetingHudGetVotesPatch).</summary>
+    public const byte NoEjectionBet = 253;
 
     public int Points { get; set; }
 
@@ -152,8 +152,7 @@ public sealed class GamblerRole(IntPtr cppPtr)
         RoleBehaviourStubs.Deinitialize(this, targetPlayer);
         TouRoleUtils.ClearTaskHeader(Player);
 
-        _betMenu?.Hide();
-        _betMenu = null;
+        _bettingOpen = false;
 
         // A Gambler who already won (game continues) must not turn into a ghost role.
         if (ReachedGoal && !Player.HasModifier<BasicGhostModifier>())
@@ -177,6 +176,7 @@ public sealed class GamblerRole(IntPtr cppPtr)
     {
         RoleBehaviourStubs.OnMeetingStart(this);
         CurrentBet = NoBet;
+        _bettingOpen = false;
 
         if (!Player.AmOwner)
         {
@@ -189,8 +189,6 @@ public sealed class GamblerRole(IntPtr cppPtr)
             return;
         }
 
-        _betMenu ??= new GamblerBetMenu(PlaceBet);
-        _betMenu.Show(meeting, CanBetOn, CanBetOnNoEjection);
         _bettingOpen = true;
         Coroutines.Start(CoBetWindow(meeting));
     }
@@ -199,54 +197,82 @@ public sealed class GamblerRole(IntPtr cppPtr)
     private bool _bettingOpen;
 
     /// <summary>
-    ///     Counts down the betting window under the chips and removes them when it ends.
+    ///     Local check for <see cref="MeetingAbilities.Are.GamblerBetMeetingButton" />: the "Bet" button shows up in a
+    ///     player's (or Skip Vote's) vote popup only while this is true.
+    /// </summary>
+    public bool CanBetNow =>
+        _bettingOpen && CurrentBet == NoBet && !ReachedGoal && !Player.HasDied() && MeetingHud.Instance != null &&
+        IsBettingOpen(MeetingHud.Instance);
+
+    public bool CanBetOn(PlayerVoteArea area)
+    {
+        if (area == null)
+        {
+            return false;
+        }
+
+        if (area.PlayerId == NoEjectionBet)
+        {
+            return CanBetOnNoEjection;
+        }
+
+        if (area.PlayerId == Player.PlayerId || area.AmDead)
+        {
+            return false;
+        }
+
+        var data = GameData.Instance.GetPlayerById(area.PlayerId);
+        return data != null && !data.Disconnected && !data.IsDead;
+    }
+
+    private static string BetWindowText()
+    {
+        var opts = OptionGroupSingleton<GamblerOptions>.Instance;
+        return opts.BetWindow is GamblerBetWindow.Timer
+            ? MiraLocaleManager.Get("TownOfUsMira.Role.GamblerWindowTimer").Replace("<seconds>", $"{opts.BetTime.Value:0}")
+            : MiraLocaleManager.Get("TownOfUsMira.Role.GamblerWindowWholeMeeting");
+    }
+
+    /// <summary>
+    ///     The vote popups only open once the voting starts, so the betting window starts there too: tell the Gambler how
+    ///     to bet, then close it after BetTime seconds (time limit mode).
     /// </summary>
     [HideFromIl2Cpp]
     private IEnumerator CoBetWindow(MeetingHud meeting)
     {
-        // The meeting intro animation doesn't count.
-        while (meeting && meeting.state is MeetingHud.MeetingStates.Animating)
+        while (meeting && _bettingOpen && meeting.state is MeetingHud.MeetingStates.Animating
+                   or MeetingHud.MeetingStates.Discussion)
         {
             yield return null;
         }
 
-        var opts = OptionGroupSingleton<GamblerOptions>.Instance;
-        var mode = opts.BetWindow;
-        var discussionTime = GameOptionsManager.Instance.CurrentGameOptions.GetInt(Int32OptionNames.DiscussionTime);
-        if (mode is GamblerBetWindow.Discussion && discussionTime <= 0)
-        {
-            mode = GamblerBetWindow.Timer;
-        }
-
-        var deadline = Time.time + opts.BetTime.Value;
-        while (meeting && _bettingOpen && CurrentBet == NoBet && IsBettingOpen(meeting))
-        {
-            float? left = mode switch
-            {
-                GamblerBetWindow.Timer => deadline - Time.time,
-                GamblerBetWindow.Discussion => meeting.state is MeetingHud.MeetingStates.Discussion
-                    ? discussionTime - meeting.discussionTimer
-                    : 0f,
-                _ => null
-            };
-
-            if (left is <= 0f)
-            {
-                break;
-            }
-
-            _betMenu?.SetLabel(left is { } seconds ? $"{Mathf.CeilToInt(seconds)}s" : string.Empty);
-            yield return null;
-        }
-
-        _betMenu?.SetLabel(string.Empty);
-        if (!meeting || CurrentBet != NoBet || !_bettingOpen)
+        if (!meeting || !_bettingOpen || !IsBettingOpen(meeting))
         {
             yield break;
         }
 
+        var opts = OptionGroupSingleton<GamblerOptions>.Instance;
+        Message($"Gambler: betting open (meeting state {meeting.state}, window {opts.BetWindow})");
+        Notify(MiraLocaleManager.Get("TownOfUsMira.Role.GamblerBettingOpen").Replace("<window>", BetWindowText()));
+
+        if (opts.BetWindow is not GamblerBetWindow.Timer)
+        {
+            yield break;
+        }
+
+        var deadline = Time.time + opts.BetTime.Value;
+        while (meeting && _bettingOpen && CurrentBet == NoBet && IsBettingOpen(meeting) && Time.time < deadline)
+        {
+            yield return null;
+        }
+
+        if (!meeting || !_bettingOpen || CurrentBet != NoBet)
+        {
+            yield break;
+        }
+
+        Message($"Gambler: betting window over, meeting state {meeting.state}");
         _bettingOpen = false;
-        _betMenu?.Hide();
         if (IsBettingOpen(meeting))
         {
             Notify(MiraLocaleManager.Get("TownOfUsMira.Role.GamblerBettingClosed"));
@@ -257,38 +283,25 @@ public sealed class GamblerRole(IntPtr cppPtr)
     {
         RoleBehaviourStubs.OnVotingComplete(this);
         _bettingOpen = false;
-        _betMenu?.Hide();
-    }
-
-    private bool CanBetOn(PlayerVoteArea area)
-    {
-        if (area.PlayerId == Player.PlayerId || area.AmDead)
-        {
-            return false;
-        }
-
-        var data = GameData.Instance.GetPlayerById(area.PlayerId);
-        return data != null && !data.Disconnected && !data.IsDead;
     }
 
     public static bool IsBettingOpen(MeetingHud meeting)
     {
-        return meeting.state is MeetingHud.MeetingStates.Discussion or MeetingHud.MeetingStates.NotVoted
-            or MeetingHud.MeetingStates.Voted;
+        return meeting.state is MeetingHud.MeetingStates.NotVoted or MeetingHud.MeetingStates.Voted;
     }
 
-    private void PlaceBet(byte targetId)
+    public void PlaceBet(byte targetId)
     {
         var meeting = MeetingHud.Instance;
-        if (meeting == null || !_bettingOpen || CurrentBet != NoBet || !IsBettingOpen(meeting) || Player.HasDied())
+        if (meeting == null || !CanBetNow)
         {
             return;
         }
 
+        Message($"Gambler: bet placed on {targetId} (meeting state {meeting.state})");
         _bettingOpen = false;
 
         RpcGamblerPlaceBet(Player, targetId);
-        _betMenu?.Lock(targetId);
 
         var text = targetId == NoEjectionBet
             ? MiraLocaleManager.Get("TownOfUsMira.Role.GamblerBetPlacedNoEjection")

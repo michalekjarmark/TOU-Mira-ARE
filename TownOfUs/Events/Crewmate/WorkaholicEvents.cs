@@ -2,6 +2,7 @@ using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Events.Vanilla.Player;
 using TownOfUs.Are;
+using TownOfUs.Events.TouEvents;
 
 namespace TownOfUs.Events.Crewmate;
 
@@ -22,6 +23,17 @@ public static class WorkaholicEvents
     public static void IntroEndEventHandler(IntroEndEvent @event)
     {
         WorkaholicSystem.RecordInitialSteps();
+        WorkaholicSystem.LogTasks(PlayerControl.LocalPlayer, "game start");
+    }
+
+    // Diagnostics (round 11): a role change through "Set Roles" left task objects and game data out of step.
+    [RegisterEvent(100)]
+    public static void ChangeRoleEventHandler(ChangeRoleEvent @event)
+    {
+        if (@event.Player != null && @event.Player.AmOwner)
+        {
+            WorkaholicSystem.LogTasks(@event.Player, $"role change {@event.OldRole?.GetType().Name} -> {@event.NewRole?.GetType().Name}");
+        }
     }
 
     [RegisterEvent]

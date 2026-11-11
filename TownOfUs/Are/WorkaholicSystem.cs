@@ -315,13 +315,23 @@ public static class WorkaholicSystem
         button.SetTimer(startCooldown ? button.Cooldown : 0f);
     }
 
-    private static bool CreateCopy(PlayerControl local, PlayerControl owner, uint ownerTaskId)
+    // The copy is the task the owner actually gave up (its type comes in the answer). Normally the game data says the
+    // same; after a role change through "Set Roles" it didn't (round 11), so the data only picks the variant.
+    private static bool CreateCopy(PlayerControl local, PlayerControl owner, uint ownerTaskId, TaskTypes ownerType)
     {
+        LogTasks(owner, "copy");
         var info = owner.Data.FindTaskById(ownerTaskId);
         var prefab = info != null && ShipStatus.Instance ? ShipStatus.Instance.GetTaskById(info.TypeId) : null;
+        if (prefab == null || prefab.TaskType != ownerType)
+        {
+            Warning($"Workaholic: owner gave up {ownerType}, but the data of task {ownerTaskId} says " +
+                    $"{(prefab != null ? prefab.TaskType.ToString() : "nothing")}: using the owner's type");
+            prefab = FindTaskPrefab(ownerType);
+        }
+
         if (prefab == null)
         {
-            Error($"Workaholic: no task prefab for task {ownerTaskId} of player {owner.PlayerId}");
+            Error($"Workaholic: no task prefab for task {ownerTaskId} ({ownerType}) of player {owner.PlayerId}");
             return false;
         }
 
@@ -336,6 +346,79 @@ public static class WorkaholicSystem
         Info($"Workaholic: took task {ownerTaskId} ({copy.TaskType}) of player {owner.PlayerId}, copy {copy.Id}");
         Notify(MiraLocaleManager.Get("TownOfUsMira.Role.WorkaholicNewTask").Replace("<task>", TaskName(copy)));
         return true;
+    }
+
+    private static NormalPlayerTask? FindTaskPrefab(TaskTypes type)
+    {
+        if (!ShipStatus.Instance)
+        {
+            return null;
+        }
+
+        foreach (var list in new[]
+                 {
+                     ShipStatus.Instance.CommonTasks, ShipStatus.Instance.LongTasks, ShipStatus.Instance.ShortTasks
+                 })
+        {
+            foreach (var task in list)
+            {
+                if (task != null && task.TaskType == type)
+                {
+                    return task;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    ///     Diagnostics: the player's task objects (id:type:step, + = done) next to the game data (id:type) and modifiers.
+    ///     The two lists should match by id; a role change through "Set Roles" broke that in round 11.
+    /// </summary>
+    public static void LogTasks(PlayerControl? player, string reason)
+    {
+        if (player == null || !player || player.Data == null)
+        {
+            return;
+        }
+
+        try
+        {
+            var sb = new System.Text.StringBuilder();
+            sb.Append(TownOfUsPlugin.Culture,
+                $"Workaholic: tasks of player {player.PlayerId} ({reason}, role {player.Data.Role?.GetType().Name}): list [");
+            foreach (var task in player.myTasks.ToArray())
+            {
+                var normal = task != null ? task.TryCast<NormalPlayerTask>() : null;
+                if (normal == null)
+                {
+                    sb.Append(TownOfUsPlugin.Culture, $" {task?.Id}:{task?.GetIl2CppType().Name}");
+                    continue;
+                }
+
+                var done = normal.IsComplete ? "+" : string.Empty;
+                sb.Append(TownOfUsPlugin.Culture, $" {normal.Id}:{normal.TaskType}:{normal.TaskStep}/{normal.MaxStep}{done}");
+            }
+
+            sb.Append(" ] data [");
+            foreach (var info in player.Data.Tasks.ToArray())
+            {
+                var prefab = ShipStatus.Instance ? ShipStatus.Instance.GetTaskById(info.TypeId) : null;
+                sb.Append(TownOfUsPlugin.Culture,
+                    $" {info.Id}:{(prefab != null ? prefab.TaskType : info.TypeId)}{(info.Complete ? "+" : string.Empty)}");
+            }
+
+            var modifiers = player.TryGetComponent<ModifierComponent>(out var component)
+                ? string.Join(",", component.ActiveModifiers.Select(m => m.GetType().Name))
+                : "?";
+            sb.Append(TownOfUsPlugin.Culture, $" ] modifiers [{modifiers}]");
+            Info(sb.ToString());
+        }
+        catch (Exception e)
+        {
+            Warning($"Workaholic: task dump failed: {e.Message}");
+        }
     }
 
     /// <summary>The copy is done (caught in <see cref="WorkaholicRpcCompleteTaskPatch" />).</summary>
@@ -658,9 +741,12 @@ public static class WorkaholicSystem
         HandleRequest(workaholic, ownerId);
     }
 
-    /// <summary>Owner's answer: the given task is now the Workaholic's (<see cref="NoTask" /> = nothing to give).</summary>
+    /// <summary>
+    ///     Owner's answer: the given task (id and type of the owner's task object) is now the Workaholic's
+    ///     (<see cref="NoTask" /> = nothing to give).
+    /// </summary>
     [MethodRpc((uint)TownOfUsRpc.WorkaholicAssign)]
-    public static void RpcWorkaholicAssign(PlayerControl owner, byte workaholicId, uint taskId)
+    public static void RpcWorkaholicAssign(PlayerControl owner, byte workaholicId, uint taskId, int taskType)
     {
         if (LobbyBehaviour.Instance)
         {
@@ -668,7 +754,7 @@ public static class WorkaholicSystem
             return;
         }
 
-        HandleAssign(owner, workaholicId, taskId);
+        HandleAssign(owner, workaholicId, taskId, (TaskTypes)taskType);
     }
 
     /// <summary>The Workaholic finished the copy: the owner's client completes the real task.</summary>
@@ -707,15 +793,18 @@ public static class WorkaholicSystem
             return;
         }
 
+        LogTasks(owner, "request");
         var taskId = PickTaskToGive(owner, workaholic);
+        var task = taskId == NoTask ? null : FindOwnTask(owner, taskId);
+        var taskType = task != null ? task.TaskType : TaskTypes.None;
         Info(taskId == NoTask
             ? $"Workaholic: player {owner.PlayerId} has no unstarted task for {workaholic.PlayerId}"
-            : $"Workaholic: player {owner.PlayerId} gives task {taskId} to {workaholic.PlayerId}");
-        RpcWorkaholicAssign(owner, workaholic.PlayerId, taskId);
+            : $"Workaholic: player {owner.PlayerId} gives task {taskId} ({taskType}) to {workaholic.PlayerId}");
+        RpcWorkaholicAssign(owner, workaholic.PlayerId, taskId, (int)taskType);
     }
 
     [MethodImpl(MethodImplOptions.NoInlining)]
-    private static void HandleAssign(PlayerControl owner, byte workaholicId, uint taskId)
+    private static void HandleAssign(PlayerControl owner, byte workaholicId, uint taskId, TaskTypes taskType)
     {
         var local = PlayerControl.LocalPlayer;
         if (!local)
@@ -756,7 +845,7 @@ public static class WorkaholicSystem
             return;
         }
 
-        if (held == null && pendingOwner == owner.PlayerId && CreateCopy(workaholic, owner, taskId))
+        if (held == null && pendingOwner == owner.PlayerId && CreateCopy(workaholic, owner, taskId, taskType))
         {
             pendingOwner = Nobody;
             PendingQueue.Clear();

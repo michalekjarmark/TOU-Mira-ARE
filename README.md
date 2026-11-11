@@ -101,6 +101,8 @@ a full installation package and our own logo on the startup screen.
   Local test straight into a game folder:
   `dotnet build TownOfUs-Mira.sln -c Release -p:VersionSuffix=are-dev -p:BuildAllPlatforms=false "-p:AmongUs=<game folder>"`.
 - AmonRa Edition specific code: `TownOfUs/Are/` (name, updater, logo); our art: `TownOfUs/Resources/Custom/`.
+- Known pitfalls (IL2CPP, Reactor RPC, MiraAPI, game internals, tooling): [`CAVEATS.md`](CAVEATS.md). Read it before
+  writing code and add new ones there.
 - Release: add the changes to `CHANGELOG.md`, bump `VersionSuffix` in `Directory.Build.props` (`are.1` → `are.2`)
   and run `tools/are-release.ps1` (build, tag, GitHub release with the DLLs and the full package; notes from the changelog).
 - Upstream changes: `git fetch upstream && git merge upstream/dev`. On a conflict in `README.md` keep ours.

@@ -170,6 +170,10 @@ public enum TownOfUsRpc : uint
     AuditorSanction,
     RiggerRig,
     RiggerTriggered,
+    WorkaholicRequest,
+    WorkaholicAssign,
+    WorkaholicDone,
+    WorkaholicRelease,
 }
 
 internal enum TownOfUsInternalRpc : uint

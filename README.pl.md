@@ -73,6 +73,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/AuditorIcon.png" width="48"/> | **Audytor** (Auditor) | Rola (Crewmate Investigative) | Potajemnie audytuje pobliskiego gracza przez jakiś czas: raport na najbliższym spotkaniu pokazuje ukończone zadania, stanowiska, przy których cel stał bez postępu, i jedną zbiorczą liczbę nieprawidłowości (wenty, zabójstwa, zdolności ról, także załogantów). Kolejne audyty zdobywa, robiąc zadania. Raz na grę może pokazać raport wszystkim, ujawniając się. Opcjonalnie cel wie, że jest audytowany, a Audytor może zamrozić jeden głos. |
 | <img src="TownOfUs/Resources/Custom/RiggerIcon.png" width="48"/> | **Monter** (Rigger) | Rola (Impostor Support) | Przerabia prawdziwe stanowiska zadań (do 2 naraz). Gdy załogant trzyma przerobione zadanie otwarte przez chwilę i go nie kończy, pułapka się odpala: Impostorzy dostają alarm i strzałkę do stanowiska, a zadanie zacina się i zamyka. Kto skończy zadanie wcześniej, niczego nie uruchamia. Przerobione stanowiska iskrzą z bliska, więc uważni załoganci mogą je zauważyć. Przeróbki znikają na każdym spotkaniu. Opcjonalnie (domyślnie wyłączone) pułapka zabija też załoganta, na którym się odpaliła. |
 | <img src="TownOfUs/Resources/Custom/InsiderIcon.png" width="48"/> | **Wtyczka** (Insider) | Rola (Impostor Concealing) | Impostor, który naprawdę może robić zadania ze swojej listy, więc wszyscy (i Audytor) widzą prawdziwą pracę. Każde ukończone zadanie na stałe trochę skraca jego cooldown zabójstwa (domyślnie o 1 s, do minimum). Domyślnie jego zadania liczą się też do postępu załogi, więc szybsze zabójstwo przybliża też załogę do wygranej na zadania. |
+| <img src="TownOfUs/Resources/Custom/WorkaholicIcon.png" width="48"/> | **Pracoholik** (Workaholic) | Rola (Crewmate Support) | Po wykonaniu swoich zadań przejmuje zadania innych członków załogi, po jednym naraz: zawsze niezaczęte zadanie osoby, która ma ich najwięcej do zrobienia (także martwej, jeśli duchy robią zadania), nigdy Snitcha. Właściciel widzi, że ktoś przejął jego zadanie, i nie może go robić. Gdy Pracoholik je skończy, liczy się jako zadanie właściciela. Jeśli Pracoholik zginie, zadanie wraca. Opcje: cooldown, limit przejętych zadań, czy właściciel widzi nick pomocnika. |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), automatyczne
 aktualizacje, pełna paczka instalacyjna i własne logo na ekranie startowym.
@@ -106,8 +107,8 @@ Zobacz [For developers](README.md#for-developers) w wersji angielskiej.
 
 Kliknij ikonę, aby otworzyć jej stronę na wiki Town of Us: Mira (po angielsku). Nasze dodatki prowadzą zamiast tego do
 [opisu](#dodatki-amonra-edition): **AmonRa** (wózek, modyfikatory uniwersalne), **Hazardzista** (żeton, Neutral Evil),
-**Audytor** (podkładka, Crewmate Investigative), **Monter** (klucz, Impostor Support) i **Wtyczka** (wtyczka,
-Impostor Concealing). Kluczowe różnice Town of Us: Mira,
+**Audytor** (podkładka, Crewmate Investigative), **Monter** (klucz, Impostor Support), **Wtyczka** (wtyczka,
+Impostor Concealing) i **Pracoholik** (kubek kawy, Crewmate Support). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -156,6 +157,7 @@ obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskie
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Plumber"><img width="10%" src="Images/Icons/Plumber.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Sentry"><img width="10%" src="Images/Icons/Sentry.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Transporter"><img width="10%" src="Images/Icons/Transporter.png" /></a>
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/WorkaholicIcon.png" alt="Pracoholik (AmonRa Edition)" /></a>
   <img src="Images/Groups/ImpConcealing.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Eclipsal"><img width="10%" src="Images/Icons/Eclipsal.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Escapist"><img width="10%" src="Images/Icons/Escapist.png" /></a>

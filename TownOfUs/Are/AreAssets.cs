@@ -104,4 +104,16 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> InsiderIcon { get; } =
         new LoadableResourceAsset($"{CustomPath}.InsiderIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Workaholic role icon (coffee mug and a checklist). 128px. Drawn by tools/are-assets/draw-workaholic-icons.ps1.
+    /// </summary>
+    public static LoadableAsset<Sprite> WorkaholicIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.WorkaholicIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Workaholic "Take Task" button (checklist with a plus). 100px like the Auditor's button.
+    /// </summary>
+    public static LoadableAsset<Sprite> WorkaholicButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.WorkaholicButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 }

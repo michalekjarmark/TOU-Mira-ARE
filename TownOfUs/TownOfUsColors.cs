@@ -72,6 +72,7 @@ public static class TownOfUsColors
     public static Color Transporter => UseBasic ? Palette.CrewmateBlue : new Color32(0, 237, 255, 255);
     public static Color Catalyst => UseBasic ? Palette.CrewmateBlue : new Color32(255, 53, 224, 255);
     public static Color Barkeeper => UseBasic ? Palette.CrewmateBlue : new Color32(227, 212, 119, 255);
+    public static Color Workaholic => UseBasic ? Palette.CrewmateBlue : new Color32(176, 118, 76, 255); // ARE
 
     public static Color Haunter => UseBasic ? Palette.CrewmateBlue : new Color32(212, 212, 212, 255);
     public static Color GuardianAngel => UseBasic ? Palette.CrewmateBlue : new Color32(102, 170, 243, 255);

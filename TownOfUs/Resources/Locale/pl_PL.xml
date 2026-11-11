@@ -1480,4 +1480,27 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionInsiderReductionPerTask">Skrócenie cooldownu za zadanie</string>
   <string name="TouOptionInsiderMinKillCooldown">Minimalny cooldown zabójstwa</string>
   <string name="TouOptionInsiderTasksHelpCrew">Zadania liczą się do postępu załogi</string>
+  <!-- AmonRa Edition - Workaholic (Crewmate Support) -->
+  <string name="TownOfUsMira.Role.Workaholic">Pracoholik</string>
+  <string name="TownOfUsMira.Role.Workaholic.IntroBlurb">Po swoich zadaniach bierz się za cudze.</string>
+  <string name="TownOfUsMira.Role.Workaholic.TabDescription">Po wykonaniu swoich zadań przejmuj zadania innych członków załogi.</string>
+  <string name="TownOfUsMira.Role.Workaholic.WikiDescription">Pracoholik to rola Crewmate Support. Po wykonaniu wszystkich swoich zadań może przejmować zadania innych członków załogi, po jednym naraz. Zadanie jest brane od osoby, która ma najwięcej zadań do zrobienia (także od martwych, jeśli duchy robią zadania). Przejmowane są tylko zadania, których nikt jeszcze nie zaczął, i nigdy zadania Snitcha. Właściciel zadania dowiaduje się, że ktoś je przejął (domyślnie bez nicku Pracoholika), i sam nie może go już robić. Gdy Pracoholik je skończy, liczy się jako zadanie właściciela. Jeśli Pracoholik zginie, zadanie wraca do właściciela.</string>
+  <string name="TownOfUsMira.Role.WorkaholicTake">Weź zadanie</string>
+  <string name="TownOfUsMira.Role.WorkaholicTake.WikiDescription">Przejmij niezaczęte zadanie członka załogi, który ma najwięcej zadań do zrobienia. Dostępne po wykonaniu własnych zadań, jedno zadanie naraz.</string>
+  <string name="TownOfUsMira.Role.WorkaholicHelpedCount">Zadania wykonane za innych: [count]</string>
+  <string name="TownOfUsMira.Role.WorkaholicOwnTasksFirst">Najpierw wykonaj swoje zadania.</string>
+  <string name="TownOfUsMira.Role.WorkaholicNothingToTake">Nikt nie ma teraz zadania, które możesz przejąć.</string>
+  <string name="TownOfUsMira.Role.WorkaholicTaskNotNeeded">Przejęte zadanie nie jest już potrzebne.</string>
+  <string name="TownOfUsMira.Role.WorkaholicNewTask">Nowe zadanie: [task]</string>
+  <string name="TownOfUsMira.Role.WorkaholicTaskReturned">Zadanie wróciło na twoją listę: [task]</string>
+  <string name="TownOfUsMira.Role.WorkaholicYourTaskTaken">Ktoś przejął twoje zadanie: [task]</string>
+  <string name="TownOfUsMira.Role.WorkaholicYourTaskTakenNamed">Twoje zadanie przejmuje [player]: [task]</string>
+  <string name="TownOfUsMira.Role.WorkaholicYourTaskDone">Ktoś wykonał za ciebie zadanie: [task]</string>
+  <string name="TownOfUsMira.Role.WorkaholicYourTaskDoneNamed">Zadanie wykonane za ciebie ([player]): [task]</string>
+  <string name="TownOfUsMira.Role.WorkaholicCopySuffix">(za kogoś)</string>
+  <string name="TownOfUsMira.Role.WorkaholicTakenSuffix">(przejęte)</string>
+  <string name="TownOfUsMira.Role.WorkaholicTakenSuffixNamed">(przejęte przez [player])</string>
+  <string name="TouOptionWorkaholicTakeCooldown">Cooldown brania zadania</string>
+  <string name="TouOptionWorkaholicMaxTakenTasks">Maks. przejętych zadań na grę</string>
+  <string name="TouOptionWorkaholicShowHelperName">Właściciel zadania widzi nick pomocnika</string>
 </resources>

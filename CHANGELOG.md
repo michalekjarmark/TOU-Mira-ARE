@@ -9,6 +9,34 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
+### Added
+
+- **Workaholic** (new Crewmate Support role): after finishing all of their own tasks, the Workaholic can take over
+  tasks of other crewmates with the "Take Task" button, one at a time. The task is always taken from the crewmate with
+  the most tasks left (dead crewmates too, if ghosts do tasks), only tasks nobody has started yet are taken, and never
+  the Snitch's. The crewmate learns that someone took over their task, sees it greyed out and can't do it; once the
+  Workaholic finishes it, it counts as the crewmate's task. If the Workaholic dies, the task goes back to its owner.
+  - Lobby options: cooldown after a finished task (10 s by default), a limit of taken tasks per game (no limit by
+    default) and whether the crewmate sees the helper's name (off by default: just "someone").
+  - Tasks that use up objects on the map (towels, records, guns, vegetables, ore, shells) are never taken.
+
+<details>
+<summary><i>Po polsku</i></summary>
+
+**Dodano**
+
+- **Pracoholik** (Workaholic, nowa rola Crewmate Support): po wykonaniu wszystkich swoich zadań Pracoholik może
+  przyciskiem „Weź zadanie” przejmować zadania innych członków załogi, po jednym naraz. Zadanie jest zawsze brane od
+  osoby, która ma najwięcej zadań do zrobienia (także od martwych, jeśli duchy robią zadania), tylko takie, którego nikt
+  jeszcze nie zaczął, i nigdy od Snitcha. Właściciel dowiaduje się, że ktoś przejął jego zadanie, widzi je wyszarzone i
+  nie może go robić. Gdy Pracoholik je skończy, liczy się jako zadanie właściciela. Jeśli Pracoholik zginie, zadanie
+  wraca do właściciela.
+  - Opcje lobby: cooldown po wykonanym zadaniu (domyślnie 10 s), limit przejętych zadań na grę (domyślnie bez limitu)
+    i czy właściciel widzi nick pomocnika (domyślnie nie: tylko „ktoś”).
+  - Zadania, które zużywają przedmioty na mapie (ręczniki, dokumenty, broń, warzywa, ruda, muszle), nie są przejmowane.
+
+</details>
+
 ## [1.7.9-are.4] - 2026-11-11
 
 ### Added

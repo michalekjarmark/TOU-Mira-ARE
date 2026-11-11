@@ -70,6 +70,7 @@ Everything below is new in AmonRa Edition. For all roles and modifiers of Town o
 | <img src="TownOfUs/Resources/Custom/AuditorIcon.png" width="48"/> | **Auditor** | Role (Crewmate Investigative) | Secretly audits a nearby player for a while: the report in the next meeting shows tasks completed, task stations where they stood without progress and a single count of irregularities (vents, kills, role abilities, crewmate abilities included). Gets more audits by doing tasks. Once per game can publish a report to everyone, revealing themselves. Optionally the target is told it is audited, and the Auditor can freeze one vote. |
 | <img src="TownOfUs/Resources/Custom/RiggerIcon.png" width="48"/> | **Rigger** | Role (Impostor Support) | Rigs real task stations (up to 2 at once). When a crewmate keeps a rigged task open for a moment without finishing it, the trap fires: the impostors get an alert and an arrow to the station, and the task jams and closes. Finishing the task sooner sets nothing off. Rigged stations spark up close, so careful crewmates can notice them. Rigs are cleared at every meeting. Optionally (off by default) the trap also kills the crewmate it fires on. |
 | <img src="TownOfUs/Resources/Custom/InsiderIcon.png" width="48"/> | **Insider** | Role (Impostor Concealing) | An impostor who can really do the tasks from their list, so everyone (and the Auditor) sees real work. Every completed task permanently lowers their kill cooldown a little (1 s by default, down to a minimum). By default their tasks also count as crew progress, so a faster kill also brings the crew closer to a task win. |
+| <img src="TownOfUs/Resources/Custom/WorkaholicIcon.png" width="48"/> | **Workaholic** | Role (Crewmate Support) | After finishing their own tasks, takes over tasks of other crewmates, one at a time: always an unstarted task of the crewmate with the most tasks left (dead ones too, if ghosts do tasks), never the Snitch's. The crewmate sees that someone took over their task and can't do it; once the Workaholic finishes it, it counts as the crewmate's task. If the Workaholic dies, the task goes back. Options: cooldown, a limit of taken tasks, whether the crewmate sees the helper's name. |
 
 Also: a "Settings" button in Freeplay (change the lobby settings without leaving practice), automatic updates,
 a full installation package and our own logo on the startup screen.
@@ -129,8 +130,8 @@ More about the mod: [Town of Us: Mira wiki](https://au-avengers.github.io/docs.t
 
 Click an icon to open its page on the Town of Us: Mira wiki. Our additions link to
 [their description](#amonra-edition-additions) instead: **AmonRa** (wheelchair, universal modifiers), **Gambler** (chip,
-Neutral Evil), **Auditor** (clipboard, Crewmate Investigative), **Rigger** (wrench, Impostor Support) and **Insider** (plug,
-Impostor Concealing).
+Neutral Evil), **Auditor** (clipboard, Crewmate Investigative), **Rigger** (wrench, Impostor Support), **Insider** (plug,
+Impostor Concealing) and **Workaholic** (coffee mug, Crewmate Support).
 
 
 <p align="center">
@@ -178,6 +179,7 @@ Impostor Concealing).
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Plumber"><img width="10%" src="Images/Icons/Plumber.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Sentry"><img width="10%" src="Images/Icons/Sentry.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Transporter"><img width="10%" src="Images/Icons/Transporter.png" /></a>
+  <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/WorkaholicIcon.png" alt="Workaholic (AmonRa Edition)" /></a>
   <img src="Images/Groups/ImpConcealing.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Eclipsal"><img width="10%" src="Images/Icons/Eclipsal.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Escapist"><img width="10%" src="Images/Icons/Escapist.png" /></a>

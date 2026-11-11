@@ -4182,4 +4182,27 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionInsiderReductionPerTask">Kill Cooldown Reduction Per Task</string>
   <string name="TouOptionInsiderMinKillCooldown">Minimum Kill Cooldown</string>
   <string name="TouOptionInsiderTasksHelpCrew">Tasks Count As Crew Progress</string>
+  <!-- AmonRa Edition - Workaholic (Crewmate Support) -->
+  <string name="TownOfUsMira.Role.Workaholic">Workaholic</string>
+  <string name="TownOfUsMira.Role.Workaholic.IntroBlurb">Done with your tasks? Do someone else's.</string>
+  <string name="TownOfUsMira.Role.Workaholic.TabDescription">After your own tasks, take over the tasks of other crewmates.</string>
+  <string name="TownOfUsMira.Role.Workaholic.WikiDescription">The Workaholic is a Crewmate Support role. After finishing all of their own tasks, they can take over tasks of other crewmates, one at a time. The task is taken from the crewmate with the most tasks left (dead crewmates too, if ghosts do tasks). Only tasks nobody has started are taken, and never the Snitch's. The crewmate learns that someone took over their task (by default without the Workaholic's name) and can't do it themselves. When the Workaholic finishes it, it counts as the crewmate's task. If the Workaholic dies, the task goes back to its owner.</string>
+  <string name="TownOfUsMira.Role.WorkaholicTake">Take Task</string>
+  <string name="TownOfUsMira.Role.WorkaholicTake.WikiDescription">Take over an unstarted task of the crewmate with the most tasks left. Available after your own tasks are done, one task at a time.</string>
+  <string name="TownOfUsMira.Role.WorkaholicHelpedCount">Tasks done for others: [count]</string>
+  <string name="TownOfUsMira.Role.WorkaholicOwnTasksFirst">Finish your own tasks first.</string>
+  <string name="TownOfUsMira.Role.WorkaholicNothingToTake">Nobody has a task you can take right now.</string>
+  <string name="TownOfUsMira.Role.WorkaholicTaskNotNeeded">The task you took isn't needed any more.</string>
+  <string name="TownOfUsMira.Role.WorkaholicNewTask">New task: [task]</string>
+  <string name="TownOfUsMira.Role.WorkaholicTaskReturned">Your task is back on your list: [task]</string>
+  <string name="TownOfUsMira.Role.WorkaholicYourTaskTaken">Someone took over your task: [task]</string>
+  <string name="TownOfUsMira.Role.WorkaholicYourTaskTakenNamed">[player] took over your task: [task]</string>
+  <string name="TownOfUsMira.Role.WorkaholicYourTaskDone">Someone did your task for you: [task]</string>
+  <string name="TownOfUsMira.Role.WorkaholicYourTaskDoneNamed">[player] did your task for you: [task]</string>
+  <string name="TownOfUsMira.Role.WorkaholicCopySuffix">(for someone)</string>
+  <string name="TownOfUsMira.Role.WorkaholicTakenSuffix">(taken over)</string>
+  <string name="TownOfUsMira.Role.WorkaholicTakenSuffixNamed">(taken over by [player])</string>
+  <string name="TouOptionWorkaholicTakeCooldown">Take Task Cooldown</string>
+  <string name="TouOptionWorkaholicMaxTakenTasks">Max Taken Tasks Per Game</string>
+  <string name="TouOptionWorkaholicShowHelperName">Crewmate Sees The Helper's Name</string>
 </resources>

@@ -55,6 +55,7 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 - The Freeplay "Settings" button is now also available to the host in multiplayer games with the "Freeplay Mode" host
   option, so options can be changed without making a new lobby.
+- Your Discord status now shows "Town of Us: Mira - AmonRa Edition" with our own icon (before: "Town of Us Mira").
 
 ### Fixed
 
@@ -108,6 +109,7 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 - Przycisk „Ustawienia” z Freeplay jest teraz dostępny także dla hosta w grze wieloosobowej z opcją hosta
   „Freeplay Mode”, więc opcje można zmieniać bez zakładania nowego lobby.
+- Status w Discordzie pokazuje teraz „Town of Us: Mira - AmonRa Edition” z naszą ikoną (wcześniej „Town of Us Mira”).
 
 **Naprawiono**
 

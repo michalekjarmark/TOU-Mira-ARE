@@ -181,7 +181,7 @@ public static class RiggerSystem
     }
 
     /// <summary>
-    ///     Console.Use postfix on the user's client: a crewmate opened a rigged task, alert the impostors and maybe jam it.
+    ///     Console.Use postfix on the user's client: a crewmate opened a rigged task, which arms the trap.
     /// </summary>
     public static void OnConsoleUsed(Console console)
     {
@@ -198,27 +198,53 @@ public static class RiggerSystem
             return;
         }
 
-        RiggerRole.RpcRiggerTriggered(local, index);
-
-        var opts = OptionGroupSingleton<RiggerOptions>.Instance;
-        if (opts.JamConsole)
-        {
-            Coroutines.Start(CoJam(minigame, index, opts.JamDelay.Value, opts.JamLockout.Value));
-        }
+        Coroutines.Start(CoArmedTrap(minigame, index));
     }
 
-    private static IEnumerator CoJam(Minigame minigame, int index, float delay, float lockout)
+    /// <summary>
+    ///     The trap fires only if the task is still open and unfinished after the trigger delay (JamDelay option): then
+    ///     the impostors are alerted (RPC), the Rigger's client may kill, and the task jams. A crewmate who finishes the
+    ///     task (or its current step) or closes it sooner sets nothing off and the station stays rigged (round 7, owner).
+    /// </summary>
+    private static IEnumerator CoArmedTrap(Minigame minigame, int index)
     {
-        yield return new WaitForSeconds(delay);
+        var opts = OptionGroupSingleton<RiggerOptions>.Instance;
+        var task = minigame.MyNormTask;
+        var startStep = task != null ? task.TaskStep : -1;
+        var fireAt = Time.time + opts.JamDelay.Value;
 
-        if (minigame == null || !minigame || Minigame.Instance != minigame)
+        while (Time.time < fireAt)
+        {
+            if (!StillWorking(minigame, task, startStep))
+            {
+                Message($"Rigger: console {index} left before the trap fired, it stays rigged");
+                yield break;
+            }
+
+            yield return null;
+        }
+
+        var local = PlayerControl.LocalPlayer;
+        if (!StillWorking(minigame, task, startStep) || !IsRigged(index) || local == null || local.HasDied())
         {
             yield break;
         }
 
-        minigame.Close();
-        JammedUntil[index] = Time.time + lockout;
-        Notify(MiraLocaleManager.Get("TownOfUsMira.Role.RiggerJammed"));
+        RiggerRole.RpcRiggerTriggered(local, index);
+
+        if (opts.JamConsole)
+        {
+            minigame.Close();
+            JammedUntil[index] = Time.time + opts.JamLockout.Value;
+            Notify(MiraLocaleManager.Get("TownOfUsMira.Role.RiggerJammed"));
+        }
+    }
+
+    // The same task window is still open, not closing, and the task (step) isn't done yet.
+    private static bool StillWorking(Minigame minigame, NormalPlayerTask? task, int startStep)
+    {
+        return minigame && Minigame.Instance == minigame && minigame.amClosing == Minigame.CloseState.None &&
+               !MeetingHud.Instance && (task == null || (!task.IsComplete && task.TaskStep == startStep));
     }
 
     public static bool IsJammedForLocal(Console console)

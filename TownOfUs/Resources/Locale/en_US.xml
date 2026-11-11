@@ -4137,7 +4137,8 @@ Restart the game, the update will be tried again.</string>
   <string name="TownOfUsMira.Role.AuditorVerdictUnverified">Unverified</string>
   <string name="TownOfUsMira.Role.AuditorVerdictIrregular">Irregularities</string>
   <string name="TownOfUsMira.Role.AuditorVerdictInconclusive">Inconclusive</string>
-  <string name="TownOfUsMira.Role.AuditorSanctionNotif">The Auditor froze [player]'s vote: it doesn't count in this meeting.</string>
+  <string name="TownOfUsMira.Role.AuditorSanctionNotifSelf">You froze [player]'s vote: it doesn't count in this meeting.</string>
+  <string name="TownOfUsMira.Role.AuditorSanctionNotifTarget">Your vote was frozen: it doesn't count in this meeting.</string>
   <string name="TouOptionAuditorAuditDuration">Audit Duration</string>
   <string name="TouOptionAuditorAuditCooldown">Audit Cooldown</string>
   <string name="TouOptionAuditorInitialAudits">Audits At Start</string>
@@ -4151,7 +4152,7 @@ Restart the game, the update will be tried again.</string>
   <string name="TownOfUsMira.Role.Rigger">Rigger</string>
   <string name="TownOfUsMira.Role.Rigger.IntroBlurb">Rig the task stations and wait.</string>
   <string name="TownOfUsMira.Role.Rigger.TabDescription">Rig task stations: you'll know when someone uses them.</string>
-  <string name="TownOfUsMira.Role.Rigger.WikiDescription">The Rigger is an Impostor Support role that rigs real task stations. When a crewmate opens a rigged task, the impostors get an alert with an arrow to the station, and the task can jam and close after a moment, so the crewmate loses time standing there. Rigged stations spark up close, so careful crewmates can notice them. Rigs are cleared at every meeting.</string>
+  <string name="TownOfUsMira.Role.Rigger.WikiDescription">The Rigger is an Impostor Support role that rigs real task stations. When a crewmate keeps a rigged task open for a moment without finishing it, the trap fires: the impostors get an alert with an arrow to the station, and the task can jam and close, so the crewmate loses time standing there. A crewmate who finishes the task (or closes it) sooner sets nothing off, and the station stays rigged. Rigged stations spark up close, so careful crewmates can notice them. Rigs are cleared at every meeting.</string>
   <string name="TownOfUsMira.Role.RiggerRig">Rig</string>
   <string name="TownOfUsMira.Role.RiggerRig.WikiDescription">Rig the task station you are standing at. Only a limited number of stations can be rigged at once.</string>
   <string name="TownOfUsMira.Role.RiggerRigged">Rigged: [console]</string>
@@ -4163,7 +4164,7 @@ Restart the game, the update will be tried again.</string>
   <string name="TouOptionRiggerAlertAllImpostors">Alert All Impostors</string>
   <string name="TouOptionRiggerArrowDuration">Arrow Duration</string>
   <string name="TouOptionRiggerJamConsole">Rigged Task Jams</string>
-  <string name="TouOptionRiggerJamDelay">Jam After</string>
+  <string name="TouOptionRiggerJamDelay">Trap Fires After</string>
   <string name="TouOptionRiggerJamLockout">Station Unusable After Jam</string>
   <string name="TouOptionRiggerSparksVisible">Rigged Stations Spark Up Close</string>
   <string name="TouOptionRiggerTrapsKill">Rigged Tasks Kill</string>

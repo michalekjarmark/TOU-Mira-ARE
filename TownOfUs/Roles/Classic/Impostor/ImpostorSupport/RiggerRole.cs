@@ -58,13 +58,14 @@ public sealed class RiggerRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsR
     public int TrapKills { get; set; }
 
     /// <summary>
-    ///     Kills the crewmate who opened a rigged task, after the jam delay. Indirect like the Bootlegger's poison: no
-    ///     teleport, the Rigger's kill cooldown isn't reset, shields still protect, a Veteran on alert doesn't strike back.
+    ///     Kills the crewmate the trap fired on (the trigger delay already ran on their client). Indirect like the
+    ///     Bootlegger's poison: no teleport, the Rigger's kill cooldown isn't reset, shields still protect, a Veteran on
+    ///     alert doesn't strike back.
     /// </summary>
     [HideFromIl2Cpp]
-    private static System.Collections.IEnumerator CoTrapKill(PlayerControl rigger, PlayerControl victim, float delay)
+    private static System.Collections.IEnumerator CoTrapKill(PlayerControl rigger, PlayerControl victim)
     {
-        yield return new WaitForSeconds(delay);
+        yield return null;
 
         if (MeetingHud.Instance || ExileController.Instance || rigger == null || rigger.HasDied() ||
             rigger.Data.Role is not RiggerRole || victim == null || victim.HasDied())
@@ -107,8 +108,9 @@ public sealed class RiggerRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsR
     }
 
     /// <summary>
-    ///     A crewmate opened a rigged task: the rig is used up, and the impostors (or just the Rigger) get an alert and an
-    ///     arrow to the console.
+    ///     The trap of a rigged task fired on a crewmate (they kept the task open past the trigger delay): the rig is used
+    ///     up, the impostors (or just the Rigger) get an alert and an arrow to the console, and the Rigger's client may
+    ///     kill. The work is done in <see cref="HandleTriggered" />, see there why.
     /// </summary>
     [MethodRpc((uint)TownOfUsRpc.RiggerTriggered)]
     public static void RpcRiggerTriggered(PlayerControl user, int consoleIndex)
@@ -119,10 +121,23 @@ public sealed class RiggerRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsR
             return;
         }
 
+        HandleTriggered(user, consoleIndex);
+    }
+
+    /// <summary>
+    ///     Never read attribute options (<c>[ModdedToggleOption] public bool X</c>) directly in a <c>[MethodRpc]</c> body.
+    ///     Reactor runs RPC bodies from a copy compiled while the plugin loads, before MiraAPI patches the option getters,
+    ///     so the copy has the getter inlined and always sees the initializer value (round 7: TrapsKill was always false).
+    ///     This method is compiled on its first call instead, and NoInlining keeps it out of that early copy.
+    /// </summary>
+    [HideFromIl2Cpp]
+    [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+    private static void HandleTriggered(PlayerControl user, int consoleIndex)
+    {
         var riggerId = RiggerSystem.RemoveRig(consoleIndex);
         var console = RiggerSystem.ConsoleAt(consoleIndex);
         var local = PlayerControl.LocalPlayer;
-        Message($"Rigger: console {consoleIndex} opened by {user?.Data?.PlayerName ?? "?"}, rig of player {riggerId}" +
+        Message($"Rigger: trap at console {consoleIndex} fired on {user?.Data?.PlayerName ?? "?"}, rig of player {riggerId}" +
                 (riggerId == byte.MaxValue ? " (not rigged here)" : string.Empty));
         if (riggerId == byte.MaxValue || console == null || local == null || local.Data == null || local.Data.IsDead ||
             !local.Data.Role.IsImpostor)
@@ -143,7 +158,7 @@ public sealed class RiggerRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsR
             if (rigger != null && opts.TrapsKill && rigger.TrapKills < maxKills && user != null && !user.HasDied())
             {
                 rigger.TrapKills++;
-                Coroutines.Start(CoTrapKill(local, user, opts.JamDelay.Value));
+                Coroutines.Start(CoTrapKill(local, user));
             }
         }
         if (!opts.AlertAllImpostors && local.PlayerId != riggerId)

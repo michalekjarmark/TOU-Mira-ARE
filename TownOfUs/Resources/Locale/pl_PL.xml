@@ -1435,7 +1435,8 @@ Uruchom grę ponownie, aktualizacja spróbuje jeszcze raz.</string>
   <string name="TownOfUsMira.Role.AuditorVerdictUnverified">Niezweryfikowany</string>
   <string name="TownOfUsMira.Role.AuditorVerdictIrregular">Nieprawidłowości</string>
   <string name="TownOfUsMira.Role.AuditorVerdictInconclusive">Nierozstrzygnięty</string>
-  <string name="TownOfUsMira.Role.AuditorSanctionNotif">Audytor zamroził głos gracza [player]: na tym spotkaniu się nie liczy.</string>
+  <string name="TownOfUsMira.Role.AuditorSanctionNotifSelf">Zamrożono głos gracza [player]: na tym spotkaniu się nie liczy.</string>
+  <string name="TownOfUsMira.Role.AuditorSanctionNotifTarget">Twój głos został zamrożony: na tym spotkaniu się nie liczy.</string>
   <string name="TouOptionAuditorAuditDuration">Czas audytu</string>
   <string name="TouOptionAuditorAuditCooldown">Cooldown audytu</string>
   <string name="TouOptionAuditorInitialAudits">Audyty na start</string>
@@ -1449,7 +1450,7 @@ Uruchom grę ponownie, aktualizacja spróbuje jeszcze raz.</string>
   <string name="TownOfUsMira.Role.Rigger">Monter</string>
   <string name="TownOfUsMira.Role.Rigger.IntroBlurb">Przerób stanowiska i czekaj.</string>
   <string name="TownOfUsMira.Role.Rigger.TabDescription">Przerabiaj stanowiska zadań: dowiesz się, gdy ktoś z nich skorzysta.</string>
-  <string name="TownOfUsMira.Role.Rigger.WikiDescription">Monter to rola Impostor Support, która przerabia prawdziwe stanowiska zadań. Gdy załogant otworzy przerobione zadanie, Impostorzy dostają alarm ze strzałką do stanowiska, a zadanie może się zaciąć i zamknąć po chwili, przez co załogant traci czas, stojąc w miejscu. Przerobione stanowiska iskrzą z bliska, więc uważni załoganci mogą je zauważyć. Przeróbki znikają na każdym spotkaniu.</string>
+  <string name="TownOfUsMira.Role.Rigger.WikiDescription">Monter to rola Impostor Support, która przerabia prawdziwe stanowiska zadań. Gdy załogant trzyma przerobione zadanie otwarte przez chwilę i go nie kończy, pułapka się odpala: Impostorzy dostają alarm ze strzałką do stanowiska, a zadanie może się zaciąć i zamknąć, przez co załogant traci czas, stojąc w miejscu. Kto skończy zadanie (albo je zamknie) wcześniej, niczego nie uruchamia, a stanowisko zostaje przerobione. Przerobione stanowiska iskrzą z bliska, więc uważni załoganci mogą je zauważyć. Przeróbki znikają na każdym spotkaniu.</string>
   <string name="TownOfUsMira.Role.RiggerRig">Przerób</string>
   <string name="TownOfUsMira.Role.RiggerRig.WikiDescription">Przerób stanowisko zadania, przy którym stoisz. Naraz można mieć przerobioną tylko ograniczoną liczbę stanowisk.</string>
   <string name="TownOfUsMira.Role.RiggerRigged">Przerobiono: [console]</string>
@@ -1461,7 +1462,7 @@ Uruchom grę ponownie, aktualizacja spróbuje jeszcze raz.</string>
   <string name="TouOptionRiggerAlertAllImpostors">Alarm dla wszystkich Impostorów</string>
   <string name="TouOptionRiggerArrowDuration">Czas strzałki</string>
   <string name="TouOptionRiggerJamConsole">Przerobione zadanie się zacina</string>
-  <string name="TouOptionRiggerJamDelay">Zacięcie po</string>
+  <string name="TouOptionRiggerJamDelay">Pułapka odpala się po</string>
   <string name="TouOptionRiggerJamLockout">Stanowisko nieczynne po zacięciu</string>
   <string name="TouOptionRiggerSparksVisible">Przerobione stanowiska iskrzą z bliska</string>
   <string name="TouOptionRiggerTrapsKill">Przerobione zadania zabijają</string>

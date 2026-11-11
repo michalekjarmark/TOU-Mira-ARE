@@ -317,9 +317,24 @@ public sealed class AuditorRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUs
         role.SanctionUsed = true;
         role.SanctionedThisMeeting = targetId;
 
+        // Only the Auditor and the frozen player are told (round 7: a message for everyone gave away too much).
+        string key;
+        if (auditor.AmOwner)
+        {
+            key = "TownOfUsMira.Role.AuditorSanctionNotifSelf";
+        }
+        else if (PlayerControl.LocalPlayer != null && PlayerControl.LocalPlayer.PlayerId == targetId)
+        {
+            key = "TownOfUsMira.Role.AuditorSanctionNotifTarget";
+        }
+        else
+        {
+            return;
+        }
+
         var name = GameData.Instance.GetPlayerById(targetId)?.PlayerName ?? "?";
         var notif = Helpers.CreateAndShowNotification(
-            $"<b>{MiraLocaleManager.Get("TownOfUsMira.Role.AuditorSanctionNotif").Replace("<player>", name)}</b>",
+            $"<b>{MiraLocaleManager.Get(key).Replace("<player>", name)}</b>",
             Color.white, new Vector3(0f, 1f, -20f), spr: AreAssets.AuditorIcon);
         notif.AdjustNotification();
     }

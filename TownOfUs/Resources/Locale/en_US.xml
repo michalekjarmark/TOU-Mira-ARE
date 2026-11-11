@@ -4137,7 +4137,8 @@ Restart the game, the update will be tried again.</string>
   <string name="TownOfUsMira.Role.AuditorVerdictUnverified">Unverified</string>
   <string name="TownOfUsMira.Role.AuditorVerdictIrregular">Irregularities</string>
   <string name="TownOfUsMira.Role.AuditorVerdictInconclusive">Inconclusive</string>
-  <string name="TownOfUsMira.Role.AuditorSanctionNotif">The Auditor froze [player]'s vote: it doesn't count in this meeting.</string>
+  <string name="TownOfUsMira.Role.AuditorSanctionNotifSelf">You froze [player]'s vote: it doesn't count in this meeting.</string>
+  <string name="TownOfUsMira.Role.AuditorSanctionNotifTarget">Your vote was frozen: it doesn't count in this meeting.</string>
   <string name="TouOptionAuditorAuditDuration">Audit Duration</string>
   <string name="TouOptionAuditorAuditCooldown">Audit Cooldown</string>
   <string name="TouOptionAuditorInitialAudits">Audits At Start</string>

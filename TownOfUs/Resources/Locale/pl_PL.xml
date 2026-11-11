@@ -1435,7 +1435,8 @@ Uruchom grę ponownie, aktualizacja spróbuje jeszcze raz.</string>
   <string name="TownOfUsMira.Role.AuditorVerdictUnverified">Niezweryfikowany</string>
   <string name="TownOfUsMira.Role.AuditorVerdictIrregular">Nieprawidłowości</string>
   <string name="TownOfUsMira.Role.AuditorVerdictInconclusive">Nierozstrzygnięty</string>
-  <string name="TownOfUsMira.Role.AuditorSanctionNotif">Audytor zamroził głos gracza [player]: na tym spotkaniu się nie liczy.</string>
+  <string name="TownOfUsMira.Role.AuditorSanctionNotifSelf">Zamrożono głos gracza [player]: na tym spotkaniu się nie liczy.</string>
+  <string name="TownOfUsMira.Role.AuditorSanctionNotifTarget">Twój głos został zamrożony: na tym spotkaniu się nie liczy.</string>
   <string name="TouOptionAuditorAuditDuration">Czas audytu</string>
   <string name="TouOptionAuditorAuditCooldown">Cooldown audytu</string>
   <string name="TouOptionAuditorInitialAudits">Audyty na start</string>

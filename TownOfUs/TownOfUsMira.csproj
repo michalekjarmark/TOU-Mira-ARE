@@ -43,6 +43,9 @@
     <ItemGroup Condition="'$(AreDiscordUrl)' != ''">
         <AssemblyMetadata Include="AreDiscordUrl" Value="$(AreDiscordUrl)" />
     </ItemGroup>
+    <ItemGroup Condition="'$(AreDiscordAppId)' != ''">
+        <AssemblyMetadata Include="AreDiscordAppId" Value="$(AreDiscordAppId)" />
+    </ItemGroup>
 
     <Import Project="../AmongUs.props" Condition="!$(Configuration.StartsWith('Publish'))"/>
     <Import Project="../AmongUsPublish.props" Condition="$(Configuration.StartsWith('Publish'))"/>

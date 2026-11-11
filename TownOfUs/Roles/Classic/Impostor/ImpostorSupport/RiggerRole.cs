@@ -69,9 +69,13 @@ public sealed class RiggerRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsR
         if (MeetingHud.Instance || ExileController.Instance || rigger == null || rigger.HasDied() ||
             rigger.Data.Role is not RiggerRole || victim == null || victim.HasDied())
         {
+            Message($"Rigger: trap kill skipped - meeting {(bool)MeetingHud.Instance || (bool)ExileController.Instance}, " +
+                    $"rigger ok {rigger != null && !rigger.HasDied() && rigger.Data.Role is RiggerRole}, " +
+                    $"victim alive {victim != null && !victim.HasDied()}");
             yield break;
         }
 
+        Message($"Rigger: trap kills {victim.Data.PlayerName}");
         rigger.RpcSpecialMurder(victim, MeetingCheck.OutsideMeeting, isIndirect: true, resetKillTimer: false,
             teleportMurderer: false, causeOfDeath: "RiggerTrap");
         RiggerSystem.Notify(MiraLocaleManager.Get("TownOfUsMira.Role.RiggerTrapKilled")
@@ -118,6 +122,8 @@ public sealed class RiggerRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsR
         var riggerId = RiggerSystem.RemoveRig(consoleIndex);
         var console = RiggerSystem.ConsoleAt(consoleIndex);
         var local = PlayerControl.LocalPlayer;
+        Message($"Rigger: console {consoleIndex} opened by {user?.Data?.PlayerName ?? "?"}, rig of player {riggerId}" +
+                (riggerId == byte.MaxValue ? " (not rigged here)" : string.Empty));
         if (riggerId == byte.MaxValue || console == null || local == null || local.Data == null || local.Data.IsDead ||
             !local.Data.Role.IsImpostor)
         {
@@ -127,11 +133,18 @@ public sealed class RiggerRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsR
         var opts = OptionGroupSingleton<RiggerOptions>.Instance;
 
         // Lethal trap: the Rigger's own client does the kill, like any other kill of theirs.
-        if (local.PlayerId == riggerId && local.Data.Role is RiggerRole rigger && opts.TrapsKill &&
-            rigger.TrapKills < (int)opts.MaxTrapKills.Value && user != null && !user.HasDied())
+        if (local.PlayerId == riggerId)
         {
-            rigger.TrapKills++;
-            Coroutines.Start(CoTrapKill(local, user, opts.JamDelay.Value));
+            var rigger = local.Data.Role as RiggerRole;
+            var maxKills = (int)opts.MaxTrapKills.Value;
+            Message($"Rigger: trap check - role {local.Data.Role.GetType().Name}, traps kill {opts.TrapsKill}, " +
+                    $"trap kills {rigger?.TrapKills.ToString(TownOfUsPlugin.Culture) ?? "-"}/{maxKills}, " +
+                    $"victim alive {user != null && !user.HasDied()}");
+            if (rigger != null && opts.TrapsKill && rigger.TrapKills < maxKills && user != null && !user.HasDied())
+            {
+                rigger.TrapKills++;
+                Coroutines.Start(CoTrapKill(local, user, opts.JamDelay.Value));
+            }
         }
         if (!opts.AlertAllImpostors && local.PlayerId != riggerId)
         {

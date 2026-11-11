@@ -22,10 +22,13 @@ public sealed class FreeplaySettingsButton : TownOfUsButton, IAurialBypassButton
     public override bool ZeroIsInfinite { get; set; } = true;
     public override bool UsableInDeath => true;
 
-    // Local Freeplay only: in multiplayer freeplay the settings belong to the lobby host.
+    // Local Freeplay, and the host in multiplayer Freeplay Mode (host option of TOU, round 6: without it every option
+    // change needed a new lobby). Only the host can change options; MiraAPI sends a change to everyone right away.
     public override bool Enabled(RoleBehaviour? role)
     {
-        return PlayerControl.LocalPlayer && TutorialManager.InstanceExists && !FreeplayButtonsVisibility.Hidden;
+        return PlayerControl.LocalPlayer && !FreeplayButtonsVisibility.Hidden &&
+               (TutorialManager.InstanceExists ||
+                (MultiplayerFreeplayMode.Enabled && AmongUsClient.Instance && AmongUsClient.Instance.AmHost));
     }
 
     public override void ClickHandler()

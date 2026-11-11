@@ -28,13 +28,10 @@ public sealed class RiggerOptions : AbstractRoleOptionGroup<RiggerRole>
     [ModdedToggleOption("TouOptionRiggerJamConsole")]
     public bool JamConsole { get; set; } = true;
 
-    // Also the delay of a lethal trap.
+    // Trigger delay (name kept for the config): the trap fires only if the crewmate keeps the task open this long
+    // without finishing it (round 7). Then come the alert, the jam and a lethal trap.
     public ModdedNumberOption JamDelay { get; set; } =
-        new("TouOptionRiggerJamDelay", 1.5f, 0.5f, 5f, 0.5f, MiraNumberSuffixes.Seconds, "0.0")
-        {
-            Visible = () => OptionGroupSingleton<RiggerOptions>.Instance.JamConsole ||
-                            OptionGroupSingleton<RiggerOptions>.Instance.TrapsKill
-        };
+        new("TouOptionRiggerJamDelay", 1.5f, 0.5f, 5f, 0.5f, MiraNumberSuffixes.Seconds, "0.0");
 
     public ModdedNumberOption JamLockout { get; set; } =
         new("TouOptionRiggerJamLockout", 5f, 0f, 15f, 1f, MiraNumberSuffixes.Seconds, "0")

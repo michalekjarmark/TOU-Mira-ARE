@@ -63,6 +63,20 @@ public sealed class GamblerBetMeetingButton : TargetedMeetingButton
         }
 
         Created[playerVoteArea.PlayerId.Value] = behaviour;
+
+        // MiraAPI clones the button from the player popup's Confirm button, whose hover highlight is only drawn inside
+        // the mask of the player list. Skip Vote is outside of it, so there the highlight never showed (round 6).
+        if (playerVoteArea.PlayerId.Value == GamblerRole.NoEjectionBet)
+        {
+            foreach (var renderer in behaviour.GetComponentsInChildren<SpriteRenderer>(true))
+            {
+                if (renderer.gameObject != behaviour.gameObject)
+                {
+                    renderer.maskInteraction = SpriteMaskInteraction.None;
+                }
+            }
+        }
+
         behaviour.gameObject.SetActive(false);
         return behaviour;
     }

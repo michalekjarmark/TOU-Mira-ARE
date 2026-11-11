@@ -9,5 +9,9 @@
         <!-- Discord invite opened by the "Discord Server" button in the main menu (https://discord.gg/...).
              Empty or missing: the button opens the Town of Us: Mira server. -->
         <AreDiscordUrl></AreDiscordUrl>
+        <!-- Application ID of our own Discord application (discord.com/developers/applications) for the
+             Rich Presence: Discord shows its name and its "icon" art asset (Rich Presence > Art Assets).
+             Empty or missing: Town of Us: Mira's application is used ("Town of Us Mira"). -->
+        <AreDiscordAppId></AreDiscordAppId>
     </PropertyGroup>
 </Project>

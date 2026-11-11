@@ -13,10 +13,12 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 - **Gambler** (new Neutral Evil role): in every meeting, within a limited betting time, the Gambler secretly bets on
   who gets ejected, or that no one is (skip or tie): during the voting they click a player (or Skip Vote) and pick the
-  "Bet" chip next to Confirm, before casting their own vote. A correct
+  "Bet" button next to Confirm (like the Prosecutor's), before casting their own vote. A correct
   bet gives a point, a wrong one takes a point away (never below zero). Betting that no one is ejected can win only
   once per game by default, because early meetings usually end with a skip. If the player they bet on dies during the
   meeting, the bet is cancelled. Collecting enough points while alive wins the game.
+  - The points, the betting time left and the bet are shown under the meeting timer, and the player the Gambler bet on
+    gets a ♦ next to their name (only for the Gambler).
   - Betting time: by default the first 20 seconds of the voting, so the Gambler can't just wait until everyone agreed on
     a vote. Can be changed to the whole voting.
   - When the Gambler gets close to winning, everyone sees a flash and a warning, so the win doesn't come out of
@@ -46,6 +48,10 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   as crew progress (added to the completed tasks, not to the total), so working for a faster kill also brings the crew
   closer to a task win.
 
+### Fixed
+
+- The AmonRa modifier icon in the settings is now the same size as the other icons.
+
 <details>
 <summary><i>Po polsku</i></summary>
 
@@ -53,9 +59,11 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 - **Hazardzista** (Gambler, nowa rola Neutral Evil): na każdym spotkaniu, w ograniczonym czasie, Hazardzista
   potajemnie obstawia, kto zostanie wyrzucony, albo że nikt (skip lub remis): w czasie głosowania klika gracza (albo
-  Skip Vote) i wybiera żeton „Zakład” obok „Potwierdź”, zanim odda własny głos. Trafny zakład daje punkt, chybiony zabiera punkt (nigdy poniżej zera). Zakład, że nikt nie wyleci, domyślnie może wygrać
+  Skip Vote) i wybiera przycisk „Zakład” obok „Potwierdź” (jak u Prosecutora), zanim odda własny głos. Trafny zakład daje punkt, chybiony zabiera punkt (nigdy poniżej zera). Zakład, że nikt nie wyleci, domyślnie może wygrać
   tylko raz na grę, bo pierwsze spotkania zwykle kończą się skipem. Jeśli obstawiony gracz zginie
   w trakcie spotkania, zakład przepada bez straty. Zebranie wystarczającej liczby punktów za życia oznacza wygraną.
+  - Punkty, pozostały czas na zakład i sam zakład widać pod zegarem spotkania, a obstawiony gracz ma przy nicku ♦
+    (widzi to tylko Hazardzista).
   - Czas na zakład: domyślnie pierwsze 20 sekund głosowania, żeby Hazardzista nie mógł po prostu poczekać, aż wszyscy
     uzgodnią głos. Można zmienić na całe głosowanie.
   - Gdy Hazardzista jest blisko wygranej, wszyscy widzą błysk ekranu i ostrzeżenie, więc wygrana nie spada znikąd.
@@ -85,6 +93,10 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   zadanie na stałe trochę skraca cooldown zabójstwa Wtyczki (domyślnie o 1 s, do minimum 10 s). Domyślnie jej zadania
   liczą się też do postępu załogi (doliczane do ukończonych, nie do wszystkich), więc praca na szybsze zabójstwo
   przybliża też załogę do wygranej na zadania.
+
+**Naprawiono**
+
+- Ikona modyfikatora AmonRa w ustawieniach ma teraz ten sam rozmiar co pozostałe ikony.
 
 </details>
 

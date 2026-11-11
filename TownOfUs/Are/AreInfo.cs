@@ -39,12 +39,28 @@ public static class AreInfo
 
     private static string? ReadDiscordUrl()
     {
-        var value = typeof(AreInfo).Assembly.GetCustomAttributes(typeof(System.Reflection.AssemblyMetadataAttribute), false)
-            .OfType<System.Reflection.AssemblyMetadataAttribute>()
-            .FirstOrDefault(a => a.Key == "AreDiscordUrl")?.Value?.Trim();
+        var value = ReadBuildMetadata("AreDiscordUrl");
         var isInvite = value != null &&
                        (value.StartsWith("https://discord.gg/", StringComparison.Ordinal) ||
                         value.StartsWith("https://discord.com/invite/", StringComparison.Ordinal));
         return isInvite ? value : null;
+    }
+
+    /// <summary>
+    ///     Discord application (Developer Portal) used for the Rich Presence, set at build time from are.local.props
+    ///     (AssemblyMetadata "AreDiscordAppId"). Discord shows that application's name and "icon" art asset as the game.
+    ///     Null when not set: Town of Us: Mira's application is used (shown as "Town of Us Mira").
+    /// </summary>
+    public static long? DiscordAppId { get; } =
+        long.TryParse(ReadBuildMetadata("AreDiscordAppId"), System.Globalization.NumberStyles.None,
+            System.Globalization.CultureInfo.InvariantCulture, out var id) && id > 0
+            ? id
+            : null;
+
+    private static string? ReadBuildMetadata(string key)
+    {
+        return typeof(AreInfo).Assembly.GetCustomAttributes(typeof(System.Reflection.AssemblyMetadataAttribute), false)
+            .OfType<System.Reflection.AssemblyMetadataAttribute>()
+            .FirstOrDefault(a => a.Key == key)?.Value?.Trim();
     }
 }

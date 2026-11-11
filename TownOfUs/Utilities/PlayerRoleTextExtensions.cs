@@ -171,6 +171,9 @@ public static class PlayerRoleTextExtensions
             name += "<color=#21453B> &</color>";
         }
 
+        // AmonRa Edition: symbols of our roles (Gambler's bet).
+        name = Are.AreRoleTexts.AddTargetSymbols(name, player);
+
         return name;
     }
 

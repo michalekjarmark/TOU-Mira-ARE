@@ -10,7 +10,8 @@ namespace TownOfUs.Patches.Misc;
 [HarmonyPatch]
 public static class DiscordPlatformPatch
 {
-    private const long ClientId = 1380592659000721489;
+    // ARE: our own Discord application (name + icon in the Rich Presence) when set in are.local.props.
+    private static readonly long ClientId = TownOfUs.Are.AreInfo.DiscordAppId ?? 1380592659000721489;
     private const uint SteamAppId = 945360;
 
     public static bool Prepare()

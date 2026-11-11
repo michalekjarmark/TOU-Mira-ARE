@@ -26,7 +26,7 @@ public static class WorkaholicEvents
         WorkaholicSystem.LogTasks(PlayerControl.LocalPlayer, "game start");
     }
 
-    // Diagnostics (round 11): a role change through "Set Roles" left task objects and game data out of step.
+    // Diagnostics for bug reports: the task list after every role change of our players.
     [RegisterEvent(100)]
     public static void ChangeRoleEventHandler(ChangeRoleEvent @event)
     {

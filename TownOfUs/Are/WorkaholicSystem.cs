@@ -259,18 +259,22 @@ public static class WorkaholicSystem
             .Select(x => x.Id).ToList();
     }
 
+    // Task types come from the owner's task objects (every client has them for every player): on a client that isn't
+    // the host, the game data has no real task types (CAVEATS). Done/not done comes from the game data.
     private static int AvailableTaskCount(PlayerControl owner)
     {
         var count = 0;
-        foreach (var info in owner.Data.Tasks.ToArray())
+        foreach (var task in owner.myTasks.ToArray())
         {
-            if (info == null || info.Complete || Taken.ContainsKey((owner.PlayerId, info.Id)))
+            var normal = task != null ? task.TryCast<NormalPlayerTask>() : null;
+            if (normal == null || IsCopyId(normal.Id) || ExcludedTypes.Contains(normal.TaskType) ||
+                Taken.ContainsKey((owner.PlayerId, normal.Id)))
             {
                 continue;
             }
 
-            var prefab = ShipStatus.Instance.GetTaskById(info.TypeId);
-            if (prefab != null && !ExcludedTypes.Contains(prefab.TaskType))
+            var info = owner.Data.FindTaskById(normal.Id);
+            if (info != null && !info.Complete)
             {
                 count++;
             }
@@ -315,8 +319,8 @@ public static class WorkaholicSystem
         button.SetTimer(startCooldown ? button.Cooldown : 0f);
     }
 
-    // The copy is the task the owner actually gave up (its type comes in the answer). Normally the game data says the
-    // same; after a role change through "Set Roles" it didn't (round 11), so the data only picks the variant.
+    // The copy is the task the owner actually gave up (its type comes in the answer). The game data can only pick the
+    // exact variant, and only on the host: on other clients its task types are all 0 (round 11, CAVEATS).
     private static bool CreateCopy(PlayerControl local, PlayerControl owner, uint ownerTaskId, TaskTypes ownerType)
     {
         LogTasks(owner, "copy");
@@ -324,8 +328,6 @@ public static class WorkaholicSystem
         var prefab = info != null && ShipStatus.Instance ? ShipStatus.Instance.GetTaskById(info.TypeId) : null;
         if (prefab == null || prefab.TaskType != ownerType)
         {
-            Warning($"Workaholic: owner gave up {ownerType}, but the data of task {ownerTaskId} says " +
-                    $"{(prefab != null ? prefab.TaskType.ToString() : "nothing")}: using the owner's type");
             prefab = FindTaskPrefab(ownerType);
         }
 
@@ -373,8 +375,8 @@ public static class WorkaholicSystem
     }
 
     /// <summary>
-    ///     Diagnostics: the player's task objects (id:type:step, + = done) next to the game data (id:type) and modifiers.
-    ///     The two lists should match by id; a role change through "Set Roles" broke that in round 11.
+    ///     Diagnostics for bug reports: the player's task objects (id:type:step, + = done) next to the game data
+    ///     (id:raw type id) and modifiers. Logged at game start, on role changes and on every take.
     /// </summary>
     public static void LogTasks(PlayerControl? player, string reason)
     {
@@ -401,12 +403,12 @@ public static class WorkaholicSystem
                 sb.Append(TownOfUsPlugin.Culture, $" {normal.Id}:{normal.TaskType}:{normal.TaskStep}/{normal.MaxStep}{done}");
             }
 
+            // Raw type ids: only the host has real ones.
             sb.Append(" ] data [");
             foreach (var info in player.Data.Tasks.ToArray())
             {
-                var prefab = ShipStatus.Instance ? ShipStatus.Instance.GetTaskById(info.TypeId) : null;
                 sb.Append(TownOfUsPlugin.Culture,
-                    $" {info.Id}:{(prefab != null ? prefab.TaskType : info.TypeId)}{(info.Complete ? "+" : string.Empty)}");
+                    $" {info.Id}:t{info.TypeId}{(info.Complete ? "+" : string.Empty)}");
             }
 
             var modifiers = player.TryGetComponent<ModifierComponent>(out var component)

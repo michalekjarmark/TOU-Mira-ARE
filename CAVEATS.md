@@ -61,6 +61,9 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   stays after a role change) with **id 0**. When looking up a task by id, match only `NormalPlayerTask`. Vanilla
   `CompleteTask(idx)` takes the first task with that id: the game data ends up right, but the real task object can stay
   "not done".
+- **On a client that isn't the host, `NetworkedPlayerInfo.Tasks[i].TypeId` is not the real task type** (it was 0 for
+  every task, so `ShipStatus.GetTaskById` always gave the first common task). `Id` and `Complete` are synced. Take task
+  types from the task objects (`player.myTasks`, which every client has for every player).
 - Freeplay dummies have no tasks.
 - Tasks that use up objects on the map (towels, records, Airship guns, Fungle vegetables, ore and shells) can't be undone
   or done twice on one client: the objects are gone once the task is done.

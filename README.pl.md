@@ -99,7 +99,8 @@ aktualizacje, pełna paczka instalacyjna i własne logo na ekranie startowym.
 
 # Dla twórców
 
-Zobacz [For developers](README.md#for-developers) w wersji angielskiej.
+Zobacz [For developers](README.md#for-developers) w wersji angielskiej. Znane pułapki techniczne (po angielsku):
+[`CAVEATS.md`](CAVEATS.md).
 
 -----------------------
 

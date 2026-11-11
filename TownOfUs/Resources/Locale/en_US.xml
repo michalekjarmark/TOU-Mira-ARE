@@ -4203,6 +4203,7 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TownOfUsMira.Role.WorkaholicTakenSuffix">(taken over)</string>
   <string name="TownOfUsMira.Role.WorkaholicTakenSuffixNamed">(taken over by [player])</string>
   <string name="TouOptionWorkaholicTakeCooldown">Take Task Cooldown</string>
+  <string name="TouOptionWorkaholicCooldownAfterFailedTake">Cooldown Also After A Failed Try</string>
   <string name="TouOptionWorkaholicMaxTakenTasks">Max Taken Tasks Per Game</string>
   <string name="TouOptionWorkaholicShowHelperName">Crewmate Sees The Helper's Name</string>
 </resources>

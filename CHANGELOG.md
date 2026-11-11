@@ -16,8 +16,10 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   the most tasks left (dead crewmates too, if ghosts do tasks), only tasks nobody has started yet are taken, and never
   the Snitch's. The crewmate learns that someone took over their task, sees it greyed out and can't do it; once the
   Workaholic finishes it, it counts as the crewmate's task. If the Workaholic dies, the task goes back to its owner.
-  - Lobby options: cooldown after a finished task (10 s by default), a limit of taken tasks per game (no limit by
-    default) and whether the crewmate sees the helper's name (off by default: just "someone").
+  - Lobby options: cooldown after a finished task (10 s by default), whether a try that found no task to take also
+    starts the cooldown (on by default; the use is never lost), a limit of taken tasks per game (no limit by default)
+    and whether the crewmate sees the helper's name (off by default: just "someone").
+  - The Auditor sees a task done by the Workaholic as the Workaholic's work, not its owner's.
   - Tasks that use up objects on the map (towels, records, guns, vegetables, ore, shells) are never taken.
 
 <details>
@@ -31,8 +33,10 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   jeszcze nie zaczął, i nigdy od Snitcha. Właściciel dowiaduje się, że ktoś przejął jego zadanie, widzi je wyszarzone i
   nie może go robić. Gdy Pracoholik je skończy, liczy się jako zadanie właściciela. Jeśli Pracoholik zginie, zadanie
   wraca do właściciela.
-  - Opcje lobby: cooldown po wykonanym zadaniu (domyślnie 10 s), limit przejętych zadań na grę (domyślnie bez limitu)
+  - Opcje lobby: cooldown po wykonanym zadaniu (domyślnie 10 s), czy nieudana próba (brak zadania do przejęcia) też
+    włącza cooldown (domyślnie tak; użycie nigdy nie przepada), limit przejętych zadań na grę (domyślnie bez limitu)
     i czy właściciel widzi nick pomocnika (domyślnie nie: tylko „ktoś”).
+  - Audytor widzi zadanie zrobione przez Pracoholika jako pracę Pracoholika, a nie właściciela.
   - Zadania, które zużywają przedmioty na mapie (ręczniki, dokumenty, broń, warzywa, ruda, muszle), nie są przejmowane.
 
 </details>

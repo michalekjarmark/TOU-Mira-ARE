@@ -16,6 +16,11 @@ public sealed class WorkaholicOptions : AbstractRoleOptionGroup<WorkaholicRole>
     [ModdedNumberOption("TouOptionWorkaholicTakeCooldown", 0f, 60f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float TakeCooldown { get; set; } = 10f;
 
+    // Owner's decision (round 9): a try that found no unstarted task also starts the cooldown, so the button can't be
+    // spammed. The use is never lost (the limit counts taken tasks).
+    [ModdedToggleOption("TouOptionWorkaholicCooldownAfterFailedTake")]
+    public bool CooldownAfterFailedTake { get; set; } = true;
+
     // 0 = no limit (owner's decision: no limit by default).
     [ModdedNumberOption("TouOptionWorkaholicMaxTakenTasks", 0f, 20f, 1f, MiraNumberSuffixes.None, "0", zeroInfinity: true)]
     public float MaxTakenTasks { get; set; } = 0f;

@@ -55,7 +55,8 @@ public static class WorkaholicEvents
         }
     }
 
-    [RegisterEvent]
+    // Last (handlers run from the lowest priority): the Auditor's handler must still see that a Workaholic did the task.
+    [RegisterEvent(100)]
     public static void CompleteTaskEventHandler(CompleteTaskEvent @event)
     {
         if (@event.Player != null && @event.Task != null)

@@ -4,6 +4,7 @@ using MiraAPI.Events.Vanilla.Meeting;
 using MiraAPI.Events.Vanilla.Meeting.Voting;
 using MiraAPI.Events.Vanilla.Player;
 using MiraAPI.Roles;
+using TownOfUs.Are;
 using TownOfUs.Events.TouEvents;
 using TownOfUs.Roles.Crewmate;
 
@@ -31,7 +32,18 @@ public static class AuditorEvents
         {
             auditor.OnOwnTaskCompleted();
         }
-        else if (auditor.ActiveAudit is { } audit && audit.TargetId == @event.Player.PlayerId)
+        else if (auditor.ActiveAudit is { } audit && audit.TargetId == @event.Player.PlayerId &&
+                 !WorkaholicSystem.WasDoneByHelper(@event.Player.PlayerId, @event.Task.Id))
+        {
+            // A task done by a Workaholic counts for the Workaholic (OnTaskDoneByWorkaholic), not for its owner.
+            audit.OnTaskCompleted();
+        }
+    }
+
+    /// <summary>A Workaholic finished a taken task: it counts as their work in an audit of them.</summary>
+    public static void OnTaskDoneByWorkaholic(PlayerControl workaholic)
+    {
+        if (LocalAuditor?.ActiveAudit is { } audit && audit.TargetId == workaholic.PlayerId)
         {
             audit.OnTaskCompleted();
         }

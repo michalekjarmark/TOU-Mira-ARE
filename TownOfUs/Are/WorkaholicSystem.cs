@@ -9,6 +9,7 @@ using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
 using TownOfUs.Buttons.Crewmate;
+using TownOfUs.Events.Crewmate;
 using TownOfUs.Modifiers.Game;
 using TownOfUs.Modules;
 using TownOfUs.Options.Roles.Crewmate;
@@ -61,6 +62,10 @@ public static class WorkaholicSystem
     // Owner's client: the step each task started with (not every task starts at step 0).
     private static readonly Dictionary<(byte Owner, uint Task), int> InitialSteps = [];
 
+    // All clients: completions sent by the owner's client for a Workaholic (until the completion arrives). The Auditor
+    // counts these for the Workaholic, not for the owner.
+    private static readonly HashSet<(byte Owner, uint Task)> HelperCompletions = [];
+
     // Workaholic's client.
     private static readonly List<byte> PendingQueue = [];
     private static HeldTask? held;
@@ -109,6 +114,7 @@ public static class WorkaholicSystem
         Hidden.Clear();
         Taken.Clear();
         InitialSteps.Clear();
+        HelperCompletions.Clear();
         PendingQueue.Clear();
         held = null;
         pendingOwner = Nobody;
@@ -279,8 +285,9 @@ public static class WorkaholicSystem
         {
             pendingOwner = Nobody;
 
-            // Everyone asked had only started tasks: nothing was taken, so the use comes back and no cooldown.
-            GiveBackUse();
+            // Everyone asked had only started tasks: nothing was taken, so the use comes back. The cooldown still
+            // starts by default (owner's decision, round 9: otherwise the button can be spammed), there's an option.
+            GiveBackUse(OptionGroupSingleton<WorkaholicOptions>.Instance.CooldownAfterFailedTake);
             Notify(MiraLocaleManager.Get("TownOfUsMira.Role.WorkaholicNothingToTake"));
             return;
         }
@@ -291,7 +298,8 @@ public static class WorkaholicSystem
         RpcWorkaholicRequest(local, pendingOwner);
     }
 
-    private static void GiveBackUse()
+    // Nothing was taken (or the taken task stopped counting): the use comes back.
+    private static void GiveBackUse(bool startCooldown = false)
     {
         var button = CustomButtonSingleton<WorkaholicTakeButton>.Instance;
         if (button == null)
@@ -304,7 +312,7 @@ public static class WorkaholicSystem
             button.IncreaseUses();
         }
 
-        button.SetTimer(0f);
+        button.SetTimer(startCooldown ? button.Cooldown : 0f);
     }
 
     private static bool CreateCopy(PlayerControl local, PlayerControl owner, uint ownerTaskId)
@@ -326,7 +334,7 @@ public static class WorkaholicSystem
         held = new HeldTask(owner.PlayerId, ownerTaskId, copy);
 
         Info($"Workaholic: took task {ownerTaskId} ({copy.TaskType}) of player {owner.PlayerId}, copy {copy.Id}");
-        Notify(MiraLocaleManager.Get("TownOfUsMira.Role.WorkaholicNewTask").Replace("[task]", TaskName(copy)));
+        Notify(MiraLocaleManager.Get("TownOfUsMira.Role.WorkaholicNewTask").Replace("<task>", TaskName(copy)));
         return true;
     }
 
@@ -477,7 +485,7 @@ public static class WorkaholicSystem
     {
         var helper = MiscUtils.PlayerById(workaholicId);
         return OptionGroupSingleton<WorkaholicOptions>.Instance.ShowHelperName && helper != null && helper.Data != null
-            ? MiraLocaleManager.Get(namedKey).Replace("[player]", helper.Data.PlayerName)
+            ? MiraLocaleManager.Get(namedKey).Replace("<player>", helper.Data.PlayerName)
             : MiraLocaleManager.Get(anonymousKey);
     }
 
@@ -506,9 +514,19 @@ public static class WorkaholicSystem
         }
     }
 
-    /// <summary>A taken task got completed outside of this system: the Workaholic's copy isn't needed any more.</summary>
+    /// <summary>The owner's completion of this task was done by a Workaholic (see <see cref="HelperCompletions" />).</summary>
+    public static bool WasDoneByHelper(byte ownerId, uint taskId)
+    {
+        return HelperCompletions.Contains((ownerId, taskId));
+    }
+
+    /// <summary>
+    ///     Every completed task (after the other handlers, so the Auditor still sees <see cref="WasDoneByHelper" />). A
+    ///     taken task completed outside of this system: the Workaholic's copy isn't needed any more.
+    /// </summary>
     public static void OnTaskCompleted(PlayerControl owner, uint taskId)
     {
+        HelperCompletions.Remove((owner.PlayerId, taskId));
         if (!Taken.Remove((owner.PlayerId, taskId), out var workaholicId))
         {
             return;
@@ -537,7 +555,7 @@ public static class WorkaholicSystem
         var task = UnhideOwnTask(owner, taskId);
         if (task != null && owner == PlayerControl.LocalPlayer && !owner.HasDied())
         {
-            Notify(MiraLocaleManager.Get("TownOfUsMira.Role.WorkaholicTaskReturned").Replace("[task]", TaskName(task)));
+            Notify(MiraLocaleManager.Get("TownOfUsMira.Role.WorkaholicTaskReturned").Replace("<task>", TaskName(task)));
         }
     }
 
@@ -726,7 +744,7 @@ public static class WorkaholicSystem
             if (task != null && owner == local)
             {
                 Notify(HelperText("TownOfUsMira.Role.WorkaholicYourTaskTaken",
-                    "TownOfUsMira.Role.WorkaholicYourTaskTakenNamed", workaholicId).Replace("[task]", TaskName(task)));
+                    "TownOfUsMira.Role.WorkaholicYourTaskTakenNamed", workaholicId).Replace("<task>", TaskName(task)));
             }
         }
 
@@ -760,6 +778,12 @@ public static class WorkaholicSystem
         }
 
         Taken.Remove((ownerId, taskId));
+
+        // Every client: the owner's completion that follows was done by the Workaholic, and an Auditor auditing the
+        // Workaholic sees the task done right now, where the Workaholic stands.
+        HelperCompletions.Add((ownerId, taskId));
+        AuditorEvents.OnTaskDoneByWorkaholic(workaholic);
+
         var owner = MiscUtils.PlayerById(ownerId);
         if (owner == null || !owner.AmOwner)
         {
@@ -778,7 +802,7 @@ public static class WorkaholicSystem
         if (owner == PlayerControl.LocalPlayer)
         {
             Notify(HelperText("TownOfUsMira.Role.WorkaholicYourTaskDone",
-                "TownOfUsMira.Role.WorkaholicYourTaskDoneNamed", workaholic.PlayerId).Replace("[task]", TaskName(task)));
+                "TownOfUsMira.Role.WorkaholicYourTaskDoneNamed", workaholic.PlayerId).Replace("<task>", TaskName(task)));
         }
     }
 

@@ -54,7 +54,7 @@ public sealed class WorkaholicRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownO
 
         var line = WorkaholicSystem.OwnTasksDone(Player)
             ? MiraLocaleManager.Get("TownOfUsMira.Role.WorkaholicHelpedCount")
-                .Replace("[count]", $"{WorkaholicSystem.HelpedTasks}")
+                .Replace("<count>", $"{WorkaholicSystem.HelpedTasks}")
             : MiraLocaleManager.Get("TownOfUsMira.Role.WorkaholicOwnTasksFirst");
         sb.AppendLine(TownOfUsPlugin.Culture, $"<size=60%><color=#BFBFBF>{line}</color></size>");
         return sb;

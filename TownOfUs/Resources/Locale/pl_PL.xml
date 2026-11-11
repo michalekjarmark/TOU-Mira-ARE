@@ -1501,6 +1501,7 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TownOfUsMira.Role.WorkaholicTakenSuffix">(przejęte)</string>
   <string name="TownOfUsMira.Role.WorkaholicTakenSuffixNamed">(przejęte przez [player])</string>
   <string name="TouOptionWorkaholicTakeCooldown">Cooldown brania zadania</string>
+  <string name="TouOptionWorkaholicCooldownAfterFailedTake">Cooldown także po nieudanej próbie</string>
   <string name="TouOptionWorkaholicMaxTakenTasks">Maks. przejętych zadań na grę</string>
   <string name="TouOptionWorkaholicShowHelperName">Właściciel zadania widzi nick pomocnika</string>
 </resources>

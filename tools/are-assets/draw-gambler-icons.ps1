@@ -83,7 +83,35 @@ Draw-Chip $g 56 58 44
 Draw-Die $g 92 92 36 14
 Save $bmp $g "GamblerIcon.png"
 
-# ---- Meeting "Bet" button (100x100): a single chip ----
-$c = New-Canvas 100 100; $bmp = $c[0]; $g = $c[1]
-Draw-Chip $g 50 50 44
+# ---- Meeting "Bet" button (82x86 at 100 PPU): same size and style as the Prosecutor's vote popup button
+# (TownOfUs/Resources/ProsecuteSprite.png): dark outline, colored rounded square with a light inner edge,
+# white symbol in the middle. Here: a white chip with a teal "$".
+$c = New-Canvas 82 86; $bmp = $c[0]; $g = $c[1]
+$btnOutline = [System.Drawing.Color]::FromArgb(255, 16, 44, 48)
+$btnTop = [System.Drawing.Color]::FromArgb(255, 38, 186, 170)
+$btnBottom = [System.Drawing.Color]::FromArgb(255, 0, 122, 110)
+$btnEdge = [System.Drawing.Color]::FromArgb(255, 140, 232, 220)
+$g.FillPath((New-Object System.Drawing.SolidBrush $btnOutline), (RoundedRect 1 1 80 84 16))
+$inner = RoundedRect 5 5 72 76 12
+$grad = New-Object System.Drawing.Drawing2D.LinearGradientBrush (New-Object System.Drawing.Point 0, 5), (New-Object System.Drawing.Point 0, 81), $btnTop, $btnBottom
+$g.FillPath($grad, $inner)
+$g.DrawPath((New-Object System.Drawing.Pen $btnEdge, 2.5), (RoundedRect 7.5 7.5 67 71 10))
+# white chip: outlined disc, teal notches on the edge, teal "$"
+$cx = 41; $cy = 43; $r = 23
+$g.FillEllipse((New-Object System.Drawing.SolidBrush $btnOutline), $cx - $r - 3, $cy - $r - 3, 2 * ($r + 3), 2 * ($r + 3))
+$g.FillEllipse((New-Object System.Drawing.SolidBrush $white), $cx - $r, $cy - $r, 2 * $r, 2 * $r)
+$band = $r * 0.24
+$pen = New-Object System.Drawing.Pen $chipColor, $band
+$rr = $r - $band / 2
+for ($i = 0; $i -lt 8; $i++) {
+    $g.DrawArc($pen, $cx - $rr, $cy - $rr, 2 * $rr, 2 * $rr, $i * 45 - 10, 20)
+}
+$ri = $r * 0.58
+$g.DrawEllipse((New-Object System.Drawing.Pen $chipColor, 2), $cx - $ri, $cy - $ri, 2 * $ri, 2 * $ri)
+$font = New-Object System.Drawing.Font "Arial Black", ($r * 0.78), ([System.Drawing.FontStyle]::Bold), ([System.Drawing.GraphicsUnit]::Pixel)
+$sf = New-Object System.Drawing.StringFormat
+$sf.Alignment = [System.Drawing.StringAlignment]::Center
+$sf.LineAlignment = [System.Drawing.StringAlignment]::Center
+$rect = New-Object System.Drawing.RectangleF ($cx - $r), ($cy - $r + 1.5), (2 * $r), (2 * $r)
+$g.DrawString('$', $font, (New-Object System.Drawing.SolidBrush $chipDark), $rect, $sf)
 Save $bmp $g "GamblerBetButton.png"

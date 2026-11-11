@@ -427,13 +427,16 @@ public static class WorkaholicSystem
         return options.Count == 0 ? NoTask : options[UnityEngine.Random.Range(0, options.Count)];
     }
 
-    private static PlayerTask? FindOwnTask(PlayerControl owner, uint taskId)
+    // Only real tasks: the list headers (ImportantTextTask, e.g. the impostor's "Sabotage and kill everyone. Fake
+    // Tasks:", which stays after a role change) also have id 0 (round 10: the header got hidden instead of task 0).
+    private static NormalPlayerTask? FindOwnTask(PlayerControl owner, uint taskId)
     {
         foreach (var task in owner.myTasks.ToArray())
         {
-            if (task != null && task.Id == taskId)
+            var normal = task != null ? task.TryCast<NormalPlayerTask>() : null;
+            if (normal != null && normal.Id == taskId && !IsCopyId(normal.Id))
             {
-                return task;
+                return normal;
             }
         }
 
@@ -442,7 +445,7 @@ public static class WorkaholicSystem
 
     // Out of myTasks: no console accepts it, no arrow, no map icon, not in the vanilla task list. The task list shows it
     // greyed out instead (DecorateTaskText).
-    private static PlayerTask? HideOwnTask(PlayerControl owner, uint taskId, byte workaholicId)
+    private static NormalPlayerTask? HideOwnTask(PlayerControl owner, uint taskId, byte workaholicId)
     {
         var task = FindOwnTask(owner, taskId);
         if (task == null)
@@ -799,6 +802,16 @@ public static class WorkaholicSystem
 
         // Sent by the owner's client, like the Taskmaster's completion: counts for the owner everywhere.
         owner.RpcCompleteTask(taskId);
+
+        // The game completes the first task with this id in the list, which can be a header with id 0 (see
+        // FindOwnTask). The game data is right either way; make sure the real task shows as done too.
+        var normal = task.TryCast<NormalPlayerTask>();
+        if (normal != null && !normal.IsComplete)
+        {
+            normal.taskStep = normal.MaxStep;
+            normal.UpdateArrowAndLocation();
+        }
+
         if (owner == PlayerControl.LocalPlayer)
         {
             Notify(HelperText("TownOfUsMira.Role.WorkaholicYourTaskDone",

@@ -85,7 +85,7 @@ public static class AreAssets
     ///     Rigger role icon (wrench and lightning). 128px. Drawn by tools/are-assets/draw-rigger-icons.ps1.
     /// </summary>
     public static LoadableAsset<Sprite> RiggerIcon { get; } =
-        new LoadableResourceAsset($"{CustomPath}.RiggerIcon.png", typeof(TownOfUsPlugin).Assembly, 128f);
+        new LoadableResourceAsset($"{CustomPath}.RiggerIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
 
     /// <summary>
     ///     Rigger "Rig" ability button. 100px like the other ARE buttons.

@@ -9,6 +9,7 @@ using MiraAPI.Utilities;
 using Reactor.Networking.Attributes;
 using TownOfUs.Are;
 using TownOfUs.Interfaces;
+using TownOfUs.MeetingAbilities.Are;
 using Reactor.Utilities;
 using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Neutral;
@@ -177,6 +178,7 @@ public sealed class GamblerRole(IntPtr cppPtr)
         RoleBehaviourStubs.OnMeetingStart(this);
         CurrentBet = NoBet;
         _bettingOpen = false;
+        _betDeadline = 0f;
 
         if (!Player.AmOwner)
         {
@@ -195,6 +197,9 @@ public sealed class GamblerRole(IntPtr cppPtr)
 
     // Local (Gambler only): betting is allowed in this meeting and the window from the options is not over yet.
     private bool _bettingOpen;
+
+    // Local: Time.time when the time limit window closes (0 = the voting hasn't started yet).
+    private float _betDeadline;
 
     /// <summary>
     ///     Local check for <see cref="MeetingAbilities.Are.GamblerBetMeetingButton" />: the "Bet" button shows up in a
@@ -225,17 +230,67 @@ public sealed class GamblerRole(IntPtr cppPtr)
         return data != null && !data.Disconnected && !data.IsDead;
     }
 
-    private static string BetWindowText()
+    /// <summary>
+    ///     The Gambler's line under the meeting timer (where Town of Us shows e.g. the Prosecutor's prosecutions left):
+    ///     points and the state of this meeting's bet. Shown instead of notifications (round 5 feedback).
+    /// </summary>
+    public string MeetingStatusText(MeetingHud meeting)
     {
-        var opts = OptionGroupSingleton<GamblerOptions>.Instance;
-        return opts.BetWindow is GamblerBetWindow.Timer
-            ? MiraLocaleManager.Get("TownOfUsMira.Role.GamblerWindowTimer").Replace("<seconds>", $"{opts.BetTime.Value:0}")
-            : MiraLocaleManager.Get("TownOfUsMira.Role.GamblerWindowWholeMeeting");
+        var points = MiraLocaleManager.Get("TownOfUsMira.Role.GamblerMeetingPoints")
+            .Replace("<points>", $"{Points}").Replace("<goal>", $"{PointsToWin}");
+
+        string status;
+        if (ReachedGoal)
+        {
+            status = MiraLocaleManager.Get("TownOfUsMira.Role.GamblerMeetingGoalReached");
+        }
+        else if (CurrentBet == NoEjectionBet)
+        {
+            status = MiraLocaleManager.Get("TownOfUsMira.Role.GamblerMeetingBetNoEjection");
+        }
+        else if (CurrentBet != NoBet)
+        {
+            status = MiraLocaleManager.Get("TownOfUsMira.Role.GamblerMeetingBet")
+                .Replace("<player>", GameData.Instance.GetPlayerById(CurrentBet)?.PlayerName ?? "?");
+        }
+        else if (_bettingOpen && meeting.state is MeetingHud.MeetingStates.Animating
+                     or MeetingHud.MeetingStates.Discussion)
+        {
+            status = MiraLocaleManager.Get("TownOfUsMira.Role.GamblerMeetingWaitForVoting");
+        }
+        else if (CanBetNow && !HasVoted(meeting))
+        {
+            var opts = OptionGroupSingleton<GamblerOptions>.Instance;
+            var seconds = _betDeadline > 0f ? _betDeadline - Time.time : opts.BetTime.Value;
+            status = opts.BetWindow is GamblerBetWindow.Timer
+                ? MiraLocaleManager.Get("TownOfUsMira.Role.GamblerMeetingTimeLeft")
+                    .Replace("<seconds>", $"{Mathf.Max(0, Mathf.CeilToInt(seconds))}")
+                : MiraLocaleManager.Get("TownOfUsMira.Role.GamblerMeetingBeforeVote");
+        }
+        else
+        {
+            status = MiraLocaleManager.Get("TownOfUsMira.Role.GamblerMeetingClosed");
+        }
+
+        return $"{points} | {status}";
+    }
+
+    private bool HasVoted(MeetingHud meeting)
+    {
+        foreach (var area in meeting.playerStates)
+        {
+            if (area != null && area.PlayerId.Value == Player.PlayerId)
+            {
+                return area.DidVote;
+            }
+        }
+
+        return false;
     }
 
     /// <summary>
-    ///     The vote popups only open once the voting starts, so the betting window starts there too: tell the Gambler how
-    ///     to bet, then close it after BetTime seconds (time limit mode).
+    ///     The vote popups only open once the voting starts, so the betting window starts there too, and closes after
+    ///     BetTime seconds (time limit mode). The state is shown in <see cref="MeetingStatusText" />.
     /// </summary>
     [HideFromIl2Cpp]
     private IEnumerator CoBetWindow(MeetingHud meeting)
@@ -253,15 +308,14 @@ public sealed class GamblerRole(IntPtr cppPtr)
 
         var opts = OptionGroupSingleton<GamblerOptions>.Instance;
         Message($"Gambler: betting open (meeting state {meeting.state}, window {opts.BetWindow})");
-        Notify(MiraLocaleManager.Get("TownOfUsMira.Role.GamblerBettingOpen").Replace("<window>", BetWindowText()));
 
         if (opts.BetWindow is not GamblerBetWindow.Timer)
         {
             yield break;
         }
 
-        var deadline = Time.time + opts.BetTime.Value;
-        while (meeting && _bettingOpen && CurrentBet == NoBet && IsBettingOpen(meeting) && Time.time < deadline)
+        _betDeadline = Time.time + opts.BetTime.Value;
+        while (meeting && _bettingOpen && CurrentBet == NoBet && IsBettingOpen(meeting) && Time.time < _betDeadline)
         {
             yield return null;
         }
@@ -273,16 +327,19 @@ public sealed class GamblerRole(IntPtr cppPtr)
 
         Message($"Gambler: betting window over, meeting state {meeting.state}");
         _bettingOpen = false;
-        if (IsBettingOpen(meeting))
-        {
-            Notify(MiraLocaleManager.Get("TownOfUsMira.Role.GamblerBettingClosed"));
-        }
+
+        // Also from a vote popup that is open right now (round 5: the button stayed there, clicking it did nothing).
+        GamblerBetMeetingButton.HideAll();
     }
 
     public override void OnVotingComplete()
     {
         RoleBehaviourStubs.OnVotingComplete(this);
         _bettingOpen = false;
+        if (Player.AmOwner)
+        {
+            GamblerBetMeetingButton.HideAll();
+        }
     }
 
     public static bool IsBettingOpen(MeetingHud meeting)
@@ -301,13 +358,19 @@ public sealed class GamblerRole(IntPtr cppPtr)
         Message($"Gambler: bet placed on {targetId} (meeting state {meeting.state})");
         _bettingOpen = false;
 
+        // The bet shows up as a symbol next to the player's name and in the line under the meeting timer.
         RpcGamblerPlaceBet(Player, targetId);
+    }
 
-        var text = targetId == NoEjectionBet
-            ? MiraLocaleManager.Get("TownOfUsMira.Role.GamblerBetPlacedNoEjection")
-            : MiraLocaleManager.Get("TownOfUsMira.Role.GamblerBetPlaced")
-                .Replace("<player>", GameData.Instance.GetPlayerById(targetId)?.PlayerName ?? "?");
-        Notify(text);
+    /// <summary>
+    ///     Name symbol of the player the local Gambler bet on in this meeting (like the Executioner's "X").
+    /// </summary>
+    public static bool IsLocalBetTarget(PlayerControl player)
+    {
+        return MeetingHud.Instance && player != null && PlayerControl.LocalPlayer != null &&
+               PlayerControl.LocalPlayer.Data != null &&
+               PlayerControl.LocalPlayer.Data.Role is GamblerRole { CurrentBet: not NoBet } gambler &&
+               gambler.CurrentBet == player.PlayerId;
     }
 
     /// <summary>

@@ -48,6 +48,11 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   as crew progress (added to the completed tasks, not to the total), so working for a faster kill also brings the crew
   closer to a task win.
 
+### Changed
+
+- The Freeplay "Settings" button is now also available to the host in multiplayer games with the "Freeplay Mode" host
+  option, so options can be changed without making a new lobby.
+
 ### Fixed
 
 - The AmonRa modifier icon in the settings is now the same size as the other icons.
@@ -93,6 +98,11 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   zadanie na stałe trochę skraca cooldown zabójstwa Wtyczki (domyślnie o 1 s, do minimum 10 s). Domyślnie jej zadania
   liczą się też do postępu załogi (doliczane do ukończonych, nie do wszystkich), więc praca na szybsze zabójstwo
   przybliża też załogę do wygranej na zadania.
+
+**Zmieniono**
+
+- Przycisk „Ustawienia” z Freeplay jest teraz dostępny także dla hosta w grze wieloosobowej z opcją hosta
+  „Freeplay Mode”, więc opcje można zmieniać bez zakładania nowego lobby.
 
 **Naprawiono**
 

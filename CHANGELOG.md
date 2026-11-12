@@ -9,6 +9,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
+## [1.7.9-are.6] - 2026-11-12
+
 ### Added
 
 - **Ventriloquist** (new Impostor Support role): during the round, the Ventriloquist eavesdrops on a nearby player with
@@ -374,7 +376,8 @@ Pierwsze wydanie AmonRa Edition. Bazuje na Town of Us: Mira 1.7.9 (branch `dev`)
 
 </details>
 
-[Unreleased]: https://github.com/michalekjarmark/TOU-Mira-ARE/compare/v1.7.9-are.5...are
+[Unreleased]: https://github.com/michalekjarmark/TOU-Mira-ARE/compare/v1.7.9-are.6...are
+[1.7.9-are.6]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.6
 [1.7.9-are.5]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.5
 [1.7.9-are.4]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.4
 [1.7.9-are.3]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.3

@@ -9,6 +9,41 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
+### Added
+
+- **Ventriloquist** (new Impostor Support role): during the round, the Ventriloquist eavesdrops on a nearby player with
+  the "Eavesdrop" button (an interaction, so for example a Veteran on alert or a Warden's fortification stops it, and
+  the Auditor counts it). At the next meeting they can switch the chat to "Voice: (player)", with the same button as the
+  impostor chat, and write a message that everyone sees as a normal message from that player: same name, color and
+  look. The player whose voice was used sees the message as their own and can deny it, but doesn't learn who wrote it.
+  - The voice works for one meeting only and a new eavesdrop replaces the old one. On the Ventriloquist's screen the
+    player gets a ♪ after their name, and the meeting screen shows the voice and the messages left.
+  - A voice can't be used while its owner is dead, blackmailed or jailed without access to the public chat.
+  - Dead players with "The Dead Know" see who really wrote the message.
+  - Lobby options: eavesdrop cooldown (20 s by default), eavesdrops per game (no limit by default) and messages per
+    meeting (1 by default).
+
+<details>
+<summary><i>Po polsku</i></summary>
+
+**Dodano**
+
+- **Brzuchomówca** (Ventriloquist, nowa rola Impostor Support): w trakcie rundy Brzuchomówca podsłuchuje gracza obok
+  siebie przyciskiem „Podsłuchaj” (to interakcja, więc zatrzyma ją np. Veteran na alercie albo fortyfikacja Wardena,
+  a Audytor ją policzy). Na najbliższym spotkaniu może przełączyć czat na „Głos: (gracz)”, tym samym przyciskiem co
+  czat impostorów, i napisać wiadomość, którą wszyscy zobaczą jako zwykłą wiadomość od tego gracza: z jego nickiem,
+  kolorem i wyglądem. Gracz, którego głosu użyto, widzi tę wiadomość jako swoją i może zaprzeczyć, ale nie wie, kto ją
+  napisał.
+  - Głos działa tylko na jednym spotkaniu, a nowy podsłuch zastępuje poprzedni. Na ekranie Brzuchomówcy gracz ma ♪
+    przy nicku, a na spotkaniu widać głos i liczbę pozostałych wiadomości.
+  - Głosu nie da się użyć, gdy jego właściciel nie żyje, jest uciszony przez Szantażystę albo uwięziony przez Klawisza
+    bez dostępu do czatu publicznego.
+  - Martwi gracze z opcją „The Dead Know” widzą, kto naprawdę napisał wiadomość.
+  - Opcje lobby: cooldown podsłuchu (domyślnie 20 s), podsłuchy na grę (domyślnie bez limitu) i wiadomości na spotkanie
+    (domyślnie 1).
+
+</details>
+
 ## [1.7.9-are.5] - 2026-11-11
 
 ### Added

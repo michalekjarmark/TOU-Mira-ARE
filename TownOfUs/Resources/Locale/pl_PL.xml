@@ -1504,4 +1504,27 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionWorkaholicCooldownAfterFailedTake">Cooldown także po nieudanej próbie</string>
   <string name="TouOptionWorkaholicMaxTakenTasks">Maks. przejętych zadań na grę</string>
   <string name="TouOptionWorkaholicShowHelperName">Właściciel zadania widzi nick pomocnika</string>
+  <!-- AmonRa Edition - Brzuchomówca / Ventriloquist (Impostor Support) -->
+  <string name="TownOfUsMira.Role.Ventriloquist">Brzuchomówca</string>
+  <string name="TownOfUsMira.Role.Ventriloquist.IntroBlurb">Włóż im słowa w usta.</string>
+  <string name="TownOfUsMira.Role.Ventriloquist.TabDescription">Podsłuchaj gracza, a na spotkaniu pisz na czacie jego głosem.</string>
+  <string name="TownOfUsMira.Role.Ventriloquist.MedDescription">Podsłuchuj graczy i pisz na czacie spotkania jako jeden z nich.</string>
+  <string name="TownOfUsMira.Role.Ventriloquist.WikiDescription">Brzuchomówca to rola Impostor Support, która mówi cudzym głosem. W trakcie rundy podsłuchuje gracza obok siebie (to interakcja, więc zatrzyma ją np. Veteran na alercie albo fortyfikacja Wardena). Na najbliższym spotkaniu może przełączyć czat na głos tego gracza (tym samym przyciskiem co czat impostorów) i napisać wiadomość, którą wszyscy zobaczą jako zwykłą wiadomość od niego, z jego nickiem, kolorem i wyglądem. Gracz, którego głosu użyto, widzi tę wiadomość jako swoją i może zaprzeczyć, ale nie wie, kto ją napisał. Głosu nie da się użyć, gdy jego właściciel nie żyje, jest uciszony przez Szantażystę albo uwięziony przez Klawisza bez dostępu do czatu publicznego. Głos przepada, gdy zaczyna się następna runda, a nowy podsłuch zastępuje poprzedni.</string>
+  <string name="TownOfUsMira.Role.VentriloquistEavesdrop">Podsłuchaj</string>
+  <string name="TownOfUsMira.Role.VentriloquistEavesdrop.WikiDescription">Podsłuchaj gracza obok siebie (nie impostora), żeby mieć jego głos na najbliższe spotkanie. Na twoim ekranie gracz ma ♪ przy nicku.</string>
+  <string name="TownOfUsMira.Role.VentriloquistSpeak">Mów cudzym głosem</string>
+  <string name="TownOfUsMira.Role.VentriloquistSpeak.WikiDescription">Na spotkaniu przełącz czat na „Głos: (gracz)” i pisz. Wszyscy zobaczą wiadomość jako napisaną przez tego gracza. Liczba wiadomości na spotkanie jest ograniczona.</string>
+  <string name="TownOfUsMira.Role.VentriloquistChannel">Głos: [player]</string>
+  <string name="TownOfUsMira.Role.VentriloquistChannelLost">Głos: [player] (przepadł)</string>
+  <string name="TownOfUsMira.Role.VentriloquistTabVoice">Głos na najbliższe spotkanie: [player]</string>
+  <string name="TownOfUsMira.Role.VentriloquistTabNoVoice">Brak głosu: podsłuchaj kogoś.</string>
+  <string name="TownOfUsMira.Role.VentriloquistMeetingVoice">Głos: [player], zostało wiadomości: [left]</string>
+  <string name="TownOfUsMira.Role.VentriloquistMeetingNoVoice">Brak głosu na tym spotkaniu</string>
+  <string name="TownOfUsMira.Role.VentriloquistMeetingVoiceLost">Głos przepadł: [player] nie może mówić</string>
+  <string name="TownOfUsMira.Role.VentriloquistVoiceLost">[player] nie może teraz mówić, więc wiadomość nie została wysłana.</string>
+  <string name="TownOfUsMira.Role.VentriloquistSentAs">Wysłano jako [player]</string>
+  <string name="TownOfUsMira.Role.VentriloquistDeadNote">Autor: [player] (Brzuchomówca)</string>
+  <string name="TouOptionVentriloquistEavesdropCooldown">Cooldown podsłuchu</string>
+  <string name="TouOptionVentriloquistMaxEavesdrops">Podsłuchy na grę</string>
+  <string name="TouOptionVentriloquistMessagesPerMeeting">Wiadomości na spotkanie</string>
 </resources>

@@ -4206,4 +4206,27 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionWorkaholicCooldownAfterFailedTake">Cooldown Also After A Failed Try</string>
   <string name="TouOptionWorkaholicMaxTakenTasks">Max Taken Tasks Per Game</string>
   <string name="TouOptionWorkaholicShowHelperName">Crewmate Sees The Helper's Name</string>
+  <!-- AmonRa Edition - Ventriloquist (Impostor Support) -->
+  <string name="TownOfUsMira.Role.Ventriloquist">Ventriloquist</string>
+  <string name="TownOfUsMira.Role.Ventriloquist.IntroBlurb">Put words in their mouths.</string>
+  <string name="TownOfUsMira.Role.Ventriloquist.TabDescription">Eavesdrop on a player, then write in the meeting chat with their voice.</string>
+  <string name="TownOfUsMira.Role.Ventriloquist.MedDescription">Eavesdrop on players and write in the meeting chat as one of them.</string>
+  <string name="TownOfUsMira.Role.Ventriloquist.WikiDescription">The Ventriloquist is an Impostor Support role that speaks with other players' voices. During the round they eavesdrop on a nearby player (an interaction, so for example a Veteran on alert or a Warden's fortification stops it). At the next meeting they can switch the chat to that player's voice (with the same button as the impostor chat) and write a message that everyone sees as a normal message from that player, with their name, color and look. The player whose voice was used sees the message as their own and can deny it, but doesn't learn who wrote it. A voice can't be used while its owner is dead, blackmailed or jailed without access to the public chat. The voice is lost when the next round starts, and a new eavesdrop replaces the old one.</string>
+  <string name="TownOfUsMira.Role.VentriloquistEavesdrop">Eavesdrop</string>
+  <string name="TownOfUsMira.Role.VentriloquistEavesdrop.WikiDescription">Eavesdrop on a nearby player (not an impostor) to get their voice for the next meeting. On your screen the player gets a ♪ after their name.</string>
+  <string name="TownOfUsMira.Role.VentriloquistSpeak">Speak With Their Voice</string>
+  <string name="TownOfUsMira.Role.VentriloquistSpeak.WikiDescription">In the meeting, switch the chat to "Voice: (player)" and write. Everyone sees the message as written by that player. The number of messages per meeting is limited.</string>
+  <string name="TownOfUsMira.Role.VentriloquistChannel">Voice: [player]</string>
+  <string name="TownOfUsMira.Role.VentriloquistChannelLost">Voice: [player] (lost)</string>
+  <string name="TownOfUsMira.Role.VentriloquistTabVoice">Voice for the next meeting: [player]</string>
+  <string name="TownOfUsMira.Role.VentriloquistTabNoVoice">No voice yet: eavesdrop on someone.</string>
+  <string name="TownOfUsMira.Role.VentriloquistMeetingVoice">Voice: [player], messages left: [left]</string>
+  <string name="TownOfUsMira.Role.VentriloquistMeetingNoVoice">No voice in this meeting</string>
+  <string name="TownOfUsMira.Role.VentriloquistMeetingVoiceLost">Voice lost: [player] can't speak</string>
+  <string name="TownOfUsMira.Role.VentriloquistVoiceLost">[player] can't speak now, so your message wasn't sent.</string>
+  <string name="TownOfUsMira.Role.VentriloquistSentAs">Sent as [player]</string>
+  <string name="TownOfUsMira.Role.VentriloquistDeadNote">Written by [player] (Ventriloquist)</string>
+  <string name="TouOptionVentriloquistEavesdropCooldown">Eavesdrop Cooldown</string>
+  <string name="TouOptionVentriloquistMaxEavesdrops">Eavesdrops Per Game</string>
+  <string name="TouOptionVentriloquistMessagesPerMeeting">Messages Per Meeting</string>
 </resources>

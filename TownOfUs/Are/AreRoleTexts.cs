@@ -1,4 +1,5 @@
 using HarmonyLib;
+using TownOfUs.Roles.Impostor;
 using TownOfUs.Roles.Neutral;
 
 namespace TownOfUs.Are;
@@ -11,13 +12,19 @@ public static class AreRoleTexts
 {
     /// <summary>
     ///     Symbols after a player's name, called from <c>PlayerRoleTextExtensions.UpdateTargetSymbols</c> (like the
-    ///     Executioner's "X"): the player the local Gambler bet on in this meeting gets a "♦".
+    ///     Executioner's "X"): the player the local Gambler bet on in this meeting gets a "♦", the player whose voice the
+    ///     local Ventriloquist has gets a "♪".
     /// </summary>
     public static string AddTargetSymbols(string name, PlayerControl player)
     {
         if (GamblerRole.IsLocalBetTarget(player))
         {
             name += $"{TownOfUsColors.Gambler.ToTextColor()} ♦</color>";
+        }
+
+        if (VentriloquistRole.IsLocalVoice(player))
+        {
+            name += $"{TownOfUsColors.Impostor.ToTextColor()} ♪</color>";
         }
 
         return name;
@@ -42,6 +49,7 @@ public static class AreMeetingTimerTextPatch
         var line = local.Data.Role switch
         {
             GamblerRole gambler => gambler.MeetingStatusText(__instance),
+            VentriloquistRole ventriloquist => ventriloquist.MeetingStatusText(),
             _ => string.Empty
         };
 

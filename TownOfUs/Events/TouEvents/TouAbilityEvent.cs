@@ -260,4 +260,7 @@ public enum AbilityType
     AssassinMisguess,
 
     MedusaGazing,
+
+    // AmonRa Edition (always append at the end)
+    VentriloquistEavesdrop,
 }

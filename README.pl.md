@@ -74,6 +74,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/RiggerIcon.png" width="48"/> | **Monter** (Rigger) | Rola (Impostor Support) | Przerabia prawdziwe stanowiska zadań (do 2 naraz). Gdy załogant trzyma przerobione zadanie otwarte przez chwilę i go nie kończy, pułapka się odpala: Impostorzy dostają alarm i strzałkę do stanowiska, a zadanie zacina się i zamyka. Kto skończy zadanie wcześniej, niczego nie uruchamia. Przerobione stanowiska iskrzą z bliska, więc uważni załoganci mogą je zauważyć. Przeróbki znikają na każdym spotkaniu. Opcjonalnie (domyślnie wyłączone) pułapka zabija też załoganta, na którym się odpaliła. |
 | <img src="TownOfUs/Resources/Custom/InsiderIcon.png" width="48"/> | **Wtyczka** (Insider) | Rola (Impostor Concealing) | Impostor, który naprawdę może robić zadania ze swojej listy, więc wszyscy (i Audytor) widzą prawdziwą pracę. Każde ukończone zadanie na stałe trochę skraca jego cooldown zabójstwa (domyślnie o 1 s, do minimum). Domyślnie jego zadania liczą się też do postępu załogi, więc szybsze zabójstwo przybliża też załogę do wygranej na zadania. |
 | <img src="TownOfUs/Resources/Custom/WorkaholicIcon.png" width="48"/> | **Pracoholik** (Workaholic) | Rola (Crewmate Support) | Po wykonaniu swoich zadań przejmuje zadania innych członków załogi, po jednym naraz: zawsze niezaczęte zadanie osoby, która ma ich najwięcej do zrobienia (także martwej, jeśli duchy robią zadania), nigdy Snitcha. Właściciel widzi, że ktoś przejął jego zadanie, i nie może go robić. Gdy Pracoholik je skończy, liczy się jako zadanie właściciela. Jeśli Pracoholik zginie, zadanie wraca. Opcje: cooldown, limit przejętych zadań, czy właściciel widzi nick pomocnika. |
+| <img src="TownOfUs/Resources/Custom/VentriloquistIcon.png" width="48"/> | **Brzuchomówca** (Ventriloquist) | Rola (Impostor Support) | W trakcie rundy podsłuchuje gracza obok siebie (to interakcja). Na najbliższym spotkaniu pisze na czacie głosem tego gracza: wszyscy widzą zwykłą wiadomość od niego, z jego nickiem, kolorem i wyglądem. Gracz widzi tę wiadomość jako swoją i może zaprzeczyć, ale nie wie, kto ją napisał. Głos działa tylko na jednym spotkaniu i nie da się go użyć, gdy jego właściciel nie żyje, jest uciszony przez Szantażystę albo uwięziony bez dostępu do czatu publicznego. Opcje: cooldown podsłuchu, podsłuchy na grę, wiadomości na spotkanie (domyślnie 1). |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), automatyczne
 aktualizacje, pełna paczka instalacyjna i własne logo na ekranie startowym.
@@ -110,7 +111,8 @@ Zobacz [For developers](README.md#for-developers) w wersji angielskiej. Znane pu
 Kliknij ikonę, aby otworzyć jej stronę na wiki Town of Us: Mira (po angielsku). Nasze dodatki prowadzą zamiast tego do
 [opisu](#dodatki-amonra-edition): **AmonRa** (wózek, modyfikatory uniwersalne), **Hazardzista** (żeton, Neutral Evil),
 **Audytor** (podkładka, Crewmate Investigative), **Monter** (klucz, Impostor Support), **Wtyczka** (wtyczka,
-Impostor Concealing) i **Pracoholik** (kubek kawy, Crewmate Support). Kluczowe różnice Town of Us: Mira,
+Impostor Concealing), **Pracoholik** (kubek kawy, Crewmate Support) i **Brzuchomówca** (dymek na sznurkach,
+Impostor Support). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -188,6 +190,7 @@ obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskie
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Miner"><img width="10%" src="Images/Icons/Miner.png" /></a>
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/RiggerIcon.png" alt="Monter (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Undertaker"><img width="10%" src="Images/Icons/Undertaker.png" /></a>
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/VentriloquistIcon.png" alt="Brzuchomówca (AmonRa Edition)" /></a>
 
   <img src="Images/Groups/NeutAfterlife.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/afterlife/Spectre"><img width="10%" src="Images/Icons/Spectre.png" /></a>

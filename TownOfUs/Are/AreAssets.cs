@@ -116,4 +116,17 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> WorkaholicButton { get; } =
         new LoadableResourceAsset($"{CustomPath}.WorkaholicButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Ventriloquist role icon (speech bubble on puppet strings). 128px. Drawn by
+    ///     tools/are-assets/draw-ventriloquist-icons.ps1.
+    /// </summary>
+    public static LoadableAsset<Sprite> VentriloquistIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.VentriloquistIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Ventriloquist "Eavesdrop" button (ear with sound waves). 100px like the other ARE buttons.
+    /// </summary>
+    public static LoadableAsset<Sprite> VentriloquistButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.VentriloquistButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 }

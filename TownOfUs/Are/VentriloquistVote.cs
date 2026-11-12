@@ -1,8 +1,8 @@
 using System.Runtime.CompilerServices;
 using MiraAPI.GameOptions;
 using MiraAPI.Roles;
-using MiraAPI.Utilities;
 using MiraAPI.Voting;
+using TownOfUs.Options.Roles.Crewmate;
 using TownOfUs.Options.Roles.Impostor;
 using TownOfUs.Roles.Crewmate;
 using TownOfUs.Roles.Impostor;
@@ -15,7 +15,7 @@ namespace TownOfUs.Are;
 ///     When the host counts the votes, every vote of the eavesdropped player goes there instead. That player votes as
 ///     usual and sees nothing during the meeting; with open voting their icon shows up at the chosen player in the
 ///     results, so they can notice, but not who did it. A player who hasn't voted counts as one vote (three for a revealed
-///     Mayor); one who can't vote at all (e.g. everyone after a prosecution) gives nothing.
+///     Mayor). In a meeting with a prosecution the stolen vote is void.
 /// </summary>
 public static class VentriloquistVote
 {
@@ -109,8 +109,19 @@ public static class VentriloquistVote
                 continue;
             }
 
+            // A prosecution can't be stolen (owner's decision): its five votes stay on the Prosecutor's pick, and every
+            // other vote is gone anyway, so the voice has nothing to give either.
+            if (IsProsecution())
+            {
+                Message("Ventriloquist: stolen vote void (prosecution)");
+                continue;
+            }
+
+            // Not voted: the vote they would have cast. Don't ask VotesRemaining whether they could: when the voting
+            // time runs out MiraAPI sets it to 0 for everyone (CAVEATS).
             var cast = votes.RemoveAll(v => v.Voter == voice!.PlayerId);
-            var count = cast > 0 ? cast : VotesIfNotVoted(voice!);
+            var notVoted = voice!.Data.Role is MayorRole { Revealed: true } ? 3 : 1;
+            var count = cast > 0 ? cast : notVoted;
             for (var i = 0; i < count; i++)
             {
                 votes.Add(new CustomVote(voice!.PlayerId, targetId));
@@ -121,14 +132,13 @@ public static class VentriloquistVote
         }
     }
 
-    // What the player's vote would have been worth: none if they can't vote, three for a revealed Mayor, else one.
-    private static int VotesIfNotVoted(PlayerControl voice)
+    // The condition of ProsecutorEvents.VoteEvent, which clears every vote but the Prosecutor's five. HasProsecuted and
+    // ProsecutionsCompleted change only at the ejection, so they still hold while the votes are counted.
+    private static bool IsProsecution()
     {
-        if (voice.GetVoteData().VotesRemaining <= 0)
-        {
-            return 0;
-        }
-
-        return voice.Data.Role is MayorRole { Revealed: true } ? 3 : 1;
+        var max = OptionGroupSingleton<ProsecutorOptions>.Instance.MaxProsecutions;
+        return CustomRoleUtils.GetActiveRolesOfType<ProsecutorRole>().Any(x =>
+            x.Player != null && !x.Player.HasDied() && x.HasProsecuted && x.ProsecuteVictim != byte.MaxValue &&
+            x.ProsecutionsCompleted < max);
     }
 }

@@ -23,8 +23,10 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   - **Vote steal** (lobby option, by default "instead of chat"): instead of writing, the Ventriloquist can steal that
     player's vote. In the vote popup of any living player (or Skip Vote) there is a "Steal Vote" button, available
     before their own vote. When the votes are counted, every vote of the eavesdropped player goes there (all three of
-    a revealed Mayor). The player votes as usual; with open voting their icon shows up at the chosen player in the
-    results. With "with chat" the Ventriloquist can both write and steal the vote, with "off" only write.
+    a revealed Mayor), also when that player doesn't vote at all. The player votes as usual; with open voting their
+    icon shows up at the chosen player in the results. A prosecution can't be stolen: in a meeting where the
+    Prosecutor prosecutes, the stolen vote doesn't count. With "with chat" the Ventriloquist can both write and steal
+    the vote, with "off" only write.
   - Lobby options: eavesdrop cooldown (20 s by default), eavesdrops per game (no limit by default), messages per
     meeting (1 by default) and vote steal (off / instead of chat / with chat).
 - **Vandal** (new Impostor Support role): at a task station, the Vandal can break a task that someone has already
@@ -65,8 +67,10 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   - **Kradzież głosu** (opcja lobby, domyślnie „zamiast czatu”): zamiast pisać, Brzuchomówca może przejąć głos tego
     gracza. W okienku głosowania każdego żywego gracza (i przy Skip Vote) jest przycisk „Przejmij głos”, dostępny przed
     oddaniem własnego głosu. Przy liczeniu wszystkie głosy podsłuchanego gracza trafiają tam (u ujawnionego Burmistrza
-    wszystkie trzy). Gracz głosuje normalnie, a przy jawnym głosowaniu jego ikona pojawia się w wynikach przy wybranym
-    graczu. Przy „razem z czatem” Brzuchomówca może i pisać, i przejąć głos, a przy „wyłączona” tylko pisać.
+    wszystkie trzy), także wtedy, gdy ten gracz w ogóle nie zagłosuje. Gracz głosuje normalnie, a przy jawnym
+    głosowaniu jego ikona pojawia się w wynikach przy wybranym graczu. Oskarżenia nie da się przejąć: na spotkaniu,
+    na którym Prokurator oskarża, przejęty głos się nie liczy. Przy „razem z czatem” Brzuchomówca może i pisać,
+    i przejąć głos, a przy „wyłączona” tylko pisać.
   - Opcje lobby: cooldown podsłuchu (domyślnie 20 s), podsłuchy na grę (domyślnie bez limitu), wiadomości na spotkanie
     (domyślnie 1) i kradzież głosu (wyłączona / zamiast czatu / razem z czatem).
 - **Wandal** (Vandal, nowa rola Impostor Support): przy stanowisku zadania Wandal może przyciskiem „Zepsuj” zepsuć

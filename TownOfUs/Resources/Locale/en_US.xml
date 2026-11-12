@@ -4230,7 +4230,7 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionVentriloquistMaxEavesdrops">Eavesdrops Per Game</string>
   <string name="TouOptionVentriloquistMessagesPerMeeting">Messages Per Meeting</string>
   <string name="TownOfUsMira.Role.VentriloquistStealVote">Steal Vote</string>
-  <string name="TownOfUsMira.Role.VentriloquistStealVote.WikiDescription">In the meeting, before your own vote, open the vote popup of a player (or Skip Vote) and press Steal Vote. When the votes are counted, every vote of the player you eavesdropped on goes there. Available with the vote steal option; with "Instead Of Chat" (default) you either write or steal in a meeting.</string>
+  <string name="TownOfUsMira.Role.VentriloquistStealVote.WikiDescription">In the meeting, before your own vote, open the vote popup of a player (or Skip Vote) and press Steal Vote. When the votes are counted, every vote of the player you eavesdropped on goes there, even if they didn't vote. A prosecution can't be stolen: in that meeting the stolen vote doesn't count. Available with the vote steal option; with "Instead Of Chat" (default) you either write or steal in a meeting.</string>
   <string name="TownOfUsMira.Role.VentriloquistSkip">skip</string>
   <string name="TownOfUsMira.Role.VentriloquistMeetingMessages">messages: [left]</string>
   <string name="TownOfUsMira.Role.VentriloquistMeetingCanSteal">vote steal</string>

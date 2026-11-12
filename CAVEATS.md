@@ -47,6 +47,10 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   when no handler set `ExiledPlayer`. The Tiebreaker (on a tie) and the hidden Knighted votes (Monarch option) set it
   at priority 0, the Swapper at 10. A handler that adds, removes or moves votes must run before them (negative
   priority): the Ventriloquist's vote steal is at -20, the Auditor's freeze at -10.
+- **`VotesRemaining` at counting time** says nothing about whether a player could vote: when the voting time runs out,
+  the host's `MeetingHudPatches.ForceSkipPatch` sets it to 0 for everyone, so a player who didn't vote looks like one
+  who can't. A prosecution also sets it to 0 (and clears every vote) in `CheckForEndVotingEvent`. To tell a
+  prosecution apart, check the Prosecutor's state (`VentriloquistVote.IsProsecution`).
 - `MeetingActionButton` visibility (`Enabled()`) is decided once, when the buttons are created at the meeting start.
 - `TargetedMeetingButton` in the vote popup (`VoteAreaSelectPatch`): `x = 1.3 - 0.65 * i` over every active
   `PassiveButton`, including hidden buttons of other roles (renderer off, object active). At Skip Vote the third slot

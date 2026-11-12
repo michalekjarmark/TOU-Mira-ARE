@@ -1528,7 +1528,7 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionVentriloquistMaxEavesdrops">Podsłuchy na grę</string>
   <string name="TouOptionVentriloquistMessagesPerMeeting">Wiadomości na spotkanie</string>
   <string name="TownOfUsMira.Role.VentriloquistStealVote">Przejmij głos</string>
-  <string name="TownOfUsMira.Role.VentriloquistStealVote.WikiDescription">Na spotkaniu, przed swoim głosem, otwórz okienko głosowania gracza (albo Skip Vote) i naciśnij „Przejmij głos”. Przy liczeniu wszystkie głosy podsłuchanego gracza trafią tam. Działa z opcją kradzieży głosu; przy „Zamiast czatu” (domyślnie) na jednym spotkaniu albo piszesz, albo przejmujesz głos.</string>
+  <string name="TownOfUsMira.Role.VentriloquistStealVote.WikiDescription">Na spotkaniu, przed swoim głosem, otwórz okienko głosowania gracza (albo Skip Vote) i naciśnij „Przejmij głos”. Przy liczeniu wszystkie głosy podsłuchanego gracza trafią tam, nawet jeśli nie zagłosował. Oskarżenia Prokuratora nie da się przejąć: na takim spotkaniu przejęty głos się nie liczy. Działa z opcją kradzieży głosu; przy „Zamiast czatu” (domyślnie) na jednym spotkaniu albo piszesz, albo przejmujesz głos.</string>
   <string name="TownOfUsMira.Role.VentriloquistSkip">pominięcie</string>
   <string name="TownOfUsMira.Role.VentriloquistMeetingMessages">wiadomości: [left]</string>
   <string name="TownOfUsMira.Role.VentriloquistMeetingCanSteal">przejęcie głosu</string>

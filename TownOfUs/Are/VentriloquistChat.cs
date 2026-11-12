@@ -77,7 +77,42 @@ public static class VentriloquistChat
     {
         var role = LocalVentriloquist();
         return MeetingHud.Instance && role != null && role.VoiceId != VentriloquistRole.NoVoice &&
-               role.MessagesSent < MessagesPerMeeting && !PlayerControl.LocalPlayer.HasModifier<BlackmailedModifier>();
+               MessagesLeft(role) > 0 && !PlayerControl.LocalPlayer.HasModifier<BlackmailedModifier>();
+    }
+
+    /// <summary>
+    ///     Messages the Ventriloquist can still write with the voice in this meeting: none after a stolen vote when the
+    ///     vote steal is "instead of chat".
+    /// </summary>
+    public static int MessagesLeft(VentriloquistRole role)
+    {
+        if (role.StolenVoteFor != VentriloquistVote.NoSteal &&
+            VentriloquistVote.Mode == VentriloquistVoteSteal.InsteadOfChat)
+        {
+            return 0;
+        }
+
+        return Math.Max(0, MessagesPerMeeting - role.MessagesSent);
+    }
+
+    /// <summary>
+    ///     Back to the public chat if the local player has the voice channel selected. Called before the channel closes
+    ///     on purpose (last message, stolen vote), see <see cref="LocalChannelOpen" />.
+    /// </summary>
+    public static void LeaveChannelIfSelected()
+    {
+        if (!TeamChatPatches.TeamChatActive)
+        {
+            return;
+        }
+
+        var chats = TeamChatPatches.TeamChatManager.GetAllAvailableChats();
+        var index = TeamChatPatches.CurrentChatIndex;
+        if (index >= 0 && index < chats.Count && chats[index].Priority == ChannelPriority)
+        {
+            TeamChatPatches.ForceNormalChat();
+            TeamChatPatches.UpdateChat();
+        }
     }
 
     private static string ChannelName()
@@ -109,14 +144,14 @@ public static class VentriloquistChat
             return;
         }
 
-        VentriloquistRole.RpcVentriloquistSay(sender, voice!, text.Length > MaxLength ? text[..MaxLength] : text);
-
-        // Last message for this meeting: back to the public chat before the channel closes (see LocalChannelOpen).
-        if (role.MessagesSent >= MessagesPerMeeting)
+        var wasLast = MessagesLeft(role) <= 1;
+        if (wasLast)
         {
-            TeamChatPatches.ForceNormalChat();
-            TeamChatPatches.UpdateChat();
+            // Last message for this meeting: back to the public chat before the channel closes (see LocalChannelOpen).
+            LeaveChannelIfSelected();
         }
+
+        VentriloquistRole.RpcVentriloquistSay(sender, voice!, text.Length > MaxLength ? text[..MaxLength] : text);
     }
 
     /// <summary>
@@ -137,7 +172,7 @@ public static class VentriloquistChat
             return;
         }
 
-        if (role.MessagesSent >= MessagesPerMeeting || string.IsNullOrWhiteSpace(text))
+        if (MessagesLeft(role) <= 0 || string.IsNullOrWhiteSpace(text))
         {
             Error("RpcVentriloquistSay - message limit reached or empty message");
             return;

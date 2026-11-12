@@ -1,4 +1,4 @@
-# Generates TownOfUs/Resources/Custom/{VentriloquistIcon,VentriloquistButton}.png (Ventriloquist role, AmonRa Edition)
+# Generates TownOfUs/Resources/Custom/{VentriloquistIcon,VentriloquistButton,VentriloquistStealButton}.png (Ventriloquist role, AmonRa Edition)
 # Usage: powershell -ExecutionPolicy Bypass -File tools/are-assets/draw-ventriloquist-icons.ps1 -OutDir TownOfUs/Resources/Custom
 param([string]$OutDir)
 Add-Type -AssemblyName System.Drawing
@@ -109,3 +109,37 @@ Save $bmp $g "VentriloquistIcon.png"
 $c = New-Canvas 100 100; $bmp = $c[0]; $g = $c[1]
 Draw-Ear $g 40 10 80
 Save $bmp $g "VentriloquistButton.png"
+
+# ---- Meeting "Steal Vote" button (82x86 at 100 PPU): same size and style as the Prosecutor's vote popup button and the
+# Gambler's bet button: dark outline, red rounded square with a light inner edge, white speech bubble with a check mark.
+function RoundedRect($x, $y, $w, $h, $r) {
+    $p = New-Object System.Drawing.Drawing2D.GraphicsPath
+    $p.AddArc($x, $y, 2 * $r, 2 * $r, 180, 90)
+    $p.AddArc($x + $w - 2 * $r, $y, 2 * $r, 2 * $r, 270, 90)
+    $p.AddArc($x + $w - 2 * $r, $y + $h - 2 * $r, 2 * $r, 2 * $r, 0, 90)
+    $p.AddArc($x, $y + $h - 2 * $r, 2 * $r, 2 * $r, 90, 90)
+    $p.CloseFigure()
+    return $p
+}
+$c = New-Canvas 82 86; $bmp = $c[0]; $g = $c[1]
+$btnOutline = [System.Drawing.Color]::FromArgb(255, 48, 14, 16)
+$btnTop = [System.Drawing.Color]::FromArgb(255, 226, 60, 60)
+$btnBottom = [System.Drawing.Color]::FromArgb(255, 150, 20, 24)
+$btnEdge = [System.Drawing.Color]::FromArgb(255, 255, 150, 150)
+$g.FillPath((New-Object System.Drawing.SolidBrush $btnOutline), (RoundedRect 1 1 80 84 16))
+$inner = RoundedRect 5 5 72 76 12
+$grad = New-Object System.Drawing.Drawing2D.LinearGradientBrush (New-Object System.Drawing.Point 0, 5), (New-Object System.Drawing.Point 0, 81), $btnTop, $btnBottom
+$g.FillPath($grad, $inner)
+$g.DrawPath((New-Object System.Drawing.Pen $btnEdge, 2.5), (RoundedRect 7.5 7.5 67 71 10))
+# white speech bubble with a dark check mark
+$bubble = RoundedRect 15 18 52 36 14
+$tail = New-Object System.Drawing.Drawing2D.GraphicsPath
+$tail.AddPolygon([System.Drawing.PointF[]]@((New-Object System.Drawing.PointF 26, 50), (New-Object System.Drawing.PointF 22, 66), (New-Object System.Drawing.PointF 40, 52)))
+$bubblePen = New-Pen $btnOutline 5
+$g.DrawPath($bubblePen, $bubble)
+$g.DrawPath($bubblePen, $tail)
+$g.FillPath((New-Object System.Drawing.SolidBrush $white), $bubble)
+$g.FillPath((New-Object System.Drawing.SolidBrush $white), $tail)
+$check = New-Pen $btnOutline 6
+$g.DrawLines($check, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF 29, 36), (New-Object System.Drawing.PointF 37, 44), (New-Object System.Drawing.PointF 53, 27)))
+Save $bmp $g "VentriloquistStealButton.png"

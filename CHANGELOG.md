@@ -20,8 +20,18 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
     player gets a ♪ after their name, and the meeting screen shows the voice and the messages left.
   - A voice can't be used while its owner is dead, blackmailed or jailed without access to the public chat.
   - Dead players with "The Dead Know" see who really wrote the message.
-  - Lobby options: eavesdrop cooldown (20 s by default), eavesdrops per game (no limit by default) and messages per
-    meeting (1 by default).
+  - **Vote steal** (lobby option, by default "instead of chat"): instead of writing, the Ventriloquist can steal that
+    player's vote. In the vote popup of any living player (or Skip Vote) there is a "Steal Vote" button, available
+    before their own vote. When the votes are counted, every vote of the eavesdropped player goes there (all three of
+    a revealed Mayor). The player votes as usual; with open voting their icon shows up at the chosen player in the
+    results. With "with chat" the Ventriloquist can both write and steal the vote, with "off" only write.
+  - Lobby options: eavesdrop cooldown (20 s by default), eavesdrops per game (no limit by default), messages per
+    meeting (1 by default) and vote steal (off / instead of chat / with chat).
+
+### Fixed
+
+- A vote frozen by the Auditor now also doesn't count when a Tiebreaker breaks a tie or the Monarch's extra votes are
+  hidden.
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -39,8 +49,18 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   - Głosu nie da się użyć, gdy jego właściciel nie żyje, jest uciszony przez Szantażystę albo uwięziony przez Klawisza
     bez dostępu do czatu publicznego.
   - Martwi gracze z opcją „The Dead Know” widzą, kto naprawdę napisał wiadomość.
-  - Opcje lobby: cooldown podsłuchu (domyślnie 20 s), podsłuchy na grę (domyślnie bez limitu) i wiadomości na spotkanie
-    (domyślnie 1).
+  - **Kradzież głosu** (opcja lobby, domyślnie „zamiast czatu”): zamiast pisać, Brzuchomówca może przejąć głos tego
+    gracza. W okienku głosowania każdego żywego gracza (i przy Skip Vote) jest przycisk „Przejmij głos”, dostępny przed
+    oddaniem własnego głosu. Przy liczeniu wszystkie głosy podsłuchanego gracza trafiają tam (u ujawnionego Burmistrza
+    wszystkie trzy). Gracz głosuje normalnie, a przy jawnym głosowaniu jego ikona pojawia się w wynikach przy wybranym
+    graczu. Przy „razem z czatem” Brzuchomówca może i pisać, i przejąć głos, a przy „wyłączona” tylko pisać.
+  - Opcje lobby: cooldown podsłuchu (domyślnie 20 s), podsłuchy na grę (domyślnie bez limitu), wiadomości na spotkanie
+    (domyślnie 1) i kradzież głosu (wyłączona / zamiast czatu / razem z czatem).
+
+**Naprawiono**
+
+- Głos zamrożony przez Audytora nie liczy się także wtedy, gdy remis rozstrzyga Tiebreaker albo dodatkowe głosy
+  Monarchy są ukryte.
 
 </details>
 

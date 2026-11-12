@@ -129,4 +129,10 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> VentriloquistButton { get; } =
         new LoadableResourceAsset($"{CustomPath}.VentriloquistButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Ventriloquist's "Steal Vote" button in the vote popup. 82x86 px at 100 PPU like the Gambler's bet button.
+    /// </summary>
+    public static LoadableAsset<Sprite> VentriloquistStealButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.VentriloquistStealButton.png", typeof(TownOfUsPlugin).Assembly);
 }

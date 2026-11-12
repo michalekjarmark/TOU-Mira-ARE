@@ -6,6 +6,7 @@ using MiraAPI.Roles;
 using Reactor.Networking.Attributes;
 using TownOfUs.Are;
 using TownOfUs.Events.TouEvents;
+using TownOfUs.Options.Roles.Impostor;
 using TownOfUs.Roles.Crewmate;
 using UnityEngine;
 
@@ -14,8 +15,9 @@ namespace TownOfUs.Roles.Impostor;
 /// <summary>
 ///     Ventriloquist (AmonRa Edition, Impostor Support): eavesdrops on a player during the round (an interaction, so the
 ///     Veteran, Warden, Sixth Sense, Auditor etc. react to it). At the next meeting they can write in the public chat with
-///     that player's voice: the message looks exactly like one written by that player. The voice is lost when the next
-///     round starts. Chat side: <see cref="VentriloquistChat" />.
+///     that player's voice: the message looks exactly like one written by that player. With the lobby option they can
+///     also (or instead) redirect that player's vote. The voice is lost when the next round starts. Chat side:
+///     <see cref="VentriloquistChat" />, vote side: <see cref="VentriloquistVote" />.
 /// </summary>
 public sealed class VentriloquistRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsRole, IWikiDiscoverable,
     IDoomable, ICrewVariant
@@ -51,7 +53,11 @@ public sealed class VentriloquistRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITo
         new(MiraLocaleManager.Get($"TownOfUsMira.Role.{IdPart}Speak", "Speak With Their Voice"),
             MiraLocaleManager.Get("MiraApi.AbilityType.Basic"),
             MiraLocaleManager.Get($"TownOfUsMira.Role.{IdPart}Speak.WikiDescription"),
-            AreAssets.VentriloquistIcon)
+            AreAssets.VentriloquistIcon),
+        new(MiraLocaleManager.Get($"TownOfUsMira.Role.{IdPart}StealVote", "Steal Vote"),
+            MiraLocaleManager.Get("MiraApi.AbilityType.Basic"),
+            MiraLocaleManager.Get($"TownOfUsMira.Role.{IdPart}StealVote.WikiDescription"),
+            AreAssets.VentriloquistStealButton)
     ];
 
     public string GetAdvancedDescription()
@@ -65,6 +71,12 @@ public sealed class VentriloquistRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITo
 
     /// <summary>Messages written with the current voice (synced), limited by the MessagesPerMeeting option.</summary>
     public int MessagesSent { get; set; }
+
+    /// <summary>
+    ///     Where the voice's vote goes in this meeting (synced; player id, 253 = skip, 255 = not stolen). See
+    ///     <see cref="VentriloquistVote" />.
+    /// </summary>
+    public byte StolenVoteFor { get; set; } = VentriloquistVote.NoSteal;
 
     public PlayerControl? VoicePlayer => VoiceId == NoVoice ? null : GameData.Instance.GetPlayerById(VoiceId)?.Object;
 
@@ -94,7 +106,10 @@ public sealed class VentriloquistRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITo
         return sb;
     }
 
-    /// <summary>Line under the meeting timer (<c>AreMeetingTimerTextPatch</c>).</summary>
+    /// <summary>
+    ///     Line under the meeting timer (<c>AreMeetingTimerTextPatch</c>): the voice and what can still be done with it,
+    ///     e.g. "Voice: Red, messages: 1 or vote steal" or "Voice: Red, stolen vote for: Blue".
+    /// </summary>
     public string MeetingStatusText()
     {
         var voice = VoicePlayer;
@@ -109,9 +124,38 @@ public sealed class VentriloquistRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITo
                 .Replace("<player>", voice.Data.PlayerName);
         }
 
-        return MiraLocaleManager.Get("TownOfUsMira.Role.VentriloquistMeetingVoice")
-            .Replace("<player>", voice.Data.PlayerName)
-            .Replace("<left>", $"{Math.Max(0, VentriloquistChat.MessagesPerMeeting - MessagesSent)}");
+        var parts = new List<string>();
+        var messagesLeft = VentriloquistChat.MessagesLeft(this);
+        if (messagesLeft > 0)
+        {
+            parts.Add(MiraLocaleManager.Get("TownOfUsMira.Role.VentriloquistMeetingMessages")
+                .Replace("<left>", $"{messagesLeft}"));
+        }
+
+        var canSteal = VentriloquistVote.CanSteal(this);
+        if (canSteal)
+        {
+            parts.Add(MiraLocaleManager.Get("TownOfUsMira.Role.VentriloquistMeetingCanSteal"));
+        }
+
+        if (StolenVoteFor != VentriloquistVote.NoSteal)
+        {
+            parts.Add(MiraLocaleManager.Get("TownOfUsMira.Role.VentriloquistMeetingStolen")
+                .Replace("<target>", VentriloquistVote.TargetName(StolenVoteFor)));
+        }
+
+        var line = MiraLocaleManager.Get("TownOfUsMira.Role.VentriloquistMeetingVoice")
+            .Replace("<player>", voice.Data.PlayerName);
+        if (parts.Count == 0)
+        {
+            return line;
+        }
+
+        // "Instead of chat": one or the other.
+        var separator = messagesLeft > 0 && canSteal && VentriloquistVote.Mode == VentriloquistVoteSteal.InsteadOfChat
+            ? $" {MiraLocaleManager.Get("TownOfUsMira.Role.VentriloquistMeetingOr")} "
+            : ", ";
+        return $"{line}, {string.Join(separator, parts)}";
     }
 
     [MethodRpc((uint)TownOfUsRpc.VentriloquistEavesdrop)]
@@ -148,5 +192,18 @@ public sealed class VentriloquistRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITo
         }
 
         VentriloquistChat.HandleSay(source, voice, text);
+    }
+
+    /// <summary>The voice's vote goes to this target (player id or 253 = skip). See <see cref="VentriloquistVote" />.</summary>
+    [MethodRpc((uint)TownOfUsRpc.VentriloquistStealVote)]
+    public static void RpcVentriloquistStealVote(PlayerControl source, byte targetId)
+    {
+        if (LobbyBehaviour.Instance)
+        {
+            MiscUtils.RunAnticheatWarning(source);
+            return;
+        }
+
+        VentriloquistVote.HandleSteal(source, targetId);
     }
 }

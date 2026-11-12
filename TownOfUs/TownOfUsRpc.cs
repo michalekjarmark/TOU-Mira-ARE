@@ -176,6 +176,7 @@ public enum TownOfUsRpc : uint
     WorkaholicRelease,
     VentriloquistEavesdrop,
     VentriloquistSay,
+    VentriloquistStealVote,
 }
 
 internal enum TownOfUsInternalRpc : uint

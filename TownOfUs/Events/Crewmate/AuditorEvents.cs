@@ -68,8 +68,10 @@ public static class AuditorEvents
         }
     }
 
-    // Before the Swapper (10): a frozen vote is gone before anything moves it around.
-    [RegisterEvent(5)]
+    // Before everything that works out the ejection from the votes (Tiebreaker and hidden Knighted votes at 0, Swapper
+    // at 10), so a frozen vote really doesn't count, and after the Ventriloquist's vote steal (-20), so a frozen vote stays
+    // frozen even when stolen.
+    [RegisterEvent(-10)]
     public static void ProcessVotesEventHandler(ProcessVotesEvent @event)
     {
         foreach (var auditor in CustomRoleUtils.GetActiveRolesOfType<AuditorRole>())

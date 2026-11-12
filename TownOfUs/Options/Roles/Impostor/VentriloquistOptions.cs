@@ -1,5 +1,6 @@
 using MiraAPI.GameOptions;
 using MiraAPI.GameOptions.Attributes;
+using MiraAPI.GameOptions.OptionTypes;
 using MiraAPI.Utilities;
 using TownOfUs.Roles.Impostor;
 
@@ -17,4 +18,22 @@ public sealed class VentriloquistOptions : AbstractRoleOptionGroup<Ventriloquist
 
     [ModdedNumberOption("TouOptionVentriloquistMessagesPerMeeting", 1f, 5f)]
     public float MessagesPerMeeting { get; set; } = 1f;
+
+    /// <summary>Whether the voice also lets the Ventriloquist redirect that player's vote in the meeting.</summary>
+    public ModdedEnumOption<VentriloquistVoteSteal> VoteSteal { get; } =
+        new("TouOptionVentriloquistVoteSteal", VentriloquistVoteSteal.InsteadOfChat,
+            ["TouOptionVentriloquistVoteStealOff", "TouOptionVentriloquistVoteStealInsteadOfChat",
+                "TouOptionVentriloquistVoteStealWithChat"]);
+}
+
+public enum VentriloquistVoteSteal
+{
+    /// <summary>Only the chat.</summary>
+    Off,
+
+    /// <summary>In each meeting either a message or the vote, whichever is used first.</summary>
+    InsteadOfChat,
+
+    /// <summary>Both the chat and the vote.</summary>
+    WithChat
 }

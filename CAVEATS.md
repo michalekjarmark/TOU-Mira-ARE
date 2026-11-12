@@ -43,6 +43,10 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   Write `[player]` in the XML and replace `"<player>"` in code. Replacing `"[player]"` does nothing and players see
   `<player>`.
 - Event handlers run from the lowest `[RegisterEvent(priority)]` to the highest.
+- **Changing votes in `ProcessVotesEvent`** (host only): MiraAPI recomputes the ejection from the changed votes only
+  when no handler set `ExiledPlayer`. The Tiebreaker (on a tie) and the hidden Knighted votes (Monarch option) set it
+  at priority 0, the Swapper at 10. A handler that adds, removes or moves votes must run before them (negative
+  priority): the Ventriloquist's vote steal is at -20, the Auditor's freeze at -10.
 - `MeetingActionButton` visibility (`Enabled()`) is decided once, when the buttons are created at the meeting start.
 - `TargetedMeetingButton` in the vote popup (`VoteAreaSelectPatch`): `x = 1.3 - 0.65 * i` over every active
   `PassiveButton`, including hidden buttons of other roles (renderer off, object active). At Skip Vote the third slot

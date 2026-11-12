@@ -18,6 +18,7 @@ internal enum MultiplayerFreeplayAction : byte
     SetLovers = 3,
     RemoteKill = 4,
     Reset = 5,
+    SetRivals = 6, // ARE
 }
 
 internal readonly struct MultiplayerFreeplayRequest(MultiplayerFreeplayAction action, byte targetId, byte otherId, ushort data)
@@ -91,6 +92,10 @@ internal sealed class MultiplayerFreeplayRequestRpc(TownOfUsPlugin plugin, uint 
             case MultiplayerFreeplayAction.Reset:
                 MultiplayerFreeplayDebugState.RestoreBaseline();
                 break;
+
+            case MultiplayerFreeplayAction.SetRivals:
+                Are.RivalFreeplay.HandleSetRivals(data.TargetId, data.OtherId);
+                break;
         }
     }
 
@@ -149,7 +154,7 @@ internal sealed class MultiplayerFreeplayRequestRpc(TownOfUsPlugin plugin, uint 
         }
 
         // Lovers requires selecting two players; it's handled as a separate action.
-        if (modifierType == typeof(LoverModifier))
+        if (modifierType == typeof(LoverModifier) || modifierType == typeof(RivalModifier))
         {
             return;
         }

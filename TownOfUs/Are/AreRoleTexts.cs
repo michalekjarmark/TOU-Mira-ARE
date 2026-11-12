@@ -1,4 +1,6 @@
 using HarmonyLib;
+using MiraAPI.Modifiers;
+using TownOfUs.Modifiers.Game.Alliance;
 using TownOfUs.Roles.Impostor;
 using TownOfUs.Roles.Neutral;
 
@@ -25,6 +27,21 @@ public static class AreRoleTexts
         if (VentriloquistRole.IsLocalVoice(player))
         {
             name += $"{TownOfUsColors.Impostor.ToTextColor()} ♪</color>";
+        }
+
+        return name;
+    }
+
+    /// <summary>
+    ///     Alliance symbols, called from <c>PlayerRoleTextExtensions.UpdateAllianceSymbols</c> right after the Lovers'
+    ///     "♥" and with the same visibility: a Rival sees "≠" after their own name and their rival's, the dead see it
+    ///     with "The Dead Know".
+    /// </summary>
+    public static string AddAllianceSymbols(string name, PlayerControl player, bool isDead)
+    {
+        if (player.HasModifier<RivalModifier>() && (PlayerControl.LocalPlayer.HasModifier<RivalModifier>() || isDead))
+        {
+            name += $"{TownOfUsColors.Rival.ToTextColor()} {RivalModifier.SymbolText}</color>";
         }
 
         return name;

@@ -44,6 +44,18 @@ public sealed class AllianceModifierOptions : AbstractOptionGroup
             RunNotif(opt, x > 0f ? "2" : "0", "TownOfUsMira.Modifier.Lover");
         }
     };
+
+    // ARE: Rivals (a pair, each wins only if the other one doesn't survive)
+    public AmountChanceOption RivalsChance { get; } = new("TouOptionRivalsChance", 0, 0, 100f, 10f, "#", "#",
+        MiraNumberSuffixes.Percent, color: TownOfUsColors.Rival, asset: Are.AreAssets.RivalIcon,
+        assetName: "TouMira.Modifier.Alliance.Rival", assetScale: 1.45f)
+    {
+        ChangedEvent = x =>
+        {
+            var opt = OptionGroupSingleton<AllianceModifierOptions>.Instance.RivalsChance;
+            RunNotif(opt, x > 0f ? "2" : "0", "TownOfUsMira.Modifier.Rival");
+        }
+    };
     private static void RunNotif(AmountChanceOption opt, string count, string title)
     {
         if (!opt.ShowNotification)

@@ -76,6 +76,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/WorkaholicIcon.png" width="48"/> | **Pracoholik** (Workaholic) | Rola (Crewmate Support) | Po wykonaniu swoich zadań przejmuje zadania innych członków załogi, po jednym naraz: zawsze niezaczęte zadanie osoby, która ma ich najwięcej do zrobienia (także martwej, jeśli duchy robią zadania), nigdy Snitcha. Właściciel widzi, że ktoś przejął jego zadanie, i nie może go robić. Gdy Pracoholik je skończy, liczy się jako zadanie właściciela. Jeśli Pracoholik zginie, zadanie wraca. Opcje: cooldown, limit przejętych zadań, czy właściciel widzi nick pomocnika. |
 | <img src="TownOfUs/Resources/Custom/VentriloquistIcon.png" width="48"/> | **Brzuchomówca** (Ventriloquist) | Rola (Impostor Support) | W trakcie rundy podsłuchuje gracza obok siebie (to interakcja). Na najbliższym spotkaniu pisze na czacie głosem tego gracza: wszyscy widzą zwykłą wiadomość od niego, z jego nickiem, kolorem i wyglądem. Gracz widzi tę wiadomość jako swoją i może zaprzeczyć, ale nie wie, kto ją napisał. Z opcją kradzieży głosu (domyślnie zamiast pisania) Brzuchomówca może też przekierować głos tego gracza: trafia on tam, gdzie wskazał Brzuchomówca. Głos działa tylko na jednym spotkaniu i nie da się go użyć, gdy jego właściciel nie żyje, jest uciszony przez Szantażystę albo uwięziony bez dostępu do czatu publicznego. Opcje: cooldown podsłuchu, podsłuchy na grę, wiadomości na spotkanie (domyślnie 1), kradzież głosu (wyłączona / zamiast czatu / razem z czatem). |
 | <img src="TownOfUs/Resources/Custom/VandalIcon.png" width="48"/> | **Wandal** (Vandal) | Rola (Impostor Support) | Przy stanowisku zadania psuje zadanie, które ktoś już skończył: zadanie wraca do właściciela jako niezrobione, od pierwszego kroku, a pasek zadań spada. Domyślnie jedno użycie psuje zadanie jednej losowej osoby, która je zrobiła, a z opcją wszystkim. Właściciel dostaje komunikat i musi zrobić zadanie jeszcze raz (może je przejąć Pracoholik). Tylko zadania żywych graczy, które liczą się do paska zadań, nigdy Snitcha ani zadania zużywające przedmioty na mapie. Audytor liczy każde użycie. Opcje: cooldown, psucia na grę, czyje zadanie psuje jedno użycie, komunikat dla właściciela (z nazwą zadania / bez nazwy / brak). |
+| <img src="TownOfUs/Resources/Custom/RivalIcon.png" width="48"/> | **Rywale** (Rivals) | Modyfikator (Alliance) | Odwrotność Kochanków: dwóch graczy wie, że są rywalami (≠ przy nicku, bez roli). Każdy z nich wygrywa tylko wtedy, gdy drugi nie dożyje końca gry, i to obok zwykłej wygranej swojej drużyny (albo własnej roli): jeśli rywal żyje na koniec gry, przegrywa, nawet gdy jego drużyna wygra. Śmierć rywala nie daje żadnego komunikatu. Opcje: szansa, szansa, że jeden z nich jest zabójcą, obaj mogą być zabójcami, neutralni mogą być Rywalami (tylko załoga = 0% i bez ról neutralnych). |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), automatyczne
 aktualizacje, pełna paczka instalacyjna i własne logo na ekranie startowym.
@@ -114,7 +115,7 @@ Kliknij ikonę, aby otworzyć jej stronę na wiki Town of Us: Mira (po angielsku
 [opisu](#dodatki-amonra-edition): **AmonRa** (wózek, modyfikatory uniwersalne), **Hazardzista** (żeton, Neutral Evil),
 **Audytor** (podkładka, Crewmate Investigative), **Monter** (klucz, Impostor Support), **Wtyczka** (wtyczka,
 Impostor Concealing), **Pracoholik** (kubek kawy, Crewmate Support), **Brzuchomówca** (dymek na sznurkach,
-Impostor Support) i **Wandal** (puszka ze sprayem, Impostor Support). Kluczowe różnice Town of Us: Mira,
+Impostor Support), **Wandal** (puszka ze sprayem, Impostor Support) i **Rywale** (skrzyżowane miecze, modyfikatory Alliance). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -224,6 +225,7 @@ obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskie
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/alliance/Crewpostor"><img width="10%" src="Images/Icons/Crewpostor.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/alliance/Egotist"><img width="10%" src="Images/Icons/Egotist.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/alliance/Lovers"><img width="10%" src="Images/Icons/Lover.png" /></a>
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/RivalIcon.png" alt="Rywale (AmonRa Edition)" /></a>
   <img src="Images/Groups/AssailantMods.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/assailant/Assassin"><img width="10%" src="Images/Icons/Assassin.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/assailant/Double%20Shot"><img width="10%" src="Images/Icons/DoubleShot.png" /></a>

@@ -274,6 +274,9 @@ public static class PlayerRoleTextExtensions
             name += "<color=#FF66CC> ♥</color>";
         }
 
+        // AmonRa Edition: Rivals' "≠".
+        name = Are.AreRoleTexts.AddAllianceSymbols(name, player, isDead);
+
         if (player.IsCrewmate() && player.TryGetModifier<EgotistModifier>(out var egoMod) && (player.AmOwner ||
                 (EgotistModifier.EgoVisibilityFlag(player) &&
                  (player.HasModifier(RevealVisibleRolePredicate))) || isDead))

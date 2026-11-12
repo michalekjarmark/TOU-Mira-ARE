@@ -71,7 +71,7 @@ public sealed class FreeplaySetModifiersButton : TownOfUsButton, IAurialBypassBu
 
                 bool IsModifierVisibleForPlayer(BaseModifier modifier)
                 {
-                    if (modifier is LoverModifier)
+                    if (modifier is LoverModifier or RivalModifier)
                     {
                         return true;
                     }
@@ -111,6 +111,13 @@ public sealed class FreeplaySetModifiersButton : TownOfUsButton, IAurialBypassBu
         if (modifier is LoverModifier)
         {
             OpenLoversPicker(target);
+            return;
+        }
+
+        // AmonRa Edition: Rivals are a pair too.
+        if (modifier is RivalModifier)
+        {
+            Are.RivalFreeplay.OpenPicker(target);
             return;
         }
 

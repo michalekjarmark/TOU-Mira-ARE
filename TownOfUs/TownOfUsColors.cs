@@ -115,6 +115,7 @@ public static class TownOfUsColors
     // Alliance Modifiers
     public static Color Egotist => new Color32(102, 153, 102, 255);
     public static Color Lover => new Color32(255, 102, 204, 255);
+    public static Color Rival => new Color32(56, 120, 240, 255); // ARE
 
     // Assailant Modifiers
     public static Color Assassin => new Color32(161, 62, 83, 255);

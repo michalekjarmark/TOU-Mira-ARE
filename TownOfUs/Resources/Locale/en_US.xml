@@ -4262,4 +4262,17 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionVandalOwnerNoticeWithTaskName">With Task Name</string>
   <string name="TouOptionVandalOwnerNoticeWithoutTaskName">Without Task Name</string>
   <string name="TouOptionVandalOwnerNoticeNone">Nothing</string>
+
+  <!-- AmonRa Edition - Rival (Alliance modifier) -->
+  <string name="TownOfUsMira.Modifier.Rival">Rival</string>
+  <string name="TownOfUsMira.Modifier.Rivals">Rivals</string>
+  <string name="TownOfUsMira.Modifier.RivalInfo">Your rival is [player]. You only win if they don't survive until the end of the game.</string>
+  <string name="TownOfUsMira.Modifier.RivalInfoDisconnected">Your rival [player] left the game, so you win the usual way.</string>
+  <string name="TownOfUsMira.Modifier.RivalInfoNone">You have no rival.</string>
+  <string name="TownOfUsMira.Modifier.RivalIntroMessage">[player] is your [modifier]. You only win if they don't survive until the end of the game.</string>
+  <string name="TownOfUsMira.Modifier.Rival.WikiDescription">Two players are rivals. Both see [symbol] after their own name and after their rival's, but they don't know each other's role. A Rival wins only if their rival doesn't survive until the end of the game: this comes on top of the normal win of their team (or of their own role). If the rival is still alive at the end, the Rival loses even when their team wins. A rival who left the game counts as not surviving. There is no message when the rival dies. The lobby options decide who can be a pair: the chance that one of them is a killer (an Impostor, or a Neutral Killing role if neutral roles can be rivals), whether the other one can be a killer too, and whether neutral roles can be rivals. Crewmates only: 0% and no neutral roles.</string>
+  <string name="TouOptionRivalsChance">Rivals Chance</string>
+  <string name="TouOptionRivalsKillerProbability">Chance One Rival Is A Killer</string>
+  <string name="TouOptionRivalsBothKillers">Both Rivals Can Be Killers</string>
+  <string name="TouOptionRivalsNeutralRoles">Neutral Roles Can Be Rivals</string>
 </resources>

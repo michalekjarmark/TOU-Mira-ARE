@@ -9,6 +9,35 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
+### Added
+
+- **Rivals** (new alliance modifier, the opposite of the Lovers): two players know each other as rivals. Both see a
+  ≠ after their own name and after their rival's, but not the rival's role. Each of them wins only if the other one
+  doesn't survive until the end of the game. This comes on top of the normal win of their team (or of their own role):
+  if the rival is still alive at the end, the Rival loses even when their team wins. A rival who left the game counts
+  as not surviving. There is no message when the rival dies.
+  - Lobby options: Rivals chance (0% by default), chance that one of the rivals is a killer (an Impostor, or a Neutral
+    Killing role if neutral roles can be rivals; 20% by default), both rivals can be killers (off by default) and
+    neutral roles can be rivals (on by default). For crewmates only, set 0% and turn neutral roles off.
+  - In Freeplay, "Set Modifiers" makes two players Rivals, like the Lovers.
+
+<details>
+<summary><i>Po polsku</i></summary>
+
+**Dodano**
+
+- **Rywale** (Rivals, nowy modyfikator Alliance, odwrotność Kochanków): dwóch graczy wie, że są rywalami. Obaj widzą ≠
+  przy swoim nicku i przy nicku rywala, ale nie znają jego roli. Każdy z nich wygrywa tylko wtedy, gdy drugi nie
+  dożyje końca gry. To warunek dodatkowy obok zwykłej wygranej drużyny (albo własnej roli): jeśli rywal żyje na koniec
+  gry, Rywal przegrywa, nawet gdy jego drużyna wygra. Rywal, który opuścił grę, liczy się jako ten, który nie przeżył.
+  Śmierć rywala nie daje żadnego komunikatu.
+  - Opcje lobby: szansa na Rywali (domyślnie 0%), szansa, że jeden z Rywali jest zabójcą (impostorem albo rolą
+    Neutral Killing, jeśli neutralni mogą być Rywalami; domyślnie 20%), obaj Rywale mogą być zabójcami (domyślnie nie)
+    i neutralni mogą być Rywalami (domyślnie tak). Same osoby z załogi: 0% i bez ról neutralnych.
+  - We Freeplay „Set Modifiers” robi z dwóch graczy Rywali, tak jak z Kochanków.
+
+</details>
+
 ## [1.7.9-are.6] - 2026-11-12
 
 ### Added

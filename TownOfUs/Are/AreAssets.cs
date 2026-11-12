@@ -147,4 +147,10 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> VandalButton { get; } =
         new LoadableResourceAsset($"{CustomPath}.VandalButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Rival modifier icon (two crossed swords). 128px. Drawn by tools/are-assets/draw-rival-icon.ps1.
+    /// </summary>
+    public static LoadableAsset<Sprite> RivalIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.RivalIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
 }

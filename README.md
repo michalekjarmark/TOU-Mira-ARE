@@ -72,6 +72,7 @@ Everything below is new in AmonRa Edition. For all roles and modifiers of Town o
 | <img src="TownOfUs/Resources/Custom/InsiderIcon.png" width="48"/> | **Insider** | Role (Impostor Concealing) | An impostor who can really do the tasks from their list, so everyone (and the Auditor) sees real work. Every completed task permanently lowers their kill cooldown a little (1 s by default, down to a minimum). By default their tasks also count as crew progress, so a faster kill also brings the crew closer to a task win. |
 | <img src="TownOfUs/Resources/Custom/WorkaholicIcon.png" width="48"/> | **Workaholic** | Role (Crewmate Support) | After finishing their own tasks, takes over tasks of other crewmates, one at a time: always an unstarted task of the crewmate with the most tasks left (dead ones too, if ghosts do tasks), never the Snitch's. The crewmate sees that someone took over their task and can't do it; once the Workaholic finishes it, it counts as the crewmate's task. If the Workaholic dies, the task goes back. Options: cooldown, a limit of taken tasks, whether the crewmate sees the helper's name. |
 | <img src="TownOfUs/Resources/Custom/VentriloquistIcon.png" width="48"/> | **Ventriloquist** | Role (Impostor Support) | Eavesdrops on a nearby player during the round (an interaction). At the next meeting, writes in the chat with that player's voice: everyone sees a normal message from that player, with their name, color and look. The player sees the message as their own and can deny it, but doesn't learn who wrote it. With the vote steal option (by default instead of writing) the Ventriloquist can also redirect that player's vote: it goes where the Ventriloquist chose. The voice works for one meeting only and can't be used while its owner is dead, blackmailed or jailed without the public chat. Options: eavesdrop cooldown, eavesdrops per game, messages per meeting (1 by default), vote steal (off / instead of chat / with chat). |
+| <img src="TownOfUs/Resources/Custom/VandalIcon.png" width="48"/> | **Vandal** | Role (Impostor Support) | At a task station, breaks a task that someone has already finished: the task goes back to its owner as not done, from the first step, and the task bar drops. By default one use breaks the task of one random player who finished it, with the option everyone's. The owner gets a message and has to do the task again (a Workaholic can take it over). Only tasks of living players that count toward the task bar, never the Snitch's or tasks that use up objects on the map. The Auditor counts every use. Options: cooldown, breaks per game, whose task one use breaks, what the owner is told (with the task's name / without it / nothing). |
 
 Also: a "Settings" button in Freeplay (change the lobby settings without leaving practice), automatic updates,
 a full installation package and our own logo on the startup screen.
@@ -135,8 +136,8 @@ More about the mod: [Town of Us: Mira wiki](https://au-avengers.github.io/docs.t
 Click an icon to open its page on the Town of Us: Mira wiki. Our additions link to
 [their description](#amonra-edition-additions) instead: **AmonRa** (wheelchair, universal modifiers), **Gambler** (chip,
 Neutral Evil), **Auditor** (clipboard, Crewmate Investigative), **Rigger** (wrench, Impostor Support), **Insider** (plug,
-Impostor Concealing), **Workaholic** (coffee mug, Crewmate Support) and **Ventriloquist** (speech bubble on strings,
-Impostor Support).
+Impostor Concealing), **Workaholic** (coffee mug, Crewmate Support), **Ventriloquist** (speech bubble on strings,
+Impostor Support) and **Vandal** (spray can, Impostor Support).
 
 
 <p align="center">
@@ -213,6 +214,7 @@ Impostor Support).
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Miner"><img width="10%" src="Images/Icons/Miner.png" /></a>
   <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/RiggerIcon.png" alt="Rigger (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Undertaker"><img width="10%" src="Images/Icons/Undertaker.png" /></a>
+  <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/VandalIcon.png" alt="Vandal (AmonRa Edition)" /></a>
   <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/VentriloquistIcon.png" alt="Ventriloquist (AmonRa Edition)" /></a>
 
   <img src="Images/Groups/NeutAfterlife.png" />

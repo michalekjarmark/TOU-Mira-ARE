@@ -1538,4 +1538,26 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionVentriloquistVoteStealOff">Wyłączona</string>
   <string name="TouOptionVentriloquistVoteStealInsteadOfChat">Zamiast czatu</string>
   <string name="TouOptionVentriloquistVoteStealWithChat">Razem z czatem</string>
+  <!-- AmonRa Edition - Wandal / Vandal (Impostor Support) -->
+  <string name="TownOfUsMira.Role.Vandal">Wandal</string>
+  <string name="TownOfUsMira.Role.Vandal.IntroBlurb">Zniszcz ich ciężką pracę.</string>
+  <string name="TownOfUsMira.Role.Vandal.TabDescription">Psuj zadania, które załoga już skończyła.</string>
+  <string name="TownOfUsMira.Role.Vandal.MedDescription">Psuje skończone zadania przy stanowiskach.</string>
+  <string name="TownOfUsMira.Role.Vandal.WikiDescription">Wandal to rola Impostor Support, która niszczy pracę załogi. Przy stanowisku zadania może zepsuć zadanie, które ktoś już skończył: zadanie wraca do właściciela jako niezrobione, od pierwszego kroku, a pasek zadań spada. Domyślnie jedno użycie psuje zadanie jednej losowej osoby, która je zrobiła, a z opcją lobby wszystkim, którzy je zrobili. Właściciel dostaje komunikat (domyślnie z nazwą zadania i pomieszczeniem stanowiska) i musi zrobić zadanie jeszcze raz, chyba że przejmie je Pracoholik. Można psuć tylko zadania żywych graczy, które liczą się do paska zadań, nigdy Snitcha, i nie te, które zużywają przedmioty na mapie (ręczniki, dokumenty, broń itp.). Przy zadaniu z kilkoma stanowiskami, jak Fix Wiring, wystarczy dowolne stanowisko tego typu.</string>
+  <string name="TownOfUsMira.Role.VandalBreak">Zepsuj</string>
+  <string name="TownOfUsMira.Role.VandalBreak.WikiDescription">Psuje skończone zadanie przy stanowisku, przy którym stoisz. Przycisk działa tylko tam, gdzie ktoś ma skończone zadanie do zepsucia.</string>
+  <string name="TownOfUsMira.Role.VandalTabBroken">Zepsute zadania: [count]</string>
+  <string name="TownOfUsMira.Role.VandalBroken">Zepsute: [task]</string>
+  <string name="TownOfUsMira.Role.VandalBrokenMany">Zepsute u [count] graczy: [task]</string>
+  <string name="TownOfUsMira.Role.VandalYourTaskBroken">Ktoś zepsuł twoje zadanie: [task]</string>
+  <string name="TownOfUsMira.Role.VandalYourTaskBrokenAnonymous">Ktoś zepsuł jedno z twoich zadań!</string>
+  <string name="TouOptionVandalBreakCooldown">Cooldown psucia</string>
+  <string name="TouOptionVandalMaxBreaks">Psucia na grę</string>
+  <string name="TouOptionVandalTargets">Jedno psucie dotyczy</string>
+  <string name="TouOptionVandalTargetsOneRandom">Jednej losowej osoby</string>
+  <string name="TouOptionVandalTargetsEveryone">Wszystkich, którzy je zrobili</string>
+  <string name="TouOptionVandalOwnerNotice">Komunikat dla właściciela</string>
+  <string name="TouOptionVandalOwnerNoticeWithTaskName">Z nazwą zadania</string>
+  <string name="TouOptionVandalOwnerNoticeWithoutTaskName">Bez nazwy zadania</string>
+  <string name="TouOptionVandalOwnerNoticeNone">Brak</string>
 </resources>

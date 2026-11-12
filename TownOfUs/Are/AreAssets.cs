@@ -135,4 +135,16 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> VentriloquistStealButton { get; } =
         new LoadableResourceAsset($"{CustomPath}.VentriloquistStealButton.png", typeof(TownOfUsPlugin).Assembly);
+
+    /// <summary>
+    ///     Vandal role icon (spray can with a red cross). 128px. Drawn by tools/are-assets/draw-vandal-icons.ps1.
+    /// </summary>
+    public static LoadableAsset<Sprite> VandalIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.VandalIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Vandal "Break" button (hammer over a cracked check mark). 100px like the other ARE buttons.
+    /// </summary>
+    public static LoadableAsset<Sprite> VandalButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.VandalButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 }

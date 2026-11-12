@@ -88,6 +88,18 @@ public static class WorkaholicSystem
         return id is >= CopyIdBase and not NoTask;
     }
 
+    /// <summary>Tasks that use up objects on the map: can't be taken, done twice or undone (CAVEATS). Also the Vandal.</summary>
+    public static bool UsesUpObjects(TaskTypes type)
+    {
+        return ExcludedTypes.Contains(type);
+    }
+
+    /// <summary>Owner's client: the step this task started with (0 if it wasn't recorded). Also the Vandal.</summary>
+    public static int InitialStep(byte ownerId, uint taskId)
+    {
+        return InitialSteps.TryGetValue((ownerId, taskId), out var step) ? step : 0;
+    }
+
     public static bool OwnTasksDone(PlayerControl player)
     {
         return player != null && player.Data != null && player.Data.Tasks != null &&
@@ -514,7 +526,7 @@ public static class WorkaholicSystem
 
     // Only real tasks: the list headers (ImportantTextTask, e.g. the impostor's "Sabotage and kill everyone. Fake
     // Tasks:", which stays after a role change) also have id 0 (round 10: the header got hidden instead of task 0).
-    private static NormalPlayerTask? FindOwnTask(PlayerControl owner, uint taskId)
+    public static NormalPlayerTask? FindOwnTask(PlayerControl owner, uint taskId)
     {
         foreach (var task in owner.myTasks.ToArray())
         {

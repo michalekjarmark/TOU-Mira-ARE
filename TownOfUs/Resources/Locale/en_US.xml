@@ -4240,4 +4240,26 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionVentriloquistVoteStealOff">Off</string>
   <string name="TouOptionVentriloquistVoteStealInsteadOfChat">Instead Of Chat</string>
   <string name="TouOptionVentriloquistVoteStealWithChat">With Chat</string>
+  <!-- AmonRa Edition - Vandal (Impostor Support) -->
+  <string name="TownOfUsMira.Role.Vandal">Vandal</string>
+  <string name="TownOfUsMira.Role.Vandal.IntroBlurb">Undo their hard work.</string>
+  <string name="TownOfUsMira.Role.Vandal.TabDescription">Break tasks that crewmates have already finished.</string>
+  <string name="TownOfUsMira.Role.Vandal.MedDescription">Breaks finished tasks at task stations.</string>
+  <string name="TownOfUsMira.Role.Vandal.WikiDescription">The Vandal is an Impostor Support role that undoes the crew's work. At a task station, they can break a task that someone has already finished: the task goes back to its owner as not done, from the first step, and the task bar drops. By default one use breaks the task of one random player who finished it; with the lobby option it breaks it for everyone who did. The owner gets a message (by default with the task's name and the room of the station) and has to do the task again, or a Workaholic can take it over. Only tasks of living players that count toward the task bar can be broken, never the Snitch's, and not tasks that use up objects on the map (towels, records, guns and the like). For a task with several stations, such as Fix Wiring, any station of that type works.</string>
+  <string name="TownOfUsMira.Role.VandalBreak">Break</string>
+  <string name="TownOfUsMira.Role.VandalBreak.WikiDescription">Break a finished task at the task station you are standing at. The button works only where someone has a finished task to break.</string>
+  <string name="TownOfUsMira.Role.VandalTabBroken">Tasks broken: [count]</string>
+  <string name="TownOfUsMira.Role.VandalBroken">Broken: [task]</string>
+  <string name="TownOfUsMira.Role.VandalBrokenMany">Broken for [count] players: [task]</string>
+  <string name="TownOfUsMira.Role.VandalYourTaskBroken">Someone broke your task: [task]</string>
+  <string name="TownOfUsMira.Role.VandalYourTaskBrokenAnonymous">Someone broke one of your tasks!</string>
+  <string name="TouOptionVandalBreakCooldown">Break Cooldown</string>
+  <string name="TouOptionVandalMaxBreaks">Breaks Per Game</string>
+  <string name="TouOptionVandalTargets">One Break Hits</string>
+  <string name="TouOptionVandalTargetsOneRandom">One Random Player</string>
+  <string name="TouOptionVandalTargetsEveryone">Everyone Who Did It</string>
+  <string name="TouOptionVandalOwnerNotice">Owner Is Told</string>
+  <string name="TouOptionVandalOwnerNoticeWithTaskName">With Task Name</string>
+  <string name="TouOptionVandalOwnerNoticeWithoutTaskName">Without Task Name</string>
+  <string name="TouOptionVandalOwnerNoticeNone">Nothing</string>
 </resources>

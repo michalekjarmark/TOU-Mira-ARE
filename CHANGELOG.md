@@ -27,6 +27,19 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
     results. With "with chat" the Ventriloquist can both write and steal the vote, with "off" only write.
   - Lobby options: eavesdrop cooldown (20 s by default), eavesdrops per game (no limit by default), messages per
     meeting (1 by default) and vote steal (off / instead of chat / with chat).
+- **Vandal** (new Impostor Support role): at a task station, the Vandal can break a task that someone has already
+  finished there with the "Break" button. The task goes back to its owner as not done, from the first step, and the
+  task bar drops.
+  - By default one use breaks the task of one random player who finished it. With the lobby option it breaks it for
+    everyone who did.
+  - The owner gets a message, by default with the task's name and the room of the station, and has to do the task
+    again. A Workaholic can take it over.
+  - Only tasks of living players that count toward the task bar can be broken. The Snitch's tasks are safe, and so are
+    tasks that use up objects on the map (towels, records, guns and the like). For a task with several stations, such
+    as Fix Wiring, any station of that type works.
+  - The Auditor counts every use.
+  - Lobby options: break cooldown (30 s by default), breaks per game (no limit by default), whose task one use breaks
+    (one random player / everyone who did it) and what the owner is told (with the task's name / without it / nothing).
 
 ### Fixed
 
@@ -56,6 +69,20 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
     graczu. Przy „razem z czatem” Brzuchomówca może i pisać, i przejąć głos, a przy „wyłączona” tylko pisać.
   - Opcje lobby: cooldown podsłuchu (domyślnie 20 s), podsłuchy na grę (domyślnie bez limitu), wiadomości na spotkanie
     (domyślnie 1) i kradzież głosu (wyłączona / zamiast czatu / razem z czatem).
+- **Wandal** (Vandal, nowa rola Impostor Support): przy stanowisku zadania Wandal może przyciskiem „Zepsuj” zepsuć
+  zadanie, które ktoś już tam skończył. Zadanie wraca do właściciela jako niezrobione, od pierwszego kroku, a pasek
+  zadań spada.
+  - Domyślnie jedno użycie psuje zadanie jednej losowej osoby, która je zrobiła. Z opcją lobby psuje je wszystkim,
+    którzy je zrobili.
+  - Właściciel dostaje komunikat, domyślnie z nazwą zadania i pomieszczeniem stanowiska, i musi zrobić zadanie jeszcze
+    raz. Może je też przejąć Pracoholik.
+  - Można psuć tylko zadania żywych graczy, które liczą się do paska zadań. Zadania Snitcha są bezpieczne, podobnie jak
+    zadania zużywające przedmioty na mapie (ręczniki, dokumenty, broń itp.). Przy zadaniu z kilkoma stanowiskami, jak
+    Fix Wiring, wystarczy dowolne stanowisko tego typu.
+  - Audytor liczy każde użycie.
+  - Opcje lobby: cooldown psucia (domyślnie 30 s), psucia na grę (domyślnie bez limitu), czyje zadanie psuje jedno
+    użycie (jednej losowej osoby / wszystkich, którzy je zrobili) i komunikat dla właściciela (z nazwą zadania / bez
+    nazwy / brak).
 
 **Naprawiono**
 

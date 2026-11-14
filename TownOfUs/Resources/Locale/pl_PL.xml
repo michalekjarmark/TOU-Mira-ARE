@@ -1371,6 +1371,7 @@ Uruchom grę ponownie, aktualizacja spróbuje jeszcze raz.</string>
   <!-- AmonRa Edition - Freeplay settings -->
   <string name="AreFreeplaySettingsButton">Ustawienia</string>
   <string name="AreFreeplaySettingsUnavailable">Menu ustawień nie jest tu dostępne. Otwórz raz lokalne lobby i spróbuj ponownie.</string>
+  <string name="AreSettingsSearchPlaceholder">Szukaj w tej zakładce...</string>
   <!-- AmonRa Edition - Gambler (Neutral Evil) -->
   <string name="TownOfUsMira.Role.Gambler">Hazardzista</string>
   <string name="TownOfUsMira.Role.Gambler.IntroBlurb">Obstawiaj, kto zostanie wyrzucony!</string>

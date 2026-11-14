@@ -50,6 +50,10 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   everyone. During a lights sabotage, every player within a lantern's radius sees as if the lights were on, like with
   the Torch modifier. Lanterns stay until the end of the game. Options: cooldown, lanterns per game, light radius,
   walls block the light, everyone sees the lanterns, lanterns go out when the Keeper dies.
+- **Search in the lobby settings:** a search box (on the left, in place of the tab description) filters the open tab:
+  game settings, roles and modifiers. A role also shows up when one of its own settings matches. Polish letters can
+  be typed without accents.
+- Modifier icons next to each modifier's amount and chance in the lobby settings, like the roles have.
 
 ### Changed
 
@@ -57,6 +61,11 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   "Unmimic", Medium, Monarch's knighting, Chameleon and the new Possum's "Stand Up") no longer look like they're on
   cooldown while the effect runs: the button is bright, without the grey shading, and the time left is shown in green.
   Effects that can't be ended keep the old look.
+
+### Fixed
+
+- Local games: when the host is dead, the meeting goes on by itself after the voting results (a dead host couldn't
+  click "Proceed").
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -102,6 +111,10 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   dla wszystkich. W trakcie sabotażu świateł każdy gracz w promieniu latarni widzi tak, jakby światła działały, jak z
   modyfikatorem Torch. Latarnie stoją do końca gry. Opcje: cooldown, liczba latarni na grę, promień światła, ściany
   zatrzymują światło, wszyscy widzą latarnie, latarnie gasną po śmierci Latarnika.
+- **Wyszukiwarka w ustawieniach lobby:** pole wyszukiwania (po lewej, w miejscu opisu zakładki) filtruje otwartą
+  zakładkę: ustawienia gry, role i modyfikatory. Rola pojawia się też wtedy, gdy pasuje któreś z jej ustawień. Polskie
+  litery można wpisywać bez ogonków.
+- Ikony modyfikatorów przy liczbie i szansie każdego modyfikatora w ustawieniach lobby, tak jak przy rolach.
 
 **Zmieniono**
 
@@ -109,6 +122,11 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   „Unmimic” Glitcha, Medium, pasowanie na rycerza u Monarchy, Chameleon i „Wstań” nowego Symulanta), w trakcie efektu
   nie wyglądają już jak na cooldownie: przycisk jest jasny, bez szarego zaciemnienia, a pozostały czas jest na
   zielono. Efekty, których nie da się przerwać, wyglądają jak dotąd.
+
+**Naprawiono**
+
+- Gry lokalne: gdy host nie żyje, spotkanie samo idzie dalej po wynikach głosowania (martwy host nie mógł kliknąć
+  „Proceed”).
 
 </details>
 

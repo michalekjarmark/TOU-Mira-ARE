@@ -62,6 +62,14 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
 - Rarely, MiraAPI's `HudManagerPatches.StartPostfix` throws `KeyNotFoundException: 'ActionButton'` when joining a game.
   The later `HudManager.Start` postfixes don't run (no TOU `HudManagerHelper`), and the log fills with
   `SabotagePatches.RefreshPostfix` NullReferenceExceptions every frame. Not caused by our code: restart that game.
+- **Lobby settings menu layout:** the Game, Modifiers and custom tabs are laid out every frame by the internal
+  `GameOptionsMenuPatch.UpdateGroup` (patch it by name, `AbstractOptionGroup.Header`/`Ready` are internal). The Roles
+  tab is laid out once, when it is built (`CoQuotaTabPatch`), so anything that hides rows there has to move them
+  itself. MiraAPI skips the vanilla `RolesSettingsMenu.Update` with a prefix; a Harmony postfix still runs. See
+  `AreSettingsSearch`.
+- MiraAPI tints every `SpriteRenderer` of an option row with the group color right after `CreateOption`. A sprite
+  added in a `CreateOption` postfix gets tinted too; add it in a `NumberOption.Initialize` postfix (called after the
+  tint). See `AreModifierOptionIcons`.
 
 ## Game internals
 

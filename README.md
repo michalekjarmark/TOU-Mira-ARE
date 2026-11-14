@@ -81,8 +81,9 @@ Everything below is new in AmonRa Edition. For all roles and modifiers of Town o
 | <img src="TownOfUs/Resources/Custom/ComfyIcon.png" width="48"/><br>**Comfy** | Role (Crewmate Support) | Gets annoyed when a task doesn't go their way. Closing one of their own tasks before doing anything in it locks that task for them for a while and, if their sulk is ready, starts it: for a few seconds kills and abilities on the Comfy fail (like on the Cleric's barrier), but they can't do tasks or report bodies. While a task is locked, the Comfy can offload it to a player nearby (an interaction, 2 per game by default) and sees whether they did it. A task that isn't done comes back at the start of the next meeting, and an impostor can't do it, so offloading is also a test. Every number and rule is a lobby option: lock time, sulk time and cooldown, what the sulk stops and blocks, offloads per game and cooldown, whether the task comes back, whether the receiver sees the name. |
 | <img src="TownOfUs/Resources/Custom/LighthouseKeeperIcon.png" width="48"/><br>**Lighthouse Keeper** | Role (Crewmate Support) | Places lanterns on the map (3 per game by default), visible to everyone. During a lights sabotage, every player within a lantern's radius sees as if the lights were on, like with the Torch. Lanterns stay until the end of the game. Options: cooldown, lanterns per game, light radius, walls block the light, everyone sees the lanterns, lanterns go out when the Keeper dies. |
 
-Also: a "Settings" button in Freeplay (change the lobby settings without leaving practice), automatic updates,
-a full installation package and our own logo on the startup screen.
+Also: a "Settings" button in Freeplay (change the lobby settings without leaving practice), a search box and
+modifier icons in the lobby settings, automatic updates, a full installation package and our own logo on the startup
+screen.
 
 # Releases
 

@@ -84,8 +84,9 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/ComfyIcon.png" width="48"/><br>**Wygodniś** (Comfy) | Rola (Crewmate Support) | Denerwuje się, gdy zadanie nie idzie po jego myśli. Zamknięcie własnego zadania, zanim cokolwiek się w nim zrobi, blokuje to zadanie na jakiś czas i, jeśli foch jest gotowy, włącza go: przez kilka sekund zabójstwa i umiejętności na Wygodnisiu się nie udają (jak przy barierze Kleryka), ale nie może robić zadań ani zgłaszać ciał. Póki zadanie jest zablokowane, Wygodniś może je zrzucić na gracza obok (to interakcja, domyślnie 2 razy na grę) i widzi, czy zostało zrobione. Niezrobione zadanie wraca na początku najbliższego spotkania, a impostor go nie zrobi, więc zrzucenie jest też testem. Każda liczba i zasada jest opcją w lobby: czas blokady, czas i cooldown focha, przed czym chroni i co blokuje, liczba i cooldown zrzuceń, czy zadanie wraca, czy odbiorca widzi nick. |
 | <img src="TownOfUs/Resources/Custom/LighthouseKeeperIcon.png" width="48"/><br>**Latarnik** (Lighthouse Keeper) | Rola (Crewmate Support) | Stawia latarnie na mapie (domyślnie 3 na grę), widoczne dla wszystkich. W trakcie sabotażu świateł każdy gracz w promieniu latarni widzi tak, jakby światła działały, jak z modyfikatorem Torch. Latarnie stoją do końca gry. Opcje: cooldown, liczba latarni na grę, promień światła, ściany zatrzymują światło, wszyscy widzą latarnie, latarnie gasną po śmierci Latarnika. |
 
-Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), automatyczne
-aktualizacje, pełna paczka instalacyjna i własne logo na ekranie startowym.
+Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), wyszukiwarka
+i ikony modyfikatorów w ustawieniach lobby, automatyczne aktualizacje, pełna paczka instalacyjna i własne logo na
+ekranie startowym.
 
 # Wersje
 

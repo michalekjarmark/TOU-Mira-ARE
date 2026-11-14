@@ -29,9 +29,6 @@ public sealed class PossumPlayDeadButton : TownOfUsRoleButton<PossumRole>
     public override LoadableAsset<Sprite> Sprite => AreAssets.PossumButton;
     public override bool ZeroIsInfinite { get; set; } = true;
 
-    // The colour of the cooldown number before it turns green while lying down.
-    private Color? _timerColor;
-
     public override void ClickHandler()
     {
         if (!CanUse())
@@ -50,29 +47,6 @@ public sealed class PossumPlayDeadButton : TownOfUsRoleButton<PossumRole>
         {
             EffectActive = true;
             Timer = EffectDuration;
-        }
-    }
-
-    // While lying down "Stand Up" works at any time, so it mustn't look like a cooldown (owner's feedback): no shading,
-    // and the number (time left until the Possum gets up on their own) is green, like a duration.
-    public override void FixedUpdateHandler(PlayerControl playerControl)
-    {
-        base.FixedUpdateHandler(playerControl);
-        if (Button == null)
-        {
-            return;
-        }
-
-        _timerColor ??= Button.cooldownTimerText.color;
-        if (EffectActive)
-        {
-            Button.isCoolingDown = false;
-            Button.SetCooldownFill(0f);
-            Button.cooldownTimerText.color = Palette.AcceptedGreen;
-        }
-        else
-        {
-            Button.cooldownTimerText.color = _timerColor.Value;
         }
     }
 

@@ -51,6 +51,13 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   the Torch modifier. Lanterns stay until the end of the game. Options: cooldown, lanterns per game, light radius,
   walls block the light, everyone sees the lanterns, lanterns go out when the Keeper dies.
 
+### Changed
+
+- Buttons whose effect can be ended at any time (Swooper's "Unswoop", Morphling's "Unmorph", Venerer, Glitch's
+  "Unmimic", Medium, Monarch's knighting, Chameleon and the new Possum's "Stand Up") no longer look like they're on
+  cooldown while the effect runs: the button is bright, without the grey shading, and the time left is shown in green.
+  Effects that can't be ended keep the old look.
+
 <details>
 <summary><i>Po polsku</i></summary>
 
@@ -95,6 +102,13 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   dla wszystkich. W trakcie sabotażu świateł każdy gracz w promieniu latarni widzi tak, jakby światła działały, jak z
   modyfikatorem Torch. Latarnie stoją do końca gry. Opcje: cooldown, liczba latarni na grę, promień światła, ściany
   zatrzymują światło, wszyscy widzą latarnie, latarnie gasną po śmierci Latarnika.
+
+**Zmieniono**
+
+- Przyciski, których efekt można przerwać w każdej chwili („Unswoop” Swoopera, „Unmorph” Morphlinga, Venerer,
+  „Unmimic” Glitcha, Medium, pasowanie na rycerza u Monarchy, Chameleon i „Wstań” nowego Symulanta), w trakcie efektu
+  nie wyglądają już jak na cooldownie: przycisk jest jasny, bez szarego zaciemnienia, a pozostały czas jest na
+  zielono. Efekty, których nie da się przerwać, wyglądają jak dotąd.
 
 </details>
 

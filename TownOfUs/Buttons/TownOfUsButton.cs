@@ -110,7 +110,8 @@ public abstract class TownOfUsButton : CustomActionButton
 
         if (Button)
         {
-            if (CanUse())
+            var usable = CanUse();
+            if (usable)
             {
                 Button!.SetEnabled();
             }
@@ -131,6 +132,9 @@ public abstract class TownOfUsButton : CustomActionButton
             {
                 Button.SetCooldownFormat(Timer, Cooldown, CooldownTimerFormatString);
             }
+
+            // AmonRa Edition: an effect the button can end right now isn't drawn like a cooldown.
+            Are.AreButtonLook.Apply(Button, EffectActive && usable);
         }
 
         FixedUpdate(playerControl);
@@ -356,7 +360,8 @@ public abstract class TownOfUsTargetButton<T> : CustomActionButton<T> where T : 
 
         if (Button)
         {
-            if (CanUse())
+            var usable = CanUse();
+            if (usable)
             {
                 Button!.SetEnabled();
             }
@@ -377,6 +382,9 @@ public abstract class TownOfUsTargetButton<T> : CustomActionButton<T> where T : 
             {
                 Button.SetCooldownFormat(Timer, Cooldown, CooldownTimerFormatString);
             }
+
+            // AmonRa Edition: an effect the button can end right now isn't drawn like a cooldown.
+            Are.AreButtonLook.Apply(Button, EffectActive && usable);
         }
 
         FixedUpdate(playerControl);

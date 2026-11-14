@@ -1,6 +1,10 @@
 using HarmonyLib;
+using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
+using TownOfUs.Modifiers.Crewmate;
 using TownOfUs.Modifiers.Game.Alliance;
+using TownOfUs.Options.Roles.Crewmate;
+using TownOfUs.Roles.Crewmate;
 using TownOfUs.Roles.Impostor;
 using TownOfUs.Roles.Neutral;
 
@@ -27,6 +31,22 @@ public static class AreRoleTexts
         if (VentriloquistRole.IsLocalVoice(player))
         {
             name += $"{TownOfUsColors.Impostor.ToTextColor()} ♪</color>";
+        }
+
+        return name;
+    }
+
+    /// <summary>
+    ///     Protection symbols, called from <c>PlayerRoleTextExtensions.UpdateProtectionSymbols</c> after the Warden's
+    ///     "π": a sulking Comfy gets a "!", seen by the Comfy, by the dead with "The Dead Know" and by everyone with the
+    ///     lobby option.
+    /// </summary>
+    public static string AddProtectionSymbols(string name, PlayerControl player, bool isDead)
+    {
+        if (player.HasModifier<ComfySulkModifier>() &&
+            (player.AmOwner || isDead || OptionGroupSingleton<ComfyOptions>.Instance.SulkVisible))
+        {
+            name += $"{TownOfUsColors.Comfy.ToTextColor()} !</color>";
         }
 
         return name;
@@ -67,6 +87,7 @@ public static class AreMeetingTimerTextPatch
         {
             GamblerRole gambler => gambler.MeetingStatusText(__instance),
             VentriloquistRole ventriloquist => ventriloquist.MeetingStatusText(),
+            ComfyRole => ComfySystem.MeetingStatusText(),
             _ => string.Empty
         };
 

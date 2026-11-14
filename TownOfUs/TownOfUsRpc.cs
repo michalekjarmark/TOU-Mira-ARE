@@ -182,6 +182,10 @@ public enum TownOfUsRpc : uint
     PossumPlayDead,
     PossumStandUp,
     PossumReported,
+    ComfyOffload,
+    ComfyOffloadDone,
+    ComfySulkBlocked,
+    LighthousePlaceLantern,
 }
 
 internal enum TownOfUsInternalRpc : uint

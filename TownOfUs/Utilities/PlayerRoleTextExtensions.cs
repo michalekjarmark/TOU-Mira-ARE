@@ -255,6 +255,9 @@ public static class PlayerRoleTextExtensions
             name += "<color=#9900FF> π</color>";
         }
 
+        // AmonRa Edition: the Comfy's sulk "!".
+        name = Are.AreRoleTexts.AddProtectionSymbols(name, player, isDead);
+
         return name;
     }
 

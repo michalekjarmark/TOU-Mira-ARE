@@ -184,4 +184,43 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> PossumButton { get; } =
         new LoadableResourceAsset($"{CustomPath}.PossumButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Comfy role icon (a crewmate in an armchair with an anger mark). 128px. Drawn by
+    ///     tools/are-assets/draw-comfy-lighthouse-icons.ps1, like the Lighthouse Keeper's graphics below.
+    /// </summary>
+    public static LoadableAsset<Sprite> ComfyIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.ComfyIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Comfy "Offload Task" button (a task sheet pushed away with an arrow). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> ComfyButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.ComfyButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Lighthouse Keeper role icon (a lit lantern). 128px.
+    /// </summary>
+    public static LoadableAsset<Sprite> LighthouseKeeperIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.LighthouseKeeperIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Lighthouse Keeper "Place Lantern" button (a lantern with a plus). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> LighthouseKeeperButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.LighthouseKeeperButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     A lantern standing on the map. 64 x 96 px at PPU 200 (0.32 x 0.48 units, about half a player's height).
+    ///     The pivot is the centre, so it's placed half its height above the spot.
+    /// </summary>
+    public static LoadableAsset<Sprite> LanternSprite { get; } =
+        new LoadableResourceAsset($"{CustomPath}.Lantern.png", typeof(TownOfUsPlugin).Assembly, 200f);
+
+    /// <summary>
+    ///     Soft round glow under a lantern while the lights are out. 256px at PPU 128 = 2 units across, scaled to the
+    ///     lantern's radius.
+    /// </summary>
+    public static LoadableAsset<Sprite> LanternGlow { get; } =
+        new LoadableResourceAsset($"{CustomPath}.LanternGlow.png", typeof(TownOfUsPlugin).Assembly, 128f);
 }

@@ -51,7 +51,8 @@ public static class VisionPatch
         {
             if (ModCompatibility.IsSubmerged())
             {
-                if (player._object.HasModifier<TorchModifier>())
+                // AmonRa Edition: the Lighthouse Keeper's lanterns light like the Torch.
+                if (player._object.HasModifier<TorchModifier>() || Are.LighthouseSystem.IsInLanternLight(player._object))
                 {
                     __result = Mathf.Lerp(__instance.MinLightRadius, __instance.MaxLightRadius, 1) *
                                GameOptionsManager.Instance.currentNormalGameOptions.CrewLightMod * visionFactor;
@@ -76,7 +77,9 @@ public static class VisionPatch
                 var t = switchSystem?.Level ?? 1;
 
 
-                if (player._object.HasModifier<TorchModifier>() && !player._object.HasModifier<EclipsalBlindModifier>())
+                // AmonRa Edition: the Lighthouse Keeper's lanterns light like the Torch.
+                if ((player._object.HasModifier<TorchModifier>() || Are.LighthouseSystem.IsInLanternLight(player._object)) &&
+                    !player._object.HasModifier<EclipsalBlindModifier>())
                 {
                     t = 1;
                 }

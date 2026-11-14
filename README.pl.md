@@ -81,6 +81,8 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/BleederIcon.png" width="48"/><br>**Krwawiący** (Bleeder) | Modyfikator (załoga) | Po śmierci Krwawiącego jego zabójca przez chwilę zostawia krwawe ślady stóp. Widzą je wszyscy, bez koloru zabójcy. Zabójstwa pośrednie nie zostawiają śladu, a spotkanie go zmywa. Opcje: czas krwawienia, czas widoczności śladu, went kończy ślad, komunikat dla zabójcy. |
 | <img src="TownOfUs/Resources/Custom/ColorblindIcon.png" width="48"/><br>**Daltonista** (Colorblind) | Modyfikator (uniwersalny) | Dla Daltonisty gracze dalej niż kilka kroków wyglądają jak w kamuflażu (szarzy, bez nicku i domyślnie bez kosmetyków), a z bliska normalnie. Zmienia się tylko jego widok, spotkania wyglądają normalnie. Opcje: zasięg rozpoznawania, ukrywanie kosmetyków. |
 | <img src="TownOfUs/Resources/Custom/SleepwalkerIcon.png" width="48"/><br>**Lunatyk** (Sleepwalker) | Modyfikator (uniwersalny) | Po dłuższym staniu w miejscu (domyślnie 20 s) Lunatyk zaczyna sam chodzić, wolniej, w losowym kierunku, który zmienia się co jakiś czas i przy ścianach. Każdy ruch go budzi. Robienie zadania, went i spotkanie nie liczą się jako stanie. Opcje: czas stania, prędkość lunatykowania, czas lunatykowania. |
+| <img src="TownOfUs/Resources/Custom/ComfyIcon.png" width="48"/><br>**Wygodniś** (Comfy) | Rola (Crewmate Support) | Denerwuje się, gdy zadanie nie idzie po jego myśli. Zamknięcie własnego zadania, zanim cokolwiek się w nim zrobi, blokuje to zadanie na jakiś czas i, jeśli foch jest gotowy, włącza go: przez kilka sekund zabójstwa i umiejętności na Wygodnisiu się nie udają (jak przy barierze Kleryka), ale nie może robić zadań ani zgłaszać ciał. Póki zadanie jest zablokowane, Wygodniś może je zrzucić na gracza obok (to interakcja, domyślnie 2 razy na grę) i widzi, czy zostało zrobione. Niezrobione zadanie wraca na początku najbliższego spotkania, a impostor go nie zrobi, więc zrzucenie jest też testem. Każda liczba i zasada jest opcją w lobby: czas blokady, czas i cooldown focha, przed czym chroni i co blokuje, liczba i cooldown zrzuceń, czy zadanie wraca, czy odbiorca widzi nick. |
+| <img src="TownOfUs/Resources/Custom/LighthouseKeeperIcon.png" width="48"/><br>**Latarnik** (Lighthouse Keeper) | Rola (Crewmate Support) | Stawia latarnie na mapie (domyślnie 3 na grę), widoczne dla wszystkich. W trakcie sabotażu świateł każdy gracz w promieniu latarni widzi tak, jakby światła działały, jak z modyfikatorem Torch. Latarnie stoją do końca gry. Opcje: cooldown, liczba latarni na grę, promień światła, ściany zatrzymują światło, wszyscy widzą latarnie, latarnie gasną po śmierci Latarnika. |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), automatyczne
 aktualizacje, pełna paczka instalacyjna i własne logo na ekranie startowym.
@@ -121,7 +123,8 @@ Kliknij ikonę, aby otworzyć jej stronę na wiki Town of Us: Mira (po angielsku
 Impostor Concealing), **Pracoholik** (kubek kawy, Crewmate Support), **Brzuchomówca** (dymek na sznurkach,
 Impostor Support), **Wandal** (puszka ze sprayem, Impostor Support), **Rywale** (skrzyżowane miecze, modyfikatory
 Alliance), **Symulant** (leżący załogant, Impostor Killing), **Krwawiący** (kropla krwi, modyfikatory załogi),
-**Daltonista** (oko) i **Lunatyk** (księżyc, oba w modyfikatorach uniwersalnych). Kluczowe różnice Town of Us: Mira,
+**Daltonista** (oko) i **Lunatyk** (księżyc, oba w modyfikatorach uniwersalnych), **Wygodniś** (fotel) i **Latarnik**
+(latarnia, obaj w Crewmate Support). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -165,8 +168,10 @@ obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskie
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/protective/Warden"><img width="10%" src="Images/Icons/Warden.png" /></a>
   <img src="Images/Groups/CrewSupport.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Barkeeper"><img width="10%" src="Images/Icons/Barkeeper.png" /></a>
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/ComfyIcon.png" alt="Wygodniś (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Engineer"><img width="10%" src="Images/Icons/Engineer.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Imitator"><img width="10%" src="Images/Icons/Imitator.png" /></a>
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/LighthouseKeeperIcon.png" alt="Latarnik (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Plumber"><img width="10%" src="Images/Icons/Plumber.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Sentry"><img width="10%" src="Images/Icons/Sentry.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Transporter"><img width="10%" src="Images/Icons/Transporter.png" /></a>

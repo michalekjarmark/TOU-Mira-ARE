@@ -1619,4 +1619,56 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionPossumPlayDeadDuration">Maks. czas udawania trupa</string>
   <string name="TouOptionPossumMaxUses">Użycia na grę</string>
   <string name="TouOptionPossumStunDuration">Czas ogłuszenia zgłaszającego</string>
+  <!-- AmonRa Edition - Wygodniś (Crewmate Support) -->
+  <string name="TownOfUsMira.Role.Comfy">Wygodniś</string>
+  <string name="TownOfUsMira.Role.Comfy.IntroBlurb">Nie dziś. Niech ktoś inny to zrobi.</string>
+  <string name="TownOfUsMira.Role.Comfy.TabDescription">Zamknij niedokończone zadanie, żeby strzelić focha. Zablokowane zadanie zrzuć na kogoś.</string>
+  <string name="TownOfUsMira.Role.Comfy.MedDescription">Strzela focha, gdy się zdenerwuje; zrzuca zadania.</string>
+  <string name="TownOfUsMira.Role.Comfy.WikiDescription">Wygodniś to rola Crewmate Support, która denerwuje się, gdy coś nie idzie po jej myśli. Jeśli Wygodniś zamknie swoje zadanie, zanim cokolwiek w nim zrobi, denerwuje się: przez jakiś czas nie może robić tego zadania, a jeśli ma gotowego focha, strzela focha na kilka sekund. W trakcie focha zabójstwa i umiejętności użyte na Wygodnisiu się nie udają (jak przy barierze Kleryka), ale Wygodniś nie może robić zadań ani zgłaszać ciał. Póki zadanie jest zablokowane, Wygodniś może je zrzucić na gracza obok (kilka razy na grę). Odbiorca dostaje zadanie, a Wygodniś widzi, czy zostało zrobione. Niezrobione zadanie wraca do Wygodnisia na początku najbliższego spotkania. Impostor nie może robić zadań, więc zrzucenie jest też testem. Zdenerwowanie trzeba wydać z głową: na ochronę, gdy ktoś podchodzi, albo na pozbycie się zadania.</string>
+  <string name="TownOfUsMira.Role.ComfySulk">Foch</string>
+  <string name="TownOfUsMira.Role.ComfySulk.WikiDescription">Włącza się sam, gdy zamkniesz swoje zadanie, zanim cokolwiek w nim zrobisz, jeśli jest gotowy. Przez kilka sekund zabójstwa i umiejętności na tobie się nie udają, ale nie możesz robić zadań ani zgłaszać ciał.</string>
+  <string name="TownOfUsMira.Role.ComfySulkDescription">Foch: zabójstwa i umiejętności na tobie się nie udają.</string>
+  <string name="TownOfUsMira.Role.ComfyOffload">Zrzuć robotę</string>
+  <string name="TownOfUsMira.Role.ComfyOffload.WikiDescription">Daj zadanie, które jest teraz dla ciebie zablokowane, najbliższemu graczowi. Widzisz, czy zostało zrobione. Jeśli nie, wróci na najbliższym spotkaniu.</string>
+  <string name="TownOfUsMira.Role.ComfySulkReady">Foch: gotowy</string>
+  <string name="TownOfUsMira.Role.ComfySulkCooldown">Foch: za [time] s</string>
+  <string name="TownOfUsMira.Role.ComfySulkActive">Foch: trwa</string>
+  <string name="TownOfUsMira.Role.ComfyLockedSuffix">(zablokowane, [time] s)</string>
+  <string name="TownOfUsMira.Role.ComfyOffloadedSuffix">(zrzucone na: [player])</string>
+  <string name="TownOfUsMira.Role.ComfyCopySuffix">(zrzucone na ciebie)</string>
+  <string name="TownOfUsMira.Role.ComfyCopySuffixNamed">(od: [player])</string>
+  <string name="TownOfUsMira.Role.ComfyYouGotTask">Ktoś zrzucił na ciebie zadanie: [task]</string>
+  <string name="TownOfUsMira.Role.ComfyYouGotTaskNamed">Dostajesz zadanie od [player]: [task]</string>
+  <string name="TownOfUsMira.Role.ComfyTaskDone">Zrzucone zadanie zrobione ([player]): [task]</string>
+  <string name="TownOfUsMira.Role.ComfyResults">Zrzucone zadania:</string>
+  <string name="TownOfUsMira.Role.ComfyResultDone">[player]: zrobione</string>
+  <string name="TownOfUsMira.Role.ComfyResultNotDone">[player]: niezrobione</string>
+  <string name="TouOptionComfyLockDuration">Blokada zadania po zamknięciu go przed końcem</string>
+  <string name="TouOptionComfySulkDuration">Czas focha (0 = bez focha)</string>
+  <string name="TouOptionComfySulkCooldown">Cooldown focha</string>
+  <string name="TouOptionComfySulkBlocksKills">Foch chroni przed zabójstwem</string>
+  <string name="TouOptionComfySulkBlocksAbilities">Foch chroni przed umiejętnościami</string>
+  <string name="TouOptionComfySulkBlocksTasks">W trakcie focha bez zadań</string>
+  <string name="TouOptionComfySulkBlocksReports">W trakcie focha bez zgłaszania ciał</string>
+  <string name="TouOptionComfySulkBlocksMeetingButton">W trakcie focha bez przycisku spotkania</string>
+  <string name="TouOptionComfySulkVisible">Wszyscy widzą focha</string>
+  <string name="TouOptionComfyAttackNotif">Wygodniś widzi zatrzymany atak</string>
+  <string name="TouOptionComfyOffloadCooldown">Cooldown zrzucania</string>
+  <string name="TouOptionComfyMaxOffloads">Maks. zrzuconych zadań na grę</string>
+  <string name="TouOptionComfyTaskReturns">Niezrobione zadanie wraca na spotkaniu</string>
+  <string name="TouOptionComfyReceiverSeesName">Odbiorca widzi nick Wygodnisia</string>
+  <!-- AmonRa Edition - Latarnik (Crewmate Support) -->
+  <string name="TownOfUsMira.Role.LighthouseKeeper">Latarnik</string>
+  <string name="TownOfUsMira.Role.LighthouseKeeper.IntroBlurb">Niech światło nie gaśnie.</string>
+  <string name="TownOfUsMira.Role.LighthouseKeeper.TabDescription">Stawiaj latarnie. Gdy zgasną światła, każdy przy latarni dalej widzi.</string>
+  <string name="TownOfUsMira.Role.LighthouseKeeper.MedDescription">Stawia latarnie, które świecą przy sabotażu świateł.</string>
+  <string name="TownOfUsMira.Role.LighthouseKeeper.WikiDescription">Latarnik to rola Crewmate Support, która stawia latarnie na mapie (kilka na grę). Latarnie widzą wszyscy (opcja w lobby). W trakcie sabotażu świateł każdy gracz w promieniu latarni widzi tak, jakby światła działały, jak z modyfikatorem Torch. Domyślnie światło nie przechodzi przez ściany. Latarnie stoją do końca gry (opcja: gasną, gdy Latarnik zginie). Oświetl Elektrykę albo ruchliwe korytarze, zanim impostorzy zgaszą światła.</string>
+  <string name="TownOfUsMira.Role.LighthouseKeeperPlace">Postaw latarnię</string>
+  <string name="TownOfUsMira.Role.LighthouseKeeperPlace.WikiDescription">Postaw latarnię tam, gdzie stoisz.</string>
+  <string name="TouOptionLighthouseKeeperLanternCooldown">Cooldown stawiania latarni</string>
+  <string name="TouOptionLighthouseKeeperMaxLanterns">Maks. latarni na grę</string>
+  <string name="TouOptionLighthouseKeeperLanternRadius">Promień światła latarni</string>
+  <string name="TouOptionLighthouseKeeperWallsBlockLight">Ściany zatrzymują światło</string>
+  <string name="TouOptionLighthouseKeeperLanternsVisible">Wszyscy widzą latarnie</string>
+  <string name="TouOptionLighthouseKeeperLanternsOutOnDeath">Latarnie gasną po śmierci Latarnika</string>
 </resources>

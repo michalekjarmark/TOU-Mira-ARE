@@ -78,6 +78,8 @@ Everything below is new in AmonRa Edition. For all roles and modifiers of Town o
 | <img src="TownOfUs/Resources/Custom/BleederIcon.png" width="48"/><br>**Bleeder** | Modifier (Crewmate) | After the Bleeder dies, their killer leaves bloody footprints for a while. Everyone sees them, without the killer's color. Indirect kills leave no trail, a meeting wipes it. Options: trail time, footprint time, venting ends the trail, the killer is told. |
 | <img src="TownOfUs/Resources/Custom/ColorblindIcon.png" width="48"/><br>**Colorblind** | Modifier (Universal) | To the Colorblind, players further than a few steps away look camouflaged (grey, no name and by default no cosmetics); up close they look normal. Only their own view changes, meetings look normal. Options: recognition range, also hide cosmetics. |
 | <img src="TownOfUs/Resources/Custom/SleepwalkerIcon.png" width="48"/><br>**Sleepwalker** | Modifier (Universal) | After standing still for a while (20 s by default), the Sleepwalker starts walking on their own, slower, in a random direction that changes now and then and at walls. Any movement wakes them up. Doing a task, a vent or a meeting doesn't count as standing. Options: time standing still, sleepwalking speed, sleepwalking time. |
+| <img src="TownOfUs/Resources/Custom/ComfyIcon.png" width="48"/><br>**Comfy** | Role (Crewmate Support) | Gets annoyed when a task doesn't go their way. Closing one of their own tasks before doing anything in it locks that task for them for a while and, if their sulk is ready, starts it: for a few seconds kills and abilities on the Comfy fail (like on the Cleric's barrier), but they can't do tasks or report bodies. While a task is locked, the Comfy can offload it to a player nearby (an interaction, 2 per game by default) and sees whether they did it. A task that isn't done comes back at the start of the next meeting, and an impostor can't do it, so offloading is also a test. Every number and rule is a lobby option: lock time, sulk time and cooldown, what the sulk stops and blocks, offloads per game and cooldown, whether the task comes back, whether the receiver sees the name. |
+| <img src="TownOfUs/Resources/Custom/LighthouseKeeperIcon.png" width="48"/><br>**Lighthouse Keeper** | Role (Crewmate Support) | Places lanterns on the map (3 per game by default), visible to everyone. During a lights sabotage, every player within a lantern's radius sees as if the lights were on, like with the Torch. Lanterns stay until the end of the game. Options: cooldown, lanterns per game, light radius, walls block the light, everyone sees the lanterns, lanterns go out when the Keeper dies. |
 
 Also: a "Settings" button in Freeplay (change the lobby settings without leaving practice), automatic updates,
 a full installation package and our own logo on the startup screen.
@@ -145,7 +147,8 @@ Neutral Evil), **Auditor** (clipboard, Crewmate Investigative), **Rigger** (wren
 Impostor Concealing), **Workaholic** (coffee mug, Crewmate Support), **Ventriloquist** (speech bubble on strings,
 Impostor Support), **Vandal** (spray can, Impostor Support), **Rivals** (crossed swords, alliance modifiers),
 **Possum** (crewmate lying down, Impostor Killing), **Bleeder** (blood drop, crewmate modifiers), **Colorblind** (eye)
-and **Sleepwalker** (moon, both universal modifiers).
+and **Sleepwalker** (moon, both universal modifiers), **Comfy** (armchair) and **Lighthouse Keeper** (lantern, both
+Crewmate Support).
 
 
 <p align="center">
@@ -188,8 +191,10 @@ and **Sleepwalker** (moon, both universal modifiers).
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/protective/Warden"><img width="10%" src="Images/Icons/Warden.png" /></a>
   <img src="Images/Groups/CrewSupport.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Barkeeper"><img width="10%" src="Images/Icons/Barkeeper.png" /></a>
+  <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/ComfyIcon.png" alt="Comfy (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Engineer"><img width="10%" src="Images/Icons/Engineer.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Imitator"><img width="10%" src="Images/Icons/Imitator.png" /></a>
+  <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/LighthouseKeeperIcon.png" alt="Lighthouse Keeper (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Plumber"><img width="10%" src="Images/Icons/Plumber.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Sentry"><img width="10%" src="Images/Icons/Sentry.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Transporter"><img width="10%" src="Images/Icons/Transporter.png" /></a>

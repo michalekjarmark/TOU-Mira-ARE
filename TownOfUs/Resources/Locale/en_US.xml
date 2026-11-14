@@ -4321,4 +4321,56 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionPossumPlayDeadDuration">Max Time Playing Dead</string>
   <string name="TouOptionPossumMaxUses">Uses Per Game</string>
   <string name="TouOptionPossumStunDuration">Reporter Stun Duration</string>
+  <!-- AmonRa Edition - Comfy (Crewmate Support) -->
+  <string name="TownOfUsMira.Role.Comfy">Comfy</string>
+  <string name="TownOfUsMira.Role.Comfy.IntroBlurb">Not today. Someone else can do it.</string>
+  <string name="TownOfUsMira.Role.Comfy.TabDescription">Close an unfinished task to sulk. Offload the locked task to someone.</string>
+  <string name="TownOfUsMira.Role.Comfy.MedDescription">Sulks when annoyed; can offload a task.</string>
+  <string name="TownOfUsMira.Role.Comfy.WikiDescription">The Comfy is a Crewmate Support role that gets annoyed when things don't go their way. If the Comfy closes one of their tasks before doing anything in it, they get annoyed: they can't do that task for a while, and if their sulk is ready, they sulk for a few seconds. While sulking, kills and abilities used on the Comfy fail (like on the Cleric's barrier), but the Comfy can't do tasks or report bodies. While a task is locked, the Comfy can offload it to a player nearby (a few times per game). The receiver gets the task and the Comfy sees whether they did it; a task that isn't done comes back to the Comfy at the start of the next meeting. An impostor can't do tasks, so offloading is also a test. Spend your annoyance wisely: on protection when someone walks up to you, or on getting rid of a task.</string>
+  <string name="TownOfUsMira.Role.ComfySulk">Sulk</string>
+  <string name="TownOfUsMira.Role.ComfySulk.WikiDescription">Starts by itself when you close one of your tasks before doing anything in it, if it's ready. For a few seconds kills and abilities on you fail, but you can't do tasks or report bodies.</string>
+  <string name="TownOfUsMira.Role.ComfySulkDescription">Sulking: kills and abilities on you fail.</string>
+  <string name="TownOfUsMira.Role.ComfyOffload">Offload Task</string>
+  <string name="TownOfUsMira.Role.ComfyOffload.WikiDescription">Give the task that is locked for you right now to the closest player. You see whether they did it. If not, it comes back at the next meeting.</string>
+  <string name="TownOfUsMira.Role.ComfySulkReady">Sulk: ready</string>
+  <string name="TownOfUsMira.Role.ComfySulkCooldown">Sulk: in [time] s</string>
+  <string name="TownOfUsMira.Role.ComfySulkActive">Sulk: now</string>
+  <string name="TownOfUsMira.Role.ComfyLockedSuffix">(locked, [time] s)</string>
+  <string name="TownOfUsMira.Role.ComfyOffloadedSuffix">(offloaded to [player])</string>
+  <string name="TownOfUsMira.Role.ComfyCopySuffix">(offloaded on you)</string>
+  <string name="TownOfUsMira.Role.ComfyCopySuffixNamed">(from [player])</string>
+  <string name="TownOfUsMira.Role.ComfyYouGotTask">Someone offloaded a task on you: [task]</string>
+  <string name="TownOfUsMira.Role.ComfyYouGotTaskNamed">[player] offloaded a task on you: [task]</string>
+  <string name="TownOfUsMira.Role.ComfyTaskDone">[player] did your offloaded task: [task]</string>
+  <string name="TownOfUsMira.Role.ComfyResults">Offloaded tasks:</string>
+  <string name="TownOfUsMira.Role.ComfyResultDone">[player] did it</string>
+  <string name="TownOfUsMira.Role.ComfyResultNotDone">[player] didn't</string>
+  <string name="TouOptionComfyLockDuration">Task Lock After Closing It Unfinished</string>
+  <string name="TouOptionComfySulkDuration">Sulk Duration (0 = No Sulk)</string>
+  <string name="TouOptionComfySulkCooldown">Sulk Cooldown</string>
+  <string name="TouOptionComfySulkBlocksKills">Sulk Stops Kills</string>
+  <string name="TouOptionComfySulkBlocksAbilities">Sulk Stops Abilities</string>
+  <string name="TouOptionComfySulkBlocksTasks">No Tasks While Sulking</string>
+  <string name="TouOptionComfySulkBlocksReports">No Body Reports While Sulking</string>
+  <string name="TouOptionComfySulkBlocksMeetingButton">No Meeting Button While Sulking</string>
+  <string name="TouOptionComfySulkVisible">Everyone Sees The Sulk</string>
+  <string name="TouOptionComfyAttackNotif">Comfy Sees A Stopped Attack</string>
+  <string name="TouOptionComfyOffloadCooldown">Offload Task Cooldown</string>
+  <string name="TouOptionComfyMaxOffloads">Max Offloaded Tasks Per Game</string>
+  <string name="TouOptionComfyTaskReturns">Undone Task Comes Back At A Meeting</string>
+  <string name="TouOptionComfyReceiverSeesName">Receiver Sees The Comfy's Name</string>
+  <!-- AmonRa Edition - Lighthouse Keeper (Crewmate Support) -->
+  <string name="TownOfUsMira.Role.LighthouseKeeper">Lighthouse Keeper</string>
+  <string name="TownOfUsMira.Role.LighthouseKeeper.IntroBlurb">Keep the lights on.</string>
+  <string name="TownOfUsMira.Role.LighthouseKeeper.TabDescription">Place lanterns. When the lights go out, everyone near a lantern can still see.</string>
+  <string name="TownOfUsMira.Role.LighthouseKeeper.MedDescription">Places lanterns that light up during a lights sabotage.</string>
+  <string name="TownOfUsMira.Role.LighthouseKeeper.WikiDescription">The Lighthouse Keeper is a Crewmate Support role that places lanterns on the map (a few per game). Everyone sees the lanterns (lobby option). During a lights sabotage, every player within a lantern's radius sees as if the lights were on, like with the Torch modifier. By default the light doesn't go through walls. Lanterns stay until the end of the game (option: they go out when the Lighthouse Keeper dies). Light up Electrical or the busy corridors before the impostors turn the lights off.</string>
+  <string name="TownOfUsMira.Role.LighthouseKeeperPlace">Place Lantern</string>
+  <string name="TownOfUsMira.Role.LighthouseKeeperPlace.WikiDescription">Place a lantern where you stand.</string>
+  <string name="TouOptionLighthouseKeeperLanternCooldown">Place Lantern Cooldown</string>
+  <string name="TouOptionLighthouseKeeperMaxLanterns">Max Lanterns Per Game</string>
+  <string name="TouOptionLighthouseKeeperLanternRadius">Lantern Light Radius</string>
+  <string name="TouOptionLighthouseKeeperWallsBlockLight">Walls Block The Light</string>
+  <string name="TouOptionLighthouseKeeperLanternsVisible">Everyone Sees The Lanterns</string>
+  <string name="TouOptionLighthouseKeeperLanternsOutOnDeath">Lanterns Go Out When The Keeper Dies</string>
 </resources>

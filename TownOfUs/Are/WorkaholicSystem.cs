@@ -362,7 +362,8 @@ public static class WorkaholicSystem
         return true;
     }
 
-    private static NormalPlayerTask? FindTaskPrefab(TaskTypes type)
+    /// <summary>Any task of this type on the current map. Also the Comfy's copies.</summary>
+    public static NormalPlayerTask? FindTaskPrefab(TaskTypes type)
     {
         if (!ShipStatus.Instance)
         {
@@ -612,6 +613,15 @@ public static class WorkaholicSystem
             pendingOwner = Nobody;
             PendingQueue.Clear();
         }
+    }
+
+    /// <summary>
+    ///     Every client: the owner's completion of this task that follows was done by someone else (the Comfy's
+    ///     receiver), so the Auditor doesn't count it for the owner.
+    /// </summary>
+    public static void MarkDoneByHelper(byte ownerId, uint taskId)
+    {
+        HelperCompletions.Add((ownerId, taskId));
     }
 
     /// <summary>The owner's completion of this task was done by a Workaholic (see <see cref="HelperCompletions" />).</summary>
@@ -959,9 +969,9 @@ public static class WorkaholicSystem
 }
 
 /// <summary>
-///     The Workaholic's copy of a task is done: tell the owner instead of sending a completion of a task the game doesn't
-///     know (<see cref="WorkaholicSystem.CopyIdBase" />). NormalPlayerTask.NextStep calls this from native code, which
-///     the Harmony patch catches.
+///     The Workaholic's (or the Comfy's receiver's) copy of a task is done: tell the owner instead of sending a completion
+///     of a task the game doesn't know (<see cref="WorkaholicSystem.CopyIdBase" />, <see cref="ComfySystem.CopyIdBase" />).
+///     NormalPlayerTask.NextStep calls this from native code, which the Harmony patch catches.
 /// </summary>
 [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.RpcCompleteTask))]
 public static class WorkaholicRpcCompleteTaskPatch
@@ -975,7 +985,11 @@ public static class WorkaholicRpcCompleteTaskPatch
             return true;
         }
 
-        if (__instance.AmOwner)
+        if (__instance.AmOwner && ComfySystem.IsComfyCopyId(idx))
+        {
+            ComfySystem.OnCopyCompleted(__instance, idx);
+        }
+        else if (__instance.AmOwner)
         {
             WorkaholicSystem.OnCopyCompleted(__instance, idx);
         }

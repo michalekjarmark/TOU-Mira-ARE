@@ -36,6 +36,20 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   walking on their own, slower than normal, in a random direction that changes now and then and at walls. Any movement
   wakes them up. Doing a task, being in a vent or a meeting doesn't count as standing still. Options: time standing
   still, sleepwalking speed, sleepwalking time.
+- **Comfy** (new Crewmate Support role, an idea of ours): gets annoyed when a task doesn't go their way. Closing one of
+  their own tasks before doing anything in it locks that task for them for a while (20 s by default) and, if their
+  sulk is ready, starts it: for a few seconds (5 s) kills and abilities used on the Comfy fail, like on the Cleric's
+  barrier, but the Comfy can't do tasks or report bodies. The sulk then needs a cooldown (30 s).
+  - "Offload Task": while a task is locked, the Comfy can give it to a player nearby (an interaction, 2 per game by
+    default). The receiver gets the task, the Comfy sees whether they did it, and a task that isn't done comes back to
+    the Comfy at the start of the next meeting. An impostor can't do tasks, so offloading is also a test.
+  - Every number and rule is a lobby option: lock time, sulk time and cooldown, whether the sulk stops kills and
+    abilities, blocks tasks, body reports and the meeting button, whether others see the sulk, offloads per game and
+    their cooldown, whether the task comes back and whether the receiver sees the Comfy's name.
+- **Lighthouse Keeper** (new Crewmate Support role): places lanterns on the map (3 per game by default), visible to
+  everyone. During a lights sabotage, every player within a lantern's radius sees as if the lights were on, like with
+  the Torch modifier. Lanterns stay until the end of the game. Options: cooldown, lanterns per game, light radius,
+  walls block the light, everyone sees the lanterns, lanterns go out when the Keeper dies.
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -67,6 +81,20 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   sam chodzić, wolniej niż normalnie, w losowym kierunku, który zmienia się co jakiś czas i przy ścianach. Każdy ruch go
   budzi. Robienie zadania, went i spotkanie nie liczą się jako stanie. Opcje: czas stania, prędkość lunatykowania, czas
   lunatykowania.
+- **Wygodniś** (Comfy, nowa rola Crewmate Support, nasz pomysł): denerwuje się, gdy zadanie nie idzie po jego myśli.
+  Zamknięcie własnego zadania, zanim cokolwiek się w nim zrobi, blokuje to zadanie na jakiś czas (domyślnie 20 s) i,
+  jeśli foch jest gotowy, włącza go: przez kilka sekund (5 s) zabójstwa i umiejętności użyte na Wygodnisiu się nie
+  udają, jak przy barierze Kleryka, ale Wygodniś nie może robić zadań ani zgłaszać ciał. Potem foch ma cooldown (30 s).
+  - „Zrzuć robotę”: póki zadanie jest zablokowane, Wygodniś może je dać graczowi obok (to interakcja, domyślnie 2 razy
+    na grę). Odbiorca dostaje zadanie, Wygodniś widzi, czy zostało zrobione, a niezrobione zadanie wraca do niego na
+    początku najbliższego spotkania. Impostor nie może robić zadań, więc zrzucenie jest też testem.
+  - Każda liczba i zasada jest opcją w lobby: czas blokady, czas i cooldown focha, czy foch chroni przed zabójstwami i
+    umiejętnościami, czy blokuje zadania, zgłaszanie ciał i przycisk spotkania, czy inni widzą focha, liczba i cooldown
+    zrzuceń, czy zadanie wraca i czy odbiorca widzi nick Wygodnisia.
+- **Latarnik** (Lighthouse Keeper, nowa rola Crewmate Support): stawia latarnie na mapie (domyślnie 3 na grę), widoczne
+  dla wszystkich. W trakcie sabotażu świateł każdy gracz w promieniu latarni widzi tak, jakby światła działały, jak z
+  modyfikatorem Torch. Latarnie stoją do końca gry. Opcje: cooldown, liczba latarni na grę, promień światła, ściany
+  zatrzymują światło, wszyscy widzą latarnie, latarnie gasną po śmierci Latarnika.
 
 </details>
 

@@ -187,6 +187,20 @@ public static class PossumSystem
         }
     }
 
+    // The Possum lying down and the stunned reporter can't report, so the report button stays dark, also next to the
+    // Possum's own fake body (owner's feedback: it lit up, and clicking it did nothing).
+    [HarmonyPatch(typeof(ReportButton), nameof(ReportButton.SetActive))]
+    [HarmonyPrefix]
+    public static void ReportButtonSetActivePrefix(ref bool isActive)
+    {
+        var local = PlayerControl.LocalPlayer;
+        if (isActive && local != null &&
+            (local.HasModifier<PossumFakeDeathModifier>() || local.HasModifier<PossumStunModifier>()))
+        {
+            isActive = false;
+        }
+    }
+
     // The Possum lying down and the stunned reporter can't move. Last, after the other movement patches.
     [HarmonyPatch(typeof(PlayerPhysics), nameof(PlayerPhysics.FixedUpdate))]
     [HarmonyPostfix]

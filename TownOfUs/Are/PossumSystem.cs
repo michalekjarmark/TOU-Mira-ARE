@@ -144,6 +144,25 @@ public static class PossumSystem
         Bodies.Clear();
     }
 
+    // The meeting intro lists every body on the map as "DEAD", and the bodies are collected before MeetingHud.Start,
+    // where the Possum gets up (owner's test, round 15: the lying Possum was shown as dead). Take the fake bodies away
+    // first; SetActive(false) because Destroy only happens at the end of the frame.
+    [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.StartMeeting))]
+    [HarmonyPrefix]
+    public static void StartMeetingPrefix()
+    {
+        foreach (var body in Bodies.Values)
+        {
+            if (body != null)
+            {
+                body.gameObject.SetActive(false);
+                body.gameObject.Destroy();
+            }
+        }
+
+        Bodies.Clear();
+    }
+
     // A click on the fake body is the report: get the Possum up instead.
     [HarmonyPatch(typeof(DeadBody), nameof(DeadBody.OnClick))]
     [HarmonyPrefix]

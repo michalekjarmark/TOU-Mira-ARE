@@ -294,6 +294,40 @@ public static class ComfySystem
         return Locks.Count > 0 && TaskToOffload(local) != null;
     }
 
+    /// <summary>
+    ///     Target of "Offload Task": a player who doesn't have an unfinished task of the same type (owner's decision,
+    ///     round 15). The game can't tell two tasks of one type apart for one player: the map keeps its markers by task
+    ///     type and a console opens the first matching task, so the receiver could do their own task instead.
+    /// </summary>
+    public static bool CanReceive(PlayerControl local, PlayerControl receiver)
+    {
+        var task = TaskToOffload(local);
+        return task != null && !HasUnfinishedTaskOfType(receiver, task.TaskType);
+    }
+
+    // Every client has every player's task objects (myTasks), but only the completion is synced (CAVEATS: TypeId).
+    // Copies live only on the receiver's client, so the offloads and the Workaholic's tasks are checked by their records.
+    private static bool HasUnfinishedTaskOfType(PlayerControl player, TaskTypes type)
+    {
+        foreach (var task in player.myTasks.ToArray())
+        {
+            var normal = task != null ? task.TryCast<NormalPlayerTask>() : null;
+            if (normal == null || normal.TaskType != type || WorkaholicSystem.IsCopyId(normal.Id))
+            {
+                continue;
+            }
+
+            var info = player.Data?.FindTaskById(normal.Id);
+            if (info != null && !info.Complete)
+            {
+                return true;
+            }
+        }
+
+        return Offloads.Exists(x => x.ReceiverId == player.PlayerId && x.Type == type) ||
+               WorkaholicSystem.HoldsTaskOfType(player.PlayerId, type);
+    }
+
     /// <summary>"Offload Task" button.</summary>
     public static void StartOffload(PlayerControl local, PlayerControl receiver)
     {
@@ -647,7 +681,7 @@ public static class ComfySystem
             return;
         }
 
-        var offload = new Offload(comfy.PlayerId, taskId, receiverId);
+        var offload = new Offload(comfy.PlayerId, taskId, receiverId, taskType);
         Offloads.Add(offload);
         Info($"Comfy: player {comfy.PlayerId} offloads task {taskId} ({taskType}) to player {receiverId}");
 
@@ -731,11 +765,12 @@ public static class ComfySystem
         }
     }
 
-    private sealed class Offload(byte comfyId, uint taskId, byte receiverId)
+    private sealed class Offload(byte comfyId, uint taskId, byte receiverId, TaskTypes type)
     {
         public byte ComfyId { get; } = comfyId;
         public uint TaskId { get; } = taskId;
         public byte ReceiverId { get; } = receiverId;
+        public TaskTypes Type { get; } = type;
 
         // Receiver's client only.
         public NormalPlayerTask? Copy { get; set; }
@@ -757,6 +792,29 @@ public static class ComfyConsoleUsePatch
     public static void Postfix()
     {
         ComfySystem.OnConsoleUsed();
+    }
+}
+
+/// <summary>
+///     A click on a console with the mouse calls <c>Use</c> without asking <c>CanUse</c> (owner's test: the meeting button
+///     opened during a sulk; TOU blocks cams the same way in <c>UseButtonPatch</c>). Keeps the Comfy's locks and the
+///     sulk's blocks for clicks too.
+/// </summary>
+[HarmonyPatch]
+public static class ComfyConsoleClickPatch
+{
+    [HarmonyPatch(typeof(Console), nameof(Console.Use))]
+    [HarmonyPrefix]
+    public static bool ConsolePrefix(Console __instance)
+    {
+        return !ComfySystem.BlocksConsole(__instance.Cast<IUsable>());
+    }
+
+    [HarmonyPatch(typeof(SystemConsole), nameof(SystemConsole.Use))]
+    [HarmonyPrefix]
+    public static bool SystemConsolePrefix(SystemConsole __instance)
+    {
+        return !ComfySystem.BlocksConsole(__instance.Cast<IUsable>());
     }
 }
 

@@ -527,6 +527,32 @@ public static class WorkaholicSystem
 
     // Only real tasks: the list headers (ImportantTextTask, e.g. the impostor's "Sabotage and kill everyone. Fake
     // Tasks:", which stays after a role change) also have id 0 (round 10: the header got hidden instead of task 0).
+    /// <summary>The Workaholic is doing someone's task of this type now (for the Comfy's offload target).</summary>
+    public static bool HoldsTaskOfType(byte workaholicId, TaskTypes type)
+    {
+        foreach (var ((ownerId, taskId), holder) in Taken)
+        {
+            if (holder != workaholicId)
+            {
+                continue;
+            }
+
+            var owner = MiscUtils.PlayerById(ownerId);
+            PlayerTask? task = owner != null ? FindOwnTask(owner, taskId) : null;
+            if (task == null && Hidden.TryGetValue((ownerId, taskId), out var hidden) && hidden.Task)
+            {
+                task = hidden.Task; // the owner's client: the taken task is out of the owner's list
+            }
+
+            if (task != null && task.TaskType == type)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static NormalPlayerTask? FindOwnTask(PlayerControl owner, uint taskId)
     {
         foreach (var task in owner.myTasks.ToArray())

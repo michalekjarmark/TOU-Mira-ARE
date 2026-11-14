@@ -29,7 +29,8 @@ public sealed class RivalModifier : AllianceGameModifier, IWikiDiscoverable, IAs
 
     public override string IdPart => "Rival";
     public override string ModifierName => MiraLocaleManager.Get($"TownOfUsMira.Modifier.{IdPart}", "Rival");
-    public override string IntroInfo => RivalString();
+    // Short on the intro screen (owner's test: the full sentence didn't fit); the rule is in the start notification.
+    public override string IntroInfo => RivalString(true);
     public override string Symbol => SymbolText;
     public override float IntroSize => 3f;
     public override Color FreeplayFileColor => new Color32(220, 220, 220, 255);
@@ -70,7 +71,7 @@ public sealed class RivalModifier : AllianceGameModifier, IWikiDiscoverable, IAs
                MiscUtils.AppendOptionsText(GetType());
     }
 
-    public string RivalString()
+    public string RivalString(bool intro = false)
     {
         var rival = RivalData;
         if (rival == null)
@@ -78,7 +79,11 @@ public sealed class RivalModifier : AllianceGameModifier, IWikiDiscoverable, IAs
             return MiraLocaleManager.Get($"TownOfUsMira.Modifier.{IdPart}InfoNone");
         }
 
-        var key = rival.Disconnected ? $"TownOfUsMira.Modifier.{IdPart}InfoDisconnected" : $"TownOfUsMira.Modifier.{IdPart}Info";
+        var key = intro ? $"TownOfUsMira.Modifier.{IdPart}IntroInfo" : $"TownOfUsMira.Modifier.{IdPart}Info";
+        if (rival.Disconnected)
+        {
+            key = $"TownOfUsMira.Modifier.{IdPart}InfoDisconnected";
+        }
         return MiraLocaleManager.Get(key).Replace("<player>", rival.PlayerName);
     }
 

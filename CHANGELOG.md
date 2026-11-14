@@ -42,7 +42,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   barrier, but the Comfy can't do tasks or report bodies. The sulk then needs a cooldown (30 s).
   - "Offload Task": while a task is locked, the Comfy can give it to a player nearby (an interaction, 2 per game by
     default). The receiver gets the task, the Comfy sees whether they did it, and a task that isn't done comes back to
-    the Comfy at the start of the next meeting. An impostor can't do tasks, so offloading is also a test.
+    the Comfy at the start of the next meeting. An impostor can't do tasks, so offloading is also a test. A task goes
+    only to a player who doesn't have an unfinished task of the same type.
   - Every number and rule is a lobby option: lock time, sulk time and cooldown, whether the sulk stops kills and
     abilities, blocks tasks, body reports and the meeting button, whether others see the sulk, offloads per game and
     their cooldown, whether the task comes back and whether the receiver sees the Comfy's name.
@@ -69,6 +70,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 - Local games: when the host is dead, the meeting goes on by itself after the voting results (a dead host couldn't
   click "Proceed").
+- Freeplay with several players: "Set Modifiers" on another player now gives them the modifier in their own game too
+  (it only changed the host's game).
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -106,7 +109,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   udają, jak przy barierze Kleryka, ale Wygodniś nie może robić zadań ani zgłaszać ciał. Potem foch ma cooldown (30 s).
   - „Zrzuć robotę”: póki zadanie jest zablokowane, Wygodniś może je dać graczowi obok (to interakcja, domyślnie 2 razy
     na grę). Odbiorca dostaje zadanie, Wygodniś widzi, czy zostało zrobione, a niezrobione zadanie wraca do niego na
-    początku najbliższego spotkania. Impostor nie może robić zadań, więc zrzucenie jest też testem.
+    początku najbliższego spotkania. Impostor nie może robić zadań, więc zrzucenie jest też testem. Zadanie trafia
+    tylko do gracza, który nie ma niezrobionego zadania tego samego typu.
   - Każda liczba i zasada jest opcją w lobby: czas blokady, czas i cooldown focha, czy foch chroni przed zabójstwami i
     umiejętnościami, czy blokuje zadania, zgłaszanie ciał i przycisk spotkania, czy inni widzą focha, liczba i cooldown
     zrzuceń, czy zadanie wraca i czy odbiorca widzi nick Wygodnisia.
@@ -133,6 +137,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 - Gry lokalne: gdy host nie żyje, spotkanie samo idzie dalej po wynikach głosowania (martwy host nie mógł kliknąć
   „Proceed”).
+- Freeplay z kilkoma graczami: „Set Modifiers” na innym graczu daje mu modyfikator także w jego grze (zmieniało tylko
+  grę hosta).
 
 </details>
 

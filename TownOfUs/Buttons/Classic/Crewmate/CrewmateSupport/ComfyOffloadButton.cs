@@ -23,7 +23,9 @@ public sealed class ComfyOffloadButton : TownOfUsRoleButton<ComfyRole, PlayerCon
 
     public override PlayerControl? GetTarget()
     {
-        return PlayerControl.LocalPlayer.GetClosestLivingPlayer(true, Distance);
+        // Only a player without an unfinished task of the same type (ComfySystem.CanReceive).
+        var local = PlayerControl.LocalPlayer;
+        return local.GetClosestLivingPlayer(true, Distance, predicate: x => ComfySystem.CanReceive(local, x));
     }
 
     // Nothing locked to give: the button stays grey and the players around get no outline.

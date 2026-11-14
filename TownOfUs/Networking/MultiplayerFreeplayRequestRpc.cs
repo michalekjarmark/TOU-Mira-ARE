@@ -165,12 +165,14 @@ internal sealed class MultiplayerFreeplayRequestRpc(TownOfUsPlugin plugin, uint 
             return;
         }
 
+        // ARE: through MiraAPI's RPCs, so every client gets the change (a local add/remove only changed the host's
+        // game: e.g. Colorblind given to the other window never reached it).
         var existing = target.GetModifiers<BaseModifier>(x => x.GetType() == modifierType).ToList();
         if (existing.Count > 0)
         {
             foreach (var mod in existing)
             {
-                mod.RemoveSelf();
+                target.RpcRemoveModifier(mod.UniqueId);
             }
 
             return;
@@ -181,7 +183,7 @@ internal sealed class MultiplayerFreeplayRequestRpc(TownOfUsPlugin plugin, uint 
             return;
         }
 
-        comp.AddModifier(modifierType);
+        target.RpcAddModifier(modifierType);
     }
 
     private static void HandleSetLovers(byte loverAId, byte loverBId)

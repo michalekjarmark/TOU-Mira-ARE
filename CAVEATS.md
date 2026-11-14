@@ -67,6 +67,17 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   tab is laid out once, when it is built (`CoQuotaTabPatch`), so anything that hides rows there has to move them
   itself. MiraAPI skips the vanilla `RolesSettingsMenu.Update` with a prefix; a Harmony postfix still runs. See
   `AreSettingsSearch`.
+- **A mouse click on a console calls `Use` without `CanUse`** (`PlayerCanUseEvent` only stops the Use button and
+  the key). Block clicks with a prefix on `Console.Use` / `SystemConsole.Use` too (TOU: `UseButtonPatch`, ours:
+  `ComfyConsoleClickPatch`).
+- **Two tasks of one type on one player** (own task + a copy from the Comfy or the Workaholic): the map keeps its task
+  markers by task type (`MapTaskOverlay.data` is keyed by a string, one set per type) and a console opens the first
+  matching task. Don't hand a player a copy of a type they still have.
+- The meeting intro lists the bodies found on the map as "DEAD"; they are collected right after
+  `PlayerControl.StartMeeting`, before `MeetingHud.Start`. A body that must not show up (the Possum's fake one) has to
+  be gone, or inactive, by then (`Object.Destroy` waits for the end of the frame).
+- In Freeplay with several players, TOU's "Set Modifiers" toggled the modifier only in the host's game
+  (`MultiplayerFreeplayRequestRpc.HandleToggleModifier`); ARE sends MiraAPI's `RpcAddModifier` / `RpcRemoveModifier`.
 - MiraAPI tints every `SpriteRenderer` of an option row with the group color right after `CreateOption`. A sprite
   added in a `CreateOption` postfix gets tinted too; add it in a `NumberOption.Initialize` postfix (called after the
   tint). See `AreModifierOptionIcons`.

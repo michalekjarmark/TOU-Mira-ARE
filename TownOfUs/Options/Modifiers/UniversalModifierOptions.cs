@@ -216,6 +216,52 @@ public sealed class UniversalModifierOptions : AbstractOptionGroup
         Visible = () => OptionGroupSingleton<UniversalModifierOptions>.Instance.AmonRaAmount > 0
     };
 
+    // ARE: Colorblind (far players look camouflaged) modifier
+    public AmountChanceOption ColorblindAmount { get; } = new("TouOptionColorblindAmount", 0, 0, 5, 1,
+        color: TownOfUsColors.Colorblind, asset: Are.AreAssets.ColorblindIcon,
+        assetName: "TouMira.Modifier.Universal.Colorblind", assetScale: 1.45f)
+    {
+        ChangedEvent = _colorblindNotif,
+    };
+
+    public AmountChanceOption ColorblindChance { get; } = new("TouOptionColorblindChance", 50f, 0, 100f, 10f, "#", "#",
+        MiraNumberSuffixes.Percent, color: TownOfUsColors.Colorblind, asset: Are.AreAssets.ColorblindIcon,
+        assetName: "TouMira.Modifier.Universal.Colorblind", assetScale: 1.45f)
+    {
+        ChangedEvent = _colorblindNotif,
+        Visible = () => OptionGroupSingleton<UniversalModifierOptions>.Instance.ColorblindAmount > 0
+    };
+
+    // ARE: Sleepwalker (walks on their own after standing still) modifier
+    public AmountChanceOption SleepwalkerAmount { get; } = new("TouOptionSleepwalkerAmount", 0, 0, 5, 1,
+        color: TownOfUsColors.Sleepwalker, asset: Are.AreAssets.SleepwalkerIcon,
+        assetName: "TouMira.Modifier.Universal.Sleepwalker", assetScale: 1.45f)
+    {
+        ChangedEvent = _sleepwalkerNotif,
+    };
+
+    public AmountChanceOption SleepwalkerChance { get; } = new("TouOptionSleepwalkerChance", 50f, 0, 100f, 10f, "#", "#",
+        MiraNumberSuffixes.Percent, color: TownOfUsColors.Sleepwalker, asset: Are.AreAssets.SleepwalkerIcon,
+        assetName: "TouMira.Modifier.Universal.Sleepwalker", assetScale: 1.45f)
+    {
+        ChangedEvent = _sleepwalkerNotif,
+        Visible = () => OptionGroupSingleton<UniversalModifierOptions>.Instance.SleepwalkerAmount > 0
+    };
+
+    private static Action<float> _colorblindNotif = x =>
+    {
+        var optAmount = OptionGroupSingleton<UniversalModifierOptions>.Instance.ColorblindAmount;
+        var opt = OptionGroupSingleton<UniversalModifierOptions>.Instance.ColorblindChance;
+        RunNotif(opt, optAmount, "TownOfUsMira.Modifier.Colorblind");
+    };
+
+    private static Action<float> _sleepwalkerNotif = x =>
+    {
+        var optAmount = OptionGroupSingleton<UniversalModifierOptions>.Instance.SleepwalkerAmount;
+        var opt = OptionGroupSingleton<UniversalModifierOptions>.Instance.SleepwalkerChance;
+        RunNotif(opt, optAmount, "TownOfUsMira.Modifier.Sleepwalker");
+    };
+
     private static Action<float> _amonRaNotif = x =>
     {
         var optAmount = OptionGroupSingleton<UniversalModifierOptions>.Instance.AmonRaAmount;

@@ -291,7 +291,8 @@ public sealed class HudManagerHelper(nint cppPtr) : MonoBehaviour(cppPtr)
             else
             {
                 if (appearanceType == TownOfUsAppearances.Camouflage &&
-                    !player.HasModifier<VenererCamouflageModifier>())
+                    !player.HasModifier<VenererCamouflageModifier>() &&
+                    !Are.ColorblindVision.IsHidden(player)) // ARE: the Colorblind's own camouflage
                 {
                     player.SetCamouflage(false);
                 }

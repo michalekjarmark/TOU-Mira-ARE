@@ -153,4 +153,35 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> RivalIcon { get; } =
         new LoadableResourceAsset($"{CustomPath}.RivalIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Bleeder modifier icon (blood drop over footprints). 128px. Drawn by tools/are-assets/draw-catalog-four-icons.ps1,
+    ///     like the Colorblind, Sleepwalker and Possum icons below.
+    /// </summary>
+    public static LoadableAsset<Sprite> BleederIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.BleederIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Colorblind modifier icon (eye with a half grey iris). 128px.
+    /// </summary>
+    public static LoadableAsset<Sprite> ColorblindIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.ColorblindIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Sleepwalker modifier icon (crescent moon and Zzz). 128px.
+    /// </summary>
+    public static LoadableAsset<Sprite> SleepwalkerIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.SleepwalkerIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Possum role icon (a crewmate lying on its back with crossed-out eyes). 128px.
+    /// </summary>
+    public static LoadableAsset<Sprite> PossumIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.PossumIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Possum "Play Dead" / "Stand Up" button. 100px like the other ARE buttons.
+    /// </summary>
+    public static LoadableAsset<Sprite> PossumButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.PossumButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 }

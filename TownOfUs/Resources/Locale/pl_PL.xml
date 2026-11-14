@@ -1573,4 +1573,50 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionRivalsKillerProbability">Szansa, że jeden z Rywali jest zabójcą</string>
   <string name="TouOptionRivalsBothKillers">Obaj Rywale mogą być zabójcami</string>
   <string name="TouOptionRivalsNeutralRoles">Neutralni mogą być Rywalami</string>
+  <!-- AmonRa Edition - Krwawiący (modyfikator załogi) -->
+  <string name="TownOfUsMira.Modifier.Bleeder">Krwawiący</string>
+  <string name="TownOfUsMira.Modifier.Bleeder.IntroBlurb">Twój zabójca zostawi krwawy ślad.</string>
+  <string name="TownOfUsMira.Modifier.Bleeder.TabDescription">Kto cię zabije, przez [time] s zostawia krwawe ślady stóp.</string>
+  <string name="TownOfUsMira.Modifier.Bleeder.WikiDescription">Po twojej śmierci zabójca przez [time] s zostawia krwawe ślady stóp. Widzą je wszyscy, ale nie mają koloru zabójcy. Każdy ślad po chwili znika, a wejście do wentu kończy ślad (opcja). Krwawi tylko zabójca, który był przy tobie, więc zabójstwa pośrednie (ogień Piromana, bomba Terrorysty, pułapka) nie zostawiają śladu. Spotkanie zmywa ślad. Domyślnie zabójca dostaje o tym komunikat.</string>
+  <string name="TownOfUsMira.Modifier.BleederTriggeredNotif">[player] miał modyfikator [modifier]: przez [time] s zostawiasz krwawe ślady stóp.</string>
+  <string name="TouOptionBleederAmount">Liczba Krwawiących</string>
+  <string name="TouOptionBleederChance">Szansa na Krwawiącego</string>
+  <string name="TouOptionBleederTrailDuration">Czas krwawienia</string>
+  <string name="TouOptionBleederPrintDuration">Czas widoczności śladu</string>
+  <string name="TouOptionBleederVentEndsTrail">Went kończy ślad</string>
+  <string name="TouOptionBleederNotifyKiller">Komunikat dla zabójcy</string>
+  <!-- AmonRa Edition - Daltonista (modyfikator uniwersalny) -->
+  <string name="TownOfUsMira.Modifier.Colorblind">Daltonista</string>
+  <string name="TownOfUsMira.Modifier.Colorblind.IntroBlurb">Z daleka wszyscy wyglądają tak samo.</string>
+  <string name="TownOfUsMira.Modifier.Colorblind.TabDescription">Gracze dalej niż kilka kroków wyglądają dla ciebie jak w kamuflażu. Podejdź bliżej, żeby zobaczyć, kto to.</string>
+  <string name="TownOfUsMira.Modifier.Colorblind.WikiDescription">Dla Daltonisty każdy gracz dalej niż kilka kroków (opcja) wygląda jak w kamuflażu: szary, bez nicku i domyślnie bez czapki, skina, wizjera i peta, tak jak przy kamuflażu z sabotażu komunikacji. Z bliska wygląda normalnie. Zmienia się tylko to, co widzi Daltonista, a spotkania wyglądają normalnie. Pamiętaj o tym, zanim powiesz „widziałem Czerwonego”.</string>
+  <string name="TouOptionColorblindAmount">Liczba Daltonistów</string>
+  <string name="TouOptionColorblindChance">Szansa na Daltonistę</string>
+  <string name="TouOptionColorblindRange">Zasięg rozpoznawania</string>
+  <string name="TouOptionColorblindHideCosmetics">Ukrywa też kosmetyki</string>
+  <!-- AmonRa Edition - Lunatyk (modyfikator uniwersalny) -->
+  <string name="TownOfUsMira.Modifier.Sleepwalker">Lunatyk</string>
+  <string name="TownOfUsMira.Modifier.Sleepwalker.IntroBlurb">Nie stój za długo w miejscu.</string>
+  <string name="TownOfUsMira.Modifier.Sleepwalker.TabDescription">Jeśli stoisz w miejscu przez [time] s, zaczynasz sam chodzić. Rusz się, żeby się obudzić.</string>
+  <string name="TownOfUsMira.Modifier.Sleepwalker.WikiDescription">Jeśli Lunatyk stoi w miejscu przez [time] s (robienie zadania, went i spotkanie się nie liczą), zasypia i zaczyna sam chodzić: wolniej niż normalnie, w losowym kierunku, który zmienia się co jakiś czas i po uderzeniu w ścianę. Każdy ruch go budzi. Z opcją czasu lunatykowania zatrzymuje się też sam po chwili.</string>
+  <string name="TouOptionSleepwalkerAmount">Liczba Lunatyków</string>
+  <string name="TouOptionSleepwalkerChance">Szansa na Lunatyka</string>
+  <string name="TouOptionSleepwalkerIdleTime">Czas stania do lunatykowania</string>
+  <string name="TouOptionSleepwalkerWalkSpeed">Prędkość lunatykowania</string>
+  <string name="TouOptionSleepwalkerWalkDuration">Czas lunatykowania (0 = do obudzenia)</string>
+  <!-- AmonRa Edition - Symulant (Impostor Killing) -->
+  <string name="TownOfUsMira.Role.Possum">Symulant</string>
+  <string name="TownOfUsMira.Role.Possum.IntroBlurb">Udawaj trupa, a potem uderz.</string>
+  <string name="TownOfUsMira.Role.Possum.TabDescription">Udawaj trupa. Kto spróbuje zgłosić twoje ciało, zostanie ogłuszony.</string>
+  <string name="TownOfUsMira.Role.Possum.MedDescription">Udaje trupa; zgłoszenie jego ciała ogłusza zgłaszającego.</string>
+  <string name="TownOfUsMira.Role.Possum.WikiDescription">Symulant to rola Impostor Killing, która udaje trupa. W tym czasie Symulant jest niewidzialny, nie może się ruszać ani niczego używać, a w jego miejscu leży jego ciało. Zgłoszenie tego ciała nie zaczyna spotkania: Symulant wstaje, a zgłaszający jest na kilka sekund ogłuszony (nie może się ruszać ani niczego używać). To szansa Symulanta na zabójstwo, jeśli ma je gotowe. Symulant wstaje przyciskiem, a sam, gdy skończy się czas albo zacznie się spotkanie. Inne umiejętności, które używają ciał (Janitor, Undertaker, Sklerotyk, Altruista...), nie widzą fałszywego ciała. Uważaj na świadków: kto widział twoje „ciało”, zdziwi się, widząc cię żywego na spotkaniu.</string>
+  <string name="TownOfUsMira.Role.PossumPlayDead">Udawaj trupa</string>
+  <string name="TownOfUsMira.Role.PossumPlayDead.WikiDescription">Połóż się jak martwe ciało. Naciśnij ponownie, żeby wstać.</string>
+  <string name="TownOfUsMira.Role.PossumStandUp">Wstań</string>
+  <string name="TownOfUsMira.Role.PossumStunnedNotif">[player] tylko udawał trupa! Jesteś ogłuszony przez [time] s.</string>
+  <string name="TownOfUsMira.Role.PossumCaughtNotif">[player] próbował cię zgłosić i jest ogłuszony przez [time] s.</string>
+  <string name="TouOptionPossumPlayDeadCooldown">Cooldown udawania trupa</string>
+  <string name="TouOptionPossumPlayDeadDuration">Maks. czas udawania trupa</string>
+  <string name="TouOptionPossumMaxUses">Użycia na grę</string>
+  <string name="TouOptionPossumStunDuration">Czas ogłuszenia zgłaszającego</string>
 </resources>

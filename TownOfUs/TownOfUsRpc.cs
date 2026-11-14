@@ -179,6 +179,9 @@ public enum TownOfUsRpc : uint
     VentriloquistStealVote,
     VandalBreak,
     SetRivals,
+    PossumPlayDead,
+    PossumStandUp,
+    PossumReported,
 }
 
 internal enum TownOfUsInternalRpc : uint

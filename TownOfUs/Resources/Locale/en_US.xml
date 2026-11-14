@@ -4275,4 +4275,50 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionRivalsKillerProbability">Chance One Rival Is A Killer</string>
   <string name="TouOptionRivalsBothKillers">Both Rivals Can Be Killers</string>
   <string name="TouOptionRivalsNeutralRoles">Neutral Roles Can Be Rivals</string>
+  <!-- AmonRa Edition - Bleeder (Crewmate Modifier) -->
+  <string name="TownOfUsMira.Modifier.Bleeder">Bleeder</string>
+  <string name="TownOfUsMira.Modifier.Bleeder.IntroBlurb">Your killer will leave a trail of blood.</string>
+  <string name="TownOfUsMira.Modifier.Bleeder.TabDescription">Whoever kills you leaves bloody footprints for [time] seconds.</string>
+  <string name="TownOfUsMira.Modifier.Bleeder.WikiDescription">After you die, your killer leaves a trail of bloody footprints for [time] seconds. Everyone can see the prints, but they don't show the killer's color. Each print fades after a while, and entering a vent ends the trail (option). Only a killer who was next to you bleeds, so indirect kills (an Arsonist's fire, a Bomber's bomb, a trap) leave no trail. A meeting wipes the trail. By default the killer is told about it.</string>
+  <string name="TownOfUsMira.Modifier.BleederTriggeredNotif">[player] was a [modifier]: you leave bloody footprints for [time] seconds.</string>
+  <string name="TouOptionBleederAmount">Bleeder Amount</string>
+  <string name="TouOptionBleederChance">Bleeder Chance</string>
+  <string name="TouOptionBleederTrailDuration">Trail Duration</string>
+  <string name="TouOptionBleederPrintDuration">Footprint Duration</string>
+  <string name="TouOptionBleederVentEndsTrail">Venting Ends The Trail</string>
+  <string name="TouOptionBleederNotifyKiller">Killer Is Told</string>
+  <!-- AmonRa Edition - Colorblind (Universal Modifier) -->
+  <string name="TownOfUsMira.Modifier.Colorblind">Colorblind</string>
+  <string name="TownOfUsMira.Modifier.Colorblind.IntroBlurb">Everyone looks the same from afar.</string>
+  <string name="TownOfUsMira.Modifier.Colorblind.TabDescription">Players further than a few steps away look camouflaged to you. Get close to see who they are.</string>
+  <string name="TownOfUsMira.Modifier.Colorblind.WikiDescription">To the Colorblind, every player further away than a few steps (option) looks camouflaged: grey, without a name and, by default, without a hat, skin, visor or pet, just like during a communications camouflage. Up close they look normal. Only the Colorblind's view changes, and meetings look normal. Remember that before you say "I saw Red".</string>
+  <string name="TouOptionColorblindAmount">Colorblind Amount</string>
+  <string name="TouOptionColorblindChance">Colorblind Chance</string>
+  <string name="TouOptionColorblindRange">Recognition Range</string>
+  <string name="TouOptionColorblindHideCosmetics">Also Hide Cosmetics</string>
+  <!-- AmonRa Edition - Sleepwalker (Universal Modifier) -->
+  <string name="TownOfUsMira.Modifier.Sleepwalker">Sleepwalker</string>
+  <string name="TownOfUsMira.Modifier.Sleepwalker.IntroBlurb">Don't stand still for too long.</string>
+  <string name="TownOfUsMira.Modifier.Sleepwalker.TabDescription">If you stand still for [time] seconds, you start walking on your own. Move to wake up.</string>
+  <string name="TownOfUsMira.Modifier.Sleepwalker.WikiDescription">If the Sleepwalker stands still for [time] seconds (doing a task, being in a vent or a meeting doesn't count), they fall asleep and start walking on their own: slower than normal, in a random direction that changes now and then and after hitting a wall. Any movement wakes them up. With the walk time option they also stop on their own after a while.</string>
+  <string name="TouOptionSleepwalkerAmount">Sleepwalker Amount</string>
+  <string name="TouOptionSleepwalkerChance">Sleepwalker Chance</string>
+  <string name="TouOptionSleepwalkerIdleTime">Time Standing Still Before Sleepwalking</string>
+  <string name="TouOptionSleepwalkerWalkSpeed">Sleepwalking Speed</string>
+  <string name="TouOptionSleepwalkerWalkDuration">Sleepwalking Time (0 = Until Woken)</string>
+  <!-- AmonRa Edition - Possum (Impostor Killing) -->
+  <string name="TownOfUsMira.Role.Possum">Possum</string>
+  <string name="TownOfUsMira.Role.Possum.IntroBlurb">Play dead, then strike.</string>
+  <string name="TownOfUsMira.Role.Possum.TabDescription">Play dead. Whoever tries to report your body gets stunned.</string>
+  <string name="TownOfUsMira.Role.Possum.MedDescription">Plays dead; reporting their body stuns the reporter.</string>
+  <string name="TownOfUsMira.Role.Possum.WikiDescription">The Possum is an Impostor Killing role that plays dead. While playing dead, the Possum is invisible and can't move or use anything, and their own body lies in their place. Reporting that body doesn't start a meeting: the Possum gets up and the reporter is stunned for a few seconds (they can't move or use anything), which is the Possum's chance to kill them, if their kill is ready. The Possum gets up with the button, or on their own when the time runs out or a meeting starts. Other abilities that use bodies (Janitor, Undertaker, Amnesiac, Altruist...) don't see the fake body. Watch out for witnesses: whoever saw your "body" will be surprised to see you alive at the next meeting.</string>
+  <string name="TownOfUsMira.Role.PossumPlayDead">Play Dead</string>
+  <string name="TownOfUsMira.Role.PossumPlayDead.WikiDescription">Lie down as a dead body. Press again to stand up.</string>
+  <string name="TownOfUsMira.Role.PossumStandUp">Stand Up</string>
+  <string name="TownOfUsMira.Role.PossumStunnedNotif">[player] was only playing dead! You are stunned for [time] seconds.</string>
+  <string name="TownOfUsMira.Role.PossumCaughtNotif">[player] tried to report you and is stunned for [time] seconds.</string>
+  <string name="TouOptionPossumPlayDeadCooldown">Play Dead Cooldown</string>
+  <string name="TouOptionPossumPlayDeadDuration">Max Time Playing Dead</string>
+  <string name="TouOptionPossumMaxUses">Uses Per Game</string>
+  <string name="TouOptionPossumStunDuration">Reporter Stun Duration</string>
 </resources>

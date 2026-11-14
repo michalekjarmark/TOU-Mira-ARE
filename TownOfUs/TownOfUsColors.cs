@@ -125,6 +125,8 @@ public static class TownOfUsColors
 
     // Universal Modifiers
     public static Color AmonRa => new Color32(214, 168, 64, 255); // ARE
+    public static Color Colorblind => new Color32(150, 160, 175, 255); // ARE
+    public static Color Sleepwalker => new Color32(120, 110, 210, 255); // ARE
     public static Color ButtonBarry => new Color32(179, 51, 204, 255);
     public static Color Flash => new Color32(255, 128, 128, 255);
     public static Color Giant => new Color32(255, 179, 77, 255);
@@ -151,6 +153,7 @@ public static class TownOfUsColors
     public static Color Taskmaster => new Color32(148, 214, 237, 255);
     public static Color Torch => new Color32(255, 255, 153, 255);
     public static Color Drunk => new Color32(127, 201, 154, 255);
+    public static Color Bleeder => new Color32(170, 22, 32, 255); // ARE
 
     // Neutral Modifiers
     public static Color Camouflaged => Color.gray;

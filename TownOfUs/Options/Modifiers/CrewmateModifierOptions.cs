@@ -229,6 +229,29 @@ public sealed class CrewmateModifierOptions : AbstractOptionGroup
         Visible = () => OptionGroupSingleton<CrewmateModifierOptions>.Instance.TorchAmount > 0
     };
 
+    // ARE: Bleeder (the killer leaves a trail of blood) modifier
+    public AmountChanceOption BleederAmount { get; } = new("TouOptionBleederAmount", 0, 0, 5, 1,
+        color: TownOfUsColors.Bleeder, asset: Are.AreAssets.BleederIcon,
+        assetName: "TouMira.Modifier.Crewmate.Bleeder", assetScale: 1.45f)
+    {
+        ChangedEvent = _bleederNotif
+    };
+
+    public AmountChanceOption BleederChance { get; } = new("TouOptionBleederChance", 50f, 0, 100f, 10f, "#", "#",
+        MiraNumberSuffixes.Percent, color: TownOfUsColors.Bleeder, asset: Are.AreAssets.BleederIcon,
+        assetName: "TouMira.Modifier.Crewmate.Bleeder", assetScale: 1.45f)
+    {
+        ChangedEvent = _bleederNotif,
+        Visible = () => OptionGroupSingleton<CrewmateModifierOptions>.Instance.BleederAmount > 0
+    };
+
+    private static Action<float> _bleederNotif = x =>
+    {
+        var optAmount = OptionGroupSingleton<CrewmateModifierOptions>.Instance.BleederAmount;
+        var opt = OptionGroupSingleton<CrewmateModifierOptions>.Instance.BleederChance;
+        RunNotif(opt, optAmount, "TownOfUsMira.Modifier.Bleeder");
+    };
+
     private static Action<float> _aftermathNotif = x =>
     {
         var optAmount = OptionGroupSingleton<CrewmateModifierOptions>.Instance.AftermathAmount;

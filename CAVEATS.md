@@ -108,7 +108,10 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
 - Working tree files have CRLF line endings (`autocrlf=true`). In perl patterns use `\r?\n`. After any scripted edit check
   `git diff --stat`: a whole-file diff means mixed line endings.
 - Windows PowerShell 5.1 reads files without a BOM as ANSI. Save `.ps1` scripts with non-ASCII characters as UTF-8 with
-  BOM, and read text files with `-Encoding UTF8`.
+  BOM, and read text files with `-Encoding UTF8`. `Set-Content -Encoding UTF8` in 5.1 writes a BOM: don't use it on
+  source files (it shows up as a change of the first line).
+- In PowerShell, a negative number passed to a script function without parentheses (`RoundedRect -40 -12 18 40 7`) is
+  parsed as a parameter name, and the drawing silently goes wrong. Write `RoundedRect (-40) (-12) 18 40 7`.
 
 ## Testing
 

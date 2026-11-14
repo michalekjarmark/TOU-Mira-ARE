@@ -20,6 +20,22 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
     Killing role if neutral roles can be rivals; 20% by default), both rivals can be killers (off by default) and
     neutral roles can be rivals (on by default). For crewmates only, set 0% and turn neutral roles off.
   - In Freeplay, "Set Modifiers" makes two players Rivals, like the Lovers.
+- **Possum** (new Impostor Killing role): plays dead. The Possum disappears and their own body lies in their place.
+  Reporting that body doesn't start a meeting: the Possum gets up and the reporter is stunned for a few seconds (they
+  can't move or use anything), which is the Possum's chance to kill them if their kill is ready. The Possum gets up with
+  the button, or on their own when the time runs out or a meeting starts. Other abilities that use bodies (Janitor,
+  Undertaker, Amnesiac, Altruist...) don't see the fake body.
+  - Lobby options: cooldown, max time playing dead, uses per game and the reporter's stun duration.
+- **Bleeder** (new crewmate modifier): after the Bleeder dies, their killer leaves bloody footprints for a while.
+  Everyone sees them, but they don't have the killer's color. Indirect kills (fire, bombs, traps) leave no trail, and a
+  meeting wipes it. Options: trail time, footprint time, venting ends the trail, the killer is told.
+- **Colorblind** (new universal modifier): players further than a few steps away look camouflaged to the Colorblind
+  (grey, no name and by default no hat, skin, visor or pet); up close they look normal. Only the Colorblind's view
+  changes and meetings look normal. Options: recognition range, also hide cosmetics.
+- **Sleepwalker** (new universal modifier): after standing still for a while (20 s by default), the Sleepwalker starts
+  walking on their own, slower than normal, in a random direction that changes now and then and at walls. Any movement
+  wakes them up. Doing a task, being in a vent or a meeting doesn't count as standing still. Options: time standing
+  still, sleepwalking speed, sleepwalking time.
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -35,6 +51,22 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
     Neutral Killing, jeśli neutralni mogą być Rywalami; domyślnie 20%), obaj Rywale mogą być zabójcami (domyślnie nie)
     i neutralni mogą być Rywalami (domyślnie tak). Same osoby z załogi: 0% i bez ról neutralnych.
   - We Freeplay „Set Modifiers” robi z dwóch graczy Rywali, tak jak z Kochanków.
+- **Symulant** (Possum, nowa rola Impostor Killing): udaje trupa. Symulant znika, a w jego miejscu leży jego ciało.
+  Zgłoszenie tego ciała nie zaczyna spotkania: Symulant wstaje, a zgłaszający jest na kilka sekund ogłuszony (nie może
+  się ruszać ani niczego używać). To szansa Symulanta na zabójstwo, jeśli ma je gotowe. Symulant wstaje przyciskiem, a
+  sam, gdy skończy się czas albo zacznie się spotkanie. Inne umiejętności, które używają ciał (Janitor, Undertaker,
+  Sklerotyk, Altruista...), nie widzą fałszywego ciała.
+  - Opcje lobby: cooldown, maks. czas udawania trupa, użycia na grę i czas ogłuszenia zgłaszającego.
+- **Krwawiący** (Bleeder, nowy modyfikator załogi): po śmierci Krwawiącego jego zabójca przez chwilę zostawia krwawe
+  ślady stóp. Widzą je wszyscy, ale nie mają koloru zabójcy. Zabójstwa pośrednie (ogień, bomby, pułapki) nie zostawiają
+  śladu, a spotkanie go zmywa. Opcje: czas krwawienia, czas widoczności śladu, went kończy ślad, komunikat dla zabójcy.
+- **Daltonista** (Colorblind, nowy modyfikator uniwersalny): gracze dalej niż kilka kroków wyglądają dla Daltonisty jak
+  w kamuflażu (szarzy, bez nicku i domyślnie bez czapki, skina, wizjera i peta), a z bliska normalnie. Zmienia się
+  tylko to, co widzi Daltonista, a spotkania wyglądają normalnie. Opcje: zasięg rozpoznawania, ukrywanie kosmetyków.
+- **Lunatyk** (Sleepwalker, nowy modyfikator uniwersalny): po dłuższym staniu w miejscu (domyślnie 20 s) Lunatyk zaczyna
+  sam chodzić, wolniej niż normalnie, w losowym kierunku, który zmienia się co jakiś czas i przy ścianach. Każdy ruch go
+  budzi. Robienie zadania, went i spotkanie nie liczą się jako stanie. Opcje: czas stania, prędkość lunatykowania, czas
+  lunatykowania.
 
 </details>
 

@@ -57,7 +57,10 @@ public sealed class RivalModifier : AllianceGameModifier, IWikiDiscoverable, IAs
 
     public override string GetDescription()
     {
-        return RivalString();
+        // The wiki lists a modifier that isn't on anyone: the general rule instead of "You have no rival.".
+        return Player == null
+            ? MiraLocaleManager.Get($"TownOfUsMira.Modifier.{IdPart}.TabDescription")
+            : RivalString();
     }
 
     public string GetAdvancedDescription()

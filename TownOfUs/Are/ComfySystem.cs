@@ -191,7 +191,9 @@ public static class ComfySystem
 
     /// <summary>
     ///     PlayerCanUseEvent (local player): a locked task's console can't be used by the Comfy, and no task console
-    ///     during a sulk (option). Sabotage consoles, doors and ladders stay usable.
+    ///     during a sulk (option). Sabotage consoles, doors and ladders stay usable. The meeting button can't be used
+    ///     during a sulk either when the option blocks it (owner's feedback: its window opened, said "requested" and
+    ///     nothing happened).
     /// </summary>
     public static bool BlocksConsole(IUsable usable)
     {
@@ -199,6 +201,13 @@ public static class ComfySystem
         if (!local || local.Data == null || local.Data.Role is not ComfyRole)
         {
             return false;
+        }
+
+        var systemConsole = usable.TryCast<SystemConsole>();
+        if (systemConsole != null)
+        {
+            return systemConsole.MinigamePrefab != null && systemConsole.MinigamePrefab.TryCast<EmergencyMinigame>() &&
+                   BlocksReport(local, true);
         }
 
         var console = usable.TryCast<Console>();
@@ -431,10 +440,12 @@ public static class ComfySystem
         foreach (var offload in Offloads.ToList())
         {
             var receiver = MiscUtils.PlayerById(offload.ReceiverId);
-            if (ReturnToComfy(offload) && receiver != null && receiver.Data != null)
+            var task = ReturnToComfy(offload);
+            if (task != null && receiver != null && receiver.Data != null)
             {
                 Results.Add(MiraLocaleManager.Get("TownOfUsMira.Role.ComfyResultNotDone")
-                    .Replace("<player>", receiver.Data.PlayerName));
+                    .Replace("<player>", receiver.Data.PlayerName)
+                    .Replace("<task>", WorkaholicSystem.TaskName(task)));
             }
         }
     }
@@ -470,7 +481,8 @@ public static class ComfySystem
     }
 
     // Returns true on the Comfy's client when the task is back on their list.
-    private static bool ReturnToComfy(Offload offload)
+    /// <returns>The task back on the list, on the Comfy's own client only.</returns>
+    private static NormalPlayerTask? ReturnToComfy(Offload offload)
     {
         Offloads.Remove(offload);
         DropCopy(offload);
@@ -478,12 +490,12 @@ public static class ComfySystem
         var comfy = MiscUtils.PlayerById(offload.ComfyId);
         if (comfy == null || !comfy.AmOwner)
         {
-            return false;
+            return null;
         }
 
         var task = UnhideOwnTask(comfy, offload.TaskId);
         Info($"Comfy: task {offload.TaskId} of player {offload.ComfyId} came back from player {offload.ReceiverId}");
-        return task != null;
+        return task;
     }
 
     /// <summary>Line under the meeting timer for the Comfy: what the receivers did with the offloaded tasks.</summary>
@@ -700,7 +712,8 @@ public static class ComfySystem
         if (comfy == PlayerControl.LocalPlayer && receiver.Data != null)
         {
             Results.Add(MiraLocaleManager.Get("TownOfUsMira.Role.ComfyResultDone")
-                .Replace("<player>", receiver.Data.PlayerName));
+                .Replace("<player>", receiver.Data.PlayerName)
+                .Replace("<task>", task != null ? WorkaholicSystem.TaskName(task) : "?"));
             Notify(MiraLocaleManager.Get("TownOfUsMira.Role.ComfyTaskDone")
                 .Replace("<player>", receiver.Data.PlayerName)
                 .Replace("<task>", task != null ? WorkaholicSystem.TaskName(task) : "?"));

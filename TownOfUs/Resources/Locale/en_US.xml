@@ -4269,6 +4269,7 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TownOfUsMira.Modifier.RivalInfo">Your rival is [player]. You only win if they don't survive until the end of the game.</string>
   <string name="TownOfUsMira.Modifier.RivalInfoDisconnected">Your rival [player] left the game, so you win the usual way.</string>
   <string name="TownOfUsMira.Modifier.RivalInfoNone">You have no rival.</string>
+  <string name="TownOfUsMira.Modifier.Rival.TabDescription">You only win if your rival doesn't survive until the end of the game.</string>
   <string name="TownOfUsMira.Modifier.RivalIntroMessage">[player] is your [modifier]. You only win if they don't survive until the end of the game.</string>
   <string name="TownOfUsMira.Modifier.Rival.WikiDescription">Two players are rivals. Both see [symbol] after their own name and after their rival's, but they don't know each other's role. A Rival wins only if their rival doesn't survive until the end of the game: this comes on top of the normal win of their team (or of their own role). If the rival is still alive at the end, the Rival loses even when their team wins. A rival who left the game counts as not surviving. There is no message when the rival dies. The lobby options decide who can be a pair: the chance that one of them is a killer (an Impostor, or a Neutral Killing role if neutral roles can be rivals), whether the other one can be a killer too, and whether neutral roles can be rivals. Crewmates only: 0% and no neutral roles.</string>
   <string name="TouOptionRivalsChance">Rivals Chance</string>
@@ -4343,8 +4344,8 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TownOfUsMira.Role.ComfyYouGotTaskNamed">[player] offloaded a task on you: [task]</string>
   <string name="TownOfUsMira.Role.ComfyTaskDone">[player] did your offloaded task: [task]</string>
   <string name="TownOfUsMira.Role.ComfyResults">Offloaded tasks:</string>
-  <string name="TownOfUsMira.Role.ComfyResultDone">[player] did it</string>
-  <string name="TownOfUsMira.Role.ComfyResultNotDone">[player] didn't</string>
+  <string name="TownOfUsMira.Role.ComfyResultDone">[task] ([player]): done</string>
+  <string name="TownOfUsMira.Role.ComfyResultNotDone">[task] ([player]): not done</string>
   <string name="TouOptionComfyLockDuration">Task Lock After Closing It Unfinished</string>
   <string name="TouOptionComfySulkDuration">Sulk Duration (0 = No Sulk)</string>
   <string name="TouOptionComfySulkCooldown">Sulk Cooldown</string>

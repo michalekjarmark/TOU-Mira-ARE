@@ -1567,6 +1567,7 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TownOfUsMira.Modifier.RivalInfo">Twój rywal to [player]. Wygrasz tylko wtedy, gdy nie dożyje końca gry.</string>
   <string name="TownOfUsMira.Modifier.RivalInfoDisconnected">Twój rywal [player] opuścił grę, więc wygrywasz na zwykłych zasadach.</string>
   <string name="TownOfUsMira.Modifier.RivalInfoNone">Nie masz rywala.</string>
+  <string name="TownOfUsMira.Modifier.Rival.TabDescription">Wygrasz tylko wtedy, gdy twój rywal nie dożyje końca gry.</string>
   <string name="TownOfUsMira.Modifier.RivalIntroMessage">[player] to twój [modifier]. Wygrasz tylko wtedy, gdy nie dożyje końca gry.</string>
   <string name="TownOfUsMira.Modifier.Rival.WikiDescription">Dwóch graczy to rywale. Obaj widzą [symbol] przy swoim nicku i przy nicku rywala, ale nie znają nawzajem swoich ról. Rywal wygrywa tylko wtedy, gdy jego rywal nie dożyje końca gry: to warunek dodatkowy obok zwykłej wygranej jego drużyny (albo jego własnej roli). Jeśli rywal żyje na koniec gry, Rywal przegrywa, nawet gdy jego drużyna wygra. Rywal, który opuścił grę, liczy się jako ten, który nie przeżył. Gdy rywal zginie, nie ma żadnego komunikatu. Opcje lobby decydują, kto może być parą: szansa, że jeden z nich jest zabójcą (impostorem albo rolą Neutral Killing, jeśli neutralni mogą być Rywalami), czy drugi też może być zabójcą i czy role neutralne mogą być Rywalami. Tylko załoga: 0% i bez ról neutralnych.</string>
   <string name="TouOptionRivalsChance">Szansa na Rywali</string>
@@ -1641,8 +1642,8 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TownOfUsMira.Role.ComfyYouGotTaskNamed">Dostajesz zadanie od [player]: [task]</string>
   <string name="TownOfUsMira.Role.ComfyTaskDone">Zrzucone zadanie zrobione ([player]): [task]</string>
   <string name="TownOfUsMira.Role.ComfyResults">Zrzucone zadania:</string>
-  <string name="TownOfUsMira.Role.ComfyResultDone">[player]: zrobione</string>
-  <string name="TownOfUsMira.Role.ComfyResultNotDone">[player]: niezrobione</string>
+  <string name="TownOfUsMira.Role.ComfyResultDone">[task] ([player]): zrobione</string>
+  <string name="TownOfUsMira.Role.ComfyResultNotDone">[task] ([player]): niezrobione</string>
   <string name="TouOptionComfyLockDuration">Blokada zadania po zamknięciu go przed końcem</string>
   <string name="TouOptionComfySulkDuration">Czas focha (0 = bez focha)</string>
   <string name="TouOptionComfySulkCooldown">Cooldown focha</string>

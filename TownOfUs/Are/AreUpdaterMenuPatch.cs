@@ -16,8 +16,9 @@ namespace TownOfUs.Are;
 [HarmonyPatch(typeof(MainMenuManager), nameof(MainMenuManager.Start))]
 public static class AreUpdaterMenuPatch
 {
-    // Below the Legacy / Discord / Source Code buttons TOU adds to the main menu (AprilFoolsPatches).
-    private static readonly Vector2 ButtonAnchor = new(0.815f, 0.52f);
+    // Below the Discord / Source Code buttons TOU adds to the main menu (AprilFoolsPatches); ARE removed the Legacy
+    // button above them and moved them up (AreMainMenuPatch).
+    private static readonly Vector2 ButtonAnchor = new(0.815f, 0.605f);
 
     private static bool _running;
     private static GenericPopup? _popup;

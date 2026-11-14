@@ -1,5 +1,8 @@
+using System.Reflection;
 using HarmonyLib;
+using MiraAPI.GameOptions;
 using MiraAPI.GameOptions.OptionTypes;
+using MiraAPI.Modifiers;
 using TownOfUs.Options;
 using UnityEngine;
 
@@ -24,7 +27,85 @@ public static class AreModifierOptionIcons
     private const float IconY = -0.062f;
     private const float TitleShift = 0.33f;
 
+    // Group header (CategoryHeaderMasked, scale 0.63): title text from x -1.61, left aligned, y -0.165.
+    private const float HeaderIconSize = 0.5f;
+    private const float HeaderIconX = -1.37f;
+    private const float HeaderIconY = -0.165f;
+    private const float HeaderTitleShift = 0.5f;
+
     private static readonly Dictionary<IntPtr, Sprite> Pending = [];
+    private static readonly HashSet<IntPtr> DecoratedHeaders = [];
+
+    /// <summary>
+    ///     The header of a modifier's own settings group (e.g. "Rivals") gets the modifier's icon before its name
+    ///     (owner's feedback). Runs before MiraAPI's per-frame layout of each group, once per header.
+    /// </summary>
+    [HarmonyPatch]
+    public static class GroupHeaderIconPatch
+    {
+        private static readonly Dictionary<Type, Sprite?> ModifierIcons = [];
+
+        public static MethodBase TargetMethod()
+        {
+            return AccessTools.Method("MiraAPI.Patches.Options.GameOptionsMenuPatch:UpdateGroup");
+        }
+
+        public static void Prefix(AbstractOptionGroup? group)
+        {
+            var type = group?.OptionableType;
+            if (type == null || !typeof(BaseModifier).IsAssignableFrom(type))
+            {
+                return;
+            }
+
+            var header = AreSettingsSearch.GetHeader(group!);
+            if (header == null || !header || DecoratedHeaders.Contains(header.Pointer))
+            {
+                return;
+            }
+
+            DecoratedHeaders.Add(header.Pointer);
+            if (header.transform.Find("AreModifierIcon") != null || IconOf(type) is not { } sprite)
+            {
+                return;
+            }
+
+            var icon = new GameObject("AreModifierIcon") { layer = header.gameObject.layer };
+            icon.transform.SetParent(header.transform, false);
+            var renderer = icon.AddComponent<SpriteRenderer>();
+            renderer.sprite = sprite;
+            renderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            var bounds = sprite.bounds.size;
+            var scale = HeaderIconSize / Mathf.Max(bounds.x, bounds.y, 0.01f);
+            icon.transform.localScale = new Vector3(scale, scale, 1f);
+            icon.transform.localPosition = new Vector3(HeaderIconX, HeaderIconY, -1.5f);
+
+            if (header.Title != null)
+            {
+                header.Title.rectTransform.anchoredPosition += new Vector2(HeaderTitleShift, 0f);
+            }
+        }
+
+        private static Sprite? IconOf(Type modifierType)
+        {
+            if (!ModifierIcons.TryGetValue(modifierType, out var sprite))
+            {
+                var asset = MiscUtils.AllModifiers?.FirstOrDefault(x => x.GetType() == modifierType)?.ModifierIcon;
+                sprite = asset?.LoadAsset();
+                ModifierIcons[modifierType] = sprite;
+            }
+
+            return sprite;
+        }
+    }
+
+    [HarmonyPatch(typeof(GameSettingMenu), nameof(GameSettingMenu.OnDisable))]
+    [HarmonyPostfix]
+    public static void GameSettingMenuOnDisablePostfix()
+    {
+        DecoratedHeaders.Clear();
+    }
+
 
     [HarmonyPatch(typeof(ModdedNumberOption), nameof(ModdedNumberOption.CreateOption))]
     [HarmonyPostfix]

@@ -43,7 +43,9 @@ public static class AreSettingsSearch
     private const float RoleRowStep = 0.43f;
     private const float RoleGroupGap = 0.4f;
 
-    private static readonly Func<AbstractOptionGroup, CategoryHeaderMasked?> GetHeader =
+    private static readonly Color SelectedTextColor = new(0.45f, 0.75f, 1f);
+
+    internal static readonly Func<AbstractOptionGroup, CategoryHeaderMasked?> GetHeader =
         AccessTools.MethodDelegate<Func<AbstractOptionGroup, CategoryHeaderMasked?>>(
             AccessTools.PropertyGetter(typeof(AbstractOptionGroup), "Header"));
 
@@ -60,6 +62,14 @@ public static class AreSettingsSearch
     private static TextBoxTMP? _box;
     private static GameObject? _icon;
     private static SpriteRenderer? _iconRenderer;
+    private static BoxCollider2D? _clickArea;
+    private static BoxCollider2D? _iconCollider;
+    private static Color _textColor = Color.white;
+    private static bool _keepFocus;
+    private static bool _selectAll;
+    private static string _selectedText = string.Empty;
+    private static string _lastFrameText = string.Empty;
+    private static string? _pendingPaste;
     private static TextMeshPro? _description;
     private static TextMeshPro? _infoText;
     private static SpriteRenderer? _infoImage;
@@ -109,6 +119,16 @@ public static class AreSettingsSearch
             _infoImage.enabled = !_searchTabOpen;
         }
 
+        if (_searchTabOpen)
+        {
+            HandleKeyboard();
+        }
+        else
+        {
+            _keepFocus = false;
+            SetSelectAll(false);
+        }
+
         var raw = _box.text ?? string.Empty;
         if (raw == _rawQuery)
         {
@@ -135,8 +155,174 @@ public static class AreSettingsSearch
 
         _rawQuery = string.Empty;
         _tokens = [];
+        _keepFocus = false;
+        SetSelectAll(false);
         RoleSettingMatches.Clear();
         NormalizedTexts.Clear();
+    }
+
+    /// <summary>
+    ///     Focus and keyboard shortcuts of the search box (the game's text box has neither).
+    ///     <para>
+    ///         Focus: when the list changes, the game takes the focus away from the box (rows and their buttons turn on
+    ///         and off; MiraAPI's own search menus give it back the same way, <c>CustomPaginableMenu.CoRestoreFocus</c>).
+    ///         The box keeps it until a click outside the box, Enter or Esc.
+    ///     </para>
+    ///     <para>
+    ///         Shortcuts: Ctrl+A selects the whole text (no caret, so a selection is all or nothing; shown in blue, the
+    ///         next key replaces it), Ctrl+C copies it, Ctrl+X cuts it, Ctrl+V pastes at the end. Control characters that
+    ///         Ctrl+key may type are removed.
+    ///     </para>
+    /// </summary>
+    private static void HandleKeyboard()
+    {
+        var box = _box!;
+        var text = box.text ?? string.Empty;
+        var clean = CleanText(text);
+        if (clean != text)
+        {
+            SetBoxText(clean);
+            text = clean;
+        }
+
+        // Ctrl+V of the last frame: the game's own text box may paste too (order of the Updates is unknown), so the
+        // result is checked one frame later and set only if it isn't there yet.
+        if (_pendingPaste != null)
+        {
+            if (text != _pendingPaste)
+            {
+                SetBoxText(_pendingPaste);
+                text = _pendingPaste;
+            }
+
+            _pendingPaste = null;
+        }
+
+        try
+        {
+            HandleKeys(box, text);
+        }
+        finally
+        {
+            _lastFrameText = box.text ?? string.Empty;
+        }
+    }
+
+    private static void HandleKeys(TextBoxTMP box, string text)
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            _keepFocus = PointerOverBox();
+            SetSelectAll(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            _keepFocus = false;
+            SetSelectAll(false);
+        }
+
+        if (_keepFocus && !box.hasFocus)
+        {
+            box.GiveFocus();
+        }
+
+        if (!box.hasFocus)
+        {
+            return;
+        }
+
+        // A key typed over the selection replaces it; Backspace / Delete remove it.
+        if (_selectAll)
+        {
+            if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Delete))
+            {
+                SetBoxText(string.Empty);
+                SetSelectAll(false);
+                return;
+            }
+
+            if (text != _selectedText)
+            {
+                SetBoxText(text.StartsWith(_selectedText, StringComparison.Ordinal) && text.Length > _selectedText.Length
+                    ? text[_selectedText.Length..]
+                    : string.Empty);
+                SetSelectAll(false);
+                return;
+            }
+        }
+
+        if (!Input.GetKey(KeyCode.LeftControl) && !Input.GetKey(KeyCode.RightControl))
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            SetSelectAll(text.Length > 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            GUIUtility.systemCopyBuffer = text;
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            GUIUtility.systemCopyBuffer = text;
+            SetBoxText(string.Empty);
+            SetSelectAll(false);
+        }
+        else if (Input.GetKeyDown(KeyCode.V))
+        {
+            var pasted = CleanText((GUIUtility.systemCopyBuffer ?? string.Empty).Replace('\n', ' ').Replace('\r', ' '));
+            var result = (_selectAll ? string.Empty : _lastFrameText) + pasted;
+            _pendingPaste = result.Length > box.characterLimit ? result[..box.characterLimit] : result;
+            SetSelectAll(false);
+        }
+    }
+
+    private static bool PointerOverBox()
+    {
+        var camera = Camera.main;
+        if (camera == null)
+        {
+            return false;
+        }
+
+        Vector2 point = camera.ScreenToWorldPoint(Input.mousePosition);
+        return (_clickArea != null && _clickArea.OverlapPoint(point)) ||
+               (_iconCollider != null && _iconCollider.OverlapPoint(point));
+    }
+
+    private static void SetSelectAll(bool selected)
+    {
+        _selectAll = selected;
+        _selectedText = selected && _box != null ? _box.text : string.Empty;
+        if (_box != null && _box.outputText != null)
+        {
+            _box.outputText.color = selected ? SelectedTextColor : _textColor;
+        }
+    }
+
+    private static void SetBoxText(string text)
+    {
+        if (_box == null)
+        {
+            return;
+        }
+
+        if (text.Length == 0)
+        {
+            _box.Clear();
+        }
+        else
+        {
+            _box.SetText(text, string.Empty);
+        }
+    }
+
+    private static string CleanText(string text)
+    {
+        return text.Any(char.IsControl) ? new string(text.Where(c => !char.IsControl(c)).ToArray()) : text;
     }
 
     /// <summary>
@@ -344,7 +530,7 @@ public static class AreSettingsSearch
         var builder = new StringBuilder(plain.Length);
         foreach (var c in plain)
         {
-            if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+            if (!char.IsControl(c) && CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
             {
                 builder.Append(c);
             }
@@ -437,7 +623,10 @@ public static class AreSettingsSearch
             boxCollider.offset = Vector2.zero;
         }
 
-        StyleText(_box.outputText, _description.color, string.Empty);
+        _textColor = _description.color;
+        _keepFocus = false;
+        _selectAll = false;
+        StyleText(_box.outputText, _textColor, string.Empty);
         StyleText(_box.placeholderText, new Color(0.55f, 0.55f, 0.55f),
             MiraLocaleManager.Get("AreSettingsSearchPlaceholder", "Search this tab..."));
         if (_box.Pipe)
@@ -447,7 +636,7 @@ public static class AreSettingsSearch
                 _box.outputText.transform.localPosition.z - 0.1f);
         }
 
-        var clickArea = _root.AddComponent<BoxCollider2D>();
+        var clickArea = _clickArea = _root.AddComponent<BoxCollider2D>();
         clickArea.size = size;
         var click = _root.AddComponent<PassiveButton>();
         click.OnClick = new Button.ButtonClickedEvent();
@@ -465,7 +654,7 @@ public static class AreSettingsSearch
         var bounds = _iconRenderer.sprite.bounds.size;
         var scale = 0.6f / Mathf.Max(bounds.x, bounds.y, 0.01f);
         _icon.transform.localScale = new Vector3(scale, scale, 1f);
-        var iconCollider = _icon.AddComponent<BoxCollider2D>();
+        var iconCollider = _iconCollider = _icon.AddComponent<BoxCollider2D>();
         iconCollider.size = bounds;
         var iconButton = _icon.AddComponent<PassiveButton>();
         iconButton.OnClick = new Button.ButtonClickedEvent();

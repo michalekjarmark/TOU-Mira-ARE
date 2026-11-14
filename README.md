@@ -83,7 +83,7 @@ Everything below is new in AmonRa Edition. For all roles and modifiers of Town o
 
 Also: a "Settings" button in Freeplay (change the lobby settings without leaving practice), a search box and
 modifier icons in the lobby settings, automatic updates, a full installation package and our own logo on the startup
-screen.
+screen and in the main menu.
 
 # Releases
 

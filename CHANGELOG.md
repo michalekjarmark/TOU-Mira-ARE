@@ -52,8 +52,9 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   walls block the light, everyone sees the lanterns, lanterns go out when the Keeper dies.
 - **Search in the lobby settings:** a search box (on the left, in place of the tab description) filters the open tab:
   game settings, roles and modifiers. A role also shows up when one of its own settings matches. Polish letters can
-  be typed without accents.
-- Modifier icons next to each modifier's amount and chance in the lobby settings, like the roles have.
+  be typed without accents. Ctrl+A, Ctrl+C, Ctrl+X and Ctrl+V work in the box.
+- Modifier icons in the lobby settings, like the roles have: next to each modifier's amount and chance and in the
+  header of its own settings.
 
 ### Changed
 
@@ -61,6 +62,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   "Unmimic", Medium, Monarch's knighting, Chameleon and the new Possum's "Stand Up") no longer look like they're on
   cooldown while the effect runs: the button is bright, without the grey shading, and the time left is shown in green.
   Effects that can't be ended keep the old look.
+- The main menu shows the AmonRa Edition logo. The "Legacy" button (classic Town of Us logo and ability button art) is
+  gone and the classic art is turned off.
 
 ### Fixed
 
@@ -113,8 +116,9 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   zatrzymują światło, wszyscy widzą latarnie, latarnie gasną po śmierci Latarnika.
 - **Wyszukiwarka w ustawieniach lobby:** pole wyszukiwania (po lewej, w miejscu opisu zakładki) filtruje otwartą
   zakładkę: ustawienia gry, role i modyfikatory. Rola pojawia się też wtedy, gdy pasuje któreś z jej ustawień. Polskie
-  litery można wpisywać bez ogonków.
-- Ikony modyfikatorów przy liczbie i szansie każdego modyfikatora w ustawieniach lobby, tak jak przy rolach.
+  litery można wpisywać bez ogonków. W polu działają Ctrl+A, Ctrl+C, Ctrl+X i Ctrl+V.
+- Ikony modyfikatorów w ustawieniach lobby, tak jak przy rolach: przy liczbie i szansie każdego modyfikatora oraz w
+  nagłówku jego własnych ustawień.
 
 **Zmieniono**
 
@@ -122,6 +126,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   „Unmimic” Glitcha, Medium, pasowanie na rycerza u Monarchy, Chameleon i „Wstań” nowego Symulanta), w trakcie efektu
   nie wyglądają już jak na cooldownie: przycisk jest jasny, bez szarego zaciemnienia, a pozostały czas jest na
   zielono. Efekty, których nie da się przerwać, wyglądają jak dotąd.
+- W menu głównym jest logo AmonRa Edition. Przycisku „Legacy” (klasyczne logo i grafiki przycisków z dawnego Town of
+  Us) już nie ma, a klasyczne grafiki są wyłączone.
 
 **Naprawiono**
 

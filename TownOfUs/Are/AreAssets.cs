@@ -23,6 +23,13 @@ public static class AreAssets
         new LoadableResourceAsset($"{CustomPath}.AreLogo.png", typeof(TownOfUsPlugin).Assembly, 200f);
 
     /// <summary>
+    ///     Main menu logo in place of TOU's banner (same 2280x750 canvas and PPU, so the menu layout stays): built from
+    ///     AreLogo.png by tools/are-assets/make-menu-logo.ps1. See <see cref="AreMainMenuPatch" />.
+    /// </summary>
+    public static LoadableAsset<Sprite> AreMenuLogo { get; } =
+        new LoadableResourceAsset($"{CustomPath}.AreMenuLogo.png", typeof(TownOfUsPlugin).Assembly);
+
+    /// <summary>
     ///     Main menu "Update" button icon (reopens the updater popup). 130px like TouAssets.SourceCode.
     ///     Drawn by tools/are-assets/draw-ui-icons.ps1.
     /// </summary>

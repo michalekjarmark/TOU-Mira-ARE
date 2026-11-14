@@ -86,7 +86,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), wyszukiwarka
 i ikony modyfikatorów w ustawieniach lobby, automatyczne aktualizacje, pełna paczka instalacyjna i własne logo na
-ekranie startowym.
+ekranie startowym i w menu głównym.
 
 # Wersje
 

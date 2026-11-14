@@ -70,6 +70,10 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
 - MiraAPI tints every `SpriteRenderer` of an option row with the group color right after `CreateOption`. A sprite
   added in a `CreateOption` postfix gets tinted too; add it in a `NumberOption.Initialize` postfix (called after the
   tint). See `AreModifierOptionIcons`.
+- A `TextBoxTMP` (cloned from the chat field) loses the focus when buttons near it turn on or off, e.g. when a
+  search changes the list. Give the focus back until the player clicks elsewhere (MiraAPI does the same in
+  `CustomPaginableMenu.CoRestoreFocus`; see `AreSettingsSearch.HandleKeyboard`). Ctrl shortcuts didn't work in it
+  (owner's test); our Ctrl+V checks the result one frame later in case the game pastes too.
 
 ## Game internals
 

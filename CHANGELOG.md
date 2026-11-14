@@ -52,7 +52,7 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   walls block the light, everyone sees the lanterns, lanterns go out when the Keeper dies.
 - **Search in the lobby settings:** a search box (on the left, in place of the tab description) filters the open tab:
   game settings, roles and modifiers. A role also shows up when one of its own settings matches. Polish letters can
-  be typed without accents. Ctrl+A, Ctrl+C, Ctrl+X and Ctrl+V work in the box.
+  be typed without accents. Ctrl+A, Ctrl+C, Ctrl+X, Ctrl+V and Ctrl+Backspace work in the box.
 - Modifier icons in the lobby settings, like the roles have: next to each modifier's amount and chance and in the
   header of its own settings.
 
@@ -116,7 +116,7 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   zatrzymują światło, wszyscy widzą latarnie, latarnie gasną po śmierci Latarnika.
 - **Wyszukiwarka w ustawieniach lobby:** pole wyszukiwania (po lewej, w miejscu opisu zakładki) filtruje otwartą
   zakładkę: ustawienia gry, role i modyfikatory. Rola pojawia się też wtedy, gdy pasuje któreś z jej ustawień. Polskie
-  litery można wpisywać bez ogonków. W polu działają Ctrl+A, Ctrl+C, Ctrl+X i Ctrl+V.
+  litery można wpisywać bez ogonków. W polu działają Ctrl+A, Ctrl+C, Ctrl+X, Ctrl+V i Ctrl+Backspace.
 - Ikony modyfikatorów w ustawieniach lobby, tak jak przy rolach: przy liczbie i szansie każdego modyfikatora oraz w
   nagłówku jego własnych ustawień.
 

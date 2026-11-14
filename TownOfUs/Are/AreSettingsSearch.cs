@@ -69,7 +69,7 @@ public static class AreSettingsSearch
     private static bool _selectAll;
     private static string _selectedText = string.Empty;
     private static string _lastFrameText = string.Empty;
-    private static string? _pendingPaste;
+    private static string? _pendingText;
     private static TextMeshPro? _description;
     private static TextMeshPro? _infoText;
     private static SpriteRenderer? _infoImage;
@@ -170,8 +170,8 @@ public static class AreSettingsSearch
     ///     </para>
     ///     <para>
     ///         Shortcuts: Ctrl+A selects the whole text (no caret, so a selection is all or nothing; shown in blue, the
-    ///         next key replaces it), Ctrl+C copies it, Ctrl+X cuts it, Ctrl+V pastes at the end. Control characters that
-    ///         Ctrl+key may type are removed.
+    ///         next key replaces it), Ctrl+C copies it, Ctrl+X cuts it, Ctrl+V pastes at the end, Ctrl+Backspace removes
+    ///         the last word (owner's request). Control characters that Ctrl+key may type are removed.
     ///     </para>
     /// </summary>
     private static void HandleKeyboard()
@@ -185,17 +185,17 @@ public static class AreSettingsSearch
             text = clean;
         }
 
-        // Ctrl+V of the last frame: the game's own text box may paste too (order of the Updates is unknown), so the
-        // result is checked one frame later and set only if it isn't there yet.
-        if (_pendingPaste != null)
+        // Ctrl+V / Ctrl+Backspace of the last frame: the game's own text box may paste or remove a character too (order
+        // of the Updates is unknown), so the result, computed from the text before the key, is set one frame later.
+        if (_pendingText != null)
         {
-            if (text != _pendingPaste)
+            if (text != _pendingText)
             {
-                SetBoxText(_pendingPaste);
-                text = _pendingPaste;
+                SetBoxText(_pendingText);
+                text = _pendingText;
             }
 
-            _pendingPaste = null;
+            _pendingText = null;
         }
 
         try
@@ -275,9 +275,30 @@ public static class AreSettingsSearch
         {
             var pasted = CleanText((GUIUtility.systemCopyBuffer ?? string.Empty).Replace('\n', ' ').Replace('\r', ' '));
             var result = (_selectAll ? string.Empty : _lastFrameText) + pasted;
-            _pendingPaste = result.Length > box.characterLimit ? result[..box.characterLimit] : result;
+            _pendingText = result.Length > box.characterLimit ? result[..box.characterLimit] : result;
             SetSelectAll(false);
         }
+        else if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            _pendingText = WithoutLastWord(_lastFrameText);
+        }
+    }
+
+    /// <summary>Like Ctrl+Backspace in Windows at the end of a text: "abc def" → "abc ", "abc " → "".</summary>
+    private static string WithoutLastWord(string text)
+    {
+        var end = text.Length;
+        while (end > 0 && char.IsWhiteSpace(text[end - 1]))
+        {
+            end--;
+        }
+
+        while (end > 0 && !char.IsWhiteSpace(text[end - 1]))
+        {
+            end--;
+        }
+
+        return text[..end];
     }
 
     private static bool PointerOverBox()

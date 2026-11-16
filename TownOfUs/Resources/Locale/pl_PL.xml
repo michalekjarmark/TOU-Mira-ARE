@@ -1883,4 +1883,31 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionCryptidMaxSightings">Maks. pojawień na grę</string>
   <string name="TouOptionCryptidVanishDistance">Dystans, przy którym znika</string>
   <string name="TouOptionCryptidImpostorScaresOff">Impostor przepłasza ją na dobre</string>
+  <!-- AmonRa Edition - Blame Shifter (Neutral Afterlife) -->
+  <string name="TownOfUsMira.Role.BlameShifter">Krętacz</string>
+  <string name="TownOfUsMira.Role.BlameShifter.IntroBlurb">To była jego wina.</string>
+  <string name="TownOfUsMira.Role.BlameShifter.TabDescription">Obwiń żywego gracza za swoją śmierć i od czasu do czasu go opętuj. Wygrywasz, gdy zostanie wyrzucony.</string>
+  <string name="TownOfUsMira.Role.BlameShifter.MedDescription">Duch, który opętuje obwinionego gracza.</string>
+  <string name="TownOfUsMira.Role.BlameShifter.WikiDescription">Krętacz to rola Neutral Afterlife: martwy neutral może nią zostać po spotkaniu (jak Spectre). Najpierw duch obwinia żywego gracza za swoją śmierć (każdego poza swoim zabójcą). Potem kilka razy na grę, będąc blisko, opętuje tego gracza: przez kilka sekund (domyślnie 4 s) gracz idzie za duchem zamiast tam, gdzie chce, i nie może używać umiejętności, konsol ani zgłaszać. Zaprowadź go do ciała, pod nos świadkom albo z dala od zadań. Opętany widzi błysk i komunikat (opcja), więc może się bronić. Krętacz wygrywa, gdy obwiniony zostanie wyrzucony w głosowaniu (opcja: gdy zbierze dość głosów na wszystkich spotkaniach), razem ze zwycięzcami (opcja: wygrana kończy grę). Gdy obwiniony zginie, duch obwinia kogoś innego.</string>
+  <string name="TownOfUsMira.Role.BlameShifterBlame">Obwiń</string>
+  <string name="TownOfUsMira.Role.BlameShifterBlame.WikiDescription">Wybierasz żywego gracza, którego obwiniasz za swoją śmierć (nie swojego zabójcę). Ponownie, gdy zginie.</string>
+  <string name="TownOfUsMira.Role.BlameShifterPossess">Opętaj</string>
+  <string name="TownOfUsMira.Role.BlameShifterPossess.WikiDescription">Gdy jesteś blisko obwinionego: przez kilka sekund idzie za tobą i nie może nic innego zrobić.</string>
+  <string name="TownOfUsMira.Role.BlameShifterPossessed">Coś przejęło nad tobą kontrolę!</string>
+  <string name="TownOfUsMira.Role.BlameShifterWon">Obwiniony beknął za wszystko. Wygrywasz!</string>
+  <string name="TownOfUsMira.Role.BlameShifterTaskHeader">Nie żyjesz. Dopilnuj, żeby winę wziął ktoś inny.</string>
+  <string name="TownOfUsMira.Role.BlameShifterStatus">Obwiniony: [player]</string>
+  <string name="TownOfUsMira.Role.BlameShifterStatusVotes">([votes]/[needed] głosów)</string>
+  <string name="TownOfUsMira.Role.BlameShifterStatusNone">Jeszcze nikogo nie obwiniasz</string>
+  <string name="TownOfUsMira.Role.BlameShifterStatusWon">Beknął za wszystko: wygrywasz</string>
+  <string name="TouOptionBlameShifterPossessCooldown">Cooldown opętania</string>
+  <string name="TouOptionBlameShifterPossessDuration">Czas opętania</string>
+  <string name="TouOptionBlameShifterMaxPossessions">Maks. opętań na grę</string>
+  <string name="TouOptionBlameShifterPossessRange">Zasięg opętania</string>
+  <string name="TouOptionBlameShifterVictimNotified">Opętany dostaje błysk i komunikat</string>
+  <string name="TouOptionBlameShifterWinMode">Wygrana, gdy obwiniony</string>
+  <string name="TouOptionBlameShifterWinModeEnumEjected">Zostanie wyrzucony</string>
+  <string name="TouOptionBlameShifterWinModeEnumVotes">Zbierze głosy</string>
+  <string name="TouOptionBlameShifterVotesNeeded">Potrzebne głosy</string>
+  <string name="TouOptionBlameShifterWinEndsGame">Wygrana kończy grę</string>
 </resources>

@@ -88,6 +88,7 @@ Everything below is new in AmonRa Edition. For all roles and modifiers of Town o
 | <img src="TownOfUs/Resources/Custom/StreamSniperIcon.png" width="48"/><br>**Stream Sniper** | Role (Impostor Support) | Watches the view around a chosen living player for a few seconds (8 s by default) in a small window in a corner of the screen, through walls and darkness. Moves normally meanwhile. A watched Streamer gets a viewer. Options: cooldown, time, watches per game, view size, who can be watched (anyone from a list / only the player marked earlier next to them), mark cooldown, the watched player knows. |
 | <img src="TownOfUs/Resources/Custom/FabulistIcon.png" width="48"/><br>**Fabulist** | Role (Impostor Concealing) | Leaves a copy of themselves at a task console as an alibi (20 s by default), seen by everyone, cameras included, while the real Fabulist walks away. The copy disappears when another player comes close, at a meeting or when the Fabulist dies, and can't be killed or reported. The admin map shows the real Fabulist. Options: cooldown, time, alibis per game, the distance that breaks it, only at a task console, the admin map counts the copy. |
 | <img src="TownOfUs/Resources/Custom/CryptidIcon.png" width="48"/><br>**Cryptid** | Role (Crewmate Afterlife) | A crewmate who died may become the Cryptid right away. "Appear" shows the ghost to the living for a few seconds as a blurry grey figure without a name (cameras too). It vanishes when a living player comes close; an impostor scares it off for good (option). This is how a ghost points at a body, a killer or a room without talking. Options: cooldown, time, sightings per game, the distance that makes it vanish, an impostor scares it off. |
+| <img src="TownOfUs/Resources/Custom/BlameShifterIcon.png" width="48"/><br>**Blame Shifter** | Role (Neutral Afterlife) | A dead neutral may become it after a meeting. The ghost blames a living player for its death (not its killer) and, a few times per game, possesses them when close: for a few seconds the player walks after the ghost and can't do anything else (they see a flash, option). Wins when the blamed player is voted out (option: collects enough votes), with the winners (option: ends the game). Options: cooldown, time, possessions per game, range, the player is notified, win mode, votes needed, the win ends the game. |
 
 Also: a "Settings" button in Freeplay (change the lobby settings without leaving practice), a search box (with an
 "AmonRa" toggle that shows only the AmonRa-themed roles and modifiers) and modifier icons in the lobby settings, automatic updates, a full installation package and our own logo on the startup
@@ -161,7 +162,8 @@ and **Sleepwalker** (moon, both universal modifiers), **Comfy** (armchair) and *
 Crewmate Support), **Expert** (flying saucer, Crewmate Investigative), **Moderator** (ban hammer, Impostor
 Support), **Chairman** (necktie, Crewmate Support), **Handyman** (toolbox, Crewmate Support), **Streamer** (webcam,
 universal modifiers), **Stream Sniper** (screen with a crosshair, Impostor Support), **Fabulist** (crewmate
-with its see-through copy, Impostor Concealing) and **Cryptid** (big footprint, Crewmate Afterlife).
+with its see-through copy, Impostor Concealing), **Cryptid** (big footprint, Crewmate Afterlife) and **Blame Shifter**
+(ghost pointing a finger, Neutral Afterlife).
 
 
 <p align="center">
@@ -252,6 +254,7 @@ with its see-through copy, Impostor Concealing) and **Cryptid** (big footprint, 
   <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/VentriloquistIcon.png" alt="Ventriloquist (AmonRa Edition)" /></a>
 
   <img src="Images/Groups/NeutAfterlife.png" />
+  <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/BlameShifterIcon.png" alt="Blame Shifter (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/afterlife/Spectre"><img width="10%" src="Images/Icons/Spectre.png" /></a>
   <img src="Images/Groups/NeutBenign.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/benign/Amnesiac"><img width="10%" src="Images/Icons/Amnesiac.png" /></a>

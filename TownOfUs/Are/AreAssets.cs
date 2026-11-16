@@ -368,4 +368,22 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> CryptidFigure { get; } =
         new LoadableResourceAsset($"{CustomPath}.CryptidFigure.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Blame Shifter role icon (a ghost pointing a finger). 128px.
+    /// </summary>
+    public static LoadableAsset<Sprite> BlameShifterIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.BlameShifterIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Blame Shifter "Blame" button (a pointing hand). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> BlameShifterBlameButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.BlameShifterBlameButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Blame Shifter "Possess" button (a spiral). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> BlameShifterPossessButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.BlameShifterPossessButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 }

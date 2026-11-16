@@ -114,6 +114,7 @@ public static class TownOfUsColors
     public static Color Chef => new Color32(218, 162, 103, 255);
 
     public static Color Spectre => new Color32(102, 41, 97, 255);
+    public static Color BlameShifter => new Color32(140, 180, 80, 255); // ARE
 
     // Other (Misc Roles) Colors
     public static Color Spectator => new Color32(128, 128, 128, 255);

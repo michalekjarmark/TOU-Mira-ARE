@@ -91,6 +91,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/StreamSniperIcon.png" width="48"/><br>**Snajper** (Stream Sniper) | Rola (Impostor Support) | Przez kilka sekund (domyślnie 8 s) ogląda w okienku w rogu ekranu widok wokół wybranego żywego gracza, przez ściany i ciemność. W tym czasie rusza się normalnie. Oglądanemu Streamerowi przybywa widz. Opcje: cooldown, czas, liczba podglądów na grę, rozmiar widoku, kogo można oglądać (każdego z listy / tylko gracza oznaczonego wcześniej obok siebie), cooldown oznaczenia, oglądany gracz wie. |
 | <img src="TownOfUs/Resources/Custom/FabulistIcon.png" width="48"/><br>**Mitoman** (Fabulist) | Rola (Impostor Concealing) | Zostawia przy konsoli zadania swoją kopię jako alibi (domyślnie 20 s). Widzą ją wszyscy, także na kamerach, a prawdziwy Mitoman w tym czasie odchodzi. Kopia znika, gdy ktoś do niej podejdzie, przy spotkaniu albo gdy Mitoman zginie; nie da się jej zabić ani zgłosić. Mapa admina pokazuje prawdziwego Mitomana. Opcje: cooldown, czas, liczba alibi na grę, dystans, który psuje alibi, tylko przy konsoli zadania, admin liczy kopię. |
 | <img src="TownOfUs/Resources/Custom/CryptidIcon.png" width="48"/><br>**Kryptyda** (Cryptid) | Rola (Crewmate Afterlife) | Crewmate może nią zostać zaraz po śmierci. „Pojawienie się” pokazuje ducha żywym na kilka sekund jako rozmytą szarą postać bez nicku (także na kamerach). Znika, gdy żywy gracz podejdzie; impostor przepłasza ją na dobre (opcja). Tak duch wskazuje ciało, zabójcę albo pokój bez mówienia. Opcje: cooldown, czas, liczba pojawień na grę, dystans, przy którym znika, impostor przepłasza. |
+| <img src="TownOfUs/Resources/Custom/BlameShifterIcon.png" width="48"/><br>**Krętacz** (Blame Shifter) | Rola (Neutral Afterlife) | Martwy neutral może nim zostać po spotkaniu. Duch obwinia żywego gracza za swoją śmierć (nie swojego zabójcę) i kilka razy na grę, będąc blisko, go opętuje: przez kilka sekund gracz idzie za duchem i nie może nic innego zrobić (widzi błysk, opcja). Wygrywa, gdy obwiniony zostanie wyrzucony (opcja: zbierze dość głosów), razem ze zwycięzcami (opcja: kończy grę). Opcje: cooldown, czas, liczba opętań, zasięg, komunikat dla opętanego, tryb wygranej, potrzebne głosy, wygrana kończy grę. |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), wyszukiwarka
 (z przełącznikiem „AmonRa”, który pokazuje tylko role i modyfikatory w klimacie AmonRa) i ikony modyfikatorów w
@@ -138,8 +139,8 @@ Alliance), **Symulant** (leżący załogant, Impostor Killing), **Krwawiący** (
 (latarnia, obaj w Crewmate Support), **Ekspert** (latający spodek, Crewmate Investigative), **Moderator** (młotek do
 banów, Impostor Support), **Prezes** (krawat, Crewmate Support), **Złota Rączka** (skrzynka z narzędziami, Crewmate Support),
 **Streamer** (kamerka internetowa, modyfikatory uniwersalne), **Snajper** (ekran z celownikiem, Impostor Support),
-**Mitoman** (załogant z przezroczystą kopią, Impostor Concealing) i **Kryptyda** (wielki ślad stopy, Crewmate
-Afterlife). Kluczowe różnice Town of Us: Mira,
+**Mitoman** (załogant z przezroczystą kopią, Impostor Concealing), **Kryptyda** (wielki ślad stopy, Crewmate
+Afterlife) i **Krętacz** (duch wskazujący palcem, Neutral Afterlife). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -231,6 +232,7 @@ obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskie
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/VentriloquistIcon.png" alt="Brzuchomówca (AmonRa Edition)" /></a>
 
   <img src="Images/Groups/NeutAfterlife.png" />
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/BlameShifterIcon.png" alt="Krętacz (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/afterlife/Spectre"><img width="10%" src="Images/Icons/Spectre.png" /></a>
   <img src="Images/Groups/NeutBenign.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/benign/Amnesiac"><img width="10%" src="Images/Icons/Amnesiac.png" /></a>

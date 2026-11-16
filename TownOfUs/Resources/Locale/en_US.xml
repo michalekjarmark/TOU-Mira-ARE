@@ -4585,4 +4585,31 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionCryptidMaxSightings">Max Sightings Per Game</string>
   <string name="TouOptionCryptidVanishDistance">Distance That Makes It Vanish</string>
   <string name="TouOptionCryptidImpostorScaresOff">An Impostor Scares It Off For Good</string>
+  <!-- AmonRa Edition - Blame Shifter (Neutral Afterlife) -->
+  <string name="TownOfUsMira.Role.BlameShifter">Blame Shifter</string>
+  <string name="TownOfUsMira.Role.BlameShifter.IntroBlurb">It was their fault.</string>
+  <string name="TownOfUsMira.Role.BlameShifter.TabDescription">Blame a living player for your death and possess them now and then. Win when they get voted out.</string>
+  <string name="TownOfUsMira.Role.BlameShifter.MedDescription">A ghost who possesses the player they blame.</string>
+  <string name="TownOfUsMira.Role.BlameShifter.WikiDescription">The Blame Shifter is a Neutral Afterlife role: a dead neutral may become it after a meeting (like the Spectre). First the ghost blames a living player for their death (anyone but their own killer). Then, a few times per game, the ghost possesses that player when close to them: for a few seconds (4 s by default) the player walks after the ghost instead of where they want, and can't use abilities, consoles or reports. Lead them to a body, in front of witnesses or away from their tasks. The possessed player sees a flash and a message (option), so they can defend themselves. The Blame Shifter wins when the blamed player gets voted out (option: when they collect enough votes over all meetings), together with whoever wins the game (option: the win ends the game). If the blamed player dies, the ghost blames someone else.</string>
+  <string name="TownOfUsMira.Role.BlameShifterBlame">Blame</string>
+  <string name="TownOfUsMira.Role.BlameShifterBlame.WikiDescription">Pick a living player to blame for your death (not your killer). Again when they die.</string>
+  <string name="TownOfUsMira.Role.BlameShifterPossess">Possess</string>
+  <string name="TownOfUsMira.Role.BlameShifterPossess.WikiDescription">When close to the blamed player: for a few seconds they walk after you and can't do anything else.</string>
+  <string name="TownOfUsMira.Role.BlameShifterPossessed">Something has taken control of you!</string>
+  <string name="TownOfUsMira.Role.BlameShifterWon">The one you blamed took the fall. You win!</string>
+  <string name="TownOfUsMira.Role.BlameShifterTaskHeader">You're dead. Make sure someone else takes the blame.</string>
+  <string name="TownOfUsMira.Role.BlameShifterStatus">Blamed: [player]</string>
+  <string name="TownOfUsMira.Role.BlameShifterStatusVotes">([votes]/[needed] votes)</string>
+  <string name="TownOfUsMira.Role.BlameShifterStatusNone">Nobody blamed yet</string>
+  <string name="TownOfUsMira.Role.BlameShifterStatusWon">They took the fall: you win</string>
+  <string name="TouOptionBlameShifterPossessCooldown">Possession Cooldown</string>
+  <string name="TouOptionBlameShifterPossessDuration">Possession Duration</string>
+  <string name="TouOptionBlameShifterMaxPossessions">Max Possessions Per Game</string>
+  <string name="TouOptionBlameShifterPossessRange">Possession Range</string>
+  <string name="TouOptionBlameShifterVictimNotified">The Possessed Player Is Notified</string>
+  <string name="TouOptionBlameShifterWinMode">Win When The Blamed Player</string>
+  <string name="TouOptionBlameShifterWinModeEnumEjected">Is Voted Out</string>
+  <string name="TouOptionBlameShifterWinModeEnumVotes">Collects Votes</string>
+  <string name="TouOptionBlameShifterVotesNeeded">Votes Needed</string>
+  <string name="TouOptionBlameShifterWinEndsGame">The Win Ends The Game</string>
 </resources>

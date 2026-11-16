@@ -197,6 +197,8 @@ public enum TownOfUsRpc : uint
     FabulistAlibiEnd,
     CryptidAppear,
     CryptidVanish,
+    BlameShifterBlame,
+    BlameShifterPossess,
 }
 
 internal enum TownOfUsInternalRpc : uint

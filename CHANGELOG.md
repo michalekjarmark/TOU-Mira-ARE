@@ -65,9 +65,17 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   impostor scares the Cryptid off for the rest of the game (option). The dead can't talk, so this is how a ghost points
   at a body, the killer or a room. The Cryptid still haunts and does tasks like any crewmate ghost. Options: cooldown,
   time, sightings per game (3 by default), the distance that makes it vanish, an impostor scares it off.
+- **Blame Shifter** (new Neutral Afterlife role): a dead neutral may become it after a meeting, like the Spectre. The
+  ghost blames a living player for its death (anyone but its own killer). A few times per game (3 by default), when
+  close, it possesses that player: for a few seconds (4 s) the player walks after the ghost instead of where they want
+  and can't use abilities, consoles or reports. The possessed player sees a flash and a message (option), so they can
+  defend themselves. The Blame Shifter wins when the blamed player gets voted out (option: when they collect enough
+  votes over all meetings, 8 by default), together with whoever wins the game (option: the win ends the game). If the
+  blamed player dies, the ghost blames someone else. Options: cooldown, time, possessions per game, range, the player
+  is notified, win mode, votes needed, the win ends the game.
 - **"AmonRa" toggle in the settings search:** the AmonRa icon at the right end of the search box shows only the
   AmonRa-themed roles and modifiers (AmonRa, Comfy, Expert, Moderator, Chairman, Handyman, Streamer, Stream Sniper,
-  Fabulist, Cryptid) in the Roles and Modifiers tabs. It works together with the search text.
+  Fabulist, Cryptid, Blame Shifter) in the Roles and Modifiers tabs. It works together with the search text.
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -129,9 +137,17 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   do końca gry (opcja). Martwi nie mówią, więc tak duch wskazuje ciało, zabójcę albo pokój. Poza tym Kryptyda nawiedza
   i robi zadania jak każdy duch załogi. Opcje: cooldown, czas, liczba pojawień na grę (domyślnie 3), dystans, przy
   którym znika, impostor przepłasza.
+- **Krętacz** (Blame Shifter, nowa rola Neutral Afterlife): martwy neutral może nim zostać po spotkaniu, jak Spectre.
+  Duch obwinia żywego gracza za swoją śmierć (każdego poza swoim zabójcą). Kilka razy na grę (domyślnie 3), będąc
+  blisko, opętuje tego gracza: przez kilka sekund (4 s) gracz idzie za duchem zamiast tam, gdzie chce, i nie może
+  używać umiejętności, konsol ani zgłaszać. Opętany widzi błysk i komunikat (opcja), więc może się bronić. Krętacz
+  wygrywa, gdy obwiniony zostanie wyrzucony w głosowaniu (opcja: gdy zbierze dość głosów na wszystkich spotkaniach,
+  domyślnie 8), razem ze zwycięzcami (opcja: wygrana kończy grę). Gdy obwiniony zginie, duch obwinia kogoś innego.
+  Opcje: cooldown, czas, liczba opętań na grę, zasięg, komunikat dla opętanego, tryb wygranej, potrzebne głosy,
+  wygrana kończy grę.
 - **Przełącznik „AmonRa” w wyszukiwarce ustawień:** ikona AmonRa na prawym końcu pola wyszukiwania pokazuje w
   zakładkach Roles i Modifiers tylko role i modyfikatory w klimacie AmonRa (AmonRa, Wygodniś, Ekspert, Moderator,
-  Prezes, Złota Rączka, Streamer, Snajper, Mitoman, Kryptyda). Działa razem z wpisanym tekstem.
+  Prezes, Złota Rączka, Streamer, Snajper, Mitoman, Kryptyda, Krętacz). Działa razem z wpisanym tekstem.
 
 </details>
 

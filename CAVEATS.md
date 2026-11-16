@@ -112,6 +112,12 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
 - The settings menu outside the lobby: vanilla `GameSettingMenu.Update` closes it at once (our prefix returns false for
   our menu). Keep the clone's name: `OnEnable` registers an overlay in `ControllerManager` by object name, and a leftover
   overlay blocks the HUD and movement. UI errors go to Unity's `Player.log`, not to BepInEx's `LogOutput.log`.
+- TOU's `FakePlayer` (and `StonedPlayer`) takes the skin off the player it copies, and sets their
+  `DefaultOutfit.SkinId` to `skin_None` too (fine for a statue of a dead player). Copying a living player means
+  putting both back right after (`FabulistSystem.Create`).
+- **A `CustomPlayerMenu` callback runs while the menu is still closing**: `Minigame.Instance` is set, so
+  `PlayerControl.CanMove` is false and a `TownOfUsButton.CanClick()` there is false too. Check what you need by hand
+  (Mirrorcaster, `StreamSniperWatchButton`).
 
 ## Assets
 
@@ -119,6 +125,9 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   `AreAssets.RoleIconPpu` (128 / 1.44). Ability buttons are about 1.0–1.2 units, the vote popup button 0.82 × 0.86.
 
 ## Build and tools
+
+- Sonar S3398: a private method called only from a nested class (e.g. a Harmony `UpdatePatch` inside a system class)
+  is a warning. Make it public, or call it from the outer class, instead of moving a chain of helpers into the patch.
 
 - With `-p:AmongUs=<game folder>` always add `-p:BuildAllPlatforms=false`, otherwise the Android and iOS DLLs land in
   `plugins` too (three plugins with one GUID).

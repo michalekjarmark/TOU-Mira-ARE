@@ -4519,4 +4519,21 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionHandymanMoveWithAdmin">Can Move With The Admin Map</string>
   <string name="TouOptionHandymanStreamJob">Job: Stream (Cameras)</string>
   <string name="TouOptionHandymanStreamDuration">Cameras Duration</string>
+  <!-- AmonRa Edition - Streamer (Universal Modifier) -->
+  <string name="TownOfUsMira.Modifier.Streamer">Streamer</string>
+  <string name="TownOfUsMira.Modifier.Streamer.IntroBlurb">You know when they watch you.</string>
+  <string name="TownOfUsMira.Modifier.Streamer.TabDescription">You see "LIVE" when someone watches you on the cameras. You can go offline for a moment.</string>
+  <string name="TownOfUsMira.Modifier.Streamer.WikiDescription">The cameras are the Streamer's stream. Whenever someone watches a camera feed with the Streamer in it (the map's cameras, the Sentry's, the portable ones of the Operative and the Handyman, a Stream Sniper's view; with an option also an open admin map), the Streamer sees "LIVE: N viewers" at the top of the screen, without names. "Go offline" hides them from the cameras (and from the admin map, with that option) for a few seconds; up close everyone still sees them normally. Comms sabotage switches the stream off for the viewers.</string>
+  <string name="TownOfUsMira.Modifier.StreamerOffline">Go Offline</string>
+  <string name="TownOfUsMira.Modifier.StreamerOffline.WikiDescription">Disappear from the camera feeds (and from the admin map, with that option) for a few seconds. Everyone near you still sees you.</string>
+  <string name="TownOfUsMira.Modifier.StreamerLive">LIVE</string>
+  <string name="TownOfUsMira.Modifier.StreamerLiveCount">LIVE: [count] viewers</string>
+  <string name="TownOfUsMira.Modifier.StreamerOfflineLabel">OFFLINE</string>
+  <string name="TouOptionStreamerAmount">Streamer Amount</string>
+  <string name="TouOptionStreamerChance">Streamer Chance</string>
+  <string name="TouOptionStreamerAdminCounts">The Admin Map Counts As Watching</string>
+  <string name="TouOptionStreamerShowViewerCount">Show The Number Of Viewers</string>
+  <string name="TouOptionStreamerOfflineButton">"Go Offline" Button</string>
+  <string name="TouOptionStreamerOfflineDuration">Offline Duration</string>
+  <string name="TouOptionStreamerOfflineUses">Offline Uses Per Round</string>
 </resources>

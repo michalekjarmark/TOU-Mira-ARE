@@ -84,6 +84,7 @@ Everything below is new in AmonRa Edition. For all roles and modifiers of Town o
 | <img src="TownOfUs/Resources/Custom/ModeratorIcon.png" width="48"/><br>**Moderator** | Role (Impostor Support) | Bans a nearby player from one thing until the next meeting (or for a set time): reporting bodies, the meeting button, tasks, getting into vents, cams/admin/vitals (also portable), abilities (kill and sabotage included) or the vote in the next meeting (it doesn't count). The type is drawn at random from the enabled ones, or (option) chosen with a second button. Sabotage repairs, doors and ladders are never blocked. The Cleric's Cleanse removes bans. Options: cooldown, bans per game and per round, ban length, each ban type on/off, the Moderator chooses the type, the banned player gets a message. |
 | <img src="TownOfUs/Resources/Custom/ChairmanIcon.png" width="48"/><br>**Chairman** | Role (Crewmate Support) | Orders a nearby player to finish any task within a short time (30 s by default). A done order finishes one of the Chairman's own tasks and the player's vote counts twice in the next meeting; a missed one means the player's vote doesn't count. Impostors can't do tasks, so an order is also a test. Done orders bring promotions: Director (a meeting from anywhere once per game), Chairman (sees who voted for whom), King (double vote). Options: cooldown, time, orders per game, free task, bonus, reprimand, the player sees the name, public promotions, each title and its threshold. |
 | <img src="TownOfUs/Resources/Custom/HandymanIcon.png" width="48"/><br>**Handyman** | Role (Crewmate Support) | Gets a random job at the start of every round, with an ability for that round (one use by default): PC Service (fix a sabotage from anywhere), Pizzeria (a sprint), Warehouse (admin from anywhere) or Stream (cameras from anywhere; never on maps without cameras). Options: uses per round, cooldown, the same job twice in a row, each job on/off with its time (fix delay, sprint time and speed, admin time and moving with it, cameras time). |
+| <img src="TownOfUs/Resources/Custom/StreamerIcon.png" width="48"/><br>**Streamer** | Modifier (Universal) | Sees "LIVE: N viewers" whenever someone watches a camera feed with them in it (map cameras, Sentry cameras, the portable ones of the Operative and the Handyman, a Stream Sniper's view; the admin map as an option), without names. "Go offline" hides them from the cameras for a few seconds. Options: admin map counts, show the number of viewers, the "Go offline" button, its time and uses per round. |
 
 Also: a "Settings" button in Freeplay (change the lobby settings without leaving practice), a search box (with an
 "AmonRa" toggle that shows only the AmonRa-themed roles and modifiers) and modifier icons in the lobby settings, automatic updates, a full installation package and our own logo on the startup
@@ -155,7 +156,8 @@ Impostor Support), **Vandal** (spray can, Impostor Support), **Rivals** (crossed
 **Possum** (crewmate lying down, Impostor Killing), **Bleeder** (blood drop, crewmate modifiers), **Colorblind** (eye)
 and **Sleepwalker** (moon, both universal modifiers), **Comfy** (armchair) and **Lighthouse Keeper** (lantern, both
 Crewmate Support), **Expert** (flying saucer, Crewmate Investigative), **Moderator** (ban hammer, Impostor
-Support), **Chairman** (necktie, Crewmate Support) and **Handyman** (toolbox, Crewmate Support).
+Support), **Chairman** (necktie, Crewmate Support), **Handyman** (toolbox, Crewmate Support) and **Streamer** (webcam,
+universal modifiers).
 
 
 <p align="center">
@@ -315,6 +317,7 @@ Support), **Chairman** (necktie, Crewmate Support) and **Handyman** (toolbox, Cr
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/universal/Sixth%20Sense"><img width="10%" src="Images/Icons/SixthSense.png" /></a>
   <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/SleepwalkerIcon.png" alt="Sleepwalker (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/universal/Sleuth"><img width="10%" src="Images/Icons/Sleuth.png" /></a>
+  <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/StreamerIcon.png" alt="Streamer (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/modifiers/universal/Tiebreaker"><img width="10%" src="Images/Icons/Tiebreaker.png" /></a>
 </p>
 

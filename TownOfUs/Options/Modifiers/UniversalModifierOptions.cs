@@ -248,6 +248,22 @@ public sealed class UniversalModifierOptions : AbstractOptionGroup
         Visible = () => OptionGroupSingleton<UniversalModifierOptions>.Instance.SleepwalkerAmount > 0
     };
 
+    // ARE: Streamer (knows when someone watches them on the cameras) modifier
+    public AmountChanceOption StreamerAmount { get; } = new("TouOptionStreamerAmount", 0, 0, 5, 1,
+        color: TownOfUsColors.Streamer, asset: Are.AreAssets.StreamerIcon,
+        assetName: "TouMira.Modifier.Universal.Streamer", assetScale: 1.45f)
+    {
+        ChangedEvent = _streamerNotif,
+    };
+
+    public AmountChanceOption StreamerChance { get; } = new("TouOptionStreamerChance", 50f, 0, 100f, 10f, "#", "#",
+        MiraNumberSuffixes.Percent, color: TownOfUsColors.Streamer, asset: Are.AreAssets.StreamerIcon,
+        assetName: "TouMira.Modifier.Universal.Streamer", assetScale: 1.45f)
+    {
+        ChangedEvent = _streamerNotif,
+        Visible = () => OptionGroupSingleton<UniversalModifierOptions>.Instance.StreamerAmount > 0
+    };
+
     private static Action<float> _colorblindNotif = x =>
     {
         var optAmount = OptionGroupSingleton<UniversalModifierOptions>.Instance.ColorblindAmount;
@@ -260,6 +276,13 @@ public sealed class UniversalModifierOptions : AbstractOptionGroup
         var optAmount = OptionGroupSingleton<UniversalModifierOptions>.Instance.SleepwalkerAmount;
         var opt = OptionGroupSingleton<UniversalModifierOptions>.Instance.SleepwalkerChance;
         RunNotif(opt, optAmount, "TownOfUsMira.Modifier.Sleepwalker");
+    };
+
+    private static Action<float> _streamerNotif = x =>
+    {
+        var optAmount = OptionGroupSingleton<UniversalModifierOptions>.Instance.StreamerAmount;
+        var opt = OptionGroupSingleton<UniversalModifierOptions>.Instance.StreamerChance;
+        RunNotif(opt, optAmount, "TownOfUsMira.Modifier.Streamer");
     };
 
     private static Action<float> _amonRaNotif = x =>

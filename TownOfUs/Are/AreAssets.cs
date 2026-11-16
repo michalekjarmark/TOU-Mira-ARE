@@ -308,4 +308,16 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> HandymanStreamButton { get; } =
         new LoadableResourceAsset($"{CustomPath}.HandymanStreamButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Streamer modifier icon (a webcam with a red dot). 128px.
+    /// </summary>
+    public static LoadableAsset<Sprite> StreamerIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.StreamerIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Streamer "Go offline" button (the webcam crossed out). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> StreamerOfflineButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.StreamerOfflineButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 }

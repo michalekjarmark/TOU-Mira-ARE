@@ -132,6 +132,7 @@ public static class TownOfUsColors
     public static Color AmonRa => new Color32(214, 168, 64, 255); // ARE
     public static Color Colorblind => new Color32(150, 160, 175, 255); // ARE
     public static Color Sleepwalker => new Color32(120, 110, 210, 255); // ARE
+    public static Color Streamer => new Color32(145, 70, 255, 255); // ARE
     public static Color ButtonBarry => new Color32(179, 51, 204, 255);
     public static Color Flash => new Color32(255, 128, 128, 255);
     public static Color Giant => new Color32(255, 179, 77, 255);

@@ -39,8 +39,15 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   anywhere (10 s, never drawn on maps without cameras). The button shows the job's icon. Options: uses per round,
   cooldown, the same job twice in a row, each job on/off with its time (fix delay, sprint time and speed, admin time
   and moving with the admin map, cameras time).
+- **Streamer** (new universal modifier): the cameras are their stream. Whenever someone watches a camera feed with
+  the Streamer in it (map cameras, Sentry cameras, the portable ones of the Operative and the Handyman; with an option
+  also an open admin map), the Streamer sees "LIVE: N viewers" at the top of the screen, without names. "Go offline"
+  hides them from the camera feeds for a few seconds (10 s, once per round by default); everyone near them still sees
+  them. Comms sabotage switches the stream off. The button takes the modifier button slot, so the Streamer never gets
+  another modifier with a button. Options: the admin map counts (and "Go offline" hides from it too), show the number
+  of viewers, the "Go offline" button, its time and uses per round.
 - **"AmonRa" toggle in the settings search:** the AmonRa icon at the right end of the search box shows only the
-  AmonRa-themed roles and modifiers (AmonRa, Comfy, Expert, Moderator, Chairman, Handyman...) in the Roles and Modifiers tabs. It works
+  AmonRa-themed roles and modifiers (AmonRa, Comfy, Expert, Moderator, Chairman, Handyman, Streamer...) in the Roles and Modifiers tabs. It works
   together with the search text.
 
 <details>
@@ -76,8 +83,15 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   Stream: kamery z dowolnego miejsca (10 s, nie wypada na mapach bez kamer). Przycisk ma ikonę etatu. Opcje: użycia na
   rundę, cooldown, ten sam etat dwa razy z rzędu, każdy etat osobno z jego czasem (opóźnienie naprawy, czas i
   prędkość sprintu, czas admina i ruch z otwartą mapą, czas kamer).
+- **Streamer** (nowy modyfikator uniwersalny): kamery są jego streamem. Kiedy ktoś ogląda obraz z kamery, na którym
+  jest Streamer (kamery mapy, kamery Sentry, przenośne kamery Operative i Złotej Rączki; z opcją także otwarta mapa
+  admina), Streamer widzi u góry ekranu „NA ŻYWO: N widzów”, bez nicków. „Wyłączam streama” ukrywa go na kilka sekund
+  przed kamerami (domyślnie 10 s, raz na rundę); gracze obok nadal go widzą. Sabotaż komunikacji wyłącza stream.
+  Przycisk zajmuje miejsce przycisku modyfikatora, więc Streamer nie dostanie drugiego modyfikatora z przyciskiem.
+  Opcje: mapa admina się liczy (i „Wyłączam streama” ukrywa też przed nią), liczba widzów, przycisk „Wyłączam
+  streama”, jego czas i użycia na rundę.
 - **Przełącznik „AmonRa” w wyszukiwarce ustawień:** ikona AmonRa na prawym końcu pola wyszukiwania pokazuje w
-  zakładkach Roles i Modifiers tylko role i modyfikatory w klimacie AmonRa (AmonRa, Wygodniś, Ekspert, Moderator, Prezes, Złota Rączka...).
+  zakładkach Roles i Modifiers tylko role i modyfikatory w klimacie AmonRa (AmonRa, Wygodniś, Ekspert, Moderator, Prezes, Złota Rączka, Streamer...).
   Działa razem z wpisanym tekstem.
 
 </details>

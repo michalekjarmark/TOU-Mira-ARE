@@ -191,6 +191,7 @@ public enum TownOfUsRpc : uint
     ChairmanOrderResult,
     ChairmanMeeting,
     HandymanFix,
+    StreamerView,
 }
 
 internal enum TownOfUsInternalRpc : uint

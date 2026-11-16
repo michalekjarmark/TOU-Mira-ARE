@@ -95,6 +95,7 @@ public static class SpyMapCountOverlayPatch
 
                     if (component == null || data == null || !component || component.Data == null ||
                         component.Data.Disconnected || component.Data.IsDead
+                        || Are.StreamerSystem.HiddenFromAdmin(component) // AmonRa Edition
                         || (!__instance.showLivePlayerPosition && component.AmOwner) ||
                         colorMapDuplicate.Contains(data.DefaultOutfit.ColorId))
                     {

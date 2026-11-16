@@ -1817,4 +1817,21 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionHandymanMoveWithAdmin">Ruch z otwartym adminem</string>
   <string name="TouOptionHandymanStreamJob">Etat: stream (kamery)</string>
   <string name="TouOptionHandymanStreamDuration">Czas kamer</string>
+  <!-- AmonRa Edition - Streamer (Universal Modifier) -->
+  <string name="TownOfUsMira.Modifier.Streamer">Streamer</string>
+  <string name="TownOfUsMira.Modifier.Streamer.IntroBlurb">Wiesz, kiedy cię oglądają.</string>
+  <string name="TownOfUsMira.Modifier.Streamer.TabDescription">Widzisz „NA ŻYWO”, kiedy ktoś ogląda cię na kamerach. Możesz na chwilę wyłączyć streama.</string>
+  <string name="TownOfUsMira.Modifier.Streamer.WikiDescription">Kamery są streamem Streamera. Kiedy ktoś ogląda obraz z kamery, na którym jest Streamer (kamery mapy, kamery Sentry, przenośne kamery Operative i Złotej Rączki, podgląd Snajpera; z opcją także otwarta mapa admina), Streamer widzi u góry ekranu „NA ŻYWO: N widzów”, bez nicków. „Wyłączam streama” ukrywa go na kilka sekund przed kamerami (i przed adminem, z tą opcją); z bliska wszyscy nadal widzą go normalnie. Sabotaż komunikacji wyłącza stream widzom.</string>
+  <string name="TownOfUsMira.Modifier.StreamerOffline">Wyłączam streama</string>
+  <string name="TownOfUsMira.Modifier.StreamerOffline.WikiDescription">Na kilka sekund znikasz z obrazu kamer (i z mapy admina, z tą opcją). Gracze obok nadal cię widzą.</string>
+  <string name="TownOfUsMira.Modifier.StreamerLive">NA ŻYWO</string>
+  <string name="TownOfUsMira.Modifier.StreamerLiveCount">NA ŻYWO: [count] widzów</string>
+  <string name="TownOfUsMira.Modifier.StreamerOfflineLabel">STREAM WYŁĄCZONY</string>
+  <string name="TouOptionStreamerAmount">Liczba Streamerów</string>
+  <string name="TouOptionStreamerChance">Szansa na Streamera</string>
+  <string name="TouOptionStreamerAdminCounts">Mapa admina liczy się jako oglądanie</string>
+  <string name="TouOptionStreamerShowViewerCount">Pokazuj liczbę widzów</string>
+  <string name="TouOptionStreamerOfflineButton">Przycisk „Wyłączam streama”</string>
+  <string name="TouOptionStreamerOfflineDuration">Czas wyłączenia streama</string>
+  <string name="TouOptionStreamerOfflineUses">Wyłączenia na rundę</string>
 </resources>

@@ -1834,4 +1834,24 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionStreamerOfflineButton">Przycisk „Wyłączam streama”</string>
   <string name="TouOptionStreamerOfflineDuration">Czas wyłączenia streama</string>
   <string name="TouOptionStreamerOfflineUses">Wyłączenia na rundę</string>
+  <!-- AmonRa Edition - Stream Sniper (Impostor Support) -->
+  <string name="TownOfUsMira.Role.StreamSniper">Snajper</string>
+  <string name="TownOfUsMira.Role.StreamSniper.IntroBlurb">Oglądaj ich stream.</string>
+  <string name="TownOfUsMira.Role.StreamSniper.TabDescription">Przez kilka sekund oglądasz widok dowolnego gracza: dokąd idzie, kto jest obok, czy jest sam.</string>
+  <string name="TownOfUsMira.Role.StreamSniper.MedDescription">Ogląda widok wokół innych graczy.</string>
+  <string name="TownOfUsMira.Role.StreamSniper.WikiDescription">Snajper to rola Impostor Support, która ogląda „streamy” innych graczy. „Podgląd” otwiera w rogu ekranu małe okienko z widokiem wokół wybranego żywego gracza na kilka sekund (domyślnie 8 s), przez ściany i ciemność: dokąd idzie, kto jest obok i czy jest sam. W tym czasie Snajper rusza się normalnie, ale przez okienko nic nie zrobi. Domyślnie gracza wybiera się z listy; z opcją można oglądać tylko gracza oznaczonego wcześniej przyciskiem „Oznacz” (obok Snajpera, interakcja). Oglądany gracz nic nie wie (opcja), poza Streamerem, któremu przybywa widz. Okienko korzysta z ustawień okienka Parasite (róg i rozmiar).</string>
+  <string name="TownOfUsMira.Role.StreamSniperWatch">Podgląd</string>
+  <string name="TownOfUsMira.Role.StreamSniperWatch.WikiDescription">Przez kilka sekund oglądasz widok wokół żywego gracza w okienku w rogu ekranu.</string>
+  <string name="TownOfUsMira.Role.StreamSniperMark">Oznacz</string>
+  <string name="TownOfUsMira.Role.StreamSniperMark.WikiDescription">Tylko z opcją „oznaczony gracz”: oznaczasz gracza obok, żeby oglądać go później.</string>
+  <string name="TownOfUsMira.Role.StreamSniperWatched">Ktoś cię obserwuje.</string>
+  <string name="TouOptionStreamSniperWatchCooldown">Cooldown podglądu</string>
+  <string name="TouOptionStreamSniperWatchDuration">Czas podglądu</string>
+  <string name="TouOptionStreamSniperMaxWatches">Maks. podglądów na grę</string>
+  <string name="TouOptionStreamSniperViewSize">Rozmiar widoku</string>
+  <string name="TouOptionStreamSniperTargetMode">Kogo można oglądać</string>
+  <string name="TouOptionStreamSniperTargetModeEnumList">Każdego (lista)</string>
+  <string name="TouOptionStreamSniperTargetModeEnumMarked">Oznaczonego gracza</string>
+  <string name="TouOptionStreamSniperMarkCooldown">Cooldown oznaczenia</string>
+  <string name="TouOptionStreamSniperTargetNotified">Oglądany gracz wie</string>
 </resources>

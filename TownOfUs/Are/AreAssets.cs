@@ -320,4 +320,22 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> StreamerOfflineButton { get; } =
         new LoadableResourceAsset($"{CustomPath}.StreamerOfflineButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Stream Sniper role icon (a stream screen with a crosshair). 128px.
+    /// </summary>
+    public static LoadableAsset<Sprite> StreamSniperIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.StreamSniperIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Stream Sniper "Watch" button (an eye with a crosshair). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> StreamSniperWatchButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.StreamSniperWatchButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Stream Sniper "Mark" button (a crosshair). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> StreamSniperMarkButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.StreamSniperMarkButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 }

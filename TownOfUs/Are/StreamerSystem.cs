@@ -114,10 +114,11 @@ public static class StreamerSystem
             main.cullingMask |= bit;
         }
 
-        // Camera feeds render to a texture (map cameras, the Fungle's binoculars, portable views).
+        // Camera feeds render to a texture (map cameras, the Fungle's binoculars, portable views); the Stream Sniper's
+        // window is a second camera drawing straight into a corner of the screen.
         foreach (var cam in Camera.allCameras)
         {
-            if (cam != null && cam != main && cam.targetTexture != null)
+            if (cam != null && cam != main && (cam.targetTexture != null || StreamSniperSystem.IsViewCamera(cam)))
             {
                 cam.cullingMask &= ~bit;
             }
@@ -200,7 +201,9 @@ public static class StreamerSystem
                     continue;
                 }
 
-                if (adminOpen || (streamer.Visible && !streamer.inVent && InFeeds(streamer, feeds)))
+                // A Stream Sniper watching them counts too (their window follows them, so it always shows them).
+                if (adminOpen || StreamSniperSystem.Target == streamer ||
+                    (streamer.Visible && !streamer.inVent && InFeeds(streamer, feeds)))
                 {
                     seen.Add(streamer.PlayerId);
                 }

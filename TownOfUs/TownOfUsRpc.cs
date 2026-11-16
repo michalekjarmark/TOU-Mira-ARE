@@ -192,6 +192,7 @@ public enum TownOfUsRpc : uint
     ChairmanMeeting,
     HandymanFix,
     StreamerView,
+    StreamSniperWatch,
 }
 
 internal enum TownOfUsInternalRpc : uint

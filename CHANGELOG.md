@@ -40,14 +40,21 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   cooldown, the same job twice in a row, each job on/off with its time (fix delay, sprint time and speed, admin time
   and moving with the admin map, cameras time).
 - **Streamer** (new universal modifier): the cameras are their stream. Whenever someone watches a camera feed with
-  the Streamer in it (map cameras, Sentry cameras, the portable ones of the Operative and the Handyman; with an option
+  the Streamer in it (map cameras, Sentry cameras, the portable ones of the Operative and the Handyman, a Stream Sniper's window; with an option
   also an open admin map), the Streamer sees "LIVE: N viewers" at the top of the screen, without names. "Go offline"
   hides them from the camera feeds for a few seconds (10 s, once per round by default); everyone near them still sees
   them. Comms sabotage switches the stream off. The button takes the modifier button slot, so the Streamer never gets
   another modifier with a button. Options: the admin map counts (and "Go offline" hides from it too), show the number
   of viewers, the "Go offline" button, its time and uses per round.
+- **Stream Sniper** (new Impostor Support role): watches another player's "stream". "Watch" opens a small window in
+  a corner of the screen with the view around a chosen living player for a few seconds (8 s by default), through walls
+  and darkness: where they go, who is near them and whether they are alone. The Stream Sniper moves normally meanwhile.
+  By default the player is chosen from a list; with an option only the player marked earlier with "Mark" (next to the
+  Stream Sniper, an interaction) can be watched. The watched player knows nothing (option), except a Streamer, who gets
+  a viewer, and a Streamer who went offline doesn't show in the window. The window uses the Parasite's window settings.
+  Options: cooldown, time, watches per game, view size, who can be watched, mark cooldown, the watched player knows.
 - **"AmonRa" toggle in the settings search:** the AmonRa icon at the right end of the search box shows only the
-  AmonRa-themed roles and modifiers (AmonRa, Comfy, Expert, Moderator, Chairman, Handyman, Streamer...) in the Roles and Modifiers tabs. It works
+  AmonRa-themed roles and modifiers (AmonRa, Comfy, Expert, Moderator, Chairman, Handyman, Streamer, Stream Sniper...) in the Roles and Modifiers tabs. It works
   together with the search text.
 
 <details>
@@ -84,14 +91,21 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   rundę, cooldown, ten sam etat dwa razy z rzędu, każdy etat osobno z jego czasem (opóźnienie naprawy, czas i
   prędkość sprintu, czas admina i ruch z otwartą mapą, czas kamer).
 - **Streamer** (nowy modyfikator uniwersalny): kamery są jego streamem. Kiedy ktoś ogląda obraz z kamery, na którym
-  jest Streamer (kamery mapy, kamery Sentry, przenośne kamery Operative i Złotej Rączki; z opcją także otwarta mapa
+  jest Streamer (kamery mapy, kamery Sentry, przenośne kamery Operative i Złotej Rączki, okienko Snajpera; z opcją także otwarta mapa
   admina), Streamer widzi u góry ekranu „NA ŻYWO: N widzów”, bez nicków. „Wyłączam streama” ukrywa go na kilka sekund
   przed kamerami (domyślnie 10 s, raz na rundę); gracze obok nadal go widzą. Sabotaż komunikacji wyłącza stream.
   Przycisk zajmuje miejsce przycisku modyfikatora, więc Streamer nie dostanie drugiego modyfikatora z przyciskiem.
   Opcje: mapa admina się liczy (i „Wyłączam streama” ukrywa też przed nią), liczba widzów, przycisk „Wyłączam
   streama”, jego czas i użycia na rundę.
+- **Snajper** (Stream Sniper, nowa rola Impostor Support): ogląda „stream” innego gracza. „Podgląd” otwiera w rogu
+  ekranu małe okienko z widokiem wokół wybranego żywego gracza na kilka sekund (domyślnie 8 s), przez ściany i
+  ciemność: dokąd idzie, kto jest obok i czy jest sam. W tym czasie Snajper rusza się normalnie. Domyślnie gracza
+  wybiera się z listy; z opcją można oglądać tylko gracza oznaczonego wcześniej przyciskiem „Oznacz” (obok Snajpera,
+  interakcja). Oglądany gracz nic nie wie (opcja), poza Streamerem, któremu przybywa widz, a Streamer z wyłączonym
+  streamem nie pokazuje się w okienku. Okienko korzysta z ustawień okienka Parasite. Opcje: cooldown, czas, liczba
+  podglądów na grę, rozmiar widoku, kogo można oglądać, cooldown oznaczenia, oglądany gracz wie.
 - **Przełącznik „AmonRa” w wyszukiwarce ustawień:** ikona AmonRa na prawym końcu pola wyszukiwania pokazuje w
-  zakładkach Roles i Modifiers tylko role i modyfikatory w klimacie AmonRa (AmonRa, Wygodniś, Ekspert, Moderator, Prezes, Złota Rączka, Streamer...).
+  zakładkach Roles i Modifiers tylko role i modyfikatory w klimacie AmonRa (AmonRa, Wygodniś, Ekspert, Moderator, Prezes, Złota Rączka, Streamer, Snajper...).
   Działa razem z wpisanym tekstem.
 
 </details>

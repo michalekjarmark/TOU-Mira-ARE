@@ -88,6 +88,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/ChairmanIcon.png" width="48"/><br>**Prezes** (Chairman) | Rola (Crewmate Support) | Każe graczowi obok skończyć dowolne zadanie w krótkim czasie (domyślnie 30 s). Wykonane zlecenie kończy jedno zadanie Prezesa, a głos gracza na najbliższym spotkaniu liczy się podwójnie; niewykonane oznacza, że jego głos się nie liczy. Impostorzy nie mogą robić zadań, więc zlecenie jest też testem. Wykonane zlecenia dają awanse: Dyrektor (raz na grę spotkanie z dowolnego miejsca), Prezes (widzi, kto na kogo głosował), Król (podwójny głos). Opcje: cooldown, czas, liczba zleceń, darmowe zadanie, premia, nagana, gracz widzi nick, publiczne awanse, każdy tytuł i jego próg. |
 | <img src="TownOfUs/Resources/Custom/HandymanIcon.png" width="48"/><br>**Złota Rączka** (Handyman) | Rola (Crewmate Support) | Na początku każdej rundy losuje etat z umiejętnością na tę rundę (domyślnie jedno użycie): Serwis (naprawa sabotażu z dowolnego miejsca), Pizzeria (sprint), Magazyn (admin z dowolnego miejsca) albo Stream (kamery z dowolnego miejsca; nie wypada na mapach bez kamer). Opcje: użycia na rundę, cooldown, ten sam etat dwa razy z rzędu, każdy etat osobno z jego czasem (opóźnienie naprawy, czas i prędkość sprintu, czas admina i ruch z nim, czas kamer). |
 | <img src="TownOfUs/Resources/Custom/StreamerIcon.png" width="48"/><br>**Streamer** | Modyfikator (uniwersalny) | Widzi „NA ŻYWO: N widzów”, kiedy ktoś ogląda obraz z kamery, na którym jest (kamery mapy, kamery Sentry, przenośne kamery Operative i Złotej Rączki, podgląd Snajpera; z opcją mapa admina), bez nicków. „Wyłączam streama” ukrywa go na kilka sekund przed kamerami. Opcje: admin się liczy, liczba widzów, przycisk „Wyłączam streama”, jego czas i użycia na rundę. |
+| <img src="TownOfUs/Resources/Custom/StreamSniperIcon.png" width="48"/><br>**Snajper** (Stream Sniper) | Rola (Impostor Support) | Przez kilka sekund (domyślnie 8 s) ogląda w okienku w rogu ekranu widok wokół wybranego żywego gracza, przez ściany i ciemność. W tym czasie rusza się normalnie. Oglądanemu Streamerowi przybywa widz. Opcje: cooldown, czas, liczba podglądów na grę, rozmiar widoku, kogo można oglądać (każdego z listy / tylko gracza oznaczonego wcześniej obok siebie), cooldown oznaczenia, oglądany gracz wie. |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), wyszukiwarka
 (z przełącznikiem „AmonRa”, który pokazuje tylko role i modyfikatory w klimacie AmonRa) i ikony modyfikatorów w
@@ -133,8 +134,8 @@ Impostor Support), **Wandal** (puszka ze sprayem, Impostor Support), **Rywale** 
 Alliance), **Symulant** (leżący załogant, Impostor Killing), **Krwawiący** (kropla krwi, modyfikatory załogi),
 **Daltonista** (oko) i **Lunatyk** (księżyc, oba w modyfikatorach uniwersalnych), **Wygodniś** (fotel) i **Latarnik**
 (latarnia, obaj w Crewmate Support), **Ekspert** (latający spodek, Crewmate Investigative), **Moderator** (młotek do
-banów, Impostor Support), **Prezes** (krawat, Crewmate Support), **Złota Rączka** (skrzynka z narzędziami, Crewmate Support) i
-**Streamer** (kamerka internetowa, modyfikatory uniwersalne). Kluczowe różnice Town of Us: Mira,
+banów, Impostor Support), **Prezes** (krawat, Crewmate Support), **Złota Rączka** (skrzynka z narzędziami, Crewmate Support) 
+**Streamer** (kamerka internetowa, modyfikatory uniwersalne) i **Snajper** (ekran z celownikiem, Impostor Support). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -218,6 +219,7 @@ obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskie
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Miner"><img width="10%" src="Images/Icons/Miner.png" /></a>
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/ModeratorIcon.png" alt="Moderator (AmonRa Edition)" /></a>
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/RiggerIcon.png" alt="Monter (AmonRa Edition)" /></a>
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/StreamSniperIcon.png" alt="Snajper (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Undertaker"><img width="10%" src="Images/Icons/Undertaker.png" /></a>
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/VandalIcon.png" alt="Wandal (AmonRa Edition)" /></a>
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/VentriloquistIcon.png" alt="Brzuchomówca (AmonRa Edition)" /></a>

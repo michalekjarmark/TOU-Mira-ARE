@@ -38,6 +38,11 @@ public static class AreRoleTexts
             name += $"{TownOfUsColors.Impostor.ToTextColor()} {ModeratorSystem.Symbol}</color>";
         }
 
+        if (StreamSniperSystem.IsLocalMark(player))
+        {
+            name += $"{TownOfUsColors.Impostor.ToTextColor()} ×</color>";
+        }
+
         return name;
     }
 

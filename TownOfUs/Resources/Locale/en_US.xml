@@ -4536,4 +4536,24 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionStreamerOfflineButton">"Go Offline" Button</string>
   <string name="TouOptionStreamerOfflineDuration">Offline Duration</string>
   <string name="TouOptionStreamerOfflineUses">Offline Uses Per Round</string>
+  <!-- AmonRa Edition - Stream Sniper (Impostor Support) -->
+  <string name="TownOfUsMira.Role.StreamSniper">Stream Sniper</string>
+  <string name="TownOfUsMira.Role.StreamSniper.IntroBlurb">Watch their stream.</string>
+  <string name="TownOfUsMira.Role.StreamSniper.TabDescription">Watch any player's view for a few seconds: where they go, who is near them, whether they are alone.</string>
+  <string name="TownOfUsMira.Role.StreamSniper.MedDescription">Watches the view around other players.</string>
+  <string name="TownOfUsMira.Role.StreamSniper.WikiDescription">The Stream Sniper is an Impostor Support role that watches other players' "streams". "Watch" opens a small window in a corner of the screen with the view around a chosen living player for a few seconds (8 s by default), through walls and darkness: where they go, who is near them and whether they are alone. Meanwhile the Stream Sniper moves normally, but can't do anything through the window. By default the player is chosen from a list; with an option only the player marked earlier with "Mark" (next to the Stream Sniper, an interaction) can be watched. The watched player knows nothing (option), except a Streamer, who gets a viewer. The window uses the Parasite's window settings (corner and size).</string>
+  <string name="TownOfUsMira.Role.StreamSniperWatch">Watch</string>
+  <string name="TownOfUsMira.Role.StreamSniperWatch.WikiDescription">Watch the view around a living player for a few seconds, in a window in a corner of the screen.</string>
+  <string name="TownOfUsMira.Role.StreamSniperMark">Mark</string>
+  <string name="TownOfUsMira.Role.StreamSniperMark.WikiDescription">Only with the "marked player" option: mark a nearby player to watch them later.</string>
+  <string name="TownOfUsMira.Role.StreamSniperWatched">Someone is watching you.</string>
+  <string name="TouOptionStreamSniperWatchCooldown">Watch Cooldown</string>
+  <string name="TouOptionStreamSniperWatchDuration">Watch Duration</string>
+  <string name="TouOptionStreamSniperMaxWatches">Max Watches Per Game</string>
+  <string name="TouOptionStreamSniperViewSize">View Size</string>
+  <string name="TouOptionStreamSniperTargetMode">Who Can Be Watched</string>
+  <string name="TouOptionStreamSniperTargetModeEnumList">Anyone (List)</string>
+  <string name="TouOptionStreamSniperTargetModeEnumMarked">The Marked Player</string>
+  <string name="TouOptionStreamSniperMarkCooldown">Mark Cooldown</string>
+  <string name="TouOptionStreamSniperTargetNotified">The Watched Player Knows</string>
 </resources>

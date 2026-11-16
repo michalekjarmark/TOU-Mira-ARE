@@ -118,6 +118,13 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
 - **A `CustomPlayerMenu` callback runs while the menu is still closing**: `Minigame.Instance` is set, so
   `PlayerControl.CanMove` is false and a `TownOfUsButton.CanClick()` there is false too. Check what you need by hand
   (Mirrorcaster, `StreamSniperWatchButton`).
+- **Buttons for ghosts:** `UsableInDeath => true` isn't enough, `TownOfUsButton.SetActive` also hides the buttons of dead
+  players. Override `SetActive` (`CryptidAppearButton`, `BlameShifterButton`). A ghost role given mid-round must show
+  its button itself (`SetActive` in `Initialize`).
+- **Ghost roles come two ways:** from the ghost role pool right at death (`RoleManagerPatches.GhostRoleSetup` /
+  `TryAssignSpecialGhostRoles`, one per role per game; Cryptid) or after a meeting from
+  `IBasicGhostRole.GetAvailableGhosts` with `ApplyImmediatelyAfterDeath => false` (Haunter, Spectre, Blame Shifter).
+  A MiraAPI ghost role needs `IsDead => true` and its own "Haunt" (`NeutralGhostRole` and Town of Polus' ghosts show how).
 
 ## Assets
 

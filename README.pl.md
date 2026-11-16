@@ -85,6 +85,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/LighthouseKeeperIcon.png" width="48"/><br>**Latarnik** (Lighthouse Keeper) | Rola (Crewmate Support) | Stawia latarnie na mapie (domyślnie 3 na grę), widoczne dla wszystkich. W trakcie sabotażu świateł każdy gracz w promieniu latarni widzi tak, jakby światła działały, jak z modyfikatorem Torch. Latarnie stoją do końca gry. Opcje: cooldown, liczba latarni na grę, promień światła, ściany zatrzymują światło, wszyscy widzą latarnie, latarnie gasną po śmierci Latarnika. |
 | <img src="TownOfUs/Resources/Custom/ExpertIcon.png" width="48"/><br>**Ekspert** (Expert) | Rola (Crewmate Investigative) | Bada gracza obok i poznaje jego dokładną rolę, widoczną potem przy jego nicku. Z pewną szansą (domyślnie 30%) wynik jest zmyślony, czyli to inna rola, a Ekspert nigdy nie wie, które wyniki są błędne. Domyślnie każdego gracza można zbadać tylko raz. Opcje: cooldown, liczba ekspertyz na grę, szansa na błędny wynik i jej wzrost z każdą ekspertyzą, co pokazuje błędny wynik (rolę z tej gry / dowolną rolę / rolę innej frakcji), ponowna ekspertyza tego samego gracza. |
 | <img src="TownOfUs/Resources/Custom/ModeratorIcon.png" width="48"/><br>**Moderator** | Rola (Impostor Support) | Banuje gracza obok na jedną rzecz do najbliższego spotkania (albo na określony czas): zgłaszanie ciał, przycisk awaryjny, zadania, wchodzenie do wentów, kamery/admin/vitals (także przenośne), umiejętności (razem z zabijaniem i sabotażem) albo głos na najbliższym spotkaniu (nie liczy się). Rodzaj jest losowany spośród włączonych albo (opcja) wybierany drugim przyciskiem. Naprawa sabotażu, drzwi i drabiny nigdy nie są blokowane. Oczyszczenie Clerica zdejmuje bany. Opcje: cooldown, liczba banów na grę i na rundę, czas bana, każdy rodzaj bana osobno, wybór rodzaju przez Moderatora, komunikat dla zbanowanego. |
+| <img src="TownOfUs/Resources/Custom/ChairmanIcon.png" width="48"/><br>**Prezes** (Chairman) | Rola (Crewmate Support) | Każe graczowi obok skończyć dowolne zadanie w krótkim czasie (domyślnie 30 s). Wykonane zlecenie kończy jedno zadanie Prezesa, a głos gracza na najbliższym spotkaniu liczy się podwójnie; niewykonane oznacza, że jego głos się nie liczy. Impostorzy nie mogą robić zadań, więc zlecenie jest też testem. Wykonane zlecenia dają awanse: Dyrektor (raz na grę spotkanie z dowolnego miejsca), Prezes (widzi, kto na kogo głosował), Król (podwójny głos). Opcje: cooldown, czas, liczba zleceń, darmowe zadanie, premia, nagana, gracz widzi nick, publiczne awanse, każdy tytuł i jego próg. |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), wyszukiwarka
 (z przełącznikiem „AmonRa”, który pokazuje tylko role i modyfikatory w klimacie AmonRa) i ikony modyfikatorów w
@@ -129,8 +130,8 @@ Impostor Concealing), **Pracoholik** (kubek kawy, Crewmate Support), **Brzuchom�
 Impostor Support), **Wandal** (puszka ze sprayem, Impostor Support), **Rywale** (skrzyżowane miecze, modyfikatory
 Alliance), **Symulant** (leżący załogant, Impostor Killing), **Krwawiący** (kropla krwi, modyfikatory załogi),
 **Daltonista** (oko) i **Lunatyk** (księżyc, oba w modyfikatorach uniwersalnych), **Wygodniś** (fotel) i **Latarnik**
-(latarnia, obaj w Crewmate Support), **Ekspert** (latający spodek, Crewmate Investigative) i **Moderator** (młotek do
-banów, Impostor Support). Kluczowe różnice Town of Us: Mira,
+(latarnia, obaj w Crewmate Support), **Ekspert** (latający spodek, Crewmate Investigative), **Moderator** (młotek do
+banów, Impostor Support) i **Prezes** (krawat, Crewmate Support). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -175,6 +176,7 @@ obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskie
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/protective/Warden"><img width="10%" src="Images/Icons/Warden.png" /></a>
   <img src="Images/Groups/CrewSupport.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Barkeeper"><img width="10%" src="Images/Icons/Barkeeper.png" /></a>
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/ChairmanIcon.png" alt="Prezes (AmonRa Edition)" /></a>
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/ComfyIcon.png" alt="Wygodniś (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Engineer"><img width="10%" src="Images/Icons/Engineer.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Imitator"><img width="10%" src="Images/Icons/Imitator.png" /></a>

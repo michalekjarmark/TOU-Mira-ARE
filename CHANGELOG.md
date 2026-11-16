@@ -25,8 +25,16 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   repairs, doors and ladders are never blocked, and a player in a vent can always get out. The Cleric's Cleanse
   removes bans. Banning counts as an interaction. Options: cooldown, bans per game and per round, until the meeting or
   a set time, each ban type on/off, the Moderator chooses the type, the banned player gets a message.
+- **Chairman** (new Crewmate Support role): orders a nearby player to finish any task within a short time (30 s by
+  default). If they do, the Chairman takes the credit: one of their own tasks gets done, the player's vote counts
+  twice in the next meeting and the Chairman gets closer to a promotion. If not, the player is slacking and their vote
+  doesn't count in the next meeting. Impostors can't do tasks, so an order is also a test, but a crewmate far from
+  their tasks slacks too. Promotions keep the earlier perks: Manager (start), Director (call a meeting from anywhere
+  once per game), Chairman (see who voted for whom), King (double vote). An order counts as an interaction. Options:
+  cooldown, time, orders per game, free task, bonus, reprimand, the player sees the Chairman's name, everyone sees
+  promotions, each title on/off and its number of orders.
 - **"AmonRa" toggle in the settings search:** the AmonRa icon at the right end of the search box shows only the
-  AmonRa-themed roles and modifiers (AmonRa, Comfy, Expert, Moderator...) in the Roles and Modifiers tabs. It works
+  AmonRa-themed roles and modifiers (AmonRa, Comfy, Expert, Moderator, Chairman...) in the Roles and Modifiers tabs. It works
   together with the search text.
 
 <details>
@@ -48,8 +56,16 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   drabiny nigdy nie są blokowane, a gracz w wencie zawsze może z niego wyjść. Oczyszczenie Clerica zdejmuje bany. Ban
   liczy się jako interakcja. Opcje: cooldown, liczba banów na grę i na rundę, do spotkania albo na określony czas, każdy
   rodzaj bana osobno, wybór rodzaju przez Moderatora, komunikat dla zbanowanego.
+- **Prezes** (Chairman, nowa rola Crewmate Support): każe graczowi obok skończyć dowolne zadanie w krótkim czasie
+  (domyślnie 30 s). Jeśli zdąży, Prezes przypisuje sobie zasługę: jedno jego zadanie kończy się samo, głos gracza na
+  najbliższym spotkaniu liczy się podwójnie, a Prezes zbliża się do awansu. Jeśli nie zdąży, gracz się obija i jego
+  głos na najbliższym spotkaniu się nie liczy. Impostorzy nie mogą robić zadań, więc zlecenie jest też testem, ale
+  crewmate daleko od zadań też się „obija”. Awanse zachowują wcześniejsze przywileje: Kierownik (start), Dyrektor (raz
+  na grę spotkanie z dowolnego miejsca), Prezes (widzi, kto na kogo głosował), Król (podwójny głos). Zlecenie liczy
+  się jako interakcja. Opcje: cooldown, czas, liczba zleceń na grę, darmowe zadanie, premia, nagana, gracz widzi nick
+  Prezesa, wszyscy widzą awanse, każdy tytuł osobno i jego liczba zleceń.
 - **Przełącznik „AmonRa” w wyszukiwarce ustawień:** ikona AmonRa na prawym końcu pola wyszukiwania pokazuje w
-  zakładkach Roles i Modifiers tylko role i modyfikatory w klimacie AmonRa (AmonRa, Wygodniś, Ekspert, Moderator...).
+  zakładkach Roles i Modifiers tylko role i modyfikatory w klimacie AmonRa (AmonRa, Wygodniś, Ekspert, Moderator, Prezes...).
   Działa razem z wpisanym tekstem.
 
 </details>

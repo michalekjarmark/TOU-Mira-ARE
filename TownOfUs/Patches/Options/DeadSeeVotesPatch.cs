@@ -15,7 +15,8 @@ public static class DeadSeeVoteColorsPatch
     {
         var spriteRenderer = Object.Instantiate(__instance.PlayerVotePrefab);
         var player = MiscUtils.PlayerById(voterPlayer.PlayerId);
-        if (PlayerControl.LocalPlayer.Data.Role is ProsecutorRole)
+        // AmonRa Edition: the Chairman with the "President" title sees the voters too.
+        if (PlayerControl.LocalPlayer.Data.Role is ProsecutorRole || Are.ChairmanSystem.LocalSeesVotes())
         {
             PlayerMaterial.SetColors(voterPlayer.DefaultOutfit.ColorId, spriteRenderer);
         }

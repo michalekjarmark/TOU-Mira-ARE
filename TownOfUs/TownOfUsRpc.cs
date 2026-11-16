@@ -187,6 +187,9 @@ public enum TownOfUsRpc : uint
     ComfySulkBlocked,
     LighthousePlaceLantern,
     ModeratorBan,
+    ChairmanOrder,
+    ChairmanOrderResult,
+    ChairmanMeeting,
 }
 
 internal enum TownOfUsInternalRpc : uint

@@ -96,10 +96,12 @@ public static class AreMeetingTimerTextPatch
             _ => string.Empty
         };
 
-        var ban = ModeratorSystem.MeetingStatusText();
-        if (ban.Length > 0)
+        foreach (var extra in new[] { ChairmanSystem.MeetingStatusText(), ModeratorSystem.MeetingStatusText() })
         {
-            line = line.Length > 0 ? $"{line}\n{ban}" : ban;
+            if (extra.Length > 0)
+            {
+                line = line.Length > 0 ? $"{line}\n{extra}" : extra;
+            }
         }
 
         if (line.Length > 0)

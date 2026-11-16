@@ -214,13 +214,17 @@ public static class ModeratorSystem
         }
     }
 
-    /// <summary>The Button Barry's button (meeting ban) and the portable cams/admin/vitals (equipment ban).</summary>
+    /// <summary>
+    ///     The Button Barry's and the Chairman's meeting buttons (meeting ban) and the portable cams/admin/vitals
+    ///     (equipment ban).
+    /// </summary>
     [HarmonyPatch]
     public static class GadgetButtonsPatch
     {
         public static IEnumerable<MethodBase> TargetMethods()
         {
             yield return AccessTools.Method(typeof(BarryButton), nameof(BarryButton.CanUse));
+            yield return AccessTools.Method(typeof(ChairmanMeetingButton), nameof(ChairmanMeetingButton.CanUse));
             yield return AccessTools.Method(typeof(SecurityButton), nameof(SecurityButton.CanUse));
             yield return AccessTools.Method(typeof(ScientistButton), nameof(ScientistButton.CanUse));
             yield return AccessTools.Method(typeof(SpyAdminTableModifierButton), nameof(SpyAdminTableModifierButton.CanUse));
@@ -235,7 +239,9 @@ public static class ModeratorSystem
                 return;
             }
 
-            var type = __instance is BarryButton ? ModeratorBanType.MeetingButton : ModeratorBanType.Equipment;
+            var type = __instance is BarryButton or ChairmanMeetingButton
+                ? ModeratorBanType.MeetingButton
+                : ModeratorBanType.Equipment;
             if (LocalBanned(type))
             {
                 __result = false;

@@ -260,4 +260,22 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> ModeratorTypeButton { get; } =
         new LoadableResourceAsset($"{CustomPath}.ModeratorTypeButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Chairman role icon (a necktie). 128px.
+    /// </summary>
+    public static LoadableAsset<Sprite> ChairmanIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.ChairmanIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Chairman "Order" button (a clipboard with a stopwatch). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> ChairmanOrderButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.ChairmanOrderButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Chairman "Board Meeting" button (a desk bell). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> ChairmanMeetingButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.ChairmanMeetingButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 }

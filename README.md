@@ -82,6 +82,7 @@ Everything below is new in AmonRa Edition. For all roles and modifiers of Town o
 | <img src="TownOfUs/Resources/Custom/LighthouseKeeperIcon.png" width="48"/><br>**Lighthouse Keeper** | Role (Crewmate Support) | Places lanterns on the map (3 per game by default), visible to everyone. During a lights sabotage, every player within a lantern's radius sees as if the lights were on, like with the Torch. Lanterns stay until the end of the game. Options: cooldown, lanterns per game, light radius, walls block the light, everyone sees the lanterns, lanterns go out when the Keeper dies. |
 | <img src="TownOfUs/Resources/Custom/ExpertIcon.png" width="48"/><br>**Expert** | Role (Crewmate Investigative) | Examines a nearby player and learns their exact role, shown on their name. With a chance (30% by default) the result is made up, a different role, and the Expert never knows which results are wrong. By default each player can be examined only once. Options: cooldown, examinations per game, chance of a wrong result and its growth with every examination, what a wrong result shows (a role in this game / any role / a role of another faction), examining the same player again. |
 | <img src="TownOfUs/Resources/Custom/ModeratorIcon.png" width="48"/><br>**Moderator** | Role (Impostor Support) | Bans a nearby player from one thing until the next meeting (or for a set time): reporting bodies, the meeting button, tasks, getting into vents, cams/admin/vitals (also portable), abilities (kill and sabotage included) or the vote in the next meeting (it doesn't count). The type is drawn at random from the enabled ones, or (option) chosen with a second button. Sabotage repairs, doors and ladders are never blocked. The Cleric's Cleanse removes bans. Options: cooldown, bans per game and per round, ban length, each ban type on/off, the Moderator chooses the type, the banned player gets a message. |
+| <img src="TownOfUs/Resources/Custom/ChairmanIcon.png" width="48"/><br>**Chairman** | Role (Crewmate Support) | Orders a nearby player to finish any task within a short time (30 s by default). A done order finishes one of the Chairman's own tasks and the player's vote counts twice in the next meeting; a missed one means the player's vote doesn't count. Impostors can't do tasks, so an order is also a test. Done orders bring promotions: Director (a meeting from anywhere once per game), Chairman (sees who voted for whom), King (double vote). Options: cooldown, time, orders per game, free task, bonus, reprimand, the player sees the name, public promotions, each title and its threshold. |
 
 Also: a "Settings" button in Freeplay (change the lobby settings without leaving practice), a search box (with an
 "AmonRa" toggle that shows only the AmonRa-themed roles and modifiers) and modifier icons in the lobby settings, automatic updates, a full installation package and our own logo on the startup
@@ -152,8 +153,8 @@ Impostor Concealing), **Workaholic** (coffee mug, Crewmate Support), **Ventriloq
 Impostor Support), **Vandal** (spray can, Impostor Support), **Rivals** (crossed swords, alliance modifiers),
 **Possum** (crewmate lying down, Impostor Killing), **Bleeder** (blood drop, crewmate modifiers), **Colorblind** (eye)
 and **Sleepwalker** (moon, both universal modifiers), **Comfy** (armchair) and **Lighthouse Keeper** (lantern, both
-Crewmate Support), **Expert** (flying saucer, Crewmate Investigative) and **Moderator** (ban hammer, Impostor
-Support).
+Crewmate Support), **Expert** (flying saucer, Crewmate Investigative), **Moderator** (ban hammer, Impostor
+Support) and **Chairman** (necktie, Crewmate Support).
 
 
 <p align="center">
@@ -197,6 +198,7 @@ Support).
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/protective/Warden"><img width="10%" src="Images/Icons/Warden.png" /></a>
   <img src="Images/Groups/CrewSupport.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Barkeeper"><img width="10%" src="Images/Icons/Barkeeper.png" /></a>
+  <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/ChairmanIcon.png" alt="Chairman (AmonRa Edition)" /></a>
   <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/ComfyIcon.png" alt="Comfy (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Engineer"><img width="10%" src="Images/Icons/Engineer.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Imitator"><img width="10%" src="Images/Icons/Imitator.png" /></a>

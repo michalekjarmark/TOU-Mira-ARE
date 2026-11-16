@@ -90,6 +90,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/StreamerIcon.png" width="48"/><br>**Streamer** | Modyfikator (uniwersalny) | Widzi „NA ŻYWO: N widzów”, kiedy ktoś ogląda obraz z kamery, na którym jest (kamery mapy, kamery Sentry, przenośne kamery Operative i Złotej Rączki, podgląd Snajpera; z opcją mapa admina), bez nicków. „Wyłączam streama” ukrywa go na kilka sekund przed kamerami. Opcje: admin się liczy, liczba widzów, przycisk „Wyłączam streama”, jego czas i użycia na rundę. |
 | <img src="TownOfUs/Resources/Custom/StreamSniperIcon.png" width="48"/><br>**Snajper** (Stream Sniper) | Rola (Impostor Support) | Przez kilka sekund (domyślnie 8 s) ogląda w okienku w rogu ekranu widok wokół wybranego żywego gracza, przez ściany i ciemność. W tym czasie rusza się normalnie. Oglądanemu Streamerowi przybywa widz. Opcje: cooldown, czas, liczba podglądów na grę, rozmiar widoku, kogo można oglądać (każdego z listy / tylko gracza oznaczonego wcześniej obok siebie), cooldown oznaczenia, oglądany gracz wie. |
 | <img src="TownOfUs/Resources/Custom/FabulistIcon.png" width="48"/><br>**Mitoman** (Fabulist) | Rola (Impostor Concealing) | Zostawia przy konsoli zadania swoją kopię jako alibi (domyślnie 20 s). Widzą ją wszyscy, także na kamerach, a prawdziwy Mitoman w tym czasie odchodzi. Kopia znika, gdy ktoś do niej podejdzie, przy spotkaniu albo gdy Mitoman zginie; nie da się jej zabić ani zgłosić. Mapa admina pokazuje prawdziwego Mitomana. Opcje: cooldown, czas, liczba alibi na grę, dystans, który psuje alibi, tylko przy konsoli zadania, admin liczy kopię. |
+| <img src="TownOfUs/Resources/Custom/CryptidIcon.png" width="48"/><br>**Kryptyda** (Cryptid) | Rola (Crewmate Afterlife) | Crewmate może nią zostać zaraz po śmierci. „Pojawienie się” pokazuje ducha żywym na kilka sekund jako rozmytą szarą postać bez nicku (także na kamerach). Znika, gdy żywy gracz podejdzie; impostor przepłasza ją na dobre (opcja). Tak duch wskazuje ciało, zabójcę albo pokój bez mówienia. Opcje: cooldown, czas, liczba pojawień na grę, dystans, przy którym znika, impostor przepłasza. |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), wyszukiwarka
 (z przełącznikiem „AmonRa”, który pokazuje tylko role i modyfikatory w klimacie AmonRa) i ikony modyfikatorów w
@@ -135,14 +136,16 @@ Impostor Support), **Wandal** (puszka ze sprayem, Impostor Support), **Rywale** 
 Alliance), **Symulant** (leżący załogant, Impostor Killing), **Krwawiący** (kropla krwi, modyfikatory załogi),
 **Daltonista** (oko) i **Lunatyk** (księżyc, oba w modyfikatorach uniwersalnych), **Wygodniś** (fotel) i **Latarnik**
 (latarnia, obaj w Crewmate Support), **Ekspert** (latający spodek, Crewmate Investigative), **Moderator** (młotek do
-banów, Impostor Support), **Prezes** (krawat, Crewmate Support), **Złota Rączka** (skrzynka z narzędziami, Crewmate Support) 
-**Streamer** (kamerka internetowa, modyfikatory uniwersalne), **Snajper** (ekran z celownikiem, Impostor Support)
-i **Mitoman** (załogant z przezroczystą kopią, Impostor Concealing). Kluczowe różnice Town of Us: Mira,
+banów, Impostor Support), **Prezes** (krawat, Crewmate Support), **Złota Rączka** (skrzynka z narzędziami, Crewmate Support),
+**Streamer** (kamerka internetowa, modyfikatory uniwersalne), **Snajper** (ekran z celownikiem, Impostor Support),
+**Mitoman** (załogant z przezroczystą kopią, Impostor Concealing) i **Kryptyda** (wielki ślad stopy, Crewmate
+Afterlife). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
 <p align="center">
   <img src="Images/Groups/CrewAfterlife.png" align="center" />
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/CryptidIcon.png" alt="Kryptyda (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/afterlife/Haunter"><img width="10%" src="Images/Icons/Haunter.png" /></a>
   <img src="Images/Groups/CrewInvest.png" align="center" />
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/AuditorIcon.png" alt="Audytor (AmonRa Edition)" /></a>

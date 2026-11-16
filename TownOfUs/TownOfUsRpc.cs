@@ -195,6 +195,8 @@ public enum TownOfUsRpc : uint
     StreamSniperWatch,
     FabulistAlibi,
     FabulistAlibiEnd,
+    CryptidAppear,
+    CryptidVanish,
 }
 
 internal enum TownOfUsInternalRpc : uint

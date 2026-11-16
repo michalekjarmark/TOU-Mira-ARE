@@ -80,6 +80,7 @@ public static class TownOfUsColors
     public static Color LighthouseKeeper => UseBasic ? Palette.CrewmateBlue : new Color32(255, 200, 90, 255); // ARE
 
     public static Color Haunter => UseBasic ? Palette.CrewmateBlue : new Color32(212, 212, 212, 255);
+    public static Color Cryptid => UseBasic ? Palette.CrewmateBlue : new Color32(165, 145, 115, 255); // ARE
     public static Color GuardianAngel => UseBasic ? Palette.CrewmateBlue : new Color32(102, 170, 243, 255);
     // Neutral Colors
     public static Color Admirer => new Color32(232, 65, 138, 255);

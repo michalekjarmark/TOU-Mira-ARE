@@ -350,4 +350,22 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> FabulistAlibiButton { get; } =
         new LoadableResourceAsset($"{CustomPath}.FabulistAlibiButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Cryptid role icon (a big footprint). 128px.
+    /// </summary>
+    public static LoadableAsset<Sprite> CryptidIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.CryptidIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Cryptid "Appear" button (a blurry figure). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> CryptidAppearButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.CryptidAppearButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     The Cryptid's sighting on the map: a blurry grey crewmate (scaled to a player's height in code).
+    /// </summary>
+    public static LoadableAsset<Sprite> CryptidFigure { get; } =
+        new LoadableResourceAsset($"{CustomPath}.CryptidFigure.png", typeof(TownOfUsPlugin).Assembly, 100f);
 }

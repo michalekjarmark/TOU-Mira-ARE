@@ -1869,4 +1869,18 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionFabulistBreakDistance">Dystans, który psuje alibi</string>
   <string name="TouOptionFabulistOnlyAtConsole">Tylko przy konsoli zadania</string>
   <string name="TouOptionFabulistCopyOnAdmin">Mapa admina liczy kopię</string>
+  <!-- AmonRa Edition - Cryptid (Crewmate Afterlife) -->
+  <string name="TownOfUsMira.Role.Cryptid">Kryptyda</string>
+  <string name="TownOfUsMira.Role.Cryptid.IntroBlurb">Tylko rozmazane zdjęcia.</string>
+  <string name="TownOfUsMira.Role.Cryptid.TabDescription">Nie żyjesz, ale możesz się pokazać żywym jako rozmyta postać. Nikt nie może podejść.</string>
+  <string name="TownOfUsMira.Role.Cryptid.MedDescription">Duch, który pokazuje się jako rozmyta postać.</string>
+  <string name="TownOfUsMira.Role.Cryptid.WikiDescription">Kryptyda to rola Crewmate Afterlife: może nią zostać crewmate zaraz po śmierci. „Pojawienie się” pokazuje ducha żywym na kilka sekund (domyślnie 6 s) jako rozmytą szarą postać bez nicku, także na kamerach, więc nikt nie wie, kim był. Nikt nie może podejść: gdy żywy gracz się zbliży, postać znika. Jeśli to impostor, Kryptyda zostaje przepłoszona do końca gry (opcja). Martwi nie mówią, więc tak Kryptyda coś wskazuje: ciało, zabójcę, pokój, w którym zaraz coś się stanie. Poza tym nawiedza i robi zadania jak każdy duch załogi.</string>
+  <string name="TownOfUsMira.Role.CryptidAppear">Pojawienie się</string>
+  <string name="TownOfUsMira.Role.CryptidAppear.WikiDescription">Na kilka sekund pokazujesz się żywym jako rozmyta postać. Znika, gdy ktoś podejdzie.</string>
+  <string name="TownOfUsMira.Role.CryptidScaredOff">Podszedł impostor i cię przepłoszył: nie możesz się już pokazywać.</string>
+  <string name="TouOptionCryptidSightingCooldown">Cooldown pojawienia się</string>
+  <string name="TouOptionCryptidSightingDuration">Czas pojawienia się</string>
+  <string name="TouOptionCryptidMaxSightings">Maks. pojawień na grę</string>
+  <string name="TouOptionCryptidVanishDistance">Dystans, przy którym znika</string>
+  <string name="TouOptionCryptidImpostorScaresOff">Impostor przepłasza ją na dobre</string>
 </resources>

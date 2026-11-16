@@ -59,9 +59,15 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   meeting or when the Fabulist dies; it can't be killed, reported or targeted. The admin map shows the Fabulist where
   they really are. Whoever sees them in two places at once knows everything. Options: cooldown, time, alibis per game
   (3 by default), the distance that breaks the alibi, only at a task console, the admin map counts the copy too.
+- **Cryptid** (new Crewmate Afterlife role): a crewmate who died may become the Cryptid right away. "Appear" shows
+  the ghost to the living for a few seconds (6 s by default) as a blurry grey figure without a name, on the cameras
+  too, so nobody knows who it was. Nobody can get close: when a living player comes near, the figure is gone, and an
+  impostor scares the Cryptid off for the rest of the game (option). The dead can't talk, so this is how a ghost points
+  at a body, the killer or a room. The Cryptid still haunts and does tasks like any crewmate ghost. Options: cooldown,
+  time, sightings per game (3 by default), the distance that makes it vanish, an impostor scares it off.
 - **"AmonRa" toggle in the settings search:** the AmonRa icon at the right end of the search box shows only the
   AmonRa-themed roles and modifiers (AmonRa, Comfy, Expert, Moderator, Chairman, Handyman, Streamer, Stream Sniper,
-  Fabulist) in the Roles and Modifiers tabs. It works together with the search text.
+  Fabulist, Cryptid) in the Roles and Modifiers tabs. It works together with the search text.
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -117,9 +123,15 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   umiejętności. Mapa admina pokazuje Mitomana tam, gdzie naprawdę jest. Kto zobaczy go w dwóch miejscach naraz, wie
   wszystko. Opcje: cooldown, czas, liczba alibi na grę (domyślnie 3), dystans, który psuje alibi, tylko przy konsoli
   zadania, mapa admina liczy też kopię.
+- **Kryptyda** (Cryptid, nowa rola Crewmate Afterlife): crewmate może nią zostać zaraz po śmierci. „Pojawienie się”
+  pokazuje ducha żywym na kilka sekund (domyślnie 6 s) jako rozmytą szarą postać bez nicku, także na kamerach, więc
+  nikt nie wie, kim był. Nikt nie może podejść: gdy żywy gracz się zbliży, postać znika, a impostor przepłasza Kryptydę
+  do końca gry (opcja). Martwi nie mówią, więc tak duch wskazuje ciało, zabójcę albo pokój. Poza tym Kryptyda nawiedza
+  i robi zadania jak każdy duch załogi. Opcje: cooldown, czas, liczba pojawień na grę (domyślnie 3), dystans, przy
+  którym znika, impostor przepłasza.
 - **Przełącznik „AmonRa” w wyszukiwarce ustawień:** ikona AmonRa na prawym końcu pola wyszukiwania pokazuje w
   zakładkach Roles i Modifiers tylko role i modyfikatory w klimacie AmonRa (AmonRa, Wygodniś, Ekspert, Moderator,
-  Prezes, Złota Rączka, Streamer, Snajper, Mitoman). Działa razem z wpisanym tekstem.
+  Prezes, Złota Rączka, Streamer, Snajper, Mitoman, Kryptyda). Działa razem z wpisanym tekstem.
 
 </details>
 

@@ -278,4 +278,34 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> ChairmanMeetingButton { get; } =
         new LoadableResourceAsset($"{CustomPath}.ChairmanMeetingButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Handyman role icon (a toolbox). 128px.
+    /// </summary>
+    public static LoadableAsset<Sprite> HandymanIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.HandymanIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Handyman "Computer service" job button (a monitor with a wrench). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> HandymanServiceButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.HandymanServiceButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Handyman "Pizzeria" job button (a pizza slice). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> HandymanPizzaButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.HandymanPizzaButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Handyman "Warehouse" job button (a cardboard box). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> HandymanWarehouseButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.HandymanWarehouseButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Handyman "Stream" job button (a video camera). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> HandymanStreamButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.HandymanStreamButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 }

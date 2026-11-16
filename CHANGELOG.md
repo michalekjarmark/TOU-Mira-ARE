@@ -33,8 +33,14 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   once per game), Chairman (see who voted for whom), King (double vote). An order counts as an interaction. Options:
   cooldown, time, orders per game, free task, bonus, reprimand, the player sees the Chairman's name, everyone sees
   promotions, each title on/off and its number of orders.
+- **Handyman** (new Crewmate Support role): gets a random job at the start of every round, with an ability for
+  that round (one use by default). PC Service: fix every active sabotage from anywhere, like the Engineer. Pizzeria:
+  a short sprint (8 s, 1.5x speed by default). Warehouse: the admin map from anywhere (10 s). Stream: the cameras from
+  anywhere (10 s, never drawn on maps without cameras). The button shows the job's icon. Options: uses per round,
+  cooldown, the same job twice in a row, each job on/off with its time (fix delay, sprint time and speed, admin time
+  and moving with the admin map, cameras time).
 - **"AmonRa" toggle in the settings search:** the AmonRa icon at the right end of the search box shows only the
-  AmonRa-themed roles and modifiers (AmonRa, Comfy, Expert, Moderator, Chairman...) in the Roles and Modifiers tabs. It works
+  AmonRa-themed roles and modifiers (AmonRa, Comfy, Expert, Moderator, Chairman, Handyman...) in the Roles and Modifiers tabs. It works
   together with the search text.
 
 <details>
@@ -64,8 +70,14 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   na grę spotkanie z dowolnego miejsca), Prezes (widzi, kto na kogo głosował), Król (podwójny głos). Zlecenie liczy
   się jako interakcja. Opcje: cooldown, czas, liczba zleceń na grę, darmowe zadanie, premia, nagana, gracz widzi nick
   Prezesa, wszyscy widzą awanse, każdy tytuł osobno i jego liczba zleceń.
+- **Złota Rączka** (Handyman, nowa rola Crewmate Support): na początku każdej rundy losuje etat z umiejętnością na
+  tę rundę (domyślnie jedno użycie). Serwis: naprawa wszystkich trwających sabotaży z dowolnego miejsca, jak u
+  Inżyniera. Pizzeria: krótki sprint (domyślnie 8 s, prędkość x1,5). Magazyn: mapa admina z dowolnego miejsca (10 s).
+  Stream: kamery z dowolnego miejsca (10 s, nie wypada na mapach bez kamer). Przycisk ma ikonę etatu. Opcje: użycia na
+  rundę, cooldown, ten sam etat dwa razy z rzędu, każdy etat osobno z jego czasem (opóźnienie naprawy, czas i
+  prędkość sprintu, czas admina i ruch z otwartą mapą, czas kamer).
 - **Przełącznik „AmonRa” w wyszukiwarce ustawień:** ikona AmonRa na prawym końcu pola wyszukiwania pokazuje w
-  zakładkach Roles i Modifiers tylko role i modyfikatory w klimacie AmonRa (AmonRa, Wygodniś, Ekspert, Moderator, Prezes...).
+  zakładkach Roles i Modifiers tylko role i modyfikatory w klimacie AmonRa (AmonRa, Wygodniś, Ekspert, Moderator, Prezes, Złota Rączka...).
   Działa razem z wpisanym tekstem.
 
 </details>

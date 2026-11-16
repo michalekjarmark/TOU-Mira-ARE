@@ -86,6 +86,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/ExpertIcon.png" width="48"/><br>**Ekspert** (Expert) | Rola (Crewmate Investigative) | Bada gracza obok i poznaje jego dokładną rolę, widoczną potem przy jego nicku. Z pewną szansą (domyślnie 30%) wynik jest zmyślony, czyli to inna rola, a Ekspert nigdy nie wie, które wyniki są błędne. Domyślnie każdego gracza można zbadać tylko raz. Opcje: cooldown, liczba ekspertyz na grę, szansa na błędny wynik i jej wzrost z każdą ekspertyzą, co pokazuje błędny wynik (rolę z tej gry / dowolną rolę / rolę innej frakcji), ponowna ekspertyza tego samego gracza. |
 | <img src="TownOfUs/Resources/Custom/ModeratorIcon.png" width="48"/><br>**Moderator** | Rola (Impostor Support) | Banuje gracza obok na jedną rzecz do najbliższego spotkania (albo na określony czas): zgłaszanie ciał, przycisk awaryjny, zadania, wchodzenie do wentów, kamery/admin/vitals (także przenośne), umiejętności (razem z zabijaniem i sabotażem) albo głos na najbliższym spotkaniu (nie liczy się). Rodzaj jest losowany spośród włączonych albo (opcja) wybierany drugim przyciskiem. Naprawa sabotażu, drzwi i drabiny nigdy nie są blokowane. Oczyszczenie Clerica zdejmuje bany. Opcje: cooldown, liczba banów na grę i na rundę, czas bana, każdy rodzaj bana osobno, wybór rodzaju przez Moderatora, komunikat dla zbanowanego. |
 | <img src="TownOfUs/Resources/Custom/ChairmanIcon.png" width="48"/><br>**Prezes** (Chairman) | Rola (Crewmate Support) | Każe graczowi obok skończyć dowolne zadanie w krótkim czasie (domyślnie 30 s). Wykonane zlecenie kończy jedno zadanie Prezesa, a głos gracza na najbliższym spotkaniu liczy się podwójnie; niewykonane oznacza, że jego głos się nie liczy. Impostorzy nie mogą robić zadań, więc zlecenie jest też testem. Wykonane zlecenia dają awanse: Dyrektor (raz na grę spotkanie z dowolnego miejsca), Prezes (widzi, kto na kogo głosował), Król (podwójny głos). Opcje: cooldown, czas, liczba zleceń, darmowe zadanie, premia, nagana, gracz widzi nick, publiczne awanse, każdy tytuł i jego próg. |
+| <img src="TownOfUs/Resources/Custom/HandymanIcon.png" width="48"/><br>**Złota Rączka** (Handyman) | Rola (Crewmate Support) | Na początku każdej rundy losuje etat z umiejętnością na tę rundę (domyślnie jedno użycie): Serwis (naprawa sabotażu z dowolnego miejsca), Pizzeria (sprint), Magazyn (admin z dowolnego miejsca) albo Stream (kamery z dowolnego miejsca; nie wypada na mapach bez kamer). Opcje: użycia na rundę, cooldown, ten sam etat dwa razy z rzędu, każdy etat osobno z jego czasem (opóźnienie naprawy, czas i prędkość sprintu, czas admina i ruch z nim, czas kamer). |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), wyszukiwarka
 (z przełącznikiem „AmonRa”, który pokazuje tylko role i modyfikatory w klimacie AmonRa) i ikony modyfikatorów w
@@ -131,7 +132,7 @@ Impostor Support), **Wandal** (puszka ze sprayem, Impostor Support), **Rywale** 
 Alliance), **Symulant** (leżący załogant, Impostor Killing), **Krwawiący** (kropla krwi, modyfikatory załogi),
 **Daltonista** (oko) i **Lunatyk** (księżyc, oba w modyfikatorach uniwersalnych), **Wygodniś** (fotel) i **Latarnik**
 (latarnia, obaj w Crewmate Support), **Ekspert** (latający spodek, Crewmate Investigative), **Moderator** (młotek do
-banów, Impostor Support) i **Prezes** (krawat, Crewmate Support). Kluczowe różnice Town of Us: Mira,
+banów, Impostor Support), **Prezes** (krawat, Crewmate Support) i **Złota Rączka** (skrzynka z narzędziami, Crewmate Support). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -179,6 +180,7 @@ obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskie
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/ChairmanIcon.png" alt="Prezes (AmonRa Edition)" /></a>
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/ComfyIcon.png" alt="Wygodniś (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Engineer"><img width="10%" src="Images/Icons/Engineer.png" /></a>
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/HandymanIcon.png" alt="Złota Rączka (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Imitator"><img width="10%" src="Images/Icons/Imitator.png" /></a>
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/LighthouseKeeperIcon.png" alt="Latarnik (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Plumber"><img width="10%" src="Images/Icons/Plumber.png" /></a>

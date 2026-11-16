@@ -17,6 +17,17 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   once, so the first result stays. Examining counts as an interaction. Options: cooldown, examinations per game,
   chance of a wrong result and its growth with every examination, what a wrong result shows (a role in this game /
   any role / a role of another faction), examining the same player again.
+- **Moderator** (new Impostor Support role): bans a nearby player from one thing until the next meeting (or for a set
+  time). The ban is drawn at random from the types enabled in the lobby: reporting bodies, the meeting button (also the
+  Button Barry's), tasks, getting into vents, cams/admin/vitals (also the portable ones), abilities (kill and sabotage
+  included) or the vote in the next meeting, which then doesn't count. With an option the Moderator picks the type with
+  a second button. The banned player gets a message (option) and the Moderator sees Ø after their name. Sabotage
+  repairs, doors and ladders are never blocked, and a player in a vent can always get out. The Cleric's Cleanse
+  removes bans. Banning counts as an interaction. Options: cooldown, bans per game and per round, until the meeting or
+  a set time, each ban type on/off, the Moderator chooses the type, the banned player gets a message.
+- **"AmonRa" toggle in the settings search:** the AmonRa icon at the right end of the search box shows only the
+  AmonRa-themed roles and modifiers (AmonRa, Comfy, Expert, Moderator...) in the Roles and Modifiers tabs. It works
+  together with the search text.
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -29,6 +40,17 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   tylko raz, więc pierwszy wynik zostaje. Ekspertyza liczy się jako interakcja. Opcje: cooldown, liczba ekspertyz na
   grę, szansa na błędny wynik i jej wzrost z każdą ekspertyzą, co pokazuje błędny wynik (rolę z tej gry / dowolną
   rolę / rolę innej frakcji), ponowna ekspertyza tego samego gracza.
+- **Moderator** (nowa rola Impostor Support): banuje gracza obok na jedną rzecz do najbliższego spotkania (albo na
+  określony czas). Rodzaj bana jest losowany spośród włączonych w lobby: zgłaszanie ciał, przycisk awaryjny (także
+  Button Barry), zadania, wchodzenie do wentów, kamery/admin/vitals (także przenośne), umiejętności (razem z zabijaniem
+  i sabotażem) albo głos na najbliższym spotkaniu, który wtedy się nie liczy. Z opcją Moderator wybiera rodzaj drugim
+  przyciskiem. Zbanowany dostaje komunikat (opcja), a Moderator widzi Ø przy jego nicku. Naprawa sabotażu, drzwi i
+  drabiny nigdy nie są blokowane, a gracz w wencie zawsze może z niego wyjść. Oczyszczenie Clerica zdejmuje bany. Ban
+  liczy się jako interakcja. Opcje: cooldown, liczba banów na grę i na rundę, do spotkania albo na określony czas, każdy
+  rodzaj bana osobno, wybór rodzaju przez Moderatora, komunikat dla zbanowanego.
+- **Przełącznik „AmonRa” w wyszukiwarce ustawień:** ikona AmonRa na prawym końcu pola wyszukiwania pokazuje w
+  zakładkach Roles i Modifiers tylko role i modyfikatory w klimacie AmonRa (AmonRa, Wygodniś, Ekspert, Moderator...).
+  Działa razem z wpisanym tekstem.
 
 </details>
 

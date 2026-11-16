@@ -7,6 +7,7 @@ using MiraAPI.GameOptions;
 using MiraAPI.Patches.Options;
 using Reactor.Utilities.Extensions;
 using TMPro;
+using TownOfUs.Options;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -43,6 +44,10 @@ public static class AreSettingsSearch
     private const float RoleRowStep = 0.43f;
     private const float RoleGroupGap = 0.4f;
 
+    // The AmonRa toggle: icon size and distance of its centre from the box's right edge.
+    private const float FilterSize = 0.42f;
+    private const float FilterInset = 0.3f;
+
     private static readonly Color SelectedTextColor = new(0.45f, 0.75f, 1f);
 
     internal static readonly Func<AbstractOptionGroup, CategoryHeaderMasked?> GetHeader =
@@ -78,8 +83,22 @@ public static class AreSettingsSearch
     private static bool _searchTabOpen;
     private static bool _rolesMoved;
 
-    /// <summary>A search filters the open tab right now.</summary>
-    public static bool Active => _searchTabOpen && _tokens.Length > 0;
+    // "AmonRa" toggle (owner's request, 2026-11-16): only the IAmonRaContent roles and modifiers in Roles and Modifiers.
+    private static bool _amonRaOnly;
+    private static GameObject? _filterButton;
+    private static SpriteRenderer? _filterRenderer;
+    private static bool _filterHover;
+    private static HashSet<object>? _amonRaIcons;
+    private static GameSettingMenu? _menuInstance;
+
+    /// <summary>A search (text or the AmonRa toggle) filters the open tab right now.</summary>
+    public static bool Active => _searchTabOpen && (_tokens.Length > 0 || AmonRaFilterActive);
+
+    /// <summary>The AmonRa toggle is on and the open tab is one it filters.</summary>
+    private static bool AmonRaFilterActive => _amonRaOnly && FilterTabOpen;
+
+    private static bool FilterTabOpen =>
+        MenuState.Instance != null && MenuState.Instance.CurrentMenu is MenuCategory.Roles or MenuCategory.Modifiers;
 
     [HarmonyPatch(typeof(GameSettingMenu), nameof(GameSettingMenu.Update))]
     [HarmonyPostfix]
@@ -119,6 +138,8 @@ public static class AreSettingsSearch
             _infoImage.enabled = !_searchTabOpen;
         }
 
+        UpdateFilterButton();
+
         if (_searchTabOpen)
         {
             HandleKeyboard();
@@ -156,6 +177,7 @@ public static class AreSettingsSearch
         _rawQuery = string.Empty;
         _tokens = [];
         _keepFocus = false;
+        _amonRaOnly = false;
         SetSelectAll(false);
         RoleSettingMatches.Clear();
         NormalizedTexts.Clear();
@@ -357,6 +379,21 @@ public static class AreSettingsSearch
             return AccessTools.Method("MiraAPI.Patches.Options.GameOptionsMenuPatch:UpdateGroup");
         }
 
+        // A modifier's amount and chance rows (in the "Universal Modifiers" group etc.) carry the modifier's icon.
+        private static bool IsAmonRaOption(IModdedOption option)
+        {
+            if (option is not AmountChanceOption { ResourceAsset: { } asset })
+            {
+                return false;
+            }
+
+            _amonRaIcons ??= (MiscUtils.AllModifiers ?? [])
+                .Where(x => x is IAmonRaContent && x.ModifierIcon != null)
+                .Select(x => (object)x.ModifierIcon!)
+                .ToHashSet();
+            return _amonRaIcons.Contains(asset);
+        }
+
         public static bool Prefix(AbstractOptionGroup? group, ref float num)
         {
             if (!Active || group == null || !GetReady(group) || group.Children.Count == 0)
@@ -371,6 +408,7 @@ public static class AreSettingsSearch
             }
 
             var groupMatches = Matches(header.Title.text);
+            var groupIsAmonRa = IsAmonRaType(group.OptionableType);
             var shown = new List<OptionBehaviour>();
             foreach (var option in group.Children)
             {
@@ -380,7 +418,8 @@ public static class AreSettingsSearch
                     continue;
                 }
 
-                if (option.Visible.Invoke() && (groupMatches || Matches(OptionTitle(option))))
+                if (option.Visible.Invoke() && (groupMatches || Matches(OptionTitle(option))) &&
+                    (!AmonRaFilterActive || groupIsAmonRa || IsAmonRaOption(option)))
                 {
                     shown.Add(behaviour);
                 }
@@ -390,7 +429,8 @@ public static class AreSettingsSearch
                 }
             }
 
-            if (shown.Count == 0 && !groupMatches)
+            // With the AmonRa toggle only an AmonRa group stays without options (e.g. closed by a click).
+            if (shown.Count == 0 && (!groupMatches || (AmonRaFilterActive && !groupIsAmonRa)))
             {
                 header.gameObject.SetActive(false);
                 return false;
@@ -462,13 +502,14 @@ public static class AreSettingsSearch
         }
 
         var headerMatches = !Active || Matches(header.Title.text);
-        var shown = rows.Where(row => headerMatches || RoleMatches(row)).ToList();
+        var shown = rows.Where(row => (headerMatches || RoleMatches(row)) &&
+                                      (!AmonRaFilterActive || IsAmonRaType(row.Role?.GetType()))).ToList();
         foreach (var row in rows.Except(shown))
         {
             row.gameObject.SetActive(false);
         }
 
-        if (Active && shown.Count == 0 && !headerMatches)
+        if (Active && shown.Count == 0 && (!headerMatches || AmonRaFilterActive))
         {
             header.gameObject.SetActive(false);
             return;
@@ -488,6 +529,50 @@ public static class AreSettingsSearch
         {
             y -= RoleGroupGap;
         }
+    }
+
+    private static bool IsAmonRaType(Type? type)
+    {
+        return type != null && typeof(IAmonRaContent).IsAssignableFrom(type);
+    }
+
+    private static void ToggleAmonRa()
+    {
+        _amonRaOnly = !_amonRaOnly;
+        UpdatePlaceholder();
+        if (_menuInstance != null)
+        {
+            ScrollToTop(_menuInstance);
+        }
+    }
+
+    private static void UpdatePlaceholder()
+    {
+        if (_box?.placeholderText != null)
+        {
+            _box.placeholderText.text = _amonRaOnly
+                ? MiraLocaleManager.Get("AreSettingsSearchPlaceholderAmonRa", "AmonRa only. Search...")
+                : MiraLocaleManager.Get("AreSettingsSearchPlaceholder", "Search this tab...");
+        }
+    }
+
+    /// <summary>The toggle shows in the Roles and Modifiers tabs: bright when on, faded when off.</summary>
+    private static void UpdateFilterButton()
+    {
+        if (_filterButton == null || _filterRenderer == null)
+        {
+            return;
+        }
+
+        var show = _searchTabOpen && FilterTabOpen;
+        _filterButton.SetActive(show);
+        if (!show)
+        {
+            return;
+        }
+
+        var alpha = _filterHover ? 0.75f : 0.35f;
+        _filterRenderer.color = _amonRaOnly ? Color.white : new Color(0.75f, 0.75f, 0.75f, alpha);
     }
 
     private static bool RoleMatches(RoleOptionSetting row)
@@ -588,6 +673,9 @@ public static class AreSettingsSearch
     private static void TryBuild(GameSettingMenu menu)
     {
         _menu = menu.Pointer; // one try per menu
+        _menuInstance = menu;
+        _filterButton = null;
+        _filterRenderer = null;
         _root = null;
         _box = null;
         _icon = null;
@@ -686,7 +774,30 @@ public static class AreSettingsSearch
         iconButton.OnMouseOut.AddListener((UnityAction)(() => SetIconHover(false)));
         iconButton.ClickSound = click.ClickSound;
 
-        Info($"ARE settings search: box at {center} size {size}, icon at {_icon.transform.localPosition}.");
+        // The AmonRa toggle sits inside the box, at its right end (the text is shortened for it, see StyleText).
+        _filterButton = new GameObject("AreSettingsAmonRaFilter") { layer = layer };
+        _filterButton.transform.SetParent(info, false);
+        _filterButton.transform.localPosition = new Vector3(center.x + size.x / 2f - FilterInset, center.y,
+            _root.transform.localPosition.z - 0.2f);
+        _filterRenderer = _filterButton.AddComponent<SpriteRenderer>();
+        _filterRenderer.sprite = AreAssets.AmonRaIcon.LoadAsset();
+        var filterBounds = _filterRenderer.sprite.bounds.size;
+        var filterScale = FilterSize / Mathf.Max(filterBounds.x, filterBounds.y, 0.01f);
+        _filterButton.transform.localScale = new Vector3(filterScale, filterScale, 1f);
+        _filterButton.AddComponent<BoxCollider2D>().size = filterBounds;
+        var filterButton = _filterButton.AddComponent<PassiveButton>();
+        filterButton.OnClick = new Button.ButtonClickedEvent();
+        filterButton.OnClick.AddListener((UnityAction)ToggleAmonRa);
+        filterButton.OnMouseOver = new UnityEvent();
+        filterButton.OnMouseOver.AddListener((UnityAction)(() => _filterHover = true));
+        filterButton.OnMouseOut = new UnityEvent();
+        filterButton.OnMouseOut.AddListener((UnityAction)(() => _filterHover = false));
+        filterButton.ClickSound = click.ClickSound;
+        _filterHover = false;
+        UpdatePlaceholder();
+
+        Info($"ARE settings search: box at {center} size {size}, icon at {_icon.transform.localPosition}, " +
+             $"AmonRa toggle at {_filterButton.transform.localPosition}.");
     }
 
     private static void StyleText(TextMeshPro? text, Color color, string value)
@@ -710,9 +821,10 @@ public static class AreSettingsSearch
         text.text = value;
         var rect = text.rectTransform;
         rect.pivot = new Vector2(0.5f, 0.5f);
-        rect.sizeDelta = new Vector2(1.9f, 0.5f);
+        // Shorter than the box: the AmonRa toggle sits at its right end.
+        rect.sizeDelta = new Vector2(1.5f, 0.5f);
         rect.localScale = Vector3.one;
-        rect.localPosition = new Vector3(0.05f, 0f, -0.2f);
+        rect.localPosition = new Vector3(-0.15f, 0f, -0.2f);
     }
 
     private static void SetIconHover(bool hover)

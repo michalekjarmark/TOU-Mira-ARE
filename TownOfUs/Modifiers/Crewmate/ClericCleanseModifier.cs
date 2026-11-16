@@ -20,7 +20,10 @@ public sealed class ClericCleanseModifier(PlayerControl cleric) : BaseModifier
         Blind,
         Flash,
         Hypnosis,
-        Hex
+        Hex,
+
+        // AmonRa Edition: Moderator ban
+        Ban
     }
 
     public override string ModifierName => "Cleric Cleanse";
@@ -133,6 +136,12 @@ public sealed class ClericCleanseModifier(PlayerControl cleric) : BaseModifier
         {
             Player.RemoveModifier<SpellslingerHexedModifier>();
         }
+
+        // AmonRa Edition
+        if (Effects.Contains(EffectType.Ban))
+        {
+            Player.GetModifiers<ModeratorBanModifier>().Do(Player.RemoveModifier);
+        }
     }
 
     public static List<EffectType> FindNegativeEffects(PlayerControl player)
@@ -177,6 +186,12 @@ public sealed class ClericCleanseModifier(PlayerControl cleric) : BaseModifier
         if (player.HasModifier<SpellslingerHexedModifier>())
         {
             effects.Add(EffectType.Hex);
+        }
+
+        // AmonRa Edition
+        if (player.HasModifier<ModeratorBanModifier>())
+        {
+            effects.Add(EffectType.Ban);
         }
 
         return effects;

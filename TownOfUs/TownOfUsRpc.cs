@@ -186,6 +186,7 @@ public enum TownOfUsRpc : uint
     ComfyOffloadDone,
     ComfySulkBlocked,
     LighthousePlaceLantern,
+    ModeratorBan,
 }
 
 internal enum TownOfUsInternalRpc : uint

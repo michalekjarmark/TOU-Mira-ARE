@@ -37,6 +37,9 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
 
 ## MiraAPI
 
+- **`RemoveModifier` is deferred:** it only queues the modifier (`_toRemove`), so removing while iterating
+  `GetModifiers` is safe, but `HasModifier` still sees it until the component's next update. Remove-then-add of the same
+  type in one frame leaves both for a moment.
 - Every abstract base class (role, button, modifier, options) needs `[MiraIgnore]`: the reflection scan doesn't skip
   abstract types in plugins.
 - **Locale placeholders:** when loading the XML, `MiraLocaleManager` turns every `[` into `<` and every `]` into `>`.

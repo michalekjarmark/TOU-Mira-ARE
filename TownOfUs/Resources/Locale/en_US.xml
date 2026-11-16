@@ -4074,6 +4074,7 @@ Restart the game, the update will be tried again.</string>
   <string name="AreFreeplaySettingsButton">Settings</string>
   <string name="AreFreeplaySettingsUnavailable">The settings menu is not available here. Open a local lobby once and try again.</string>
   <string name="AreSettingsSearchPlaceholder">Search this tab...</string>
+  <string name="AreSettingsSearchPlaceholderAmonRa">AmonRa only. Search...</string>
   <!-- AmonRa Edition - Gambler (Neutral Evil) -->
   <string name="TownOfUsMira.Role.Gambler">Gambler</string>
   <string name="TownOfUsMira.Role.Gambler.IntroBlurb">Bet on who gets ejected!</string>
@@ -4394,4 +4395,49 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionExpertFakeEnumAnyRole">Any Role</string>
   <string name="TouOptionExpertFakeEnumOtherFaction">A Role Of Another Faction</string>
   <string name="TouOptionExpertCanReexamine">Can Examine The Same Player Again</string>
+  <!-- AmonRa Edition - Moderator (Impostor Support) -->
+  <string name="TownOfUsMira.Role.Moderator">Moderator</string>
+  <string name="TownOfUsMira.Role.Moderator.IntroBlurb">Ban them for anything.</string>
+  <string name="TownOfUsMira.Role.Moderator.TabDescription">Ban players from reporting, the meeting button, tasks, vents, gadgets, abilities or voting.</string>
+  <string name="TownOfUsMira.Role.Moderator.MedDescription">Bans players from one thing until the meeting.</string>
+  <string name="TownOfUsMira.Role.Moderator.WikiDescription">The Moderator is an Impostor Support role that bans nearby players. A ban blocks one thing until the next meeting (or for a set time): reporting bodies, the meeting button, tasks, getting into vents, cams, admin and vitals (also the portable ones), abilities (kill and sabotage included), or the vote in the next meeting (it doesn't count). By default the type is drawn at random from the ones enabled in the lobby; with an option the Moderator picks it with a second button. The banned player gets a message (option) and the Moderator sees Ø after their name. Sabotage repairs, doors and ladders are never blocked, and a player in a vent can always get out. The Cleric's Cleanse removes bans. Banning counts as an interaction.</string>
+  <string name="TownOfUsMira.Role.ModeratorBan">Ban</string>
+  <string name="TownOfUsMira.Role.ModeratorBan.WikiDescription">Ban a nearby player from one thing until the next meeting.</string>
+  <string name="TownOfUsMira.Role.ModeratorType">Ban Type</string>
+  <string name="TownOfUsMira.Role.ModeratorType.WikiDescription">Only with the "Moderator Chooses The Ban" option: switch to the next ban type. The button shows the type the next ban gets.</string>
+  <string name="TownOfUsMira.Role.ModeratorBanGiven">[player] got a ban: [ban].</string>
+  <string name="TownOfUsMira.Role.ModeratorBannedUntilMeeting">You got a ban: [ban], until the next meeting.</string>
+  <string name="TownOfUsMira.Role.ModeratorBannedTimed">You got a ban: [ban], for [time] s.</string>
+  <string name="TownOfUsMira.Role.ModeratorBannedVote">You got a ban: your vote won't count in the next meeting.</string>
+  <string name="TownOfUsMira.Role.ModeratorVoteBanned">Banned: your vote doesn't count.</string>
+  <string name="TownOfUsMira.Role.ModeratorBanNameReports">reporting bodies</string>
+  <string name="TownOfUsMira.Role.ModeratorBanShortReports">Reports</string>
+  <string name="TownOfUsMira.Role.ModeratorBanNameMeetingButton">the meeting button</string>
+  <string name="TownOfUsMira.Role.ModeratorBanShortMeetingButton">Button</string>
+  <string name="TownOfUsMira.Role.ModeratorBanNameTasks">tasks</string>
+  <string name="TownOfUsMira.Role.ModeratorBanShortTasks">Tasks</string>
+  <string name="TownOfUsMira.Role.ModeratorBanNameVents">vents</string>
+  <string name="TownOfUsMira.Role.ModeratorBanShortVents">Vents</string>
+  <string name="TownOfUsMira.Role.ModeratorBanNameEquipment">cams, admin and vitals</string>
+  <string name="TownOfUsMira.Role.ModeratorBanShortEquipment">Gadgets</string>
+  <string name="TownOfUsMira.Role.ModeratorBanNameAbilities">abilities</string>
+  <string name="TownOfUsMira.Role.ModeratorBanShortAbilities">Abilities</string>
+  <string name="TownOfUsMira.Role.ModeratorBanNameVote">the vote in the next meeting</string>
+  <string name="TownOfUsMira.Role.ModeratorBanShortVote">Vote</string>
+  <string name="TouOptionModeratorBanCooldown">Ban Cooldown</string>
+  <string name="TouOptionModeratorMaxBans">Max Bans Per Game</string>
+  <string name="TouOptionModeratorBansPerRound">Max Bans Per Round</string>
+  <string name="TouOptionModeratorBanLength">A Ban Lasts</string>
+  <string name="TouOptionModeratorBanLengthEnumUntilMeeting">Until The Next Meeting</string>
+  <string name="TouOptionModeratorBanLengthEnumTimed">A Set Time</string>
+  <string name="TouOptionModeratorBanDuration">Ban Duration</string>
+  <string name="TouOptionModeratorChoosesType">Moderator Chooses The Ban</string>
+  <string name="TouOptionModeratorTargetNotified">Banned Player Gets A Message</string>
+  <string name="TouOptionModeratorBanReports">Can Ban: Reporting Bodies</string>
+  <string name="TouOptionModeratorBanMeetingButton">Can Ban: Meeting Button</string>
+  <string name="TouOptionModeratorBanTasks">Can Ban: Tasks</string>
+  <string name="TouOptionModeratorBanVents">Can Ban: Vents</string>
+  <string name="TouOptionModeratorBanEquipment">Can Ban: Cams, Admin, Vitals</string>
+  <string name="TouOptionModeratorBanAbilities">Can Ban: Abilities</string>
+  <string name="TouOptionModeratorBanVote">Can Ban: Vote</string>
 </resources>

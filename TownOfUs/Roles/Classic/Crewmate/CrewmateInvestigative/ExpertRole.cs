@@ -18,7 +18,8 @@ namespace TownOfUs.Roles.Crewmate;
 ///     (lobby option) the result is made up, and the Expert can't tell which results are wrong. The result stays on the
 ///     player's name for the Expert (<see cref="ExpertVerdictModifier" />, local only, nothing is synced).
 /// </summary>
-public sealed class ExpertRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable
+public sealed class ExpertRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable,
+    IAmonRaContent
 {
     public string IdPart => "Expert";
     public Color RoleColor => TownOfUsColors.Expert;

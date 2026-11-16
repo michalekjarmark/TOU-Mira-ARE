@@ -14,7 +14,7 @@ namespace TownOfUs.Modifiers.Game.Universal;
 ///     <see cref="Patches.Modifiers.AmonRaMovementPatches"/>, this class handles assignment, the wheelchair visual
 ///     (with a rolling rear wheel) and the rolling sound.
 /// </summary>
-public sealed class AmonRaModifier : UniversalGameModifier, IWikiDiscoverable
+public sealed class AmonRaModifier : UniversalGameModifier, IWikiDiscoverable, IAmonRaContent
 {
     // Visual tuning, relative to the local bounds of the player's body sprite (see tools/are-assets/draw-wheelchair.ps1).
     private const float ChairWidthFactor = 1.3f;  // chair width = body width * factor

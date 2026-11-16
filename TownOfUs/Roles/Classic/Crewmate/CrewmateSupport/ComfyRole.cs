@@ -12,7 +12,8 @@ namespace TownOfUs.Roles.Crewmate;
 ///     annoys them. The task gets locked for a while, a ready sulk makes them untouchable for a few seconds, and the
 ///     locked task can be offloaded to someone nearby. The whole mechanism is in <see cref="ComfySystem" />.
 /// </summary>
-public sealed class ComfyRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable
+public sealed class ComfyRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable,
+    IAmonRaContent
 {
     public string IdPart => "Comfy";
     public Color RoleColor => TownOfUsColors.Comfy;

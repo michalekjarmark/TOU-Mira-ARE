@@ -33,6 +33,11 @@ public static class AreRoleTexts
             name += $"{TownOfUsColors.Impostor.ToTextColor()} ♪</color>";
         }
 
+        if (ModeratorSystem.ShowsSymbol(player))
+        {
+            name += $"{TownOfUsColors.Impostor.ToTextColor()} {ModeratorSystem.Symbol}</color>";
+        }
+
         return name;
     }
 
@@ -90,6 +95,12 @@ public static class AreMeetingTimerTextPatch
             ComfyRole => ComfySystem.MeetingStatusText(),
             _ => string.Empty
         };
+
+        var ban = ModeratorSystem.MeetingStatusText();
+        if (ban.Length > 0)
+        {
+            line = line.Length > 0 ? $"{line}\n{ban}" : ban;
+        }
 
         if (line.Length > 0)
         {

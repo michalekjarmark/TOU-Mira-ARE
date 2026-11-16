@@ -84,9 +84,11 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/ComfyIcon.png" width="48"/><br>**Wygodniś** (Comfy) | Rola (Crewmate Support) | Denerwuje się, gdy zadanie nie idzie po jego myśli. Zamknięcie własnego zadania, zanim cokolwiek się w nim zrobi, blokuje to zadanie na jakiś czas i, jeśli foch jest gotowy, włącza go: przez kilka sekund zabójstwa i umiejętności na Wygodnisiu się nie udają (jak przy barierze Kleryka), ale nie może robić zadań ani zgłaszać ciał. Póki zadanie jest zablokowane, Wygodniś może je zrzucić na gracza obok (to interakcja, domyślnie 2 razy na grę) i widzi, czy zostało zrobione. Niezrobione zadanie wraca na początku najbliższego spotkania, a impostor go nie zrobi, więc zrzucenie jest też testem. Każda liczba i zasada jest opcją w lobby: czas blokady, czas i cooldown focha, przed czym chroni i co blokuje, liczba i cooldown zrzuceń, czy zadanie wraca, czy odbiorca widzi nick. |
 | <img src="TownOfUs/Resources/Custom/LighthouseKeeperIcon.png" width="48"/><br>**Latarnik** (Lighthouse Keeper) | Rola (Crewmate Support) | Stawia latarnie na mapie (domyślnie 3 na grę), widoczne dla wszystkich. W trakcie sabotażu świateł każdy gracz w promieniu latarni widzi tak, jakby światła działały, jak z modyfikatorem Torch. Latarnie stoją do końca gry. Opcje: cooldown, liczba latarni na grę, promień światła, ściany zatrzymują światło, wszyscy widzą latarnie, latarnie gasną po śmierci Latarnika. |
 | <img src="TownOfUs/Resources/Custom/ExpertIcon.png" width="48"/><br>**Ekspert** (Expert) | Rola (Crewmate Investigative) | Bada gracza obok i poznaje jego dokładną rolę, widoczną potem przy jego nicku. Z pewną szansą (domyślnie 30%) wynik jest zmyślony, czyli to inna rola, a Ekspert nigdy nie wie, które wyniki są błędne. Domyślnie każdego gracza można zbadać tylko raz. Opcje: cooldown, liczba ekspertyz na grę, szansa na błędny wynik i jej wzrost z każdą ekspertyzą, co pokazuje błędny wynik (rolę z tej gry / dowolną rolę / rolę innej frakcji), ponowna ekspertyza tego samego gracza. |
+| <img src="TownOfUs/Resources/Custom/ModeratorIcon.png" width="48"/><br>**Moderator** | Rola (Impostor Support) | Banuje gracza obok na jedną rzecz do najbliższego spotkania (albo na określony czas): zgłaszanie ciał, przycisk awaryjny, zadania, wchodzenie do wentów, kamery/admin/vitals (także przenośne), umiejętności (razem z zabijaniem i sabotażem) albo głos na najbliższym spotkaniu (nie liczy się). Rodzaj jest losowany spośród włączonych albo (opcja) wybierany drugim przyciskiem. Naprawa sabotażu, drzwi i drabiny nigdy nie są blokowane. Oczyszczenie Clerica zdejmuje bany. Opcje: cooldown, liczba banów na grę i na rundę, czas bana, każdy rodzaj bana osobno, wybór rodzaju przez Moderatora, komunikat dla zbanowanego. |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), wyszukiwarka
-i ikony modyfikatorów w ustawieniach lobby, automatyczne aktualizacje, pełna paczka instalacyjna i własne logo na
+(z przełącznikiem „AmonRa”, który pokazuje tylko role i modyfikatory w klimacie AmonRa) i ikony modyfikatorów w
+ustawieniach lobby, automatyczne aktualizacje, pełna paczka instalacyjna i własne logo na
 ekranie startowym i w menu głównym.
 
 # Wersje
@@ -127,7 +129,8 @@ Impostor Concealing), **Pracoholik** (kubek kawy, Crewmate Support), **Brzuchom�
 Impostor Support), **Wandal** (puszka ze sprayem, Impostor Support), **Rywale** (skrzyżowane miecze, modyfikatory
 Alliance), **Symulant** (leżący załogant, Impostor Killing), **Krwawiący** (kropla krwi, modyfikatory załogi),
 **Daltonista** (oko) i **Lunatyk** (księżyc, oba w modyfikatorach uniwersalnych), **Wygodniś** (fotel) i **Latarnik**
-(latarnia, obaj w Crewmate Support) oraz **Ekspert** (latający spodek, Crewmate Investigative). Kluczowe różnice Town of Us: Mira,
+(latarnia, obaj w Crewmate Support), **Ekspert** (latający spodek, Crewmate Investigative) i **Moderator** (młotek do
+banów, Impostor Support). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -207,6 +210,7 @@ obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskie
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Hypnotist"><img width="10%" src="Images/Icons/Hypnotist.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Janitor"><img width="10%" src="Images/Icons/Janitor.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Miner"><img width="10%" src="Images/Icons/Miner.png" /></a>
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/ModeratorIcon.png" alt="Moderator (AmonRa Edition)" /></a>
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/RiggerIcon.png" alt="Monter (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/support/Undertaker"><img width="10%" src="Images/Icons/Undertaker.png" /></a>
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/VandalIcon.png" alt="Wandal (AmonRa Edition)" /></a>

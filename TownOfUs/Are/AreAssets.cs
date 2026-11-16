@@ -242,4 +242,22 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> ExpertButton { get; } =
         new LoadableResourceAsset($"{CustomPath}.ExpertButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Moderator role icon (a ban hammer). 128px.
+    /// </summary>
+    public static LoadableAsset<Sprite> ModeratorIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.ModeratorIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Moderator "Ban" button (a ban hammer over a prohibition sign). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> ModeratorButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.ModeratorButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Moderator "Ban Type" button (a list with an arrow). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> ModeratorTypeButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.ModeratorTypeButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 }

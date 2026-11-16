@@ -9,6 +9,29 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
+### Added
+
+- **Expert** (new Crewmate Investigative role): examines a nearby player and learns their exact role, shown on the
+  player's name. With a chance (30% by default) the result is made up: a different role, by default one that can
+  spawn in this game. The Expert never knows which results are wrong. By default each player can be examined only
+  once, so the first result stays. Examining counts as an interaction. Options: cooldown, examinations per game,
+  chance of a wrong result and its growth with every examination, what a wrong result shows (a role in this game /
+  any role / a role of another faction), examining the same player again.
+
+<details>
+<summary><i>Po polsku</i></summary>
+
+**Dodano**
+
+- **Ekspert** (Expert, nowa rola Crewmate Investigative): bada gracza obok i poznaje jego dokładną rolę, widoczną
+  potem przy nicku tego gracza. Z pewną szansą (domyślnie 30%) wynik jest zmyślony: to inna rola, domyślnie taka,
+  która może wypaść w tej grze. Ekspert nigdy nie wie, które wyniki są błędne. Domyślnie każdego gracza można zbadać
+  tylko raz, więc pierwszy wynik zostaje. Ekspertyza liczy się jako interakcja. Opcje: cooldown, liczba ekspertyz na
+  grę, szansa na błędny wynik i jej wzrost z każdą ekspertyzą, co pokazuje błędny wynik (rolę z tej gry / dowolną
+  rolę / rolę innej frakcji), ponowna ekspertyza tego samego gracza.
+
+</details>
+
 ## [1.7.9-are.7] - 2026-11-14
 
 ### Added

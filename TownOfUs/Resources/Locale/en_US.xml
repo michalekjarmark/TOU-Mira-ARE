@@ -4376,4 +4376,22 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionLighthouseKeeperWallsBlockLight">Walls Block The Light</string>
   <string name="TouOptionLighthouseKeeperLanternsVisible">Everyone Sees The Lanterns</string>
   <string name="TouOptionLighthouseKeeperLanternsOutOnDeath">Lanterns Go Out When The Keeper Dies</string>
+  <!-- AmonRa Edition - Expert (Crewmate Investigative) -->
+  <string name="TownOfUsMira.Role.Expert">Expert</string>
+  <string name="TownOfUsMira.Role.Expert.IntroBlurb">You know every role. Usually.</string>
+  <string name="TownOfUsMira.Role.Expert.TabDescription">Examine players to learn their exact role. Some of your results are wrong, and you can't tell which.</string>
+  <string name="TownOfUsMira.Role.Expert.MedDescription">Learns exact roles, but some results are made up.</string>
+  <string name="TownOfUsMira.Role.Expert.WikiDescription">The Expert is a Crewmate Investigative role that examines players and learns their exact role, shown on the player's name. With a chance (lobby option, 30% by default) the result is made up: a different role, by default one that can spawn in this game. The Expert never knows which results are wrong, and everyone else should know that an Expert can be wrong. By default a player can be examined only once, so the first result stays. Examining counts as an interaction.</string>
+  <string name="TownOfUsMira.Role.ExpertExamine">Examine</string>
+  <string name="TownOfUsMira.Role.ExpertExamine.WikiDescription">Examine a nearby player and learn their role. The result may be wrong.</string>
+  <string name="TownOfUsMira.Role.ExpertVerdict">Expert opinion: [player] is the [role].</string>
+  <string name="TouOptionExpertExamineCooldown">Examine Cooldown</string>
+  <string name="TouOptionExpertMaxExaminations">Max Examinations Per Game</string>
+  <string name="TouOptionExpertWrongChance">Chance Of A Wrong Result</string>
+  <string name="TouOptionExpertWrongChanceGrowth">Wrong Result Chance Growth Per Examination</string>
+  <string name="TouOptionExpertFakeRoleSource">A Wrong Result Shows</string>
+  <string name="TouOptionExpertFakeEnumRolesInGame">A Role In This Game</string>
+  <string name="TouOptionExpertFakeEnumAnyRole">Any Role</string>
+  <string name="TouOptionExpertFakeEnumOtherFaction">A Role Of Another Faction</string>
+  <string name="TouOptionExpertCanReexamine">Can Examine The Same Player Again</string>
 </resources>

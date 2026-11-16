@@ -80,6 +80,7 @@ Everything below is new in AmonRa Edition. For all roles and modifiers of Town o
 | <img src="TownOfUs/Resources/Custom/SleepwalkerIcon.png" width="48"/><br>**Sleepwalker** | Modifier (Universal) | After standing still for a while (20 s by default), the Sleepwalker starts walking on their own, slower, in a random direction that changes now and then and at walls. Any movement wakes them up. Doing a task, a vent or a meeting doesn't count as standing. Options: time standing still, sleepwalking speed, sleepwalking time. |
 | <img src="TownOfUs/Resources/Custom/ComfyIcon.png" width="48"/><br>**Comfy** | Role (Crewmate Support) | Gets annoyed when a task doesn't go their way. Closing one of their own tasks before doing anything in it locks that task for them for a while and, if their sulk is ready, starts it: for a few seconds kills and abilities on the Comfy fail (like on the Cleric's barrier), but they can't do tasks or report bodies. While a task is locked, the Comfy can offload it to a player nearby (an interaction, 2 per game by default) and sees whether they did it. A task that isn't done comes back at the start of the next meeting, and an impostor can't do it, so offloading is also a test. Every number and rule is a lobby option: lock time, sulk time and cooldown, what the sulk stops and blocks, offloads per game and cooldown, whether the task comes back, whether the receiver sees the name. |
 | <img src="TownOfUs/Resources/Custom/LighthouseKeeperIcon.png" width="48"/><br>**Lighthouse Keeper** | Role (Crewmate Support) | Places lanterns on the map (3 per game by default), visible to everyone. During a lights sabotage, every player within a lantern's radius sees as if the lights were on, like with the Torch. Lanterns stay until the end of the game. Options: cooldown, lanterns per game, light radius, walls block the light, everyone sees the lanterns, lanterns go out when the Keeper dies. |
+| <img src="TownOfUs/Resources/Custom/ExpertIcon.png" width="48"/><br>**Expert** | Role (Crewmate Investigative) | Examines a nearby player and learns their exact role, shown on their name. With a chance (30% by default) the result is made up, a different role, and the Expert never knows which results are wrong. By default each player can be examined only once. Options: cooldown, examinations per game, chance of a wrong result and its growth with every examination, what a wrong result shows (a role in this game / any role / a role of another faction), examining the same player again. |
 
 Also: a "Settings" button in Freeplay (change the lobby settings without leaving practice), a search box and
 modifier icons in the lobby settings, automatic updates, a full installation package and our own logo on the startup
@@ -150,7 +151,7 @@ Impostor Concealing), **Workaholic** (coffee mug, Crewmate Support), **Ventriloq
 Impostor Support), **Vandal** (spray can, Impostor Support), **Rivals** (crossed swords, alliance modifiers),
 **Possum** (crewmate lying down, Impostor Killing), **Bleeder** (blood drop, crewmate modifiers), **Colorblind** (eye)
 and **Sleepwalker** (moon, both universal modifiers), **Comfy** (armchair) and **Lighthouse Keeper** (lantern, both
-Crewmate Support).
+Crewmate Support), and **Expert** (flying saucer, Crewmate Investigative).
 
 
 <p align="center">
@@ -159,6 +160,7 @@ Crewmate Support).
   <img src="Images/Groups/CrewInvest.png" align="center" />
   <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/AuditorIcon.png" alt="Auditor (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/investigative/Aurial"><img width="10%" src="Images/Icons/Aurial.png" /></a>
+  <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/ExpertIcon.png" alt="Expert (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/investigative/Forensic"><img width="10%" src="Images/Icons/Forensic.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/investigative/Investigator"><img width="10%" src="Images/Icons/Investigator.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/investigative/Lookout"><img width="10%" src="Images/Icons/Lookout.png" /></a>

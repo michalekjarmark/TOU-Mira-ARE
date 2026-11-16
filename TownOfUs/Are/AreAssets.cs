@@ -230,4 +230,16 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> LanternGlow { get; } =
         new LoadableResourceAsset($"{CustomPath}.LanternGlow.png", typeof(TownOfUsPlugin).Assembly, 128f);
+
+    /// <summary>
+    ///     Expert role icon (a flying saucer). 128px.
+    /// </summary>
+    public static LoadableAsset<Sprite> ExpertIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.ExpertIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Expert "Examine" button (a magnifying glass over a question mark). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> ExpertButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.ExpertButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 }

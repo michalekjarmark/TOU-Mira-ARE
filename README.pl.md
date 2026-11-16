@@ -83,6 +83,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/SleepwalkerIcon.png" width="48"/><br>**Lunatyk** (Sleepwalker) | Modyfikator (uniwersalny) | Po dłuższym staniu w miejscu (domyślnie 20 s) Lunatyk zaczyna sam chodzić, wolniej, w losowym kierunku, który zmienia się co jakiś czas i przy ścianach. Każdy ruch go budzi. Robienie zadania, went i spotkanie nie liczą się jako stanie. Opcje: czas stania, prędkość lunatykowania, czas lunatykowania. |
 | <img src="TownOfUs/Resources/Custom/ComfyIcon.png" width="48"/><br>**Wygodniś** (Comfy) | Rola (Crewmate Support) | Denerwuje się, gdy zadanie nie idzie po jego myśli. Zamknięcie własnego zadania, zanim cokolwiek się w nim zrobi, blokuje to zadanie na jakiś czas i, jeśli foch jest gotowy, włącza go: przez kilka sekund zabójstwa i umiejętności na Wygodnisiu się nie udają (jak przy barierze Kleryka), ale nie może robić zadań ani zgłaszać ciał. Póki zadanie jest zablokowane, Wygodniś może je zrzucić na gracza obok (to interakcja, domyślnie 2 razy na grę) i widzi, czy zostało zrobione. Niezrobione zadanie wraca na początku najbliższego spotkania, a impostor go nie zrobi, więc zrzucenie jest też testem. Każda liczba i zasada jest opcją w lobby: czas blokady, czas i cooldown focha, przed czym chroni i co blokuje, liczba i cooldown zrzuceń, czy zadanie wraca, czy odbiorca widzi nick. |
 | <img src="TownOfUs/Resources/Custom/LighthouseKeeperIcon.png" width="48"/><br>**Latarnik** (Lighthouse Keeper) | Rola (Crewmate Support) | Stawia latarnie na mapie (domyślnie 3 na grę), widoczne dla wszystkich. W trakcie sabotażu świateł każdy gracz w promieniu latarni widzi tak, jakby światła działały, jak z modyfikatorem Torch. Latarnie stoją do końca gry. Opcje: cooldown, liczba latarni na grę, promień światła, ściany zatrzymują światło, wszyscy widzą latarnie, latarnie gasną po śmierci Latarnika. |
+| <img src="TownOfUs/Resources/Custom/ExpertIcon.png" width="48"/><br>**Ekspert** (Expert) | Rola (Crewmate Investigative) | Bada gracza obok i poznaje jego dokładną rolę, widoczną potem przy jego nicku. Z pewną szansą (domyślnie 30%) wynik jest zmyślony, czyli to inna rola, a Ekspert nigdy nie wie, które wyniki są błędne. Domyślnie każdego gracza można zbadać tylko raz. Opcje: cooldown, liczba ekspertyz na grę, szansa na błędny wynik i jej wzrost z każdą ekspertyzą, co pokazuje błędny wynik (rolę z tej gry / dowolną rolę / rolę innej frakcji), ponowna ekspertyza tego samego gracza. |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), wyszukiwarka
 i ikony modyfikatorów w ustawieniach lobby, automatyczne aktualizacje, pełna paczka instalacyjna i własne logo na
@@ -126,7 +127,7 @@ Impostor Concealing), **Pracoholik** (kubek kawy, Crewmate Support), **Brzuchom�
 Impostor Support), **Wandal** (puszka ze sprayem, Impostor Support), **Rywale** (skrzyżowane miecze, modyfikatory
 Alliance), **Symulant** (leżący załogant, Impostor Killing), **Krwawiący** (kropla krwi, modyfikatory załogi),
 **Daltonista** (oko) i **Lunatyk** (księżyc, oba w modyfikatorach uniwersalnych), **Wygodniś** (fotel) i **Latarnik**
-(latarnia, obaj w Crewmate Support). Kluczowe różnice Town of Us: Mira,
+(latarnia, obaj w Crewmate Support) oraz **Ekspert** (latający spodek, Crewmate Investigative). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -136,6 +137,7 @@ obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskie
   <img src="Images/Groups/CrewInvest.png" align="center" />
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/AuditorIcon.png" alt="Audytor (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/investigative/Aurial"><img width="10%" src="Images/Icons/Aurial.png" /></a>
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/ExpertIcon.png" alt="Ekspert (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/investigative/Forensic"><img width="10%" src="Images/Icons/Forensic.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/investigative/Investigator"><img width="10%" src="Images/Icons/Investigator.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/investigative/Lookout"><img width="10%" src="Images/Icons/Lookout.png" /></a>

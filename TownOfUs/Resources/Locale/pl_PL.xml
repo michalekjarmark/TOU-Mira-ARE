@@ -1674,4 +1674,22 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionLighthouseKeeperWallsBlockLight">Ściany zatrzymują światło</string>
   <string name="TouOptionLighthouseKeeperLanternsVisible">Wszyscy widzą latarnie</string>
   <string name="TouOptionLighthouseKeeperLanternsOutOnDeath">Latarnie gasną po śmierci Latarnika</string>
+  <!-- AmonRa Edition - Expert (Crewmate Investigative) -->
+  <string name="TownOfUsMira.Role.Expert">Ekspert</string>
+  <string name="TownOfUsMira.Role.Expert.IntroBlurb">Znasz każdą rolę. Zazwyczaj.</string>
+  <string name="TownOfUsMira.Role.Expert.TabDescription">Badaj graczy, żeby poznać ich dokładną rolę. Część wyników jest błędna i nie wiesz, które.</string>
+  <string name="TownOfUsMira.Role.Expert.MedDescription">Poznaje dokładne role, ale część wyników jest zmyślona.</string>
+  <string name="TownOfUsMira.Role.Expert.WikiDescription">Ekspert to rola Crewmate Investigative, która bada graczy i poznaje ich dokładną rolę, widoczną potem przy nicku gracza. Z pewną szansą (opcja lobby, domyślnie 30%) wynik jest zmyślony: to inna rola, domyślnie taka, która może wypaść w tej grze. Ekspert nigdy nie wie, które wyniki są błędne, a pozostali powinni pamiętać, że Ekspert może się mylić. Domyślnie gracza można zbadać tylko raz, więc pierwszy wynik zostaje. Ekspertyza liczy się jako interakcja.</string>
+  <string name="TownOfUsMira.Role.ExpertExamine">Ekspertyza</string>
+  <string name="TownOfUsMira.Role.ExpertExamine.WikiDescription">Zbadaj gracza obok i poznaj jego rolę. Wynik może być błędny.</string>
+  <string name="TownOfUsMira.Role.ExpertVerdict">Opinia eksperta: [player] to [role].</string>
+  <string name="TouOptionExpertExamineCooldown">Cooldown ekspertyzy</string>
+  <string name="TouOptionExpertMaxExaminations">Maks. ekspertyz na grę</string>
+  <string name="TouOptionExpertWrongChance">Szansa na błędny wynik</string>
+  <string name="TouOptionExpertWrongChanceGrowth">Wzrost szansy błędu z każdą ekspertyzą</string>
+  <string name="TouOptionExpertFakeRoleSource">Błędny wynik pokazuje</string>
+  <string name="TouOptionExpertFakeEnumRolesInGame">Rolę z tej gry</string>
+  <string name="TouOptionExpertFakeEnumAnyRole">Dowolną rolę</string>
+  <string name="TouOptionExpertFakeEnumOtherFaction">Rolę innej frakcji</string>
+  <string name="TouOptionExpertCanReexamine">Ponowna ekspertyza tego samego gracza</string>
 </resources>

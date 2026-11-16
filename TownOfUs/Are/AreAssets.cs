@@ -338,4 +338,16 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> StreamSniperMarkButton { get; } =
         new LoadableResourceAsset($"{CustomPath}.StreamSniperMarkButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Fabulist role icon (a crewmate and its see-through copy). 128px.
+    /// </summary>
+    public static LoadableAsset<Sprite> FabulistIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.FabulistIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Fabulist "Alibi" button (a dashed crewmate at a console). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> FabulistAlibiButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.FabulistAlibiButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 }

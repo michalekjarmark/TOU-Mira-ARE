@@ -86,6 +86,7 @@ Everything below is new in AmonRa Edition. For all roles and modifiers of Town o
 | <img src="TownOfUs/Resources/Custom/HandymanIcon.png" width="48"/><br>**Handyman** | Role (Crewmate Support) | Gets a random job at the start of every round, with an ability for that round (one use by default): PC Service (fix a sabotage from anywhere), Pizzeria (a sprint), Warehouse (admin from anywhere) or Stream (cameras from anywhere; never on maps without cameras). Options: uses per round, cooldown, the same job twice in a row, each job on/off with its time (fix delay, sprint time and speed, admin time and moving with it, cameras time). |
 | <img src="TownOfUs/Resources/Custom/StreamerIcon.png" width="48"/><br>**Streamer** | Modifier (Universal) | Sees "LIVE: N viewers" whenever someone watches a camera feed with them in it (map cameras, Sentry cameras, the portable ones of the Operative and the Handyman, a Stream Sniper's view; the admin map as an option), without names. "Go offline" hides them from the cameras for a few seconds. Options: admin map counts, show the number of viewers, the "Go offline" button, its time and uses per round. |
 | <img src="TownOfUs/Resources/Custom/StreamSniperIcon.png" width="48"/><br>**Stream Sniper** | Role (Impostor Support) | Watches the view around a chosen living player for a few seconds (8 s by default) in a small window in a corner of the screen, through walls and darkness. Moves normally meanwhile. A watched Streamer gets a viewer. Options: cooldown, time, watches per game, view size, who can be watched (anyone from a list / only the player marked earlier next to them), mark cooldown, the watched player knows. |
+| <img src="TownOfUs/Resources/Custom/FabulistIcon.png" width="48"/><br>**Fabulist** | Role (Impostor Concealing) | Leaves a copy of themselves at a task console as an alibi (20 s by default), seen by everyone, cameras included, while the real Fabulist walks away. The copy disappears when another player comes close, at a meeting or when the Fabulist dies, and can't be killed or reported. The admin map shows the real Fabulist. Options: cooldown, time, alibis per game, the distance that breaks it, only at a task console, the admin map counts the copy. |
 
 Also: a "Settings" button in Freeplay (change the lobby settings without leaving practice), a search box (with an
 "AmonRa" toggle that shows only the AmonRa-themed roles and modifiers) and modifier icons in the lobby settings, automatic updates, a full installation package and our own logo on the startup
@@ -158,7 +159,8 @@ Impostor Support), **Vandal** (spray can, Impostor Support), **Rivals** (crossed
 and **Sleepwalker** (moon, both universal modifiers), **Comfy** (armchair) and **Lighthouse Keeper** (lantern, both
 Crewmate Support), **Expert** (flying saucer, Crewmate Investigative), **Moderator** (ban hammer, Impostor
 Support), **Chairman** (necktie, Crewmate Support), **Handyman** (toolbox, Crewmate Support), **Streamer** (webcam,
-universal modifiers) and **Stream Sniper** (screen with a crosshair, Impostor Support).
+universal modifiers), **Stream Sniper** (screen with a crosshair, Impostor Support) and **Fabulist** (crewmate
+with its see-through copy, Impostor Concealing).
 
 
 <p align="center">
@@ -215,6 +217,7 @@ universal modifiers) and **Stream Sniper** (screen with a crosshair, Impostor Su
   <img src="Images/Groups/ImpConcealing.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Eclipsal"><img width="10%" src="Images/Icons/Eclipsal.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Escapist"><img width="10%" src="Images/Icons/Escapist.png" /></a>
+  <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/FabulistIcon.png" alt="Fabulist (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Grenadier"><img width="10%" src="Images/Icons/Grenadier.png" /></a>
   <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/InsiderIcon.png" alt="Insider (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Morphling"><img width="10%" src="Images/Icons/Morphling.png" /></a>

@@ -89,6 +89,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/HandymanIcon.png" width="48"/><br>**Złota Rączka** (Handyman) | Rola (Crewmate Support) | Na początku każdej rundy losuje etat z umiejętnością na tę rundę (domyślnie jedno użycie): Serwis (naprawa sabotażu z dowolnego miejsca), Pizzeria (sprint), Magazyn (admin z dowolnego miejsca) albo Stream (kamery z dowolnego miejsca; nie wypada na mapach bez kamer). Opcje: użycia na rundę, cooldown, ten sam etat dwa razy z rzędu, każdy etat osobno z jego czasem (opóźnienie naprawy, czas i prędkość sprintu, czas admina i ruch z nim, czas kamer). |
 | <img src="TownOfUs/Resources/Custom/StreamerIcon.png" width="48"/><br>**Streamer** | Modyfikator (uniwersalny) | Widzi „NA ŻYWO: N widzów”, kiedy ktoś ogląda obraz z kamery, na którym jest (kamery mapy, kamery Sentry, przenośne kamery Operative i Złotej Rączki, podgląd Snajpera; z opcją mapa admina), bez nicków. „Wyłączam streama” ukrywa go na kilka sekund przed kamerami. Opcje: admin się liczy, liczba widzów, przycisk „Wyłączam streama”, jego czas i użycia na rundę. |
 | <img src="TownOfUs/Resources/Custom/StreamSniperIcon.png" width="48"/><br>**Snajper** (Stream Sniper) | Rola (Impostor Support) | Przez kilka sekund (domyślnie 8 s) ogląda w okienku w rogu ekranu widok wokół wybranego żywego gracza, przez ściany i ciemność. W tym czasie rusza się normalnie. Oglądanemu Streamerowi przybywa widz. Opcje: cooldown, czas, liczba podglądów na grę, rozmiar widoku, kogo można oglądać (każdego z listy / tylko gracza oznaczonego wcześniej obok siebie), cooldown oznaczenia, oglądany gracz wie. |
+| <img src="TownOfUs/Resources/Custom/FabulistIcon.png" width="48"/><br>**Mitoman** (Fabulist) | Rola (Impostor Concealing) | Zostawia przy konsoli zadania swoją kopię jako alibi (domyślnie 20 s). Widzą ją wszyscy, także na kamerach, a prawdziwy Mitoman w tym czasie odchodzi. Kopia znika, gdy ktoś do niej podejdzie, przy spotkaniu albo gdy Mitoman zginie; nie da się jej zabić ani zgłosić. Mapa admina pokazuje prawdziwego Mitomana. Opcje: cooldown, czas, liczba alibi na grę, dystans, który psuje alibi, tylko przy konsoli zadania, admin liczy kopię. |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), wyszukiwarka
 (z przełącznikiem „AmonRa”, który pokazuje tylko role i modyfikatory w klimacie AmonRa) i ikony modyfikatorów w
@@ -135,7 +136,8 @@ Alliance), **Symulant** (leżący załogant, Impostor Killing), **Krwawiący** (
 **Daltonista** (oko) i **Lunatyk** (księżyc, oba w modyfikatorach uniwersalnych), **Wygodniś** (fotel) i **Latarnik**
 (latarnia, obaj w Crewmate Support), **Ekspert** (latający spodek, Crewmate Investigative), **Moderator** (młotek do
 banów, Impostor Support), **Prezes** (krawat, Crewmate Support), **Złota Rączka** (skrzynka z narzędziami, Crewmate Support) 
-**Streamer** (kamerka internetowa, modyfikatory uniwersalne) i **Snajper** (ekran z celownikiem, Impostor Support). Kluczowe różnice Town of Us: Mira,
+**Streamer** (kamerka internetowa, modyfikatory uniwersalne), **Snajper** (ekran z celownikiem, Impostor Support)
+i **Mitoman** (załogant z przezroczystą kopią, Impostor Concealing). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -193,6 +195,7 @@ obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskie
   <img src="Images/Groups/ImpConcealing.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Eclipsal"><img width="10%" src="Images/Icons/Eclipsal.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Escapist"><img width="10%" src="Images/Icons/Escapist.png" /></a>
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/FabulistIcon.png" alt="Mitoman (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Grenadier"><img width="10%" src="Images/Icons/Grenadier.png" /></a>
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/InsiderIcon.png" alt="Wtyczka (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/impostor/concealing/Morphling"><img width="10%" src="Images/Icons/Morphling.png" /></a>

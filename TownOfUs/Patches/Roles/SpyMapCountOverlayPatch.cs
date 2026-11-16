@@ -107,6 +107,7 @@ public static class SpyMapCountOverlayPatch
                 }
             }
 
+            Are.FabulistSystem.AddAlibisInRoom(room.roomArea, colorMap); // AmonRa Edition
             UpdateBlips(area, colorMap, isSpy);
         }
     }

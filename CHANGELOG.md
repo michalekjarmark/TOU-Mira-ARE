@@ -53,9 +53,15 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   Stream Sniper, an interaction) can be watched. The watched player knows nothing (option), except a Streamer, who gets
   a viewer, and a Streamer who went offline doesn't show in the window. The window uses the Parasite's window settings.
   Options: cooldown, time, watches per game, view size, who can be watched, mark cooldown, the watched player knows.
+- **Fabulist** (new Impostor Concealing role): "Alibi" leaves a copy of the Fabulist (look, name and cosmetics, but
+  no skin) standing at a task console for a while (20 s by default), seen by everyone, on the cameras too, while the
+  real Fabulist walks away. The copy disappears when another living player comes close to it (about a step), at a
+  meeting or when the Fabulist dies; it can't be killed, reported or targeted. The admin map shows the Fabulist where
+  they really are. Whoever sees them in two places at once knows everything. Options: cooldown, time, alibis per game
+  (3 by default), the distance that breaks the alibi, only at a task console, the admin map counts the copy too.
 - **"AmonRa" toggle in the settings search:** the AmonRa icon at the right end of the search box shows only the
-  AmonRa-themed roles and modifiers (AmonRa, Comfy, Expert, Moderator, Chairman, Handyman, Streamer, Stream Sniper...) in the Roles and Modifiers tabs. It works
-  together with the search text.
+  AmonRa-themed roles and modifiers (AmonRa, Comfy, Expert, Moderator, Chairman, Handyman, Streamer, Stream Sniper,
+  Fabulist) in the Roles and Modifiers tabs. It works together with the search text.
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -104,9 +110,16 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   interakcja). Oglądany gracz nic nie wie (opcja), poza Streamerem, któremu przybywa widz, a Streamer z wyłączonym
   streamem nie pokazuje się w okienku. Okienko korzysta z ustawień okienka Parasite. Opcje: cooldown, czas, liczba
   podglądów na grę, rozmiar widoku, kogo można oglądać, cooldown oznaczenia, oglądany gracz wie.
+- **Mitoman** (Fabulist, nowa rola Impostor Concealing): „Alibi” zostawia przy konsoli zadania kopię Mitomana
+  (wygląd, nick i kosmetyki, ale bez skina), która stoi tam przez chwilę (domyślnie 20 s). Widzą ją wszyscy, także na
+  kamerach, a prawdziwy Mitoman w tym czasie odchodzi. Kopia znika, gdy inny żywy gracz podejdzie do niej blisko
+  (mniej więcej krok), przy spotkaniu albo gdy Mitoman zginie; nie da się jej zabić, zgłosić ani użyć na niej
+  umiejętności. Mapa admina pokazuje Mitomana tam, gdzie naprawdę jest. Kto zobaczy go w dwóch miejscach naraz, wie
+  wszystko. Opcje: cooldown, czas, liczba alibi na grę (domyślnie 3), dystans, który psuje alibi, tylko przy konsoli
+  zadania, mapa admina liczy też kopię.
 - **Przełącznik „AmonRa” w wyszukiwarce ustawień:** ikona AmonRa na prawym końcu pola wyszukiwania pokazuje w
-  zakładkach Roles i Modifiers tylko role i modyfikatory w klimacie AmonRa (AmonRa, Wygodniś, Ekspert, Moderator, Prezes, Złota Rączka, Streamer, Snajper...).
-  Działa razem z wpisanym tekstem.
+  zakładkach Roles i Modifiers tylko role i modyfikatory w klimacie AmonRa (AmonRa, Wygodniś, Ekspert, Moderator,
+  Prezes, Złota Rączka, Streamer, Snajper, Mitoman). Działa razem z wpisanym tekstem.
 
 </details>
 

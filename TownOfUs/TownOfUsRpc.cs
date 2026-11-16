@@ -193,6 +193,8 @@ public enum TownOfUsRpc : uint
     HandymanFix,
     StreamerView,
     StreamSniperWatch,
+    FabulistAlibi,
+    FabulistAlibiEnd,
 }
 
 internal enum TownOfUsInternalRpc : uint

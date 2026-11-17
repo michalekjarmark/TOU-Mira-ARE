@@ -13,7 +13,7 @@ public sealed class ChairmanVerdictModifier(bool bonus) : BaseModifier
     public override string ModifierName => Bonus ? "Chairman Bonus" : "Chairman Reprimand";
     public override bool HideOnUi => true;
 
-    public bool Bonus { get; } = bonus;
+    public bool Bonus { get; set; } = bonus;
 
     public override string GetDescription()
     {

@@ -37,6 +37,13 @@ public sealed class StreamSniperOptions : AbstractRoleOptionGroup<StreamSniperRo
             Visible = () => OptionGroupSingleton<StreamSniperOptions>.Instance.TargetMode == StreamSniperTargetMode.Marked
         };
 
+    // On: a meeting clears the mark (owner's test: it stayed for the whole game).
+    public ModdedToggleOption MarkClearedByMeeting { get; set; } =
+        new("TouOptionStreamSniperMarkClearedByMeeting", true)
+        {
+            Visible = () => OptionGroupSingleton<StreamSniperOptions>.Instance.TargetMode == StreamSniperTargetMode.Marked
+        };
+
     // On: the watched player gets "Someone is watching you".
     [ModdedToggleOption("TouOptionStreamSniperTargetNotified")]
     public bool TargetNotified { get; set; } = false;

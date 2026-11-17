@@ -52,9 +52,10 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   By default the player is chosen from a list; with an option only the player marked earlier with "Mark" (next to the
   Stream Sniper, an interaction) can be watched. The watched player knows nothing (option), except a Streamer, who gets
   a viewer, and a Streamer who went offline doesn't show in the window. The window uses the Parasite's window settings.
-  Options: cooldown, time, watches per game, view size, who can be watched, mark cooldown, the watched player knows.
-- **Fabulist** (new Impostor Concealing role): "Alibi" leaves a copy of the Fabulist (look, name and cosmetics, but
-  no skin) standing at a task console for a while (20 s by default), seen by everyone, on the cameras too, while the
+  Options: cooldown, time, watches per game, view size, who can be watched, mark cooldown, a meeting clears the mark,
+  the watched player knows.
+- **Fabulist** (new Impostor Concealing role): "Alibi" leaves a still copy of the Fabulist (look, name, cosmetics and
+  pet) standing at a task console for a while (20 s by default), seen by everyone, on the cameras too, while the
   real Fabulist walks away. The copy disappears when another living player comes close to it (about a step), at a
   meeting or when the Fabulist dies; it can't be killed, reported or targeted. The admin map shows the Fabulist where
   they really are. Whoever sees them in two places at once knows everything. Options: cooldown, time, alibis per game
@@ -123,9 +124,10 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   wybiera się z listy; z opcją można oglądać tylko gracza oznaczonego wcześniej przyciskiem „Oznacz” (obok Snajpera,
   interakcja). Oglądany gracz nic nie wie (opcja), poza Streamerem, któremu przybywa widz, a Streamer z wyłączonym
   streamem nie pokazuje się w okienku. Okienko korzysta z ustawień okienka Parasite. Opcje: cooldown, czas, liczba
-  podglądów na grę, rozmiar widoku, kogo można oglądać, cooldown oznaczenia, oglądany gracz wie.
+  podglądów na grę, rozmiar widoku, kogo można oglądać, cooldown oznaczenia, spotkanie zdejmuje oznaczenie, oglądany
+  gracz wie.
 - **Mitoman** (Fabulist, nowa rola Impostor Concealing): „Alibi” zostawia przy konsoli zadania kopię Mitomana
-  (wygląd, nick i kosmetyki, ale bez skina), która stoi tam przez chwilę (domyślnie 20 s). Widzą ją wszyscy, także na
+  (wygląd, nick, kosmetyki i pet), która stoi nieruchomo tam przez chwilę (domyślnie 20 s). Widzą ją wszyscy, także na
   kamerach, a prawdziwy Mitoman w tym czasie odchodzi. Kopia znika, gdy inny żywy gracz podejdzie do niej blisko
   (mniej więcej krok), przy spotkaniu albo gdy Mitoman zginie; nie da się jej zabić, zgłosić ani użyć na niej
   umiejętności. Mapa admina pokazuje Mitomana tam, gdzie naprawdę jest. Kto zobaczy go w dwóch miejscach naraz, wie

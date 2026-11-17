@@ -44,13 +44,17 @@ public static class ModeratorSystem
 
         var type = (ModeratorBanType)banType;
 
-        // The same type again starts over.
-        foreach (var old in target.GetModifiers<ModeratorBanModifier>(x => x.BanType == type).ToList())
+        // The same type again starts over (the timer, not remove + add: MiraAPI removes at the end of the frame).
+        // Different types stack (the modifier isn't unique).
+        if (target.TryGetModifier<ModeratorBanModifier>(out var old, x => x.BanType == type))
         {
-            target.RemoveModifier(old);
+            old.ResetTimer();
+            old.StartTimer();
         }
-
-        target.AddModifier<ModeratorBanModifier>(moderator.PlayerId, banType, duration);
+        else
+        {
+            target.AddModifier<ModeratorBanModifier>(moderator.PlayerId, banType, duration);
+        }
         Message($"Moderator: {moderator.Data.PlayerName} banned {target.Data.PlayerName} from {type} " +
                 $"({(duration > 0f ? $"{duration} s" : "until the meeting")})");
 

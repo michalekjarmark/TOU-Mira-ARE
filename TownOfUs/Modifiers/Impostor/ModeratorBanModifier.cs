@@ -18,6 +18,9 @@ public sealed class ModeratorBanModifier(byte moderatorId, int banType, float du
     public byte ModeratorId { get; } = moderatorId;
     public ModeratorBanType BanType { get; } = (ModeratorBanType)banType;
 
+    // Bans of different types stack.
+    public override bool Unique => false;
+
     public override float Duration => duration > 0f ? duration : UntilMeeting;
     public override bool AutoStart => true;
 

@@ -4556,12 +4556,13 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionStreamSniperTargetModeEnumMarked">The Marked Player</string>
   <string name="TouOptionStreamSniperMarkCooldown">Mark Cooldown</string>
   <string name="TouOptionStreamSniperTargetNotified">The Watched Player Knows</string>
+  <string name="TouOptionStreamSniperMarkClearedByMeeting">A Meeting Clears The Mark</string>
   <!-- AmonRa Edition - Fabulist (Impostor Concealing) -->
   <string name="TownOfUsMira.Role.Fabulist">Fabulist</string>
   <string name="TownOfUsMira.Role.Fabulist.IntroBlurb">You were doing tasks. Honest.</string>
   <string name="TownOfUsMira.Role.Fabulist.TabDescription">Leave a copy of yourself at a task console as an alibi. Don't get seen in two places at once.</string>
   <string name="TownOfUsMira.Role.Fabulist.MedDescription">Leaves a copy of themselves at a console as an alibi.</string>
-  <string name="TownOfUsMira.Role.Fabulist.WikiDescription">The Fabulist is an Impostor Concealing role with a ready story. "Alibi" leaves a copy of the Fabulist (look, name and cosmetics, but no skin) standing at a task console for a while (20 s by default), seen by everyone, on the cameras too, while the real Fabulist walks away and does what they want. The copy disappears when another living player comes close to it (about a step), at a meeting or when the Fabulist dies; it can't be killed, reported or targeted. The admin map shows the Fabulist where they really are (with an option it counts the copy too). Whoever sees the Fabulist in two places at once knows everything.</string>
+  <string name="TownOfUsMira.Role.Fabulist.WikiDescription">The Fabulist is an Impostor Concealing role with a ready story. "Alibi" leaves a copy of the Fabulist (look, name, cosmetics and pet) standing at a task console for a while (20 s by default), seen by everyone, on the cameras too, while the real Fabulist walks away and does what they want. The copy disappears when another living player comes close to it (about a step), at a meeting or when the Fabulist dies; it can't be killed, reported or targeted. The admin map shows the Fabulist where they really are (with an option it counts the copy too). Whoever sees the Fabulist in two places at once knows everything.</string>
   <string name="TownOfUsMira.Role.FabulistAlibi">Alibi</string>
   <string name="TownOfUsMira.Role.FabulistAlibi.WikiDescription">Leave a copy of yourself at a task console for a while. It disappears when someone comes close.</string>
   <string name="TownOfUsMira.Role.FabulistAlibiBroken">Someone came too close: your alibi fell apart.</string>

@@ -6,6 +6,7 @@ using TownOfUs.Options.Roles.Impostor;
 using TownOfUs.Patches;
 using TownOfUs.Roles.Impostor;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace TownOfUs.Are;
 
@@ -17,7 +18,11 @@ namespace TownOfUs.Are;
 /// </summary>
 public static class FabulistSystem
 {
+    private const string PetName = "ARE-FabulistPet";
+    private const float NameRefresh = 0.5f;
+
     private static readonly Dictionary<byte, FakePlayer> Alibis = [];
+    private static float _nameTimer;
 
     public static bool HasAlibi(PlayerControl player)
     {
@@ -66,13 +71,53 @@ public static class FabulistSystem
         fabulist.cosmetics.SetSkin(shownSkin, shownColor);
 
         alibi.body.transform.position = new Vector3(position.x, position.y, position.y / 1000f);
+        CopyPet(fabulist, alibi);
         if (HudManagerPatches.CamouflageCommsEnabled)
         {
             alibi.Camo();
         }
 
+        FakePlayer.UpdateFakePlayerText();
+
         Alibis[fabulist.PlayerId] = alibi;
         Info($"Fabulist: {fabulist.Data.PlayerName} left an alibi at {position}");
+    }
+
+    // FakePlayer's own pet (taken from the cosmetics cache) didn't show up in the owner's test: a still copy of the
+    // real pet, where it stands next to the Fabulist right now.
+    private static void CopyPet(PlayerControl fabulist, FakePlayer alibi)
+    {
+        foreach (var old in alibi.body.GetComponentsInChildren<PetBehaviour>(true))
+        {
+            Object.Destroy(old.gameObject);
+        }
+
+        var pet = fabulist.cosmetics.CurrentPet;
+        if (pet == null || !pet.gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
+        var offset = pet.transform.position - fabulist.transform.position;
+        var copy = Object.Instantiate(pet.gameObject, alibi.body.transform);
+        copy.name = PetName;
+        copy.transform.position = alibi.body.transform.position + offset;
+
+        // Still: the copy must not follow the real Fabulist (PetBehaviour walks after its player) or block anyone.
+        foreach (var behaviour in copy.GetComponentsInChildren<PetBehaviour>(true))
+        {
+            behaviour.enabled = false;
+        }
+
+        foreach (var collider in copy.GetComponentsInChildren<Collider2D>(true))
+        {
+            Object.Destroy(collider);
+        }
+
+        foreach (var body in copy.GetComponentsInChildren<Rigidbody2D>(true))
+        {
+            Object.Destroy(body);
+        }
     }
 
     public static void Remove(byte fabulistId, bool broken)
@@ -133,6 +178,24 @@ public static class FabulistSystem
         if (Alibis.Count == 0)
         {
             return;
+        }
+
+        // The copy's name gets the symbols the real one has for this player (a rival's mark, a Lover's heart, an
+        // Expert's verdict...): without them the copy was easy to tell apart (owner's test). The pet hides with the
+        // comms camouflage, like the copy's cosmetics.
+        _nameTimer -= Time.deltaTime;
+        if (_nameTimer <= 0f)
+        {
+            _nameTimer = NameRefresh;
+            FakePlayer.UpdateFakePlayerText();
+            foreach (var alibi in Alibis.Values)
+            {
+                var pet = alibi.body != null ? alibi.body.transform.Find(PetName) : null;
+                if (pet != null)
+                {
+                    pet.gameObject.SetActive(!alibi.InCamo);
+                }
+            }
         }
 
         var distance = OptionGroupSingleton<FabulistOptions>.Instance.BreakDistance;

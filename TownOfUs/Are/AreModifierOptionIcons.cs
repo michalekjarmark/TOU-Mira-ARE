@@ -88,7 +88,8 @@ public static class AreModifierOptionIcons
 
         private static Sprite? IconOf(Type modifierType)
         {
-            if (!ModifierIcons.TryGetValue(modifierType, out var sprite))
+            // A cached sprite can be destroyed meanwhile (seen after games in Freeplay): load it again.
+            if (!ModifierIcons.TryGetValue(modifierType, out var sprite) || (sprite is not null && !sprite))
             {
                 var asset = MiscUtils.AllModifiers?.FirstOrDefault(x => x.GetType() == modifierType)?.ModifierIcon;
                 sprite = asset?.LoadAsset();

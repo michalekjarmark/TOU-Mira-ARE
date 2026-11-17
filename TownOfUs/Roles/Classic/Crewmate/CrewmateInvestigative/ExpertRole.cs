@@ -80,8 +80,15 @@ public sealed class ExpertRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUsR
         Message($"Expert: {target.Data.PlayerName} is {real.GetRoleName()}, shown {shown.GetRoleName()} " +
                 $"(wrong chance {chance}%, wrong {wrong && shown != real})");
 
-        target.RemoveModifier<ExpertVerdictModifier>();
-        target.AddModifier<ExpertVerdictModifier>(shown);
+        // MiraAPI removes modifiers at the end of the frame, so remove + add on a re-examination drops both.
+        if (target.TryGetModifier<ExpertVerdictModifier>(out var verdict))
+        {
+            verdict.ShownRole = shown;
+        }
+        else
+        {
+            target.AddModifier<ExpertVerdictModifier>(shown);
+        }
 
         TouAudio.PlaySound(TouAudio.QuestionSound);
         var text = MiraLocaleManager.Get("TownOfUsMira.Role.ExpertVerdict")

@@ -39,6 +39,9 @@ public static class StreamerSystem
     // Every client: renderers of offline Streamers moved to the hidden layer, with their own layers.
     private static readonly Dictionary<byte, List<(GameObject Go, int Layer)>> Moved = [];
 
+    // Diagnostics: cameras already logged as masked.
+    private static readonly HashSet<int> MaskedCameras = [];
+
     private static float _timer;
     private static int _hiddenLayer = -1;
     private static GameObject? _label;
@@ -75,6 +78,12 @@ public static class StreamerSystem
             {
                 go.layer = layer;
             }
+        }
+
+        Info($"Streamer: {player.Data?.PlayerName} is back on the cameras");
+        if (Moved.Count == 0)
+        {
+            MaskedCameras.Clear();
         }
     }
 
@@ -120,7 +129,15 @@ public static class StreamerSystem
         {
             if (cam != null && cam != main && (cam.targetTexture != null || StreamSniperSystem.IsViewCamera(cam)))
             {
+                var before = cam.cullingMask;
                 cam.cullingMask &= ~bit;
+
+                // Diagnostics (owner's test: a camera screen still showed an offline Streamer), once per camera.
+                if (MaskedCameras.Add(cam.GetInstanceID()))
+                {
+                    Info($"Streamer: masked camera '{cam.name}' (mask {before:X8} -> {cam.cullingMask:X8}, " +
+                         $"texture {(cam.targetTexture != null ? cam.targetTexture.name : "none")})");
+                }
             }
         }
     }
@@ -132,7 +149,8 @@ public static class StreamerSystem
             return;
         }
 
-        if (!Moved.TryGetValue(player.PlayerId, out var list))
+        var first = !Moved.TryGetValue(player.PlayerId, out var list);
+        if (list == null)
         {
             list = [];
             Moved[player.PlayerId] = list;
@@ -144,6 +162,11 @@ public static class StreamerSystem
         if (pet != null)
         {
             HideRenderers(pet.gameObject, list);
+        }
+
+        if (first)
+        {
+            Info($"Streamer: {player.Data.PlayerName} is offline, {list.Count} renderers moved to layer {HiddenLayer}");
         }
     }
 
@@ -404,6 +427,7 @@ public static class StreamerSystem
         }
 
         Moved.Clear();
+        MaskedCameras.Clear();
         if (_label != null)
         {
             _label.SetActive(false);

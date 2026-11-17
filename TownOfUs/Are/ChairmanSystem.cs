@@ -154,12 +154,16 @@ public static class ChairmanSystem
 
         if (verdict != null)
         {
-            foreach (var old in target.GetModifiers<ChairmanVerdictModifier>().ToList())
+            // A new verdict replaces the old one in place: MiraAPI removes modifiers at the end of the frame, so
+            // remove + add would drop both.
+            if (target.TryGetModifier<ChairmanVerdictModifier>(out var old))
             {
-                target.RemoveModifier(old);
+                old.Bonus = verdict.Value;
             }
-
-            target.AddModifier<ChairmanVerdictModifier>(verdict.Value);
+            else
+            {
+                target.AddModifier<ChairmanVerdictModifier>(verdict.Value);
+            }
         }
 
         if (chairman.AmOwner)
@@ -218,16 +222,25 @@ public static class ChairmanSystem
     private static void CompleteOwnTask(PlayerControl chairman)
     {
         var tasks = chairman.myTasks.ToArray()
-            .Where(x => x.TryCast<NormalPlayerTask>() != null && !x.IsComplete)
+            .Select(x => x.TryCast<NormalPlayerTask>())
+            .Where(x => x != null && !x.IsComplete && chairman.Data.FindTaskById(x.Id) is { Complete: false })
             .ToList();
         if (tasks.Count == 0)
         {
             return;
         }
 
-        var task = tasks[UnityEngine.Random.Range(0, tasks.Count)];
+        var task = tasks[UnityEngine.Random.Range(0, tasks.Count)]!;
         HudManager.Instance.ShowTaskComplete();
         chairman.RpcCompleteTask(task.Id);
+
+        // RpcCompleteTask marks the task done in the game data (task bar) but leaves the task's own steps: without
+        // this the task list showed it unfinished again (like the Comfy's offloaded tasks).
+        if (!task.IsComplete)
+        {
+            task.taskStep = task.MaxStep;
+            task.UpdateArrowAndLocation();
+        }
     }
 
     /// <summary>The highest switched-on title reached with <paramref name="ordersDone" /> done orders.</summary>

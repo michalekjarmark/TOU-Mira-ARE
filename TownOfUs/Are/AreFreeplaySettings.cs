@@ -83,6 +83,18 @@ public static class AreFreeplaySettings
     }
 
     /// <summary>
+    ///     Options changed during a game (this menu) reach the other players, and MiraAPI then refreshes the lobby's
+    ///     info pane, which isn't usable outside the lobby: every change logged an error on their side (the values were
+    ///     already set). Only the lobby has a pane to refresh.
+    /// </summary>
+    [HarmonyPatch(typeof(LobbyInfoPane), nameof(LobbyInfoPane.RefreshPane))]
+    [HarmonyPrefix]
+    public static bool LobbyInfoPaneRefreshPanePrefix()
+    {
+        return LobbyBehaviour.Instance != null;
+    }
+
+    /// <summary>
     ///     Remember the prefab whenever a lobby is seen, so Freeplay can use it later in this session.
     /// </summary>
     [HarmonyPatch(typeof(GameStartManager), nameof(GameStartManager.Start))]

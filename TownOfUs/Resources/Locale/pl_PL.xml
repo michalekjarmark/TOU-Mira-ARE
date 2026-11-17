@@ -1854,12 +1854,13 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionStreamSniperTargetModeEnumMarked">Oznaczonego gracza</string>
   <string name="TouOptionStreamSniperMarkCooldown">Cooldown oznaczenia</string>
   <string name="TouOptionStreamSniperTargetNotified">Oglądany gracz wie</string>
+  <string name="TouOptionStreamSniperMarkClearedByMeeting">Spotkanie zdejmuje oznaczenie</string>
   <!-- AmonRa Edition - Fabulist (Impostor Concealing) -->
   <string name="TownOfUsMira.Role.Fabulist">Mitoman</string>
   <string name="TownOfUsMira.Role.Fabulist.IntroBlurb">Robiłeś zadania. Słowo.</string>
   <string name="TownOfUsMira.Role.Fabulist.TabDescription">Zostaw przy konsoli zadania swoją kopię jako alibi. Nie daj się zobaczyć w dwóch miejscach naraz.</string>
   <string name="TownOfUsMira.Role.Fabulist.MedDescription">Zostawia przy konsoli swoją kopię jako alibi.</string>
-  <string name="TownOfUsMira.Role.Fabulist.WikiDescription">Mitoman to rola Impostor Concealing z gotową historyjką. „Alibi” zostawia przy konsoli zadania kopię Mitomana (wygląd, nick i kosmetyki, ale bez skina), która stoi tam przez chwilę (domyślnie 20 s). Widzą ją wszyscy, także na kamerach, a prawdziwy Mitoman w tym czasie odchodzi i robi, co chce. Kopia znika, gdy inny żywy gracz podejdzie do niej blisko (mniej więcej krok), przy spotkaniu albo gdy Mitoman zginie; nie da się jej zabić, zgłosić ani użyć na niej umiejętności. Mapa admina pokazuje Mitomana tam, gdzie naprawdę jest (z opcją liczy też kopię). Kto zobaczy Mitomana w dwóch miejscach naraz, wie wszystko.</string>
+  <string name="TownOfUsMira.Role.Fabulist.WikiDescription">Mitoman to rola Impostor Concealing z gotową historyjką. „Alibi” zostawia przy konsoli zadania kopię Mitomana (wygląd, nick, kosmetyki i pet), która stoi tam przez chwilę (domyślnie 20 s). Widzą ją wszyscy, także na kamerach, a prawdziwy Mitoman w tym czasie odchodzi i robi, co chce. Kopia znika, gdy inny żywy gracz podejdzie do niej blisko (mniej więcej krok), przy spotkaniu albo gdy Mitoman zginie; nie da się jej zabić, zgłosić ani użyć na niej umiejętności. Mapa admina pokazuje Mitomana tam, gdzie naprawdę jest (z opcją liczy też kopię). Kto zobaczy Mitomana w dwóch miejscach naraz, wie wszystko.</string>
   <string name="TownOfUsMira.Role.FabulistAlibi">Alibi</string>
   <string name="TownOfUsMira.Role.FabulistAlibi.WikiDescription">Zostawiasz przy konsoli zadania swoją kopię na chwilę. Znika, gdy ktoś do niej podejdzie.</string>
   <string name="TownOfUsMira.Role.FabulistAlibiBroken">Ktoś podszedł za blisko: twoje alibi się posypało.</string>

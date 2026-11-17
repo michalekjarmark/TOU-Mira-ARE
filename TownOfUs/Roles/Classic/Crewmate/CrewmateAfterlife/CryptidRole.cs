@@ -34,6 +34,9 @@ public sealed class CryptidRole(IntPtr cppPtr) : CrewmateGhostRole(cppPtr), ITow
         Icon = AreAssets.CryptidIcon,
         OptionsScreenshot = TouBanners.CrewmateRoleBanner,
         MaxRoleCount = 1,
+
+        // MiraAPI hides the settings of a role with IsDead => true unless told otherwise.
+        HideSettings = false,
         CanUseVent = false,
         ShowInFreeplay = true
     };

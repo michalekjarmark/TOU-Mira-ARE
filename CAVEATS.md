@@ -34,12 +34,19 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   are not sent at all.
 - Task steps exist only on the task owner's client. To complete a task for another player, let the owner's client send
   it (`owner.RpcCompleteTask(id)`, like the Taskmaster).
+- `RpcCompleteTask` marks the task done in the game data (task bar, win check) but leaves the task's own steps: also set
+  `task.taskStep = task.MaxStep` and call `UpdateArrowAndLocation()`, or the task list shows it unfinished again later.
 
 ## MiraAPI
 
 - **`RemoveModifier` is deferred:** it only queues the modifier (`_toRemove`), so removing while iterating
   `GetModifiers` is safe, but `HasModifier` still sees it until the component's next update. Remove-then-add of the same
-  type in one frame leaves both for a moment.
+  **unique** type (`Unique` is true by default) in one frame fails: the add finds the old one and logs `Player already has
+  modifier with id N!`, then the old one goes, so the player ends up with none. Change the existing modifier instead
+  (`TryGetModifier`, then set its fields or `ResetTimer()` + `StartTimer()`), or override `Unique => false` when
+  several are fine.
+- A role with `IsDead => true` (ghost roles) gets `HideSettings = true` by default in `CustomRoleConfiguration`: no row
+  in the lobby settings or the search. Set `HideSettings = false` (Haunter, Spectre do).
 - Every abstract base class (role, button, modifier, options) needs `[MiraIgnore]`: the reflection scan doesn't skip
   abstract types in plugins.
 - **Locale placeholders:** when loading the XML, `MiraLocaleManager` turns every `[` into `<` and every `]` into `>`.
@@ -162,4 +169,11 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   symlinks to the same build. Start the original first, play over "Local".
 - With 2 players vents are disabled (`Game Mechanics → Max Players Alive When Vents Disable`, default 2).
 - The host option "Freeplay Mode" keeps the game going and enables the Freeplay buttons: "Set Roles" works on any player.
+  Town of Us only stops `LogicGameFlowNormal.CheckEndCriteria` there; calling a meeting also runs the game's own
+  `GameManager.CheckTaskCompletion`, which ended the game by tasks once all were done (ARE blocks it:
+  `AreFreeplayTaskEndPatch`).
+- Options changed during a game (ARE's Freeplay settings menu) do reach the other players. MiraAPI then refreshes the
+  lobby's `LobbyInfoPane`, which threw outside the lobby after the values were set (ARE skips it there).
+- Titles and limits computed from options (e.g. the Chairman's ranks) change at once when an option is changed during a
+  Freeplay game.
 - Without Steam running, the game is in offline mode and stutters every ~2 s.

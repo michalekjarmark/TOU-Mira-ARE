@@ -1,9 +1,11 @@
 using AmongUs.GameOptions;
 using Il2CppInterop.Runtime.Attributes;
+using MiraAPI.GameOptions;
 using MiraAPI.Patches.Stubs;
 using MiraAPI.Roles;
 using Reactor.Networking.Attributes;
 using TownOfUs.Are;
+using TownOfUs.Options.Roles.Impostor;
 using TownOfUs.Roles.Crewmate;
 using UnityEngine;
 
@@ -64,6 +66,15 @@ public sealed class StreamSniperRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITow
     {
         RoleBehaviourStubs.Initialize(this, player);
         Marked = null;
+    }
+
+    public override void OnMeetingStart()
+    {
+        RoleBehaviourStubs.OnMeetingStart(this);
+        if (OptionGroupSingleton<StreamSniperOptions>.Instance.MarkClearedByMeeting)
+        {
+            Marked = null;
+        }
     }
 
     public override void Deinitialize(PlayerControl targetPlayer)

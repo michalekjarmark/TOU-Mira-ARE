@@ -75,11 +75,13 @@ public static class DeathEventHandlers
     [RegisterEvent(500)]
     public static void PlayerReviveEventHandler(PlayerReviveEvent reviveEvent)
     {
-        var stats = GameHistory.PlayerStats[reviveEvent.Player.PlayerId];
-
-        stats.PlayerState = StoredPlayerState.Revived;
-        stats.DeathString = MiraLocaleManager.Get("Revived");
-        stats.KilledBy = "";
+        // AmonRa Edition: a player without stats (seen in Freeplay) threw here and skipped the physics sync below.
+        if (GameHistory.PlayerStats.TryGetValue(reviveEvent.Player.PlayerId, out var stats))
+        {
+            stats.PlayerState = StoredPlayerState.Revived;
+            stats.DeathString = MiraLocaleManager.Get("Revived");
+            stats.KilledBy = "";
+        }
 
         // Sync physics body position to match transform position after revive
         // This prevents wall-walking bugs that can occur when players are revived

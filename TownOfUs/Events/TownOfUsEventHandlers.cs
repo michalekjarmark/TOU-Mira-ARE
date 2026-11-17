@@ -407,7 +407,7 @@ public static class TownOfUsEventHandlers
         var aliveCount = PlayerControl.AllPlayerControls.Count(x => !x.HasDied());
         var minimum = OptionGroupSingleton<GameMechanicOptions>.Instance.PlayerCountWhenVentsDisable;
         AreVentsAllowed = aliveCount > minimum;
-        HudManagerHelper.Instance.VentButtonDisabledSprite.SetActive(!AreVentsAllowed);
+        Are.AreVentButtonFix.SetDisabledSprite(!AreVentsAllowed); // AmonRa Edition
         if (!@event.TriggeredByIntro)
         {
             foreach (var role in CustomRoleUtils.GetActiveRoles())
@@ -827,7 +827,7 @@ public static class TownOfUsEventHandlers
         var aliveCount = PlayerControl.AllPlayerControls.Count(x => !x.HasDied());
         var minimum = OptionGroupSingleton<GameMechanicOptions>.Instance.PlayerCountWhenVentsDisable;
         AreVentsAllowed = aliveCount > minimum;
-        HudManagerHelper.Instance.VentButtonDisabledSprite.SetActive(!AreVentsAllowed);
+        Are.AreVentButtonFix.SetDisabledSprite(!AreVentsAllowed); // AmonRa Edition
     }
 
     public static bool AreVentsAllowed;

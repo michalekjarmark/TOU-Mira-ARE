@@ -92,6 +92,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/FabulistIcon.png" width="48"/><br>**Mitoman** (Fabulist) | Rola (Impostor Concealing) | Zostawia przy konsoli zadania swoją kopię jako alibi (domyślnie 20 s). Widzą ją wszyscy, także na kamerach, a prawdziwy Mitoman w tym czasie odchodzi. Kopia znika, gdy ktoś do niej podejdzie, przy spotkaniu albo gdy Mitoman zginie; nie da się jej zabić ani zgłosić. Mapa admina pokazuje prawdziwego Mitomana. Opcje: cooldown, czas, liczba alibi na grę, dystans, który psuje alibi, tylko przy konsoli zadania, admin liczy kopię. |
 | <img src="TownOfUs/Resources/Custom/CryptidIcon.png" width="48"/><br>**Kryptyda** (Cryptid) | Rola (Crewmate Afterlife) | Crewmate może nią zostać zaraz po śmierci. „Pojawienie się” pokazuje ducha żywym na kilka sekund jako rozmytą szarą postać bez nicku (także na kamerach). Znika, gdy żywy gracz podejdzie; impostor przepłasza ją na dobre (opcja). Tak duch wskazuje ciało, zabójcę albo pokój bez mówienia. Opcje: cooldown, czas, liczba pojawień na grę, dystans, przy którym znika, impostor przepłasza. |
 | <img src="TownOfUs/Resources/Custom/BlameShifterIcon.png" width="48"/><br>**Krętacz** (Blame Shifter) | Rola (Neutral Afterlife) | Martwy neutral może nim zostać po spotkaniu. Duch obwinia żywego gracza za swoją śmierć (nie swojego zabójcę) i kilka razy na grę, będąc blisko, go opętuje: przez kilka sekund gracz idzie za duchem i nie może nic innego zrobić (widzi błysk, opcja). Wygrywa, gdy obwiniony zostanie wyrzucony (opcja: zbierze dość głosów), razem ze zwycięzcami (opcja: kończy grę). Opcje: cooldown, czas, liczba opętań, zasięg, komunikat dla opętanego, tryb wygranej, potrzebne głosy, wygrana kończy grę. |
+| <img src="TownOfUs/Resources/Custom/InformantIcon.png" width="48"/><br>**Donosiciel** (Informant) | Rola (Crewmate Support) | Pomaga innym, ale sam niczego się nie dowiaduje. Jeden przycisk z dwoma trybami: „Oznacz” pobliskiego gracza (jego kolor, czerwony albo zielony według zasad Seera, jest ustalany w tej chwili), a potem „Pokaż” go innemu pobliskiemu graczowi (każdemu, także impostorowi i neutralowi, ale nie oznaczonemu). Kolor widzi tylko gracz, któremu pokazano, na nicku oznaczonego od najbliższego głosowania do końca gry, i nie wie, kto mu doniósł. Oznaczenie nic nie kosztuje i nie da się go zmienić przed pokazaniem; pokazanie zużywa jedno z 3 użyć i usuwa oznaczenie. Oba to interakcje (Veteran, tarcze). Opcje: cooldowny oznaczenia i pokazania, liczba pokazań, działanie w pierwszej rundzie, przełączniki kolorów jak u Seera (osobne). |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), wyszukiwarka
 (z przełącznikiem „AmonRa”, który pokazuje tylko role i modyfikatory w klimacie AmonRa) i ikony modyfikatorów w
@@ -141,7 +142,7 @@ Alliance), **Symulant** (leżący załogant, Impostor Killing), **Krwawiący** (
 banów, Impostor Support), **Prezes** (krawat, Crewmate Support), **Złota Rączka** (skrzynka z narzędziami, Crewmate Support),
 **Streamer** (kamerka internetowa, modyfikatory uniwersalne), **Snajper** (ekran z celownikiem, Impostor Support),
 **Mitoman** (załogant z przezroczystą kopią, Impostor Concealing), **Kryptyda** (wielki ślad stopy, Crewmate
-Afterlife) i **Krętacz** (duch wskazujący palcem, Neutral Afterlife). Kluczowe różnice Town of Us: Mira,
+Afterlife), **Krętacz** (duch wskazujący palcem, Neutral Afterlife) i **Donosiciel** (dymek z czerwoną i zieloną kropką, Crewmate Support). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -192,6 +193,7 @@ obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskie
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Engineer"><img width="10%" src="Images/Icons/Engineer.png" /></a>
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/HandymanIcon.png" alt="Złota Rączka (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Imitator"><img width="10%" src="Images/Icons/Imitator.png" /></a>
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/InformantIcon.png" alt="Donosiciel (AmonRa Edition)" /></a>
   <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/LighthouseKeeperIcon.png" alt="Latarnik (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Plumber"><img width="10%" src="Images/Icons/Plumber.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/crewmate/support/Sentry"><img width="10%" src="Images/Icons/Sentry.png" /></a>

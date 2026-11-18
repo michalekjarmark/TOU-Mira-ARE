@@ -4613,4 +4613,25 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionBlameShifterWinModeEnumVotes">Collects Votes</string>
   <string name="TouOptionBlameShifterVotesNeeded">Votes Needed</string>
   <string name="TouOptionBlameShifterWinEndsGame">The Win Ends The Game</string>
+  <!-- AmonRa Edition - Informant (Crewmate Support) -->
+  <string name="TownOfUsMira.Role.Informant">Donosiciel</string>
+  <string name="TownOfUsMira.Role.Informant.IntroBlurb">Tell others who is who</string>
+  <string name="TownOfUsMira.Role.Informant.MedDescription">Mark a player, then show their colour to someone else.</string>
+  <string name="TownOfUsMira.Role.Informant.TabDescription">Mark a player, then show their colour to someone else. You learn nothing yourself.</string>
+  <string name="TownOfUsMira.Role.Informant.TabMarked">Marked: [player]. Now show their colour to someone.</string>
+  <string name="TownOfUsMira.Role.Informant.WikiDescription">The Donosiciel (Polish for "informant") is a Crewmate Support role that helps others, but learns nothing. They mark a player, then show that player's colour (red or green, by the same rules as the Seer's) to someone else. The colour is taken when the player is marked. The player who was told sees the colour on the marked player's name from the next meeting on, until the end of the game, and doesn't know who told them. Anyone can be told, impostors and neutrals too.</string>
+  <string name="TownOfUsMira.Role.InformantMark">Mark</string>
+  <string name="TownOfUsMira.Role.InformantMark.WikiDescription">Mark a nearby player. Their colour is taken right now. Costs no use. The mark can't be changed until it is shown to someone, and it stays through meetings.</string>
+  <string name="TownOfUsMira.Role.InformantShow">Show</string>
+  <string name="TownOfUsMira.Role.InformantShow.WikiDescription">Show the marked player's colour to another nearby player (not the marked one). Costs one use and clears the mark, so you can mark someone again, even the same player.</string>
+  <string name="TouOptionInformantMarkCooldown">Mark Cooldown</string>
+  <string name="TouOptionInformantShowCooldown">Show Cooldown</string>
+  <string name="TouOptionInformantUses">Number Of Shows</string>
+  <string name="TouOptionInformantFirstRoundUse">Usable In The First Round</string>
+  <string name="TouOptionInformantCrewmateKillingRed">Crewmate Killing Roles Are Red</string>
+  <string name="TouOptionInformantNeutralBenignRed">Neutral Benign Roles Are Red</string>
+  <string name="TouOptionInformantNeutralEvilRed">Neutral Evil Roles Are Red</string>
+  <string name="TouOptionInformantNeutralKillingRed">Neutral Killing Roles Are Red</string>
+  <string name="TouOptionInformantNeutralOutlierRed">Neutral Outlier Roles Are Red</string>
+  <string name="TouOptionInformantTraitorSwapsColors">Traitor Swaps Colors</string>
 </resources>

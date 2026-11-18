@@ -1911,4 +1911,25 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionBlameShifterWinModeEnumVotes">Zbierze głosy</string>
   <string name="TouOptionBlameShifterVotesNeeded">Potrzebne głosy</string>
   <string name="TouOptionBlameShifterWinEndsGame">Wygrana kończy grę</string>
+  <!-- AmonRa Edition - Informant (Crewmate Support) -->
+  <string name="TownOfUsMira.Role.Informant">Donosiciel</string>
+  <string name="TownOfUsMira.Role.Informant.IntroBlurb">Donieś innym, kto jest kim</string>
+  <string name="TownOfUsMira.Role.Informant.MedDescription">Oznacz gracza, a potem pokaż jego kolor komuś innemu.</string>
+  <string name="TownOfUsMira.Role.Informant.TabDescription">Oznacz gracza, a potem pokaż jego kolor komuś innemu. Sam niczego się nie dowiesz.</string>
+  <string name="TownOfUsMira.Role.Informant.TabMarked">Oznaczony: [player]. Teraz pokaż komuś jego kolor.</string>
+  <string name="TownOfUsMira.Role.Informant.WikiDescription">Donosiciel to rola Crewmate Support, która pomaga innym, ale sama niczego się nie dowiaduje. Oznacza gracza, a potem pokazuje jego kolor (czerwony albo zielony, według tych samych zasad co u Seera) komuś innemu. Kolor jest ustalany w chwili oznaczenia. Gracz, któremu pokazano, widzi kolor na nicku oznaczonego od najbliższego głosowania do końca gry i nie wie, kto mu doniósł. Pokazać można każdemu, także impostorowi i neutralowi.</string>
+  <string name="TownOfUsMira.Role.InformantMark">Oznacz</string>
+  <string name="TownOfUsMira.Role.InformantMark.WikiDescription">Oznacz pobliskiego gracza. Jego kolor jest ustalany w tej chwili. Nie zużywa użycia. Oznaczenia nie da się zmienić, dopóki komuś go nie pokażesz, i przechodzi przez głosowania.</string>
+  <string name="TownOfUsMira.Role.InformantShow">Pokaż</string>
+  <string name="TownOfUsMira.Role.InformantShow.WikiDescription">Pokaż kolor oznaczonego gracza innemu pobliskiemu graczowi (nie temu oznaczonemu). Zużywa jedno użycie i usuwa oznaczenie, więc możesz znowu kogoś oznaczyć, nawet tę samą osobę.</string>
+  <string name="TouOptionInformantMarkCooldown">Cooldown oznaczenia</string>
+  <string name="TouOptionInformantShowCooldown">Cooldown pokazania</string>
+  <string name="TouOptionInformantUses">Liczba pokazań</string>
+  <string name="TouOptionInformantFirstRoundUse">Działa w pierwszej rundzie</string>
+  <string name="TouOptionInformantCrewmateKillingRed">Zabójczy crewmate są czerwoni</string>
+  <string name="TouOptionInformantNeutralBenignRed">Neutral Benign są czerwoni</string>
+  <string name="TouOptionInformantNeutralEvilRed">Neutral Evil są czerwoni</string>
+  <string name="TouOptionInformantNeutralKillingRed">Neutral Killing są czerwoni</string>
+  <string name="TouOptionInformantNeutralOutlierRed">Neutral Outlier są czerwoni</string>
+  <string name="TouOptionInformantTraitorSwapsColors">Traitor zamienia kolory</string>
 </resources>

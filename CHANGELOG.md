@@ -9,6 +9,39 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
+### Added
+
+- **Donosiciel** (Informant, new Crewmate Support role, the name is Polish in every language): helps others, but learns nothing. One button with two modes: "Mark" a
+  nearby player (their colour is taken right then, red or green by the Seer's rules), then "Show" that colour to
+  another nearby player (anyone, impostors and neutrals too, but not the marked player). Only the player who was told
+  sees it, on the marked player's name from the next meeting on (in meetings and in the game), until the end of the
+  game, and they don't know who told them.
+  - Marking is free and can't be changed until it is shown; it stays through meetings. Showing costs one use (3 by
+    default, 1 to 5) and clears the mark, so the Donosiciel can mark again, even the same player.
+  - Cooldowns: 15 s after marking, 60 s after showing. Both clicks are interactions (a Veteran on alert kills the
+    Donosiciel, shields work as usual), and the Auditor counts a show as an irregularity.
+  - Lobby options: both cooldowns, number of shows, usable in the first round, and the Seer's colour switches (a
+    separate copy, so the Seer's settings don't change the Donosiciel).
+
+<details>
+<summary><i>Po polsku</i></summary>
+
+**Dodano**
+
+- **Donosiciel** (Informant, nowa rola Crewmate Support): pomaga innym, ale sam niczego się nie dowiaduje. Jeden
+  przycisk z dwoma trybami: „Oznacz” pobliskiego gracza (jego kolor jest ustalany w tej chwili, czerwony albo zielony
+  według zasad Seera), a potem „Pokaż” ten kolor innemu pobliskiemu graczowi (każdemu, także impostorowi i neutralowi,
+  ale nie oznaczonemu). Kolor widzi tylko gracz, któremu pokazano, na nicku oznaczonego od najbliższego głosowania
+  (na głosowaniu i w grze) do końca gry, i nie wie, kto mu doniósł.
+  - Oznaczenie nic nie kosztuje, nie da się go zmienić przed pokazaniem i przechodzi przez głosowania. Pokazanie
+    zużywa jedno użycie (domyślnie 3, od 1 do 5) i usuwa oznaczenie, więc można znowu oznaczyć, nawet tę samą osobę.
+  - Cooldowny: 15 s po oznaczeniu, 60 s po pokazaniu. Oba kliknięcia to interakcje (Veteran na alercie zabija
+    Donosiciela, tarcze działają jak zwykle), a Audytor liczy pokazanie jako nieprawidłowość.
+  - Opcje w lobby: oba cooldowny, liczba pokazań, działanie w pierwszej rundzie i przełączniki kolorów jak u Seera
+    (osobne, więc ustawienia Seera nie zmieniają Donosiciela).
+
+</details>
+
 ## [1.7.9-are.8] - 2026-11-18
 
 ### Added

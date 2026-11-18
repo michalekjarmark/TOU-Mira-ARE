@@ -72,7 +72,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   and can't use abilities, consoles or reports. The possessed player sees a flash and a message (option), so they can
   defend themselves. The Blame Shifter wins when the blamed player gets voted out (option: when they collect enough
   votes over all meetings, 8 by default), together with whoever wins the game (option: the win ends the game). If the
-  blamed player dies, the ghost blames someone else. Options: cooldown, time, possessions per game, range, the player
+  blamed player dies, the ghost blames someone else. The task tab and the meeting screen show the blamed player and
+  the votes so far. Options: cooldown, time, possessions per game, range, the player
   is notified, win mode, votes needed, the win ends the game.
 - **"AmonRa" toggle in the settings search:** the AmonRa icon at the right end of the search box shows only the
   AmonRa-themed roles and modifiers (AmonRa, Comfy, Expert, Moderator, Chairman, Handyman, Streamer, Stream Sniper,
@@ -146,7 +147,7 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   używać umiejętności, konsol ani zgłaszać. Opętany widzi błysk i komunikat (opcja), więc może się bronić. Krętacz
   wygrywa, gdy obwiniony zostanie wyrzucony w głosowaniu (opcja: gdy zbierze dość głosów na wszystkich spotkaniach,
   domyślnie 8), razem ze zwycięzcami (opcja: wygrana kończy grę). Gdy obwiniony zginie, duch obwinia kogoś innego.
-  Opcje: cooldown, czas, liczba opętań na grę, zasięg, komunikat dla opętanego, tryb wygranej, potrzebne głosy,
+  Zakładka zadań i ekran spotkania pokazują obwinionego i zebrane dotąd głosy. Opcje: cooldown, czas, liczba opętań na grę, zasięg, komunikat dla opętanego, tryb wygranej, potrzebne głosy,
   wygrana kończy grę.
 - **Przełącznik „AmonRa” w wyszukiwarce ustawień:** ikona AmonRa na prawym końcu pola wyszukiwania pokazuje w
   zakładkach Roles i Modifiers tylko role i modyfikatory w klimacie AmonRa (AmonRa, Wygodniś, Ekspert, Moderator,

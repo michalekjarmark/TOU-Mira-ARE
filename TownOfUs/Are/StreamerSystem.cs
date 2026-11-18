@@ -44,6 +44,7 @@ public static class StreamerSystem
 
     private static float _timer;
     private static int _hiddenLayer = -1;
+    private static int _collisionsOf = -1;
     private static GameObject? _label;
     private static TextMeshPro? _labelText;
 
@@ -178,10 +179,43 @@ public static class StreamerSystem
             var go = renderer.gameObject;
             if (go.layer != HiddenLayer && (player == null || !KeepsLayer(player, go)))
             {
+                if (go.GetComponent<Collider2D>() != null)
+                {
+                    MatchCollisions(go.layer);
+                }
+
                 list.Add((go, go.layer));
                 go.layer = HiddenLayer;
             }
         }
+    }
+
+    /// <summary>
+    ///     A layer also decides collisions, and an unused layer collides with everything: the pet (it has a collider)
+    ///     started pushing its owner around (owner's test 19). The hidden layer gets the collisions of the layer the
+    ///     collider came from, so it collides exactly as before.
+    /// </summary>
+    private static void MatchCollisions(int layer)
+    {
+        if (_collisionsOf == layer)
+        {
+            return;
+        }
+
+        if (_collisionsOf >= 0)
+        {
+            Warning($"Streamer: colliders from layers {_collisionsOf} and {layer} hidden, using the collisions of {layer}");
+        }
+
+        _collisionsOf = layer;
+        var hidden = HiddenLayer;
+        for (var i = 0; i < 32; i++)
+        {
+            Physics2D.IgnoreLayerCollision(hidden, i, Physics2D.GetIgnoreLayerCollision(layer, i));
+        }
+
+        Physics2D.IgnoreLayerCollision(hidden, hidden, Physics2D.GetIgnoreLayerCollision(layer, layer));
+        Info($"Streamer: layer {hidden} collides like layer {layer}");
     }
 
     // The player's own light and flashlight (local player) belong to the shadow camera: moving them darkens the screen.

@@ -137,7 +137,9 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
 - **A player's body sprites are not under `cosmetics`** (the hat, visor, skin and name texts are). To hide a whole player
   from a camera, take the renderers under `player.gameObject`, but leave the local player's `lightSource` and
   `TargetFlashlight` (the shadow camera draws them) and the player object's own layer (the game sets it for ghosts and it
-  decides collisions). See `StreamerSystem.Hide`.
+  decides collisions). See `StreamerSystem.Hide`. A layer also decides the collisions of every collider on that
+  object (the pet has one), and an unused layer collides with everything: copy the original layer's collisions to it
+  (`Physics2D.IgnoreLayerCollision`, `StreamerSystem.MatchCollisions`).
 - **`Object.Instantiate(Camera.main)` copies the whole HUD**, which lives under the main camera: every copied component
   runs `Awake` (MiraAPI's `ModifierDisplayComponent` sets its `Instance` to the copy and throws). Copy the camera under
   an inactive parent and `DestroyImmediate` its children before it becomes active (`StreamSniperSystem.CopyCamera`).

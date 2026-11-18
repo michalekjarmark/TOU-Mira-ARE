@@ -88,7 +88,19 @@ public static class AreMeetingTimerTextPatch
     public static void Postfix(MeetingHud __instance)
     {
         var local = PlayerControl.LocalPlayer;
-        if (!local || local.Data == null || local.HasDied())
+        if (!local || local.Data == null)
+        {
+            return;
+        }
+
+        // A ghost with something to follow in the meeting: the Blame Shifter's blamed player and votes (owner's test 19).
+        if (local.Data.Role is BlameShifterRole shifter)
+        {
+            __instance.TimerText.text += $"<color=#FFFFFF>\n{BlameShifterSystem.StatusText(shifter)}</color>";
+            return;
+        }
+
+        if (local.HasDied())
         {
             return;
         }

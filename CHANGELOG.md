@@ -9,6 +9,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
+## [1.7.9-are.8] - 2026-11-18
+
 ### Added
 
 - **Expert** (new Crewmate Investigative role): examines a nearby player and learns their exact role, shown on the
@@ -657,7 +659,8 @@ Pierwsze wydanie AmonRa Edition. Bazuje na Town of Us: Mira 1.7.9 (branch `dev`)
 
 </details>
 
-[Unreleased]: https://github.com/michalekjarmark/TOU-Mira-ARE/compare/v1.7.9-are.7...are
+[Unreleased]: https://github.com/michalekjarmark/TOU-Mira-ARE/compare/v1.7.9-are.8...are
+[1.7.9-are.8]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.8
 [1.7.9-are.7]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.7
 [1.7.9-are.6]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.6
 [1.7.9-are.5]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.5

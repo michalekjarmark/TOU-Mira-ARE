@@ -4449,7 +4449,7 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TownOfUsMira.Role.ChairmanOrder">Order</string>
   <string name="TownOfUsMira.Role.ChairmanOrder.WikiDescription">Order a nearby player to finish any task within a short time.</string>
   <string name="TownOfUsMira.Role.ChairmanMeeting">Board Meeting</string>
-  <string name="TownOfUsMira.Role.ChairmanMeeting.WikiDescription">From the Director title on: call a meeting from anywhere, once per game. Not during a sabotage.</string>
+  <string name="TownOfUsMira.Role.ChairmanMeeting.WikiDescription">From the Director title on: call a meeting from anywhere, once per game. It doesn't use up your emergency meeting. Not during a sabotage.</string>
   <string name="TownOfUsMira.Role.ChairmanOrderGiven">You got an order: finish any task within [time] s.</string>
   <string name="TownOfUsMira.Role.ChairmanOrderGivenNamed">[player] gave you an order: finish any task within [time] s.</string>
   <string name="TownOfUsMira.Role.ChairmanResultDone">[player] did the order.</string>
@@ -4579,7 +4579,7 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TownOfUsMira.Role.Cryptid.MedDescription">A ghost who shows up as a blurry figure.</string>
   <string name="TownOfUsMira.Role.Cryptid.WikiDescription">The Cryptid is a Crewmate Afterlife role: a crewmate who died may become it right away. "Appear" shows the ghost to the living for a few seconds (6 s by default) as a blurry grey figure without a name, on the cameras too, so nobody knows who it was. Nobody can get close: when a living player comes near, the figure is gone. If that player is an impostor, the Cryptid is scared off for the rest of the game (option). The dead can't talk, so this is how the Cryptid points at things: a body, the killer, a room where something is about to happen. The Cryptid still haunts and does tasks like any crewmate ghost.</string>
   <string name="TownOfUsMira.Role.CryptidAppear">Appear</string>
-  <string name="TownOfUsMira.Role.CryptidAppear.WikiDescription">Show yourself to the living as a blurry figure for a few seconds. It vanishes when someone comes close.</string>
+  <string name="TownOfUsMira.Role.CryptidAppear.WikiDescription">Show yourself to the living as a blurry figure for a few seconds. It vanishes when someone comes close, so it can't appear right next to a living player.</string>
   <string name="TownOfUsMira.Role.CryptidScaredOff">An impostor came close and scared you off: no more sightings.</string>
   <string name="TouOptionCryptidSightingCooldown">Sighting Cooldown</string>
   <string name="TouOptionCryptidSightingDuration">Sighting Duration</string>

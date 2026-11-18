@@ -132,6 +132,19 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   `TryAssignSpecialGhostRoles`, one per role per game; Cryptid) or after a meeting from
   `IBasicGhostRole.GetAvailableGhosts` with `ApplyImmediatelyAfterDeath => false` (Haunter, Spectre, Blame Shifter).
   A MiraAPI ghost role needs `IsDead => true` and its own "Haunt" (`NeutralGhostRole` and Town of Polus' ghosts show how).
+  The Spectre and the Blame Shifter skip players with an `AllianceGameModifier` (Lovers, Rivals...) or one ghost role
+  already (`BasicGhostModifier`): test them with those modifiers off.
+- **A player's body sprites are not under `cosmetics`** (the hat, visor, skin and name texts are). To hide a whole player
+  from a camera, take the renderers under `player.gameObject`, but leave the local player's `lightSource` and
+  `TargetFlashlight` (the shadow camera draws them) and the player object's own layer (the game sets it for ghosts and it
+  decides collisions). See `StreamerSystem.Hide`.
+- **`Object.Instantiate(Camera.main)` copies the whole HUD**, which lives under the main camera: every copied component
+  runs `Awake` (MiraAPI's `ModifierDisplayComponent` sets its `Instance` to the copy and throws). Copy the camera under
+  an inactive parent and `DestroyImmediate` its children before it becomes active (`StreamSniperSystem.CopyCamera`).
+  TOU's Parasite still makes a plain copy.
+- **A meeting without a body uses up one of the caller's emergency meetings**: vanilla `CoStartMeeting(null)` lowers
+  `RemainingEmergencies` on every client, also for an ability's `RpcStartMeeting(null)`. An ability that is not meant
+  to use it up gives it back after the meeting (`ChairmanSystem.RefundBoardMeeting`).
 
 ## Assets
 

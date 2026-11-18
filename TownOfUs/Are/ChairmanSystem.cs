@@ -26,8 +26,43 @@ public static class ChairmanSystem
 {
     private static Order? _active;
 
+    // Every client: the emergency meetings a Chairman had left when they called the Board Meeting.
+    private static readonly Dictionary<byte, int> BoardMeetingCalls = [];
+
     /// <summary>An order is running (Chairman's client).</summary>
     public static bool OrderActive => _active != null;
+
+    /// <summary>The Board Meeting is being called (every client, before the meeting starts).</summary>
+    public static void NoteBoardMeeting(PlayerControl chairman)
+    {
+        BoardMeetingCalls[chairman.PlayerId] = chairman.RemainingEmergencies;
+    }
+
+    /// <summary>A new Chairman (every client): no Board Meeting of theirs is pending.</summary>
+    public static void ForgetBoardMeeting(PlayerControl chairman)
+    {
+        BoardMeetingCalls.Remove(chairman.PlayerId);
+    }
+
+    /// <summary>
+    ///     The meeting is over (every client). The game takes one of the caller's emergency meetings whenever a meeting
+    ///     without a body starts (owner's test 18: the Board Meeting used up the emergency button), so the Chairman gets
+    ///     it back: the Board Meeting is a perk of its own.
+    /// </summary>
+    public static void RefundBoardMeeting()
+    {
+        foreach (var (id, before) in BoardMeetingCalls)
+        {
+            var chairman = MiscUtils.PlayerById(id);
+            if (chairman != null && chairman.RemainingEmergencies == before - 1)
+            {
+                chairman.RemainingEmergencies = before;
+                Message($"Chairman: {chairman.Data.PlayerName} keeps their emergency meetings ({before})");
+            }
+        }
+
+        BoardMeetingCalls.Clear();
+    }
 
     public static void CancelOrder()
     {

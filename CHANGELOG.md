@@ -30,7 +30,7 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   twice in the next meeting and the Chairman gets closer to a promotion. If not, the player is slacking and their vote
   doesn't count in the next meeting. Impostors can't do tasks, so an order is also a test, but a crewmate far from
   their tasks slacks too. Promotions keep the earlier perks: Manager (start), Director (call a meeting from anywhere
-  once per game), Chairman (see who voted for whom), King (double vote). An order counts as an interaction. Options:
+  once per game, on top of the emergency meetings), Chairman (see who voted for whom), King (double vote). An order counts as an interaction. Options:
   cooldown, time, orders per game, free task, bonus, reprimand, the player sees the Chairman's name, everyone sees
   promotions, each title on/off and its number of orders.
 - **Handyman** (new Crewmate Support role): gets a random job at the start of every round, with an ability for
@@ -62,12 +62,12 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   (3 by default), the distance that breaks the alibi, only at a task console, the admin map counts the copy too.
 - **Cryptid** (new Crewmate Afterlife role): a crewmate who died may become the Cryptid right away. "Appear" shows
   the ghost to the living for a few seconds (6 s by default) as a blurry grey figure without a name, on the cameras
-  too, so nobody knows who it was. Nobody can get close: when a living player comes near, the figure is gone, and an
-  impostor scares the Cryptid off for the rest of the game (option). The dead can't talk, so this is how a ghost points
+  too, so nobody knows who it was. Nobody can get close: it can't appear right next to a living player, and when one
+  comes near, the figure is gone, and an impostor scares the Cryptid off for the rest of the game (option). The dead can't talk, so this is how a ghost points
   at a body, the killer or a room. The Cryptid still haunts and does tasks like any crewmate ghost. Options: cooldown,
   time, sightings per game (3 by default), the distance that makes it vanish, an impostor scares it off.
-- **Blame Shifter** (new Neutral Afterlife role): a dead neutral may become it after a meeting, like the Spectre. The
-  ghost blames a living player for its death (anyone but its own killer). A few times per game (3 by default), when
+- **Blame Shifter** (new Neutral Afterlife role): a dead neutral may become it after a meeting, like the Spectre (not
+  one with an alliance modifier, such as Lovers or Rivals). The ghost blames a living player for its death (anyone but its own killer). A few times per game (3 by default), when
   close, it possesses that player: for a few seconds (4 s) the player walks after the ghost instead of where they want
   and can't use abilities, consoles or reports. The possessed player sees a flash and a message (option), so they can
   defend themselves. The Blame Shifter wins when the blamed player gets voted out (option: when they collect enough
@@ -102,7 +102,7 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   najbliższym spotkaniu liczy się podwójnie, a Prezes zbliża się do awansu. Jeśli nie zdąży, gracz się obija i jego
   głos na najbliższym spotkaniu się nie liczy. Impostorzy nie mogą robić zadań, więc zlecenie jest też testem, ale
   crewmate daleko od zadań też się „obija”. Awanse zachowują wcześniejsze przywileje: Kierownik (start), Dyrektor (raz
-  na grę spotkanie z dowolnego miejsca), Prezes (widzi, kto na kogo głosował), Król (podwójny głos). Zlecenie liczy
+  na grę spotkanie z dowolnego miejsca, poza zwykłymi spotkaniami awaryjnymi), Prezes (widzi, kto na kogo głosował), Król (podwójny głos). Zlecenie liczy
   się jako interakcja. Opcje: cooldown, czas, liczba zleceń na grę, darmowe zadanie, premia, nagana, gracz widzi nick
   Prezesa, wszyscy widzą awanse, każdy tytuł osobno i jego liczba zleceń.
 - **Złota Rączka** (Handyman, nowa rola Crewmate Support): na początku każdej rundy losuje etat z umiejętnością na
@@ -135,12 +135,13 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   zadania, mapa admina liczy też kopię.
 - **Kryptyda** (Cryptid, nowa rola Crewmate Afterlife): crewmate może nią zostać zaraz po śmierci. „Pojawienie się”
   pokazuje ducha żywym na kilka sekund (domyślnie 6 s) jako rozmytą szarą postać bez nicku, także na kamerach, więc
-  nikt nie wie, kim był. Nikt nie może podejść: gdy żywy gracz się zbliży, postać znika, a impostor przepłasza Kryptydę
+  nikt nie wie, kim był. Nikt nie może podejść: postać nie pojawi się tuż obok żywego gracza, a gdy ktoś się zbliży,
+  znika, a impostor przepłasza Kryptydę
   do końca gry (opcja). Martwi nie mówią, więc tak duch wskazuje ciało, zabójcę albo pokój. Poza tym Kryptyda nawiedza
   i robi zadania jak każdy duch załogi. Opcje: cooldown, czas, liczba pojawień na grę (domyślnie 3), dystans, przy
   którym znika, impostor przepłasza.
-- **Krętacz** (Blame Shifter, nowa rola Neutral Afterlife): martwy neutral może nim zostać po spotkaniu, jak Spectre.
-  Duch obwinia żywego gracza za swoją śmierć (każdego poza swoim zabójcą). Kilka razy na grę (domyślnie 3), będąc
+- **Krętacz** (Blame Shifter, nowa rola Neutral Afterlife): martwy neutral może nim zostać po spotkaniu, jak Spectre
+  (nie ten z modyfikatorem sojuszu, np. Kochankowie, Rywale). Duch obwinia żywego gracza za swoją śmierć (każdego poza swoim zabójcą). Kilka razy na grę (domyślnie 3), będąc
   blisko, opętuje tego gracza: przez kilka sekund (4 s) gracz idzie za duchem zamiast tam, gdzie chce, i nie może
   używać umiejętności, konsol ani zgłaszać. Opętany widzi błysk i komunikat (opcja), więc może się bronić. Krętacz
   wygrywa, gdy obwiniony zostanie wyrzucony w głosowaniu (opcja: gdy zbierze dość głosów na wszystkich spotkaniach,

@@ -53,10 +53,8 @@ public static class StreamSniperSystem
         }
 
         Target = target;
-        _camera = Object.Instantiate(main);
+        _camera = CopyCamera(main);
         _camera.name = CameraName;
-        _camera.transform.DestroyChildren();
-        _camera.GetComponent<FollowerCamera>()?.Destroy();
         _camera.orthographicSize = OptionGroupSingleton<StreamSniperOptions>.Instance.ViewSize;
         _camera.nearClipPlane = -1;
         _camera.depth = main.depth + 1;
@@ -96,6 +94,34 @@ public static class StreamSniperSystem
         _camera = null;
         _border = null;
         _borderRenderer = null;
+    }
+
+    /// <summary>
+    ///     A copy of the main camera without its children. The HUD lives under the main camera: a plain copy also copied
+    ///     the HUD, whose components woke up as the "real" ones (MiraAPI's modifier panel threw in its Awake, owner's test
+    ///     18, and kept pointing to the copy). Copied under an inactive parent, nothing in the copy wakes up before the
+    ///     children are gone.
+    /// </summary>
+    private static Camera CopyCamera(Camera main)
+    {
+        var holder = new GameObject("ARE-StreamSniperCamHolder");
+        holder.SetActive(false);
+        var copy = Object.Instantiate(main, holder.transform, false);
+        var transform = copy.transform;
+        for (var i = transform.childCount - 1; i >= 0; i--)
+        {
+            Object.DestroyImmediate(transform.GetChild(i).gameObject);
+        }
+
+        var follower = copy.GetComponent<FollowerCamera>();
+        if (follower != null)
+        {
+            Object.DestroyImmediate(follower);
+        }
+
+        transform.SetParent(null, false);
+        Object.Destroy(holder);
+        return copy;
     }
 
     /// <summary>Follows the watched player and keeps the frame on the window (Stream Sniper's client).</summary>

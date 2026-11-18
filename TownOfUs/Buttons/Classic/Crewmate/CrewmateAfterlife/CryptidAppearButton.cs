@@ -35,7 +35,8 @@ public sealed class CryptidAppearButton : TownOfUsRoleButton<CryptidRole>
 
     public override bool CanUse()
     {
-        return base.CanUse() && Role is { ScaredOff: false } && !CryptidSystem.IsShowing(PlayerControl.LocalPlayer);
+        return base.CanUse() && Role is { ScaredOff: false } && !CryptidSystem.IsShowing(PlayerControl.LocalPlayer) &&
+               !CryptidSystem.SomeoneTooClose(PlayerControl.LocalPlayer);
     }
 
     protected override void OnClick()

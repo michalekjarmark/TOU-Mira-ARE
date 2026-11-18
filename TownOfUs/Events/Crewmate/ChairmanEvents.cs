@@ -20,10 +20,11 @@ public static class ChairmanEvents
         ChairmanSystem.ApplyVotes(@event.Votes);
     }
 
-    // The meeting is over: bonuses and reprimands end.
+    // The meeting is over: bonuses and reprimands end, a Board Meeting gives the emergency meeting back.
     [RegisterEvent]
     public static void EjectionEventHandler(EjectionEvent @event)
     {
+        ChairmanSystem.RefundBoardMeeting();
         foreach (var player in PlayerControl.AllPlayerControls)
         {
             foreach (var verdict in player.GetModifiers<ChairmanVerdictModifier>().ToList())

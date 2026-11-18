@@ -34,6 +34,26 @@ public static class CryptidSystem
         return Figures.TryGetValue(player.PlayerId, out var figure) && figure != null;
     }
 
+    /// <summary>
+    ///     A living player is so close that the figure would vanish at once (owner's test 18: a sighting nobody saw).
+    ///     The button waits until nobody is that close.
+    /// </summary>
+    public static bool SomeoneTooClose(PlayerControl cryptid)
+    {
+        var distance = OptionGroupSingleton<CryptidOptions>.Instance.VanishDistance;
+        Vector2 pos = cryptid.transform.position;
+        foreach (var player in PlayerControl.AllPlayerControls)
+        {
+            if (player != null && player != cryptid && player.Data != null && !player.Data.Disconnected &&
+                !player.HasDied() && Vector2.Distance(player.transform.position, pos) < distance)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static void Create(PlayerControl cryptid)
     {
         Remove(cryptid.PlayerId, EndReason.Time);

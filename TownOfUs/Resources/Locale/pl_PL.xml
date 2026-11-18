@@ -1747,7 +1747,7 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TownOfUsMira.Role.ChairmanOrder">Zlecenie</string>
   <string name="TownOfUsMira.Role.ChairmanOrder.WikiDescription">Każ graczowi obok skończyć dowolne zadanie w krótkim czasie.</string>
   <string name="TownOfUsMira.Role.ChairmanMeeting">Zebranie</string>
-  <string name="TownOfUsMira.Role.ChairmanMeeting.WikiDescription">Od tytułu Dyrektora: raz na grę zwołaj spotkanie z dowolnego miejsca. Nie w trakcie sabotażu.</string>
+  <string name="TownOfUsMira.Role.ChairmanMeeting.WikiDescription">Od tytułu Dyrektora: raz na grę zwołaj spotkanie z dowolnego miejsca. Nie zużywa twojego spotkania awaryjnego. Nie w trakcie sabotażu.</string>
   <string name="TownOfUsMira.Role.ChairmanOrderGiven">Masz zlecenie: skończ dowolne zadanie w ciągu [time] s.</string>
   <string name="TownOfUsMira.Role.ChairmanOrderGivenNamed">[player] daje ci zlecenie: skończ dowolne zadanie w ciągu [time] s.</string>
   <string name="TownOfUsMira.Role.ChairmanResultDone">[player] wykonał zlecenie.</string>
@@ -1877,7 +1877,7 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TownOfUsMira.Role.Cryptid.MedDescription">Duch, który pokazuje się jako rozmyta postać.</string>
   <string name="TownOfUsMira.Role.Cryptid.WikiDescription">Kryptyda to rola Crewmate Afterlife: może nią zostać crewmate zaraz po śmierci. „Pojawienie się” pokazuje ducha żywym na kilka sekund (domyślnie 6 s) jako rozmytą szarą postać bez nicku, także na kamerach, więc nikt nie wie, kim był. Nikt nie może podejść: gdy żywy gracz się zbliży, postać znika. Jeśli to impostor, Kryptyda zostaje przepłoszona do końca gry (opcja). Martwi nie mówią, więc tak Kryptyda coś wskazuje: ciało, zabójcę, pokój, w którym zaraz coś się stanie. Poza tym nawiedza i robi zadania jak każdy duch załogi.</string>
   <string name="TownOfUsMira.Role.CryptidAppear">Pojawienie się</string>
-  <string name="TownOfUsMira.Role.CryptidAppear.WikiDescription">Na kilka sekund pokazujesz się żywym jako rozmyta postać. Znika, gdy ktoś podejdzie.</string>
+  <string name="TownOfUsMira.Role.CryptidAppear.WikiDescription">Na kilka sekund pokazujesz się żywym jako rozmyta postać. Znika, gdy ktoś podejdzie, więc nie pojawi się tuż obok żywego gracza.</string>
   <string name="TownOfUsMira.Role.CryptidScaredOff">Podszedł impostor i cię przepłoszył: nie możesz się już pokazywać.</string>
   <string name="TouOptionCryptidSightingCooldown">Cooldown pojawienia się</string>
   <string name="TouOptionCryptidSightingDuration">Czas pojawienia się</string>

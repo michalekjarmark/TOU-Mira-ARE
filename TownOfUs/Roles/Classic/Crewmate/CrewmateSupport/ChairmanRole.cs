@@ -62,6 +62,7 @@ public sealed class ChairmanRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfU
         RoleBehaviourStubs.Initialize(this, player);
         OrdersDone = 0;
         MeetingUsed = false;
+        ChairmanSystem.ForgetBoardMeeting(player);
     }
 
     public override void OnMeetingStart()
@@ -140,7 +141,13 @@ public sealed class ChairmanRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfU
             return;
         }
 
-        if (chairman.Data.Role is not ChairmanRole || !AmongUsClient.Instance.AmHost)
+        if (chairman.Data.Role is not ChairmanRole)
+        {
+            return;
+        }
+
+        ChairmanSystem.NoteBoardMeeting(chairman);
+        if (!AmongUsClient.Instance.AmHost)
         {
             return;
         }

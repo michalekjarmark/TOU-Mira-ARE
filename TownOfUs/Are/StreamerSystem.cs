@@ -156,12 +156,13 @@ public static class StreamerSystem
             Moved[player.PlayerId] = list;
         }
 
-        // Re-checked every tick: cosmetics (or a pet) may be swapped meanwhile.
-        HideRenderers(player.cosmetics.gameObject, list);
+        // Re-checked every tick: cosmetics (or a pet) may be swapped meanwhile. The whole player, not only the
+        // cosmetics layer: the body sprites are outside it (owner's test 18: the body stayed on the camera screens).
+        HideRenderers(player.gameObject, list, player);
         var pet = player.cosmetics.CurrentPet;
         if (pet != null)
         {
-            HideRenderers(pet.gameObject, list);
+            HideRenderers(pet.gameObject, list, null);
         }
 
         if (first)
@@ -170,17 +171,26 @@ public static class StreamerSystem
         }
     }
 
-    private static void HideRenderers(GameObject root, List<(GameObject Go, int Layer)> list)
+    private static void HideRenderers(GameObject root, List<(GameObject Go, int Layer)> list, PlayerControl? player)
     {
         foreach (var renderer in root.GetComponentsInChildren<Renderer>(true))
         {
             var go = renderer.gameObject;
-            if (go.layer != HiddenLayer)
+            if (go.layer != HiddenLayer && (player == null || !KeepsLayer(player, go)))
             {
                 list.Add((go, go.layer));
                 go.layer = HiddenLayer;
             }
         }
+    }
+
+    // The player's own light and flashlight (local player) belong to the shadow camera: moving them darkens the screen.
+    // The player object itself keeps its layer (the game sets it, e.g. for ghosts, and it decides collisions).
+    private static bool KeepsLayer(PlayerControl player, GameObject go)
+    {
+        return go == player.gameObject ||
+               (player.lightSource != null && go.transform.IsChildOf(player.lightSource.transform)) ||
+               (player.TargetFlashlight != null && go.transform.IsChildOf(player.TargetFlashlight.transform));
     }
 
     private static int HiddenLayer

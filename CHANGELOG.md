@@ -9,6 +9,19 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
+### Changed
+
+- Now based on Town of Us: Mira 1.7.9 Beta 2 (its fixes included, see the upstream link above), with MiraAPI 0.6.1.
+
+<details>
+<summary><i>Po polsku</i></summary>
+
+**Zmieniono**
+
+- Teraz na bazie Town of Us: Mira 1.7.9 Beta 2 (z jej poprawkami, patrz link do upstreamu wyżej) i MiraAPI 0.6.1.
+
+</details>
+
 ## [1.7.9-are.8] - 2026-11-18
 
 ### Added

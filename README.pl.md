@@ -117,6 +117,14 @@ ekranie startowym i w menu głównym.
 - **Gra uruchamia się bez moda** (brak napisu w menu): w folderze gry zmień nazwę pliku `version.dll` na `winhttp.dll`.
 - **Gra zamyka się przy pierwszym uruchomieniu:** sprawdź, czy w folderze gry nie ma jednocześnie `winhttp.dll`
   i `version.dll` (np. po innym modzie). Zostaw tylko `version.dll`.
+- **Gra zamyka się przy starcie, a w `BepInEx/ErrorLog.log` jest „Zasady kontroli aplikacji zablokowały ten plik”
+  (`0x800711C7`):** funkcja **Smart App Control** w Windows 11 blokuje niepodpisane pliki, które tworzy BepInEx.
+  Rozwiązanie:
+  1. Zabezpieczenia Windows → Kontrola aplikacji i przeglądarki → Ustawienia funkcji Smart App Control → **Wyłączone**
+     (na części wersji Windowsa nie da się jej potem włączyć bez reinstalacji systemu; Defender działa dalej).
+  2. Odblokuj pliki gry w PowerShellu (wpisz swój folder gry):
+     `Get-ChildItem "C:\ścieżka\do\Among Us" -Recurse | Unblock-File`
+  3. Usuń folder `BepInEx/interop` i uruchom grę (pierwsze uruchomienie trwa 1–3 minuty).
 - **Wyłączenie moda:** usuń (albo zmień nazwę) `version.dll` w folderze gry.
 - **Odinstalowanie:** usuń foldery `BepInEx`, `dotnet`, `CorsacCosmetics` i plik `version.dll`, a potem sprawdź
   spójność plików gry w Steam/Epic.

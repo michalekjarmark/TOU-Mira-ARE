@@ -23,6 +23,19 @@ pobierze i uruchom grę ponownie.
 PROBLEMY
 - Gra startuje bez moda (brak napisu z punktu 5): w folderze gry zmień nazwę pliku "version.dll"
   na "winhttp.dll" i spróbuj ponownie.
+- Gra zamyka się przy starcie, a w pliku BepInEx\ErrorLog.log jest napis "Zasady kontroli
+  aplikacji zablokowały ten plik" (0x800711C7): to blokada Windowsa "Smart App Control",
+  nie błąd moda. Zrób po kolei:
+  a) Start -> wpisz "Smart App Control" -> otwórz -> zaznacz "Wyłączone".
+     (Jeśli nie ma wyniku: Start -> "Zabezpieczenia Windows" -> Kontrola aplikacji
+     i przeglądarki -> Ustawienia funkcji Smart App Control.)
+     Uwaga: na części komputerów nie da się jej potem włączyć z powrotem bez reinstalacji
+     Windowsa. Antywirus działa dalej normalnie.
+  b) Start -> wpisz "PowerShell" -> otwórz. Wklej poniższą linijkę (podmień ścieżkę na swój
+     folder gry) i naciśnij Enter:
+     Get-ChildItem "D:\SteamLibrary\steamapps\common\Among Us" -Recurse | Unblock-File
+  c) W folderze gry usuń folder BepInEx\interop (gra zrobi go od nowa).
+  d) Uruchom grę. Pierwsze uruchomienie potrwa 1-3 minuty, nie zamykaj jej.
 - Wyłączenie moda: usuń plik version.dll z folderu gry (albo zmień mu nazwę).
 - Całkowite odinstalowanie: usuń foldery BepInEx, dotnet, CorsacCosmetics i plik version.dll,
   a potem Steam -> Właściwości -> Zainstalowane pliki -> Sprawdź spójność plików.

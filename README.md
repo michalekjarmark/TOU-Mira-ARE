@@ -113,6 +113,13 @@ screen and in the main menu.
 - **The game starts without the mod** (no mod name in the main menu): in the game folder rename `version.dll` to `winhttp.dll`.
 - **The game closes on the first start:** make sure the game folder doesn't contain both `winhttp.dll` and `version.dll`
   (e.g. left over from another mod). Keep only `version.dll`.
+- **The game closes on start and `BepInEx/ErrorLog.log` says "Application Control policy has blocked this file"
+  (`0x800711C7`):** Windows 11 **Smart App Control** blocks the unsigned files BepInEx generates. Fix:
+  1. Windows Security → App & browser control → Smart App Control settings → **Off**
+     (on some Windows versions it can't be turned back on without reinstalling Windows; Defender keeps working).
+  2. Unblock the game files in PowerShell (use your game folder):
+     `Get-ChildItem "C:\path\to\Among Us" -Recurse | Unblock-File`
+  3. Delete the `BepInEx/interop` folder and start the game (the first start takes 1–3 minutes).
 - **Disable the mod:** delete (or rename) `version.dll` in the game folder.
 - **Uninstall:** delete the `BepInEx`, `dotnet` and `CorsacCosmetics` folders and `version.dll`, then verify the game
   files in Steam/Epic.

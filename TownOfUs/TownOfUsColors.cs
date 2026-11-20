@@ -30,6 +30,7 @@ public static class TownOfUsColors
     public static Color Investigator => UseBasic ? Palette.CrewmateBlue : new Color32(0, 179, 179, 255);
     public static Color Auditor => UseBasic ? Palette.CrewmateBlue : new Color32(235, 130, 50, 255); // ARE
     public static Color Expert => UseBasic ? Palette.CrewmateBlue : new Color32(110, 205, 160, 255); // ARE
+    public static Color Informant => UseBasic ? Palette.CrewmateBlue : new Color32(170, 120, 220, 255); // ARE
     public static Color Lookout => UseBasic ? Palette.CrewmateBlue : new Color32(51, 255, 102, 255);
     public static Color Mystic => UseBasic ? Palette.CrewmateBlue : new Color32(77, 153, 230, 255);
     public static Color Seer => UseBasic ? Palette.CrewmateBlue : new Color32(255, 204, 128, 255);

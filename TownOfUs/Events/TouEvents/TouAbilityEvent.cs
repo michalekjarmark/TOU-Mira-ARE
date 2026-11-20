@@ -264,4 +264,5 @@ public enum AbilityType
     // AmonRa Edition (always append at the end)
     VentriloquistEavesdrop,
     VandalBreak,
+    InformantShow,
 }

@@ -386,4 +386,23 @@ public static class AreAssets
     /// </summary>
     public static LoadableAsset<Sprite> BlameShifterPossessButton { get; } =
         new LoadableResourceAsset($"{CustomPath}.BlameShifterPossessButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Informant role icon (speech bubble with a red and a green dot). 128px.
+    ///     Drawn by tools/are-assets/draw-informant-icons.ps1.
+    /// </summary>
+    public static LoadableAsset<Sprite> InformantIcon { get; } =
+        new LoadableResourceAsset($"{CustomPath}.InformantIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
+
+    /// <summary>
+    ///     Informant button in the "Mark" mode (crosshair). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> InformantMarkButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.InformantMarkButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
+
+    /// <summary>
+    ///     Informant button in the "Show" mode (speech bubble with a red and a green dot). 100px.
+    /// </summary>
+    public static LoadableAsset<Sprite> InformantShowButton { get; } =
+        new LoadableResourceAsset($"{CustomPath}.InformantShowButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 }

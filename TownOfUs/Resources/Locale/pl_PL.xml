@@ -1064,7 +1064,7 @@ Może być zabójcą bądź świadkiem.</string>
   <string name="TownOfUsMira.Role.Hunter.TabDescription">Śledź innych graczy, aby dowiedzieć się kiedy użyją umiejętności.
 Gdy takowej użyją, możesz go zabić.</string>
   <string name="TownOfUsMira.Role.HunterCaughtPlayersText">Złapani Gracze:</string>
-  <string name="TownOfUsMira.Role.Hunter.WikiDescription">Łowca to Załogant Zabijający który może śledzić innych graczy podczas rundy. Jeśli śledzony gracz użyje umiejętności, może zostać zabity przez Łowcę. Nawet Załogant może zostać zabity.</string>
+  <string name="TownOfUsMira.Role.Hunter.WikiDescription">Łowca to Załogant Zabijający który może śledzić innych graczy podczas rundy. Jeśli śledzony gracz użyje umiejętności, może zostać zabity przez Łowcę. Nawet Załogant może zostać zabity. Jeśli jednak Łowca zabije złapanego Załoganta w tej samej rundzie, w której go złapał, zginie w hańbie na koniec następnego spotkania.</string>
   <string name="TownOfUsMira.Role.HunterStalk">Śledź</string>
   <string name="TownOfUsMira.Role.HunterStalking">Śledzisz</string>
   <string name="TownOfUsMira.Role.HunterStalk.WikiDescription">Wybierz gracza do śledzenia. Możesz śledzić [hunterMaxStalkUsages] graczy. Jeśli śledzony użyje umiejętności, zostanie on dodany do twojej listy i może zostać zabity.</string>
@@ -1911,4 +1911,9 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionBlameShifterWinModeEnumVotes">Zbierze głosy</string>
   <string name="TouOptionBlameShifterVotesNeeded">Potrzebne głosy</string>
   <string name="TouOptionBlameShifterWinEndsGame">Wygrana kończy grę</string>
+  <!-- AmonRa Edition - Kills at the same moment as a meeting, notices of deaths by a rule -->
+  <string name="TouOptionAreMeetingStartDelay">Opóźnienie spotkania (zabójstwa w tej samej chwili)</string>
+  <string name="TownOfUsMira.Role.Hunter.AreShameSelf">Hańba: [player] był Załogantem złapanym i zabitym w tej samej rundzie, więc giniesz.</string>
+  <string name="TownOfUsMira.Role.Hunter.AreShame">Łowca [player] zginął w hańbie: zabił Załoganta złapanego w tej samej rundzie.</string>
+  <string name="TownOfUsMira.Modifier.Lover.AreHeartbreak">Twoja druga połówka, [player], zginęła, więc umierasz ze złamanego serca.</string>
 </resources>

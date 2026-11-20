@@ -80,10 +80,12 @@ public sealed class BarkeeperRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOf
     public static void RpcRoleblock(PlayerControl player, PlayerControl target)
     {
         var options = OptionGroupSingleton<RoleblockOptions>.Instance;
-        var roleblockDuration = options.RoleblockDuration;
-        var hangoverDuration = options.HangoverDuration;
-        var applyHangover = options.Hangover;
-        var invertControls = options.InvertControlsOfRoleblocked;
+        // AmonRa Edition: values, not the option objects (AddModifier takes object[], so the option objects found no
+        // RoleblockedModifier constructor and the roleblock never landed: "Could not find a constructor" in the logs).
+        var roleblockDuration = options.RoleblockDuration.Value;
+        var hangoverDuration = options.HangoverDuration.Value;
+        var applyHangover = options.Hangover.Value;
+        var invertControls = options.InvertControlsOfRoleblocked.Value;
         var targetName = target.CachedPlayerData.PlayerName;
         var rbText = MiraLocaleManager.Get("TownOfUsMira.Role.BarkeeperRoleblocked").Replace("<player>", targetName);
         var poisonPlayer = false;

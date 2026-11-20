@@ -4611,4 +4611,9 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionBlameShifterWinModeEnumVotes">Collects Votes</string>
   <string name="TouOptionBlameShifterVotesNeeded">Votes Needed</string>
   <string name="TouOptionBlameShifterWinEndsGame">The Win Ends The Game</string>
+  <!-- AmonRa Edition - Kills at the same moment as a meeting, notices of deaths by a rule -->
+  <string name="TouOptionAreMeetingStartDelay">Meeting Start Delay (For Simultaneous Kills)</string>
+  <string name="TownOfUsMira.Role.Hunter.AreShameSelf">Shame: [player] was a Crewmate you caught and killed in the same round, so you died.</string>
+  <string name="TownOfUsMira.Role.Hunter.AreShame">The Hunter [player] died in shame: they killed a Crewmate they had caught in the same round.</string>
+  <string name="TownOfUsMira.Modifier.Lover.AreHeartbreak">Your lover [player] died, so you died of a broken heart.</string>
 </resources>

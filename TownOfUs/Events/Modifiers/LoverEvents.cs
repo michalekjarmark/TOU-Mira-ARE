@@ -8,6 +8,7 @@ using MiraAPI.Networking;
 using MiraAPI.Utilities;
 using TownOfUs.AnimationSystem.BasicKills;
 using TownOfUs.AnimationSystem.Events;
+using TownOfUs.Are;
 using TownOfUs.Events.TouEvents;
 using TownOfUs.Modifiers;
 using TownOfUs.Modifiers.Game.Alliance;
@@ -52,12 +53,14 @@ public static class LoverEvents
         switch (@event.DeathReason)
         {
             case DeathReason.Exile:
+                NoticeHeartbreak(loveMod, @event.Player, true); // AmonRa Edition
                 GameHistory.UpdatePlayerDeathData(loveMod.OtherLover, MiraLocaleManager.Get("DiedToHeartbreak"), 0, HudManagerHelper.Instance.CurrentRound,
                     DeathHandlerOverride.SetTrue,
                     lockInfo: DeathHandlerOverride.SetTrue, playerState: StoredPlayerState.Dead);
                 loveMod.OtherLover.Exiled();
                 break;
             case DeathReason.Kill:
+                NoticeHeartbreak(loveMod, @event.Player, ExileController.Instance); // AmonRa Edition
                 if (PlayerControl.LocalPlayer.IsHost() && MeetingHud.Instance)
                 {
                     loveMod.OtherLover.RpcMeetingMurder(loveMod.OtherLover, MeetingAnimation.PlayerNameplateAnimation, CustomTouMurderRpcs.GetRandomMeetingAnim(DeathAnimType.Nameplate),
@@ -84,6 +87,27 @@ public static class LoverEvents
                         false);
                 }
                 break;
+        }
+    }
+
+    // AmonRa Edition: tell the other Lover why they died (after an ejection there's no kill of their own to see).
+    private static void NoticeHeartbreak(LoverModifier loveMod, PlayerControl deadLover, bool nextRound)
+    {
+        if (loveMod.OtherLover == null || !loveMod.OtherLover.AmOwner)
+        {
+            return;
+        }
+
+        var title = AreDeathNotice.Title(loveMod.ModifierName, TownOfUsColors.Lover);
+        var text = MiraLocaleManager.Get("TownOfUsMira.Modifier.Lover.AreHeartbreak")
+            .Replace("<player>", deadLover.Data.PlayerName);
+        if (nextRound)
+        {
+            AreDeathNotice.ShowNextRound(title, text, TouModifierIcons.Lover.LoadAsset());
+        }
+        else
+        {
+            AreDeathNotice.Show(title, text, TouModifierIcons.Lover.LoadAsset());
         }
     }
 

@@ -31,6 +31,9 @@ public sealed class HunterRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITouCrewRo
 
     public bool PendingShame { get; set; }
 
+    // AmonRa Edition: the Crewmate whose kill means leaving in shame (named in the Hunter's notice).
+    public string ShameVictim { get; set; } = string.Empty;
+
     public DoomableType DoomHintType => DoomableType.Hunter;
     public string IdPart => "Hunter";
 

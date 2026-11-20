@@ -9,6 +9,7 @@ using MiraAPI.Hud;
 using MiraAPI.Modifiers;
 using MiraAPI.Roles;
 using MiraAPI.Utilities;
+using TownOfUs.Are;
 using TownOfUs.Buttons.Crewmate;
 using TownOfUs.Modifiers.Crewmate;
 using TownOfUs.Modifiers.Game;
@@ -26,6 +27,7 @@ public static class HunterEvents
 {
     public static int ActiveStalkTaskCount;
     public static PlayerControl HunterToAnnounceNext;
+    private static string _shameVictimToAnnounce = string.Empty; // AmonRa Edition
     [RegisterEvent]
     public static void RoundStartHandler(RoundStartEvent @event)
     {
@@ -36,18 +38,20 @@ public static class HunterEvents
                 return;
             }
 
+            // AmonRa Edition: texts that say why (owner's report: a Hunter didn't know why they were dead), with the
+            // victim's name, a longer notice and a chat line the Hunter can read later.
             if (HunterToAnnounceNext.AmOwner)
             {
-                var notif1 = Helpers.CreateAndShowNotification(
-                    MiraLocaleManager.Get("TownOfUsMira.Role.Hunter.ShameNotificationSelf"),
-                    Color.white, new Vector3(0f, 1f, -20f), spr: TouRoleIcons.Hunter);
-
-                notif1.AdjustNotification();
+                AreDeathNotice.Show(
+                    AreDeathNotice.Title(MiraLocaleManager.Get("TownOfUsMira.Role.Hunter"), TownOfUsColors.Hunter),
+                    MiraLocaleManager.Get("TownOfUsMira.Role.Hunter.AreShameSelf")
+                        .Replace("<player>", _shameVictimToAnnounce),
+                    TouRoleIcons.Hunter.LoadAsset());
             }
             else
             {
                 var notif1 = Helpers.CreateAndShowNotification(
-                    MiraLocaleManager.Get("TownOfUsMira.Role.Hunter.ShameNotification").Replace("<player>", HunterToAnnounceNext.Data.PlayerName),
+                    MiraLocaleManager.Get("TownOfUsMira.Role.Hunter.AreShame").Replace("<player>", HunterToAnnounceNext.Data.PlayerName),
                     Color.white, new Vector3(0f, 1f, -20f), spr: TouRoleIcons.Hunter);
 
                 notif1.AdjustNotification();
@@ -153,13 +157,16 @@ public static class HunterEvents
             }
         }
 
+        // AmonRa Edition: AreKillSync.StartedInMeeting instead of MeetingHud.Instance: this event comes after the kill
+        // animation, and a meeting called meanwhile made only some clients send the Hunter away.
         if (OptionGroupSingleton<HunterOptions>.Instance.SameRoundKillPunishment
-            && !MeetingHud.Instance && !ExileController.Instance
+            && !AreKillSync.StartedInMeeting(target)
             && IsIncorrectKill(source, target)
             && role.CaughtRounds.TryGetValue(target.PlayerId, out var caughtRound)
             && caughtRound == HudManagerHelper.Instance.CurrentRound)
         {
             role.PendingShame = true;
+            role.ShameVictim = target.Data.PlayerName;
         }
     }
 
@@ -203,6 +210,7 @@ public static class HunterEvents
             }
 
             HunterToAnnounceNext = hunter.Player;
+            _shameVictimToAnnounce = hunter.ShameVictim; // AmonRa Edition
             if (hunter.Player.TryGetModifier<CelebrityModifier>(out var celeb))
             {
                 celeb.Announced = true;

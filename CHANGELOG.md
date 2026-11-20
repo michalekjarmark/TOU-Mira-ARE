@@ -9,16 +9,50 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
+### Added
+
+- **Meeting Start Delay (For Simultaneous Kills)** (Host Specific settings, 0.3 s by default, 0 turns it off): the host
+  waits this long before it starts a meeting. A kill made at the same moment as a report or the emergency button now
+  counts (before, it was cancelled and the victim stayed alive in the meeting). A second meeting called during the
+  wait is dropped, the same as during a meeting.
+- A player who dies because of a rule is told why, with a notification and a line in the chat: the Hunter who leaves in
+  shame (with the name of the Crewmate they killed) and a Lover who dies of a broken heart.
+
 ### Changed
 
 - Now based on Town of Us: Mira 1.7.9 Beta 2 (its fixes included, see the upstream link above), with MiraAPI 0.6.1.
+- Hunter: the Polish role description now says that killing a caught Crewmate in the same round makes the Hunter leave
+  in shame.
+
+### Fixed
+
+- Two killers who kill each other at the same moment no longer both die: the kill that reaches the host first wins.
+- Barkeeper and Bootlegger: the roleblock works again (the drink was announced, but the target wasn't roleblocked).
+- Hunter: a meeting called right after the Hunter's kill could make the Hunter leave in shame on some screens only.
 
 <details>
 <summary><i>Po polsku</i></summary>
 
+**Dodano**
+
+- **Opóźnienie spotkania (zabójstwa w tej samej chwili)** (ustawienia hosta, domyślnie 0,3 s, 0 wyłącza): host czeka
+  tyle, zanim zacznie spotkanie. Zabójstwo w tej samej chwili co zgłoszenie ciała albo przycisk spotkania teraz się
+  liczy (wcześniej było anulowane, a ofiara żyła na spotkaniu). Drugie spotkanie zwołane w trakcie czekania przepada,
+  tak jak w trakcie spotkania.
+- Gracz, który ginie przez zasadę gry, dowiaduje się dlaczego (powiadomienie i wpis na czacie): Łowca, który odchodzi
+  w hańbie (z nickiem zabitego Załoganta), i Kochanek, który umiera ze złamanego serca.
+
 **Zmieniono**
 
 - Teraz na bazie Town of Us: Mira 1.7.9 Beta 2 (z jej poprawkami, patrz link do upstreamu wyżej) i MiraAPI 0.6.1.
+- Łowca: polski opis roli mówi teraz, że zabicie złapanego Załoganta w tej samej rundzie kończy się odejściem w hańbie.
+
+**Naprawiono**
+
+- Dwaj zabójcy, którzy zabiją się nawzajem w tej samej chwili, nie giną już obaj: wygrywa zabójstwo, które pierwsze
+  dotrze do hosta.
+- Barman i Szmugler: blokada znowu działa (drink był ogłaszany, ale cel nie był blokowany).
+- Łowca: spotkanie zwołane tuż po zabójstwie Łowcy mogło sprawić, że odchodził w hańbie tylko na części ekranów.
 
 </details>
 

@@ -29,6 +29,19 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   were always off). Move the body into a `[MethodImpl(MethodImplOptions.NoInlining)]` method (in an IL2CPP role also
   `[HideFromIl2Cpp]`). Option objects (`ModdedNumberOption.Value`) and normal code (buttons, events, coroutines) are fine.
 - Kills: `RpcCustomMurder` / `RpcSpecialMurder`, not the vanilla `MurderPlayer`.
+- The host decides every kill when its request arrives (`MeetingCheck.OutsideMeeting` is checked against the host's
+  `MeetingHud.Instance`) and every client runs `CustomMurder` on the host's confirm. Vanilla creates the meeting screen
+  on the host at once when it accepts a report (`HudManager.OpenMeetingRoom`, then `RpcStartMeeting`), so a kill request
+  a few ms later is cancelled for everyone. `AreMeetingHold` holds that start for a moment (host option).
+- Clients build the meeting's dead/alive list from their own game data when the `MeetingHud` spawn arrives
+  (`PlayerVoteArea.AmDead` isn't synced, only `VotedForId` and `DidReport`). A death after that must update the vote
+  area itself (TOU's `HandleMeetingMurder` in `AfterMurderEvent` does it).
+- `AfterMurderEvent` comes after the kill animation (`CoPerformCustomKill` yields before it), so a check of
+  `MeetingHud.Instance` there gives different results on different clients when a meeting starts meanwhile. For
+  anything that changes the game for everyone use `AreKillSync.StartedInMeeting(target)` (recorded when `CustomMurder`
+  starts, which is the same on every client).
+- Kills of a dead killer: the host doesn't check it by itself; `AreKillSync` cancels `OutsideMeeting` kills whose
+  source is dead (two killers striking each other both died before).
 - What other clients see: `CompleteTaskEvent`, `AfterMurderEvent`, most `TouAbilityEvent`s, `inVent` and the position.
   `EnterVentEvent` fires only for the player who enters (patch on `RpcEnterVent`). Task steps and who started a sabotage
   are not sent at all.
@@ -52,7 +65,12 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
 - **Locale placeholders:** when loading the XML, `MiraLocaleManager` turns every `[` into `<` and every `]` into `>`.
   Write `[player]` in the XML and replace `"<player>"` in code. Replacing `"[player]"` does nothing and players see
   `<player>`.
-- Event handlers run from the lowest `[RegisterEvent(priority)]` to the highest.
+- Event handlers run from the lowest `[RegisterEvent(priority)]` to the highest. `Cancel()` doesn't stop the later
+  handlers: they all run, and whether the cancel counts is up to the code that fired the event.
+- **`var x = options.SomeOption;` keeps the option object** (`ModdedNumberOption`, `ModdedToggleOption`), not the value.
+  Comparisons and arithmetic convert it, but passed as `object` it stays the option: `AddModifier<T>(params object[])`
+  then finds no constructor (`Could not find a constructor for type ...`) and the modifier is never added. Use `.Value`
+  (upstream's Barkeeper roleblock broke this way).
 - **Changing votes in `ProcessVotesEvent`** (host only): MiraAPI recomputes the ejection from the changed votes only
   when no handler set `ExiledPlayer`. The Tiebreaker (on a tie) and the hidden Knighted votes (Monarch option) set it
   at priority 0, the Swapper at 10. A handler that adds, removes or moves votes must run before them (negative

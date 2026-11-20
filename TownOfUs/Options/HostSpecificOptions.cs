@@ -87,6 +87,11 @@ public sealed class HostSpecificOptions : AbstractOptionGroup
             Visible = () => TownOfUsPlugin.IsDevBuild
         };
 
+    // AmonRa Edition: the host holds a meeting start for a moment so kills already on their way count (Are.AreMeetingHold).
+    public ModdedNumberOption AreMeetingStartDelay { get; } =
+        new("TouOptionAreMeetingStartDelay", 0.3f, 0f, 1.5f, 0.1f, MiraAPI.Utilities.MiraNumberSuffixes.Seconds, "0.0",
+            false, false);
+
     /*private static IEnumerator CoSetAprilFools()
     {
         yield return new WaitForSeconds(0.05f);

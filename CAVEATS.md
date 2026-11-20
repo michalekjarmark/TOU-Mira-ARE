@@ -65,6 +65,10 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   in the lobby settings or the search. Set `HideSettings = false` (Haunter, Spectre do).
 - Every abstract base class (role, button, modifier, options) needs `[MiraIgnore]`: the reflection scan doesn't skip
   abstract types in plugins.
+- **AmonRa role names** (`IAmonRaContent`): write their en_US texts with the English name ("The Chairman ..."). With
+  the local setting on (default), `AreMammonNames` (postfix on `MiraLocaleManager.Get`) swaps every English name of an
+  AmonRa role in those roles' texts for the Polish one in any language but Polish. A new AmonRa role needs its IdPart
+  in `AreMammonNames`.
 - **Locale placeholders:** when loading the XML, `MiraLocaleManager` turns every `[` into `<` and every `]` into `>`.
   Write `[player]` in the XML and replace `"<player>"` in code. Replacing `"[player]"` does nothing and players see
   `<player>`.

@@ -40,6 +40,11 @@ public class TouLocalTabPreferences(ConfigFile config) : LocalSettingsTab(config
     [LocalToggleSetting]
     public ConfigEntry<bool> RoleIconOnReveal { get; private set; } =
         config.Bind("Miscellaneous", "RoleIconOnReveal", false);
+
+    // AmonRa Edition: the AmonRa roles keep their Polish names in every language (Are.AreMammonNames).
+    [LocalToggleSetting]
+    public ConfigEntry<bool> AreMammonPolishNames { get; private set; } =
+        config.Bind("AmonRa Edition", "AreMammonPolishNames", true);
 }
 
 public enum GameSummaryAppearance

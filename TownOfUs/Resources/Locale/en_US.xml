@@ -4617,12 +4617,12 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TownOfUsMira.Role.Hunter.AreShame">The Hunter [player] died in shame: they killed a Crewmate they had caught in the same round.</string>
   <string name="TownOfUsMira.Modifier.Lover.AreHeartbreak">Your lover [player] died, so you died of a broken heart.</string>
   <!-- AmonRa Edition - Informant (Crewmate Support) -->
-  <string name="TownOfUsMira.Role.Informant">Donosiciel</string>
+  <string name="TownOfUsMira.Role.Informant">Informant</string>
   <string name="TownOfUsMira.Role.Informant.IntroBlurb">Tell others who is who</string>
   <string name="TownOfUsMira.Role.Informant.MedDescription">Mark a player, then show their colour to someone else.</string>
   <string name="TownOfUsMira.Role.Informant.TabDescription">Mark a player, then show their colour to someone else. You learn nothing yourself.</string>
   <string name="TownOfUsMira.Role.Informant.TabMarked">Marked: [player]. Now show their colour to someone.</string>
-  <string name="TownOfUsMira.Role.Informant.WikiDescription">The Donosiciel (Polish for "informant") is a Crewmate Support role that helps others, but learns nothing. They mark a player, then show that player's colour (red or green, by the same rules as the Seer's) to someone else. The colour is taken when the player is marked. The player who was told sees the colour on the marked player's name from the next meeting on, until the end of the game, and doesn't know who told them. Anyone can be told, impostors and neutrals too.</string>
+  <string name="TownOfUsMira.Role.Informant.WikiDescription">The Informant is a Crewmate Support role that helps others, but learns nothing. They mark a player, then show that player's colour (red or green, by the same rules as the Seer's) to someone else. The colour is taken when the player is marked. The player who was told sees the colour on the marked player's name from the next meeting on, until the end of the game, and doesn't know who told them. Anyone can be told, impostors and neutrals too.</string>
   <string name="TownOfUsMira.Role.InformantMark">Mark</string>
   <string name="TownOfUsMira.Role.InformantMark.WikiDescription">Mark a nearby player. Their colour is taken right now. Costs no use. The mark can't be changed until it is shown to someone, and it stays through meetings.</string>
   <string name="TownOfUsMira.Role.InformantShow">Show</string>
@@ -4637,4 +4637,6 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionInformantNeutralKillingRed">Neutral Killing Roles Are Red</string>
   <string name="TouOptionInformantNeutralOutlierRed">Neutral Outlier Roles Are Red</string>
   <string name="TouOptionInformantTraitorSwapsColors">Traitor Swaps Colors</string>
+  <!-- AmonRa Edition - Polish names of the AmonRa roles (local setting) -->
+  <string name="AreMammonPolishNames">Polish Names Of AmonRa Roles</string>
 </resources>

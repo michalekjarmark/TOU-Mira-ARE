@@ -20,7 +20,8 @@ namespace TownOfUs.Roles.Crewmate;
 ///     name from the next meeting on, until the end of the game (<see cref="InformantRevealModifier" />). The Informant
 ///     learns nothing. One button with two modes, see <c>InformantButton</c>.
 /// </summary>
-public sealed class InformantRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable
+public sealed class InformantRole(IntPtr cppPtr) : CrewmateRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable,
+    IAmonRaContent
 {
     public const byte NoMark = byte.MaxValue;
 

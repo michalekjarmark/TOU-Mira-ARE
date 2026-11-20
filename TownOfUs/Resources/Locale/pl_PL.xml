@@ -1937,4 +1937,6 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionInformantNeutralKillingRed">Neutral Killing są czerwoni</string>
   <string name="TouOptionInformantNeutralOutlierRed">Neutral Outlier są czerwoni</string>
   <string name="TouOptionInformantTraitorSwapsColors">Traitor zamienia kolory</string>
+  <!-- AmonRa Edition - Polish names of the AmonRa roles (local setting) -->
+  <string name="AreMammonPolishNames">Polskie nazwy ról AmonRa w każdym języku</string>
 </resources>

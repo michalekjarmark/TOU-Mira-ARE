@@ -11,7 +11,7 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ### Added
 
-- **Donosiciel** (Informant, new Crewmate Support role, the name is Polish in every language): helps others, but
+- **Donosiciel** (Informant, new Crewmate Support role): helps others, but
   learns nothing. One button with two modes: "Mark" a nearby player (their colour is taken right then, red or green
   by the Seer's rules), then "Show" that colour to another nearby player (anyone, impostors and neutrals too, but not
   the marked player). Only the player who was told sees it, on the marked player's name from the next meeting on (in
@@ -22,6 +22,10 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
     Donosiciel, shields work as usual), and the Auditor counts a show as an irregularity.
   - Lobby options: both cooldowns, number of shows, usable in the first round, and the Seer's colour switches (a
     separate copy, so the Seer's settings don't change the Donosiciel).
+- **Polish Names Of AmonRa Roles** (local setting in Preferences, on by default): the AmonRa roles (Prezes, Złota
+  Rączka, Mitoman, Krętacz, Donosiciel...) and the Prezes's titles keep their Polish names in every language, also in
+  their descriptions and options. Turn it off to see the English names. The settings search's AmonRa toggle now shows
+  the Donosiciel too.
 - **Meeting Start Delay (For Simultaneous Kills)** (Host Specific settings, 0.3 s by default, 0 turns it off): the host
   waits this long before it starts a meeting. A kill made at the same moment as a report or the emergency button now
   counts (before, it was cancelled and the victim stayed alive in the meeting). A second meeting called during the
@@ -64,6 +68,10 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
     Donosiciela, tarcze działają jak zwykle), a Audytor liczy pokazanie jako nieprawidłowość.
   - Opcje w lobby: oba cooldowny, liczba pokazań, działanie w pierwszej rundzie i przełączniki kolorów jak u Seera
     (osobne, więc ustawienia Seera nie zmieniają Donosiciela).
+- **Polskie nazwy ról AmonRa w każdym języku** (ustawienie lokalne w Preferences, domyślnie włączone): role AmonRa
+  (Prezes, Złota Rączka, Mitoman, Krętacz, Donosiciel...) i tytuły Prezesa mają polskie nazwy w każdym języku gry, także
+  w opisach i opcjach. Po wyłączeniu w angielskiej grze widać angielskie nazwy. Przełącznik „AmonRa” w wyszukiwarce
+  ustawień pokazuje teraz też Donosiciela.
 - **Opóźnienie spotkania (zabójstwa w tej samej chwili)** (ustawienia hosta, domyślnie 0,3 s, 0 wyłącza): host czeka
   tyle, zanim zacznie spotkanie. Zabójstwo w tej samej chwili co zgłoszenie ciała albo przycisk spotkania teraz się
   liczy (wcześniej było anulowane, a ofiara żyła na spotkaniu). Drugie spotkanie zwołane w trakcie czekania przepada,

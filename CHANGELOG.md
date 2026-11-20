@@ -29,6 +29,11 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 - Two killers who kill each other at the same moment no longer both die: the kill that reaches the host first wins.
 - Barkeeper and Bootlegger: the roleblock works again (the drink was announced, but the target wasn't roleblocked).
 - Hunter: a meeting called right after the Hunter's kill could make the Hunter leave in shame on some screens only.
+- Deadly Quota and Celebrity: a meeting called right after a kill could count the kill towards the quota (and so the
+  win) or announce the Celebrity's death on some screens only. The Celebrity's death room is now where they were
+  killed, not the meeting table, and a report right after the kill no longer shows an absurd "seconds ago".
+- Rigger: after a game that ended with rigged consoles, the sparks no longer showed in the next games until the game
+  was restarted.
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -53,6 +58,11 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   dotrze do hosta.
 - Barman i Szmugler: blokada znowu działa (drink był ogłaszany, ale cel nie był blokowany).
 - Łowca: spotkanie zwołane tuż po zabójstwie Łowcy mogło sprawić, że odchodził w hańbie tylko na części ekranów.
+- Deadly Quota i Celebrity: spotkanie zwołane tuż po zabójstwie mogło sprawić, że zabójstwo liczyło się do limitu
+  (a więc i do wygranej) albo śmierć Celebrity była ogłaszana tylko na części ekranów. Pokój śmierci Celebrity to teraz
+  miejsce zabójstwa, a nie stół spotkania, a zgłoszenie tuż po zabójstwie nie pokazuje już absurdalnego „X s temu”.
+- Monter: po grze zakończonej z przerobionymi konsolami iskry nie pokazywały się w kolejnych grach aż do ponownego
+  uruchomienia gry.
 
 </details>
 

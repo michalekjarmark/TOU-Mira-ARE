@@ -140,44 +140,61 @@ public static class RiggerSystem
     /// </summary>
     private static IEnumerator CoUpdateSparks()
     {
-        while (Rigs.Count > 0)
+        // A game that ended with rigs on the map (no meeting cleared them) kept this loop running into the lobby, where
+        // the local player has no role: the exception stopped the loop with _sparkLoopRunning still set, so no spark
+        // showed again until the game was restarted (host's log, 2026-11-20). Now the loop ends with the map, and the
+        // flag is reset whatever happens.
+        try
         {
-            var local = PlayerControl.LocalPlayer;
-            var seesAll = local == null || local.Data == null || local.Data.IsDead || local.Data.Role.IsImpostor;
-            var sparksOn = OptionGroupSingleton<RiggerOptions>.Instance.SparksVisible;
-            var time = Time.time;
-
-            foreach (var (index, rig) in Rigs)
+            while (Rigs.Count > 0 && ShipStatus.Instance)
             {
-                if (!rig.Renderer)
+                var local = PlayerControl.LocalPlayer;
+                var seesAll = local == null || local.Data == null || local.Data.IsDead || local.Data.Role == null ||
+                              local.Data.Role.IsImpostor;
+                var sparksOn = OptionGroupSingleton<RiggerOptions>.Instance.SparksVisible;
+                var time = Time.time;
+
+                foreach (var (index, rig) in Rigs)
                 {
-                    continue;
+                    if (!rig.Renderer || !rig.Spark)
+                    {
+                        continue;
+                    }
+
+                    float alpha;
+                    if (seesAll)
+                    {
+                        alpha = 0.35f + 0.2f * Mathf.Abs(Mathf.Sin(time * 3f + index));
+                    }
+                    else if (sparksOn && local != null &&
+                             Vector2.Distance(local.GetTruePosition(), rig.Spark.transform.position) <=
+                             SparkVisibleDistance)
+                    {
+                        // Every console flashes at its own moment.
+                        alpha = (time + index * 0.37f) % SparkPeriod < SparkFlash ? 0.75f : 0f;
+                    }
+                    else
+                    {
+                        alpha = 0f;
+                    }
+
+                    rig.Renderer.enabled = alpha > 0.01f && !MeetingHud.Instance;
+                    rig.Renderer.color = new Color(1f, 1f, 1f, alpha);
                 }
 
-                float alpha;
-                if (seesAll)
-                {
-                    alpha = 0.35f + 0.2f * Mathf.Abs(Mathf.Sin(time * 3f + index));
-                }
-                else if (sparksOn && local != null &&
-                         Vector2.Distance(local.GetTruePosition(), rig.Spark.transform.position) <= SparkVisibleDistance)
-                {
-                    // Every console flashes at its own moment.
-                    alpha = (time + index * 0.37f) % SparkPeriod < SparkFlash ? 0.75f : 0f;
-                }
-                else
-                {
-                    alpha = 0f;
-                }
-
-                rig.Renderer.enabled = alpha > 0.01f && !MeetingHud.Instance;
-                rig.Renderer.color = new Color(1f, 1f, 1f, alpha);
+                yield return null;
             }
 
-            yield return null;
+            // The map is gone (game over): its sparks went with it.
+            if (!ShipStatus.Instance)
+            {
+                Rigs.Clear();
+            }
         }
-
-        _sparkLoopRunning = false;
+        finally
+        {
+            _sparkLoopRunning = false;
+        }
     }
 
     /// <summary>

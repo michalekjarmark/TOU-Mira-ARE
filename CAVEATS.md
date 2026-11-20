@@ -40,6 +40,9 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   `MeetingHud.Instance` there gives different results on different clients when a meeting starts meanwhile. For
   anything that changes the game for everyone use `AreKillSync.StartedInMeeting(target)` (recorded when `CustomMurder`
   starts, which is the same on every client).
+- A coroutine loop started in a game (`while (things.Count > 0)`) keeps running after the game ends if nothing cleared
+  its list: in the lobby `PlayerControl.LocalPlayer.Data.Role` is null. Also stop on `!ShipStatus.Instance`, and reset a
+  "loop running" flag in a `finally`, or one exception keeps the loop from ever starting again (the Rigger's sparks).
 - Kills of a dead killer: the host doesn't check it by itself; `AreKillSync` cancels `OutsideMeeting` kills whose
   source is dead (two killers striking each other both died before).
 - What other clients see: `CompleteTaskEvent`, `AfterMurderEvent`, most `TouAbilityEvent`s, `inVent` and the position.

@@ -1,6 +1,7 @@
 using MiraAPI.Events;
 using MiraAPI.Events.Vanilla.Gameplay;
 using MiraAPI.Modifiers;
+using TownOfUs.Are;
 using TownOfUs.Modifiers.Game.Impostor;
 using MiraAPI.Events.Mira;
 using MiraAPI.GameOptions;
@@ -20,7 +21,9 @@ public static class DeadlyQuotaEvents
     public static void AfterMurderEventHandler(AfterMurderEvent @event)
     {
         var source = @event.Source;
-        if (!source.TryGetModifier<DeadlyQuotaModifier>(out var deadlyQuota) || (MeetingHud.Instance && !OptionGroupSingleton<DeadlyQuotaOptions>.Instance.MeetingKillsCountTowardsQuota))
+        // AmonRa Edition: the meeting state from the kill's start (Are.AreKillSync): this event comes after the kill
+        // animation, so a meeting called meanwhile made some clients skip the kill and count a different quota.
+        if (!source.TryGetModifier<DeadlyQuotaModifier>(out var deadlyQuota) || (AreKillSync.StartedInMeeting(@event.Target, false) && !OptionGroupSingleton<DeadlyQuotaOptions>.Instance.MeetingKillsCountTowardsQuota))
             return;
 
         deadlyQuota.KillCount++;

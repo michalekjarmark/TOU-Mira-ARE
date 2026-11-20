@@ -1,6 +1,7 @@
 ﻿using MiraAPI.GameOptions;
 using MiraAPI.Modifiers;
 using Reactor.Networking.Attributes;
+using TownOfUs.Are;
 using TownOfUs.Modules;
 using TownOfUs.Options.Modifiers;
 using TownOfUs.Roles;
@@ -68,7 +69,9 @@ public sealed class CelebrityModifier : TouGameModifier, IWikiDiscoverable
             return;
         }
 
-        var room = MiscUtils.GetRoomName(player.GetTruePosition());
+        // AmonRa Edition: where the kill started (Are.AreKillSync): a meeting called during the kill animation has
+        // already moved everyone to the table.
+        var room = MiscUtils.GetRoomName(AreKillSync.KillStartPosition(player));
 
         celeb.StoredRoom = room;
         celeb.DeathTime = DateTime.UtcNow;
@@ -84,7 +87,7 @@ public sealed class CelebrityModifier : TouGameModifier, IWikiDiscoverable
 
         celeb.AnnounceMessage = announceText;
 
-        if (MeetingHud.Instance || ExileController.Instance)
+        if (AreKillSync.StartedInMeeting(player)) // AmonRa Edition: the state from the kill's start
         {
             celeb.Announced = true;
         }

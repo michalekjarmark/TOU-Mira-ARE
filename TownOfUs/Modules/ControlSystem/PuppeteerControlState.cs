@@ -19,6 +19,10 @@ public static class PuppeteerControlState
     private static readonly Dictionary<byte, Vector2> ControlledVelocity = [];
     private static readonly Dictionary<byte, float> ControlledSince = [];
 
+    // AmonRa Edition: when each position arrived (see GetPosition).
+    private static readonly Dictionary<byte, float> ControlledPositionAt = [];
+    private const float MaxPositionExtrapolationSeconds = 0.2f;
+
     public static void SetControl(byte controlledId, byte controllerId)
     {
         ControlledBy[controlledId] = controllerId;
@@ -35,6 +39,7 @@ public static class PuppeteerControlState
         ControlledPosition.Remove(controlledId);
         ControlledVelocity.Remove(controlledId);
         ControlledSince.Remove(controlledId);
+        ControlledPositionAt.Remove(controlledId); // AmonRa Edition
     }
 
     public static bool IsControlled(byte controlledId, out byte controllerId)
@@ -56,11 +61,28 @@ public static class PuppeteerControlState
     {
         ControlledPosition[controlledId] = position;
         ControlledVelocity[controlledId] = velocity;
+        ControlledPositionAt[controlledId] = Time.time; // AmonRa Edition
     }
 
+    // AmonRa Edition: the last position moved on by its velocity for the time since it arrived (at most 0.2 s).
+    // It is only used to correct a client's own simulation of the controlled player, every physics frame: compared
+    // with the bare last position, the gap grew until the next packet (they are unreliable, so some get lost), and
+    // past 0.5 the player was snapped back, which looked like teleporting on everyone's screen but the controller's
+    // (owner's report, 2026-11-20: the controlled host saw their character jump around).
     public static Vector2 GetPosition(byte controlledId)
     {
-        return ControlledPosition.TryGetValue(controlledId, out var pos) ? pos : Vector2.zero;
+        if (!ControlledPosition.TryGetValue(controlledId, out var pos) || pos == Vector2.zero)
+        {
+            return Vector2.zero;
+        }
+
+        if (!ControlledPositionAt.TryGetValue(controlledId, out var at) ||
+            !ControlledVelocity.TryGetValue(controlledId, out var vel))
+        {
+            return pos;
+        }
+
+        return pos + vel * Mathf.Clamp(Time.time - at, 0f, MaxPositionExtrapolationSeconds);
     }
 
     public static Vector2 GetVelocity(byte controlledId)
@@ -92,5 +114,6 @@ public static class PuppeteerControlState
         ControlledPosition.Clear();
         ControlledVelocity.Clear();
         ControlledSince.Clear();
+        ControlledPositionAt.Clear(); // AmonRa Edition
     }
 }

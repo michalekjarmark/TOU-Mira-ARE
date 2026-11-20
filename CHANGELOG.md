@@ -45,6 +45,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   killed, not the meeting table, and a report right after the kill no longer shows an absurd "seconds ago".
 - Rigger: after a game that ended with rigged consoles, the sparks no longer showed in the next games until the game
   was restarted.
+- Parasite and Puppeteer: the controlled player's character no longer jumps back now and then (on every screen but
+  the controller's, also the controlled player's own), which looked like teleporting.
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -85,6 +87,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   miejsce zabójstwa, a nie stół spotkania, a zgłoszenie tuż po zabójstwie nie pokazuje już absurdalnego „X s temu”.
 - Monter: po grze zakończonej z przerobionymi konsolami iskry nie pokazywały się w kolejnych grach aż do ponownego
   uruchomienia gry.
+- Pasożyt (Parasite) i Lalkarz (Puppeteer): postać przejętego gracza nie cofa się już co chwilę skokiem (na każdym
+  ekranie poza przejmującym, także u samego przejętego), co wyglądało jak teleportowanie.
 
 </details>
 

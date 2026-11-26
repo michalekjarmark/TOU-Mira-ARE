@@ -23,7 +23,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   - Shields, the Veteran's alert and the Guardian Angel stop a swallow the same way they stop a kill.
   - Lobby options: swallow cooldown (30 s), max swallowed at once (no limit), digestion time (until the meeting), the
     swallowed survive the Glutton's death (on), the swallowed see around the Glutton (on), vents (off), impostor
-    vision (on). The AmonRa toggle of the settings search shows the Glutton too.
+    vision (on). The AmonRa toggle of the settings search shows the Glutton too, and with "Polish Names Of AmonRa
+    Roles" on (the default) it is called Obżartuch in every language.
 - **Polish Names Of AmonRa Roles** (local setting in Preferences, on by default): the AmonRa roles (Prezes, Złota
   Rączka, Mitoman, Krętacz, Donosiciel...) and the Prezes's titles keep their Polish names in every language, also in
   their descriptions and options. Turn it off to see the English names. The settings search's AmonRa toggle now shows
@@ -72,7 +73,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   - Tarcze, alert Veterana i Guardian Angel zatrzymują połknięcie tak samo jak zabójstwo.
   - Opcje w lobby: cooldown połykania (30 s), maks. połkniętych naraz (bez limitu), czas trawienia (do spotkania),
     połknięci przeżywają śmierć Obżartucha (wł.), połknięci widzą otoczenie (wł.), wenty (wył.), wzrok impostora (wł.).
-    Przełącznik „AmonRa” w wyszukiwarce ustawień pokazuje też Obżartucha.
+    Przełącznik „AmonRa” w wyszukiwarce ustawień pokazuje też Obżartucha, a z ustawieniem „Polskie nazwy ról AmonRa
+    w każdym języku” (domyślnie włączone) nazywa się Obżartuch także w grze po angielsku.
 - **Polskie nazwy ról AmonRa w każdym języku** (ustawienie lokalne w Preferences, domyślnie włączone): role AmonRa
   (Prezes, Złota Rączka, Mitoman, Krętacz, Donosiciel...) i tytuły Prezesa mają polskie nazwy w każdym języku gry, także
   w opisach i opcjach. Po wyłączeniu w angielskiej grze widać angielskie nazwy. Przełącznik „AmonRa” w wyszukiwarce

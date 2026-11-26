@@ -13,7 +13,8 @@ namespace TownOfUs.Roles.Neutral;
 
 /// <summary>
 ///     Glutton / Obżartuch (AmonRa Edition, Neutral Killing): the Pelican of Project: Lotus (its Swallow button icon,
-///     GPL-3.0, is used with credit), renamed by the owner. In the AmonRa filter, but the name isn't Polish in English. Swallows a nearby player instead of killing them. The swallowed player
+///     GPL-3.0, is used with credit), renamed by the owner. An AmonRa role: in the settings search's filter, and
+///     "Obżartuch" in every language with the Polish names setting on. Swallows a nearby player instead of killing them. The swallowed player
 ///     disappears inside the Glutton (invisible, not targetable, no abilities, moves with the Glutton) and dies without
 ///     a body when the next meeting is called (or after a set time). If the Glutton dies first, the swallowed come out
 ///     alive (option). Wins as the last killer alive. Logic: <see cref="GluttonSystem" />.

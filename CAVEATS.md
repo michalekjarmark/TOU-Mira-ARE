@@ -55,6 +55,10 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
 
 ## MiraAPI
 
+- **`AddModifier` is deferred too:** the new modifier waits in `_toAdd` until the component's next update, which calls
+  `OnActivate`. Until then `HasModifier<T>()` and `ModifierUtils.GetActiveModifiers<T>()` don't see it, so a check right
+  after adding (or a second request in the same frame) misses it. Use
+  `player.GetModifierComponent().HasModifier<T>(true)` to include pending ones (see `GluttonSystem.IsSwallowed`).
 - **`RemoveModifier` is deferred:** it only queues the modifier (`_toRemove`), so removing while iterating
   `GetModifiers` is safe, but `HasModifier` still sees it until the component's next update. Remove-then-add of the same
   **unique** type (`Unique` is true by default) in one frame fails: the add finds the old one and logs `Player already has
@@ -123,6 +127,15 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
 
 ## Game internals
 
+- **A player's body sprites aren't under `cosmetics`:** they are in the child `BodyForms` (index 2); `cosmetics` holds
+  the hat, visor, name and so on. Town of Us sets a player's size on the root (`player.transform.localScale` =
+  appearance `Size`, 0.7 by default). To move, spin or shrink a whole player, change the root transform, and only while
+  its movement and sync are off (`KillAnimation.SetMovement(player, false)`), setting `MyPhysics.body.position` too, or
+  physics and the network move it back. See `GluttonSystem.CoSwallowAnimation`.
+- **Don't call `NetTransform.SnapTo` every frame:** each call raises that client's movement sequence id, so after many
+  local snaps the clients disagree with the owner and drop its movement. Keep a frozen player in place with the
+  transform and `MyPhysics.body.position`, then snap once on every client when it may move again (as the Transporter
+  does). See `GluttonSwallowedModifier`.
 - `PlayerControl.myTasks` also holds list headers (`ImportantTextTask`, e.g. the impostor's "Fake Tasks:" header that
   stays after a role change) with **id 0**. When looking up a task by id, match only `NormalPlayerTask`. Vanilla
   `CompleteTask(idx)` takes the first task with that id: the game data ends up right, but the real task object can stay

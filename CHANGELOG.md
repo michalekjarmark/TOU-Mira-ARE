@@ -9,21 +9,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
-## [1.7.9-are.9] - 2026-11-26
-
 ### Added
 
-- **Donosiciel** (Informant, new Crewmate Support role): helps others, but
-  learns nothing. One button with two modes: "Mark" a nearby player (their colour is taken right then, red or green
-  by the Seer's rules), then "Show" that colour to another nearby player (anyone, impostors and neutrals too, but not
-  the marked player). Only the player who was told sees it, on the marked player's name from the next meeting on (in
-  meetings and in the game), until the end of the game, and they don't know who told them.
-  - Marking is free and can't be changed until it is shown; it stays through meetings. Showing costs one use (3 by
-    default, 1 to 5) and clears the mark, so the Donosiciel can mark again, even the same player.
-  - Cooldowns: 15 s after marking, 60 s after showing. Both clicks are interactions (a Veteran on alert kills the
-    Donosiciel, shields work as usual), and the Auditor counts a show as an irregularity.
-  - Lobby options: both cooldowns, number of shows, usable in the first round, and the Seer's colour switches (a
-    separate copy, so the Seer's settings don't change the Donosiciel).
 - **Polish Names Of AmonRa Roles** (local setting in Preferences, on by default): the AmonRa roles (Prezes, Złota
   Rączka, Mitoman, Krętacz, Donosiciel...) and the Prezes's titles keep their Polish names in every language, also in
   their descriptions and options. Turn it off to see the English names. The settings search's AmonRa toggle now shows
@@ -53,6 +40,59 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   was restarted.
 - Parasite and Puppeteer: the controlled player's character no longer jumps back now and then (on every screen but
   the controller's, also the controlled player's own), which looked like teleporting.
+
+<details>
+<summary><i>Po polsku</i></summary>
+
+**Dodano**
+
+- **Polskie nazwy ról AmonRa w każdym języku** (ustawienie lokalne w Preferences, domyślnie włączone): role AmonRa
+  (Prezes, Złota Rączka, Mitoman, Krętacz, Donosiciel...) i tytuły Prezesa mają polskie nazwy w każdym języku gry, także
+  w opisach i opcjach. Po wyłączeniu w angielskiej grze widać angielskie nazwy. Przełącznik „AmonRa” w wyszukiwarce
+  ustawień pokazuje teraz też Donosiciela.
+- **Opóźnienie spotkania (zabójstwa w tej samej chwili)** (ustawienia hosta, domyślnie 0,3 s, 0 wyłącza): host czeka
+  tyle, zanim zacznie spotkanie. Zabójstwo w tej samej chwili co zgłoszenie ciała albo przycisk spotkania teraz się
+  liczy (wcześniej było anulowane, a ofiara żyła na spotkaniu). Drugie spotkanie zwołane w trakcie czekania przepada,
+  tak jak w trakcie spotkania.
+- Gracz, który ginie przez zasadę gry, dowiaduje się dlaczego (powiadomienie i wpis na czacie): Łowca, który odchodzi
+  w hańbie (z nickiem zabitego Załoganta), i Kochanek, który umiera ze złamanego serca.
+
+**Zmieniono**
+
+- Teraz na bazie Town of Us: Mira 1.7.9 Beta 2 (z jej poprawkami, patrz link do upstreamu wyżej) i MiraAPI 0.6.1.
+- Łowca: polski opis roli mówi teraz, że zabicie złapanego Załoganta w tej samej rundzie kończy się odejściem w hańbie.
+
+**Naprawiono**
+
+- Dwaj zabójcy, którzy zabiją się nawzajem w tej samej chwili, nie giną już obaj: wygrywa zabójstwo, które pierwsze
+  dotrze do hosta.
+- Barman i Szmugler: blokada znowu działa (drink był ogłaszany, ale cel nie był blokowany).
+- Łowca: spotkanie zwołane tuż po zabójstwie Łowcy mogło sprawić, że odchodził w hańbie tylko na części ekranów.
+- Deadly Quota i Celebrity: spotkanie zwołane tuż po zabójstwie mogło sprawić, że zabójstwo liczyło się do limitu
+  (a więc i do wygranej) albo śmierć Celebrity była ogłaszana tylko na części ekranów. Pokój śmierci Celebrity to teraz
+  miejsce zabójstwa, a nie stół spotkania, a zgłoszenie tuż po zabójstwie nie pokazuje już absurdalnego „X s temu”.
+- Monter: po grze zakończonej z przerobionymi konsolami iskry nie pokazywały się w kolejnych grach aż do ponownego
+  uruchomienia gry.
+- Pasożyt (Parasite) i Lalkarz (Puppeteer): postać przejętego gracza nie cofa się już co chwilę skokiem (na każdym
+  ekranie poza przejmującym, także u samego przejętego), co wyglądało jak teleportowanie.
+
+</details>
+
+## [1.7.9-are.9] - 2026-11-26
+
+### Added
+
+- **Donosiciel** (Informant, new Crewmate Support role, the name is Polish in every language): helps others, but learns nothing. One button with two modes: "Mark" a
+  nearby player (their colour is taken right then, red or green by the Seer's rules), then "Show" that colour to
+  another nearby player (anyone, impostors and neutrals too, but not the marked player). Only the player who was told
+  sees it, on the marked player's name from the next meeting on (in meetings and in the game), until the end of the
+  game, and they don't know who told them.
+  - Marking is free and can't be changed until it is shown; it stays through meetings. Showing costs one use (3 by
+    default, 1 to 5) and clears the mark, so the Donosiciel can mark again, even the same player.
+  - Cooldowns: 15 s after marking, 60 s after showing. Both clicks are interactions (a Veteran on alert kills the
+    Donosiciel, shields work as usual), and the Auditor counts a show as an irregularity.
+  - Lobby options: both cooldowns, number of shows, usable in the first round, and the Seer's colour switches (a
+    separate copy, so the Seer's settings don't change the Donosiciel).
 
 ### Changed
 
@@ -85,35 +125,6 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
     Donosiciela, tarcze działają jak zwykle), a Audytor liczy pokazanie jako nieprawidłowość.
   - Opcje w lobby: oba cooldowny, liczba pokazań, działanie w pierwszej rundzie i przełączniki kolorów jak u Seera
     (osobne, więc ustawienia Seera nie zmieniają Donosiciela).
-- **Polskie nazwy ról AmonRa w każdym języku** (ustawienie lokalne w Preferences, domyślnie włączone): role AmonRa
-  (Prezes, Złota Rączka, Mitoman, Krętacz, Donosiciel...) i tytuły Prezesa mają polskie nazwy w każdym języku gry, także
-  w opisach i opcjach. Po wyłączeniu w angielskiej grze widać angielskie nazwy. Przełącznik „AmonRa” w wyszukiwarce
-  ustawień pokazuje teraz też Donosiciela.
-- **Opóźnienie spotkania (zabójstwa w tej samej chwili)** (ustawienia hosta, domyślnie 0,3 s, 0 wyłącza): host czeka
-  tyle, zanim zacznie spotkanie. Zabójstwo w tej samej chwili co zgłoszenie ciała albo przycisk spotkania teraz się
-  liczy (wcześniej było anulowane, a ofiara żyła na spotkaniu). Drugie spotkanie zwołane w trakcie czekania przepada,
-  tak jak w trakcie spotkania.
-- Gracz, który ginie przez zasadę gry, dowiaduje się dlaczego (powiadomienie i wpis na czacie): Łowca, który odchodzi
-  w hańbie (z nickiem zabitego Załoganta), i Kochanek, który umiera ze złamanego serca.
-
-**Zmieniono**
-
-- Teraz na bazie Town of Us: Mira 1.7.9 Beta 2 (z jej poprawkami, patrz link do upstreamu wyżej) i MiraAPI 0.6.1.
-- Łowca: polski opis roli mówi teraz, że zabicie złapanego Załoganta w tej samej rundzie kończy się odejściem w hańbie.
-
-**Naprawiono**
-
-- Dwaj zabójcy, którzy zabiją się nawzajem w tej samej chwili, nie giną już obaj: wygrywa zabójstwo, które pierwsze
-  dotrze do hosta.
-- Barman i Szmugler: blokada znowu działa (drink był ogłaszany, ale cel nie był blokowany).
-- Łowca: spotkanie zwołane tuż po zabójstwie Łowcy mogło sprawić, że odchodził w hańbie tylko na części ekranów.
-- Deadly Quota i Celebrity: spotkanie zwołane tuż po zabójstwie mogło sprawić, że zabójstwo liczyło się do limitu
-  (a więc i do wygranej) albo śmierć Celebrity była ogłaszana tylko na części ekranów. Pokój śmierci Celebrity to teraz
-  miejsce zabójstwa, a nie stół spotkania, a zgłoszenie tuż po zabójstwie nie pokazuje już absurdalnego „X s temu”.
-- Monter: po grze zakończonej z przerobionymi konsolami iskry nie pokazywały się w kolejnych grach aż do ponownego
-  uruchomienia gry.
-- Pasożyt (Parasite) i Lalkarz (Puppeteer): postać przejętego gracza nie cofa się już co chwilę skokiem (na każdym
-  ekranie poza przejmującym, także u samego przejętego), co wyglądało jak teleportowanie.
 
 **Zmieniono**
 

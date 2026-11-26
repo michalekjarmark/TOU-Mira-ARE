@@ -9,6 +9,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
+## [1.7.9-are.9] - 2026-11-26
+
 ### Added
 
 - **Donosiciel** (Informant, new Crewmate Support role, the name is Polish in every language): helps others, but learns nothing. One button with two modes: "Mark" a
@@ -30,6 +32,13 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   the vote) instead of one. It still counts as one ban for the limits per game and per round, and "Moderator Chooses
   The Ban" is hidden while it's on. The banned player gets one message ("everything"), plus the usual one about the
   vote if the vote is banned too.
+
+### Fixed
+
+- **Draft mode** (part of Town of Us: Mira, turned on with Role Settings → Role Assignment Type → Draft): five fixes
+  taken early from the next Town of Us: Mira version. A player always gets the role they picked, the waiting screen
+  no longer shows stale cards, a pick reaches the host more reliably, the picking order is shuffled fairly, and the
+  impostor and neutral seats are spread better between the turns.
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -55,6 +64,13 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   umiejętności i głos), a nie jeden. Do limitów na grę i na rundę liczy się jako jeden ban, a opcja „Moderator wybiera
   rodzaj bana” jest wtedy ukryta. Zbanowany dostaje jeden komunikat („wszystko”), a gdy zbanowany jest też głos,
   także zwykły komunikat o głosie.
+
+**Naprawiono**
+
+- **Tryb draftu** (część Town of Us: Mira, włączany w Role Settings → Role Assignment Type → Draft): pięć poprawek
+  wziętych wcześniej z następnej wersji Town of Us: Mira. Gracz zawsze dostaje wybraną rolę, ekran oczekiwania nie
+  pokazuje już nieaktualnych kart, wybór pewniej dociera do hosta, kolejność wybierania jest losowana uczciwie,
+  a miejsca impostorów i neutrali lepiej rozkładają się między tury.
 
 </details>
 
@@ -708,7 +724,8 @@ Pierwsze wydanie AmonRa Edition. Bazuje na Town of Us: Mira 1.7.9 (branch `dev`)
 
 </details>
 
-[Unreleased]: https://github.com/michalekjarmark/TOU-Mira-ARE/compare/v1.7.9-are.8...are
+[Unreleased]: https://github.com/michalekjarmark/TOU-Mira-ARE/compare/v1.7.9-are.9...are
+[1.7.9-are.9]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.9
 [1.7.9-are.8]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.8
 [1.7.9-are.7]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.7
 [1.7.9-are.6]: https://github.com/michalekjarmark/TOU-Mira-ARE/releases/tag/v1.7.9-are.6

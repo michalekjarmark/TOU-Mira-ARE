@@ -19,6 +19,7 @@ public static class RoleExclusionRegistry
     public const string Reviving = "Reviving";
     public const string Blinding = "Blinding";
     public const string Municipal = "Municipal";
+    public const string Informing = "Informing"; // ARE
 
     private static readonly Dictionary<string, RoleExclusionBucket> Buckets = new(StringComparer.OrdinalIgnoreCase);
 
@@ -57,5 +58,9 @@ public static class RoleExclusionRegistry
             .Add(typeof(EclipsalRole), typeof(GrenadierRole)));
         Register(new RoleExclusionBucket(Municipal, () => OptionGroupSingleton<RoleExclusionOptions>.Instance.MunicipalRoles)
             .Add(typeof(OfficerRole), typeof(SheriffRole)));
+
+        // ARE: Donosiciel (Informant) and Seer never in one game (lobby option, on by default).
+        Register(new RoleExclusionBucket(Informing, () => OptionGroupSingleton<RoleExclusionOptions>.Instance.InformingRoles)
+            .Add(typeof(InformantRole), typeof(SeerRole)));
     }
 }

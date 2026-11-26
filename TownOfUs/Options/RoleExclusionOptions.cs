@@ -25,4 +25,8 @@ public sealed class RoleExclusionOptions : AbstractOptionGroup
 
     [ModdedToggleOption("TouOptionExclusiveMunicipalRoles")]
     public bool MunicipalRoles { get; set; } = false;
+
+    // ARE: the Donosiciel (Informant) and the Seer both tell who is red or green, so by default they don't spawn together.
+    [ModdedToggleOption("TouOptionExclusiveInformingRoles")]
+    public bool InformingRoles { get; set; } = true;
 }

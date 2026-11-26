@@ -4636,4 +4636,5 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionInformantNeutralKillingRed">Neutral Killing Roles Are Red</string>
   <string name="TouOptionInformantNeutralOutlierRed">Neutral Outlier Roles Are Red</string>
   <string name="TouOptionInformantTraitorSwapsColors">Traitor Swaps Colors</string>
+  <string name="TouOptionExclusiveInformingRoles">Donosiciel And Seer Can't Spawn Together</string>
 </resources>

@@ -1934,4 +1934,5 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionInformantNeutralKillingRed">Neutral Killing są czerwoni</string>
   <string name="TouOptionInformantNeutralOutlierRed">Neutral Outlier są czerwoni</string>
   <string name="TouOptionInformantTraitorSwapsColors">Traitor zamienia kolory</string>
+  <string name="TouOptionExclusiveInformingRoles">Donosiciel i Seer nie mogą być w jednej grze</string>
 </resources>

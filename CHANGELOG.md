@@ -9,6 +9,22 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ## [Unreleased]
 
+### Added
+
+- **Role Exclusions:** a new lobby option "Donosiciel And Seer Can't Spawn Together", on by default. Both roles tell
+  who is red or green, so by default there is only one of them in a game (like the other role exclusions).
+
+<details>
+<summary><i>Po polsku</i></summary>
+
+**Dodano**
+
+- **Wykluczenia ról:** nowa opcja w lobby „Donosiciel i Seer nie mogą być w jednej grze”, domyślnie włączona. Obie
+  role pokazują, kto jest czerwony, a kto zielony, więc domyślnie w grze jest tylko jedna z nich (jak przy innych
+  wykluczeniach ról).
+
+</details>
+
 ## [1.7.9-are.9] - 2026-11-26
 
 ### Added

@@ -11,6 +11,19 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ### Added
 
+- **Obżartuch** (Glutton, new Neutral Killing role, the Pelican of
+  [Project: Lotus](https://github.com/Lotus-AU/LotusContinued) with its icons): wins as the last killer alive. Instead
+  of killing, the Glutton swallows a nearby player, who is pulled in spinning and shrinking and disappears.
+  - The swallowed player is inside the Glutton: invisible, can't be targeted, can't use abilities, tasks, consoles, the
+    map or reports, and moves with the Glutton, seeing what is around them through a dark-red tint.
+  - They die without a body when the next meeting is called, right before it opens, so the meeting shows them dead and
+    they can't speak in it. With the digestion time option they die earlier, after that many seconds.
+  - If the Glutton dies first, the swallowed come out alive next to them (option). When everyone left alive is
+    swallowed, they are digested at once.
+  - Shields, the Veteran's alert and the Guardian Angel stop a swallow the same way they stop a kill.
+  - Lobby options: swallow cooldown (30 s), max swallowed at once (no limit), digestion time (until the meeting), the
+    swallowed survive the Glutton's death (on), the swallowed see around the Glutton (on), vents (off), impostor
+    vision (on). The AmonRa toggle of the settings search shows the Glutton too.
 - **Polish Names Of AmonRa Roles** (local setting in Preferences, on by default): the AmonRa roles (Prezes, Złota
   Rączka, Mitoman, Krętacz, Donosiciel...) and the Prezes's titles keep their Polish names in every language, also in
   their descriptions and options. Turn it off to see the English names. The settings search's AmonRa toggle now shows
@@ -46,6 +59,19 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 **Dodano**
 
+- **Obżartuch** (Glutton, nowa rola Neutral Killing, Pelikan z
+  [Project: Lotus](https://github.com/Lotus-AU/LotusContinued) razem z ikonami): wygrywa jako ostatni żywy zabójca.
+  Zamiast zabijać, połyka gracza obok, który zostaje wciągnięty, kręcąc się i malejąc, i znika.
+  - Połknięty jest w brzuchu Obżartucha: niewidzialny, nie da się w niego celować, nie może używać umiejętności, zadań,
+    konsol, mapy ani zgłaszać ciał, porusza się razem z Obżartuchem i widzi jego otoczenie przez ciemnoczerwony filtr.
+  - Ginie bez ciała, gdy zostanie zwołane spotkanie, tuż przed jego otwarciem, więc na spotkaniu jest już martwy i nie
+    może mówić. Z opcją czasu trawienia ginie wcześniej, po tylu sekundach.
+  - Jeśli Obżartuch zginie wcześniej, połknięci wychodzą żywi obok niego (opcja). Gdy wszyscy pozostali przy życiu są
+    połknięci, zostają strawieni od razu.
+  - Tarcze, alert Veterana i Guardian Angel zatrzymują połknięcie tak samo jak zabójstwo.
+  - Opcje w lobby: cooldown połykania (30 s), maks. połkniętych naraz (bez limitu), czas trawienia (do spotkania),
+    połknięci przeżywają śmierć Obżartucha (wł.), połknięci widzą otoczenie (wł.), wenty (wył.), wzrok impostora (wł.).
+    Przełącznik „AmonRa” w wyszukiwarce ustawień pokazuje też Obżartucha.
 - **Polskie nazwy ról AmonRa w każdym języku** (ustawienie lokalne w Preferences, domyślnie włączone): role AmonRa
   (Prezes, Złota Rączka, Mitoman, Krętacz, Donosiciel...) i tytuły Prezesa mają polskie nazwy w każdym języku gry, także
   w opisach i opcjach. Po wyłączeniu w angielskiej grze widać angielskie nazwy. Przełącznik „AmonRa” w wyszukiwarce

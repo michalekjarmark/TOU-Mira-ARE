@@ -1941,4 +1941,26 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionInformantTraitorSwapsColors">Traitor zamienia kolory</string>
   <!-- AmonRa Edition - Polish names of the AmonRa roles (local setting) -->
   <string name="AreMammonPolishNames">Polskie nazwy ról AmonRa w każdym języku</string>
+  <!-- AmonRa Edition - Glutton (Neutral Killing; Project: Lotus's Pelican) -->
+  <string name="TownOfUsMira.Role.Glutton">Obżartuch</string>
+  <string name="TownOfUsMira.Role.Glutton.IntroBlurb">Połykaj ich w całości.</string>
+  <string name="TownOfUsMira.Role.Glutton.TabDescription">Połykaj graczy. Giną, gdy zostanie zwołane spotkanie.</string>
+  <string name="TownOfUsMira.Role.Glutton.MedDescription">Połyka graczy, którzy giną na najbliższym spotkaniu.</string>
+  <string name="TownOfUsMira.Role.Glutton.WikiDescription">Obżartuch to rola Neutral Killing, która wygrywa, zostając ostatnim żywym zabójcą. Zamiast zabijać, Obżartuch połyka gracza obok: ofiara zostaje wciągnięta i znika. Połknięty gracz jest w brzuchu Obżartucha: niewidzialny, nie da się w niego celować, nie może używać umiejętności, zadań, konsol, mapy ani zgłaszać ciał, porusza się razem z Obżartuchem i widzi to, co jest wokół niego (opcja). Ginie bez ciała, gdy zostanie zwołane spotkanie (albo po czasie trawienia, opcja), więc na spotkaniu jest już martwy. Jeśli Obżartuch zginie wcześniej, połknięci wychodzą żywi obok niego (opcja). Tarcze, alert Veterana i Guardian Angel zatrzymują połknięcie tak samo jak zabójstwo. Gdy wszyscy pozostali przy życiu są połknięci, zostają strawieni od razu.</string>
+  <string name="TownOfUsMira.Role.GluttonSwallow">Połknij</string>
+  <string name="TownOfUsMira.Role.GluttonSwallow.WikiDescription">Połknij gracza obok. Zginie, gdy zostanie zwołane spotkanie.</string>
+  <string name="TownOfUsMira.Role.GluttonTabSwallowed">Połknięci: [players]</string>
+  <string name="TownOfUsMira.Role.GluttonSwallowedSomeone">[player] jest w twoim brzuchu.</string>
+  <string name="TownOfUsMira.Role.GluttonSwallowedNotice">Połknął cię Obżartuch! Zginiesz, gdy zostanie zwołane spotkanie.</string>
+  <string name="TownOfUsMira.Role.GluttonSwallowedTimed">Połknął cię Obżartuch! Strawi cię za [time] s albo gdy zostanie zwołane spotkanie.</string>
+  <string name="TownOfUsMira.Role.GluttonSwallowedHope">Chyba że Obżartuch zginie wcześniej.</string>
+  <string name="TownOfUsMira.Role.GluttonReleased">Obżartuch nie żyje: udało się wyjść z jego brzucha!</string>
+  <string name="DiedToGlutton">Strawiony</string>
+  <string name="TouOptionGluttonSwallowCooldown">Cooldown połykania</string>
+  <string name="TouOptionGluttonMaxSwallowed">Maks. połkniętych naraz</string>
+  <string name="TouOptionGluttonDigestTime">Czas trawienia (∞ = do spotkania)</string>
+  <string name="TouOptionGluttonReleaseOnDeath">Połknięci przeżywają śmierć Obżartucha</string>
+  <string name="TouOptionGluttonSwallowedSeeOutside">Połknięci widzą otoczenie Obżartucha</string>
+  <string name="TouOptionGluttonCanVent">Obżartuch może używać wentów</string>
+  <string name="TouOptionGluttonImpostorVision">Obżartuch ma wzrok impostora</string>
 </resources>

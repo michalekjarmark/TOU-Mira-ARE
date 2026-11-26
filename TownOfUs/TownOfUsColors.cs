@@ -109,6 +109,7 @@ public static class TownOfUsColors
     public static Color Medusa => new Color32(120, 62, 220, 255);
     public static Color Vampire => new Color32(163, 41, 41, 255);
     public static Color Werewolf => new Color32(168, 102, 41, 255);
+    public static Color Glutton => new Color32(51, 199, 74, 255); // ARE (the green of Project: Lotus's Pelican)
 
     public static Color Inquisitor => new Color32(217, 66, 145, 255);
     public static Color Jackal => new Color32(82, 80, 100, 255);

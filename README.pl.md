@@ -93,6 +93,7 @@ Wszystko poniżej jest nowe w AmonRa Edition. Wszystkie role i modyfikatory Town
 | <img src="TownOfUs/Resources/Custom/CryptidIcon.png" width="48"/><br>**Kryptyda** (Cryptid) | Rola (Crewmate Afterlife) | Crewmate może nią zostać zaraz po śmierci. „Pojawienie się” pokazuje ducha żywym na kilka sekund jako rozmytą szarą postać bez nicku (także na kamerach). Znika, gdy żywy gracz podejdzie; impostor przepłasza ją na dobre (opcja). Tak duch wskazuje ciało, zabójcę albo pokój bez mówienia. Opcje: cooldown, czas, liczba pojawień na grę, dystans, przy którym znika, impostor przepłasza. |
 | <img src="TownOfUs/Resources/Custom/BlameShifterIcon.png" width="48"/><br>**Krętacz** (Blame Shifter) | Rola (Neutral Afterlife) | Martwy neutral może nim zostać po spotkaniu. Duch obwinia żywego gracza za swoją śmierć (nie swojego zabójcę) i kilka razy na grę, będąc blisko, go opętuje: przez kilka sekund gracz idzie za duchem i nie może nic innego zrobić (widzi błysk, opcja). Wygrywa, gdy obwiniony zostanie wyrzucony (opcja: zbierze dość głosów), razem ze zwycięzcami (opcja: kończy grę). Opcje: cooldown, czas, liczba opętań, zasięg, komunikat dla opętanego, tryb wygranej, potrzebne głosy, wygrana kończy grę. |
 | <img src="TownOfUs/Resources/Custom/InformantIcon.png" width="48"/><br>**Donosiciel** (Informant) | Rola (Crewmate Support) | Pomaga innym, ale sam niczego się nie dowiaduje. Jeden przycisk z dwoma trybami: „Oznacz” pobliskiego gracza (jego kolor, czerwony albo zielony według zasad Seera, jest ustalany w tej chwili), a potem „Pokaż” go innemu pobliskiemu graczowi (każdemu, także impostorowi i neutralowi, ale nie oznaczonemu). Kolor widzi tylko gracz, któremu pokazano, na nicku oznaczonego od najbliższego głosowania do końca gry, i nie wie, kto mu doniósł. Oznaczenie nic nie kosztuje i nie da się go zmienić przed pokazaniem; pokazanie zużywa jedno z 3 użyć i usuwa oznaczenie. Oba to interakcje (Veteran, tarcze). Opcje: cooldowny oznaczenia i pokazania, liczba pokazań, działanie w pierwszej rundzie, przełączniki kolorów jak u Seera (osobne). |
+| <img src="TownOfUs/Resources/Custom/GluttonIcon.png" width="48"/><br>**Obżartuch** (Glutton) | Rola (Neutral Killing) | Pelikan z [Project: Lotus](https://github.com/Lotus-AU/LotusContinued). Wygrywa jako ostatni żywy zabójca. Zamiast zabijać, połyka gracza obok: ofiara zostaje wciągnięta i znika. Połknięty jest w brzuchu Obżartucha (niewidzialny, nie da się w niego celować, bez umiejętności, zadań i zgłaszania, porusza się razem z Obżartuchem) i ginie bez ciała, gdy zostanie zwołane spotkanie, więc na spotkaniu jest już martwy. Jeśli Obżartuch zginie wcześniej, połknięci wychodzą żywi. Tarcze, alert Veterana i Guardian Angel zatrzymują połknięcie jak zabójstwo. Opcje: cooldown, maks. połkniętych naraz, czas trawienia, połknięci przeżywają śmierć Obżartucha, połknięci widzą otoczenie, wenty, wzrok impostora. |
 
 Oprócz tego: przycisk „Ustawienia” w trybie Freeplay (zmiana ustawień lobby bez wychodzenia z ćwiczeń), wyszukiwarka
 (z przełącznikiem „AmonRa”, który pokazuje tylko role i modyfikatory w klimacie AmonRa) i ikony modyfikatorów w
@@ -151,7 +152,7 @@ Alliance), **Symulant** (leżący załogant, Impostor Killing), **Krwawiący** (
 banów, Impostor Support), **Prezes** (krawat, Crewmate Support), **Złota Rączka** (skrzynka z narzędziami, Crewmate Support),
 **Streamer** (kamerka internetowa, modyfikatory uniwersalne), **Snajper** (ekran z celownikiem, Impostor Support),
 **Mitoman** (załogant z przezroczystą kopią, Impostor Concealing), **Kryptyda** (wielki ślad stopy, Crewmate
-Afterlife), **Krętacz** (duch wskazujący palcem, Neutral Afterlife) i **Donosiciel** (dymek z czerwoną i zieloną kropką, Crewmate Support). Kluczowe różnice Town of Us: Mira,
+Afterlife), **Krętacz** (duch wskazujący palcem, Neutral Afterlife), **Donosiciel** (dymek z czerwoną i zieloną kropką, Crewmate Support) i **Obżartuch** (pelikan, Neutral Killing). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -259,6 +260,7 @@ obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskie
   <img src="Images/Groups/NeutKilling.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/killing/Arsonist"><img width="10%" src="Images/Icons/Arsonist.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/killing/Glitch"><img width="10%" src="Images/Icons/Glitch.png" /></a>
+  <a href="#dodatki-amonra-edition"><img width="10%" src="TownOfUs/Resources/Custom/GluttonIcon.png" alt="Glutton (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/killing/Juggernaut"><img width="10%" src="Images/Icons/Juggernaut.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/killing/Plaguebearer"><img width="10%" src="Images/Icons/Plaguebearer.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/killing/Pestilence"><img width="10%" src="Images/Icons/Pestilence.png" /></a>
@@ -329,6 +331,8 @@ AmonRa Edition stoi na barkach **[Town of Us: Mira](https://github.com/AU-Avenge
 **Among Us Avengers** (Atony, AlchlcSystm, angxlwtf, MyDragonBreath, Nix, Satire, xerminator, XtraCube, whichtwix, Zeo)
 oraz wszystkich osób, które przyczyniły się do tego moda. Pełna lista podziękowań:
 [Contributions & Credits](README.md#contributions--credits).
+
+Obżartuch to rola Pelikan z [Project: Lotus](https://github.com/Lotus-AU/LotusContinued) (GPL-3.0), razem z jej ikonami.
 
 # Licencja
 

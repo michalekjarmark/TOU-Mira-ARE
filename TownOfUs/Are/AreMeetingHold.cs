@@ -42,9 +42,14 @@ public static class AreMeetingHold
     [HarmonyPrefix]
     public static bool OpenMeetingRoomPrefix(PlayerControl __0)
     {
-        if (_releasing || !AmongUsClient.Instance || !AmongUsClient.Instance.AmHost || MeetingHud.Instance ||
-            TutorialManager.InstanceExists || __0 == null)
+        if (!AmongUsClient.Instance || !AmongUsClient.Instance.AmHost || MeetingHud.Instance || __0 == null)
         {
+            return true;
+        }
+
+        if (_releasing || TutorialManager.InstanceExists)
+        {
+            BeforeMeetingOpens();
             return true;
         }
 
@@ -64,6 +69,7 @@ public static class AreMeetingHold
         var delay = Delay;
         if (delay <= 0f)
         {
+            BeforeMeetingOpens();
             return true;
         }
 
@@ -160,6 +166,22 @@ public static class AreMeetingHold
         finally
         {
             _releasing = false;
+        }
+    }
+
+    /// <summary>
+    ///     Host, right before the meeting screen is created from its data: last kills that must be in this meeting
+    ///     (the Glutton's swallowed die here, so the meeting shows them dead on every client).
+    /// </summary>
+    private static void BeforeMeetingOpens()
+    {
+        try
+        {
+            GluttonSystem.DigestBeforeMeeting();
+        }
+        catch (Exception e)
+        {
+            Error($"ARE meeting hold: {e}");
         }
     }
 

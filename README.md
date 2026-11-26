@@ -90,6 +90,7 @@ Everything below is new in AmonRa Edition. For all roles and modifiers of Town o
 | <img src="TownOfUs/Resources/Custom/CryptidIcon.png" width="48"/><br>**Cryptid** | Role (Crewmate Afterlife) | A crewmate who died may become the Cryptid right away. "Appear" shows the ghost to the living for a few seconds as a blurry grey figure without a name (cameras too). It vanishes when a living player comes close; an impostor scares it off for good (option). This is how a ghost points at a body, a killer or a room without talking. Options: cooldown, time, sightings per game, the distance that makes it vanish, an impostor scares it off. |
 | <img src="TownOfUs/Resources/Custom/BlameShifterIcon.png" width="48"/><br>**Blame Shifter** | Role (Neutral Afterlife) | A dead neutral may become it after a meeting. The ghost blames a living player for its death (not its killer) and, a few times per game, possesses them when close: for a few seconds the player walks after the ghost and can't do anything else (they see a flash, option). Wins when the blamed player is voted out (option: collects enough votes), with the winners (option: ends the game). Options: cooldown, time, possessions per game, range, the player is notified, win mode, votes needed, the win ends the game. |
 | <img src="TownOfUs/Resources/Custom/InformantIcon.png" width="48"/><br>**Donosiciel** (Informant) | Role (Crewmate Support) | Helps others, but learns nothing. One button with two modes: "Mark" a nearby player (their colour, red or green by the Seer's rules, is taken right then), then "Show" it to another nearby player (anyone, impostors and neutrals too, but not the marked player). Only the told player sees the colour on the marked player's name, from the next meeting on until the end of the game, and doesn't know who told them. Marking is free and the mark can't be changed before it is shown; showing uses one of 3 uses and clears the mark. Both are interactions (Veteran, shields). Options: mark and show cooldowns, number of shows, usable in the first round, the Seer's colour switches (a separate copy). |
+| <img src="TownOfUs/Resources/Custom/GluttonIcon.png" width="48"/><br>**Obżartuch** (Glutton) | Role (Neutral Killing) | The Pelican of [Project: Lotus](https://github.com/Lotus-AU/LotusContinued). Wins as the last killer alive. Instead of killing, swallows a nearby player: they are pulled in and disappear. The swallowed player is inside the Glutton (invisible, can't be targeted, no abilities, tasks or reports, moves with the Glutton) and dies without a body when the next meeting is called, so the meeting shows them dead. If the Glutton dies first, the swallowed come out alive. Shields, the Veteran's alert and the Guardian Angel stop a swallow like a kill. Options: cooldown, max swallowed at once, digestion time, the swallowed survive the Glutton's death, the swallowed see around the Glutton, vents, impostor vision. |
 
 Also: a "Settings" button in Freeplay (change the lobby settings without leaving practice), a search box (with an
 "AmonRa" toggle that shows only the AmonRa-themed roles and modifiers) and modifier icons in the lobby settings, automatic updates, a full installation package and our own logo on the startup
@@ -173,7 +174,8 @@ Crewmate Support), **Expert** (flying saucer, Crewmate Investigative), **Moderat
 Support), **Chairman** (necktie, Crewmate Support), **Handyman** (toolbox, Crewmate Support), **Streamer** (webcam,
 universal modifiers), **Stream Sniper** (screen with a crosshair, Impostor Support), **Fabulist** (crewmate
 with its see-through copy, Impostor Concealing), **Cryptid** (big footprint, Crewmate Afterlife), **Blame Shifter**
-(ghost pointing a finger, Neutral Afterlife) and **Donosiciel** (Informant, speech bubble with a red and a green dot, Crewmate Support).
+(ghost pointing a finger, Neutral Afterlife), **Donosiciel** (Informant, speech bubble with a red and a green dot, Crewmate Support) and
+**Obżartuch** (Glutton, pelican, Neutral Killing).
 
 
 <p align="center">
@@ -280,6 +282,7 @@ with its see-through copy, Impostor Concealing), **Cryptid** (big footprint, Cre
   <img src="Images/Groups/NeutKilling.png" />
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/killing/Arsonist"><img width="10%" src="Images/Icons/Arsonist.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/killing/Glitch"><img width="10%" src="Images/Icons/Glitch.png" /></a>
+  <a href="#amonra-edition-additions"><img width="10%" src="TownOfUs/Resources/Custom/GluttonIcon.png" alt="Glutton (AmonRa Edition)" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/killing/Juggernaut"><img width="10%" src="Images/Icons/Juggernaut.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/killing/Plaguebearer"><img width="10%" src="Images/Icons/Plaguebearer.png" /></a>
   <a href="https://au-avengers.github.io/docs.toum.gg/docs/roles/neutral/killing/Pestilence"><img width="10%" src="Images/Icons/Pestilence.png" /></a>
@@ -433,6 +436,8 @@ and everyone who contributed to it. The original credits of Town of Us: Mira fol
 [Launchpad Reloaded](https://github.com/All-Of-Us-Mods/LaunchpadReloaded) - For the original Discord Status patch.\
 [D1GQ](https://github.com/D1GQ) - For the original Splash Intro patch used in [Better Among Us](https://github.com/D1GQ/BetterAmongUs).\
 [Maxi0fc](https://github.com/Maxi0fc) - For the original implementation of [AutoRejoin](https://github.com/Maxi0fc/AutoRejoin) and also the Role List hover feature.
+
+AmonRa Edition: [Project: Lotus](https://github.com/Lotus-AU/LotusContinued) (GPL-3.0) - For the Pelican role, the base of our Glutton (Obżartuch), and its icons.
 
 > [!NOTE]
 > The following credits originate from the original TOU/TOUR repositories.

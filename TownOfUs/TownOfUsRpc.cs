@@ -200,6 +200,8 @@ public enum TownOfUsRpc : uint
     BlameShifterBlame,
     BlameShifterPossess,
     InformantShow,
+    GluttonSwallow,
+    GluttonConfirmSwallow,
 }
 
 internal enum TownOfUsInternalRpc : uint

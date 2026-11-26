@@ -265,4 +265,5 @@ public enum AbilityType
     VentriloquistEavesdrop,
     VandalBreak,
     InformantShow,
+    GluttonSwallow,
 }

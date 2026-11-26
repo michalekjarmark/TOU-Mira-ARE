@@ -16,7 +16,7 @@ public static class AreMammonNames
     private static readonly string[] RoleParts =
     [
         "Expert", "Chairman", "Handyman", "Comfy", "Cryptid", "Fabulist", "Moderator", "StreamSniper", "BlameShifter",
-        "Informant"
+        "Informant", "Glutton"
     ];
 
     private static readonly string[] ModifierParts = ["AmonRa", "Streamer"];

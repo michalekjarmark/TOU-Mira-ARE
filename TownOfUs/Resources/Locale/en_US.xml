@@ -4641,4 +4641,26 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionInformantTraitorSwapsColors">Traitor Swaps Colors</string>
   <!-- AmonRa Edition - Polish names of the AmonRa roles (local setting) -->
   <string name="AreMammonPolishNames">Polish Names Of AmonRa Roles</string>
+  <!-- AmonRa Edition - Glutton (Neutral Killing; Project: Lotus's Pelican) -->
+  <string name="TownOfUsMira.Role.Glutton">Glutton</string>
+  <string name="TownOfUsMira.Role.Glutton.IntroBlurb">Swallow them whole.</string>
+  <string name="TownOfUsMira.Role.Glutton.TabDescription">Swallow players. They die when the next meeting is called.</string>
+  <string name="TownOfUsMira.Role.Glutton.MedDescription">Swallows players, who die at the next meeting.</string>
+  <string name="TownOfUsMira.Role.Glutton.WikiDescription">The Glutton is a Neutral Killing role that wins by being the last killer alive. Instead of killing, the Glutton swallows a nearby player: the victim is pulled in and disappears. A swallowed player is inside the Glutton: invisible, can't be targeted, can't use abilities, tasks, consoles, the map or reports, and moves with the Glutton, seeing what is around them (option). They die without a body when the next meeting is called (or after the digestion time, option), so the meeting shows them dead. If the Glutton dies first, the swallowed come out alive next to them (option). Shields, the Veteran's alert and the Guardian Angel stop a swallow the same way they stop a kill. When everyone left alive is swallowed, they are digested at once.</string>
+  <string name="TownOfUsMira.Role.GluttonSwallow">Swallow</string>
+  <string name="TownOfUsMira.Role.GluttonSwallow.WikiDescription">Swallow a nearby player. They die when the next meeting is called.</string>
+  <string name="TownOfUsMira.Role.GluttonTabSwallowed">Swallowed: [players]</string>
+  <string name="TownOfUsMira.Role.GluttonSwallowedSomeone">[player] is in your belly.</string>
+  <string name="TownOfUsMira.Role.GluttonSwallowedNotice">The Glutton swallowed you! You die when the next meeting is called.</string>
+  <string name="TownOfUsMira.Role.GluttonSwallowedTimed">The Glutton swallowed you! You will be digested in [time] s or when a meeting is called.</string>
+  <string name="TownOfUsMira.Role.GluttonSwallowedHope">Unless the Glutton dies first.</string>
+  <string name="TownOfUsMira.Role.GluttonReleased">The Glutton died: you got out of their belly!</string>
+  <string name="DiedToGlutton">Digested</string>
+  <string name="TouOptionGluttonSwallowCooldown">Swallow Cooldown</string>
+  <string name="TouOptionGluttonMaxSwallowed">Max Swallowed At Once</string>
+  <string name="TouOptionGluttonDigestTime">Digestion Time (∞ = Until The Meeting)</string>
+  <string name="TouOptionGluttonReleaseOnDeath">The Swallowed Survive If The Glutton Dies</string>
+  <string name="TouOptionGluttonSwallowedSeeOutside">The Swallowed See Around The Glutton</string>
+  <string name="TouOptionGluttonCanVent">Glutton Can Vent</string>
+  <string name="TouOptionGluttonImpostorVision">Glutton Has Impostor Vision</string>
 </resources>

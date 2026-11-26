@@ -8,6 +8,7 @@ using TownOfUs.Buttons.Crewmate;
 using TownOfUs.Buttons.Modifiers;
 using TownOfUs.Modifiers.Impostor;
 using TownOfUs.Options.Roles.Impostor;
+using TownOfUs.Roles.Impostor;
 using UnityEngine;
 
 namespace TownOfUs.Are;
@@ -34,56 +35,80 @@ public static class ModeratorSystem
         return IsBanned(PlayerControl.LocalPlayer, type);
     }
 
+    /// <summary>A ban: <c>banMask</c> holds the banned types, one bit each (<c>ModeratorRole.MaskOf</c>), one or all enabled ones.</summary>
     [MethodImpl(MethodImplOptions.NoInlining)]
-    public static void HandleBan(PlayerControl moderator, PlayerControl target, int banType, float duration)
+    public static void HandleBan(PlayerControl moderator, PlayerControl target, int banMask, float duration)
     {
         if (target == null || target.Data == null || target.Data.IsDead)
         {
             return;
         }
 
-        var type = (ModeratorBanType)banType;
-
-        // The same type again starts over (the timer, not remove + add: MiraAPI removes at the end of the frame).
-        // Different types stack (the modifier isn't unique).
-        if (target.TryGetModifier<ModeratorBanModifier>(out var old, x => x.BanType == type))
+        var types = Enum.GetValues<ModeratorBanType>().Where(x => (banMask & ModeratorRole.MaskOf(x)) != 0).ToList();
+        if (types.Count == 0)
         {
-            old.ResetTimer();
-            old.StartTimer();
+            Error($"Moderator: empty ban mask {banMask}");
+            return;
         }
-        else
-        {
-            target.AddModifier<ModeratorBanModifier>(moderator.PlayerId, banType, duration);
-        }
-        Message($"Moderator: {moderator.Data.PlayerName} banned {target.Data.PlayerName} from {type} " +
-                $"({(duration > 0f ? $"{duration} s" : "until the meeting")})");
 
-        var banName = BanName(type);
+        foreach (var type in types)
+        {
+            // A vote ban lasts until the end of the next meeting, whatever the ban length.
+            var typeDuration = type == ModeratorBanType.Vote ? 0f : duration;
+
+            // The same type again starts over (the timer, not remove + add: MiraAPI removes at the end of the frame).
+            // Different types stack (the modifier isn't unique).
+            if (target.TryGetModifier<ModeratorBanModifier>(out var old, x => x.BanType == type))
+            {
+                old.ResetTimer();
+                old.StartTimer();
+            }
+            else
+            {
+                target.AddModifier<ModeratorBanModifier>(moderator.PlayerId, (int)type, typeDuration);
+            }
+        }
+
+        Message($"Moderator: {moderator.Data.PlayerName} banned {target.Data.PlayerName} from " +
+                $"{string.Join(", ", types)} ({(duration > 0f ? $"{duration} s" : "until the meeting")})");
+
         if (moderator.AmOwner)
         {
             var text = MiraLocaleManager.Get("TownOfUsMira.Role.ModeratorBanGiven")
                 .Replace("<player>", target.Data.PlayerName)
-                .Replace("<ban>", banName);
+                .Replace("<ban>", BanListName(types));
             Notify(text);
         }
 
-        if (target.AmOwner && OptionGroupSingleton<ModeratorOptions>.Instance.TargetNotified)
+        if (!target.AmOwner || !OptionGroupSingleton<ModeratorOptions>.Instance.TargetNotified)
         {
-            var key = "TownOfUsMira.Role.ModeratorBannedUntilMeeting";
-            if (type == ModeratorBanType.Vote)
-            {
-                key = "TownOfUsMira.Role.ModeratorBannedVote";
-            }
-            else if (duration > 0f)
-            {
-                key = "TownOfUsMira.Role.ModeratorBannedTimed";
-            }
+            return;
+        }
 
+        var timed = types.Where(x => x != ModeratorBanType.Vote).ToList();
+        if (timed.Count > 0)
+        {
+            var key = duration > 0f
+                ? "TownOfUsMira.Role.ModeratorBannedTimed"
+                : "TownOfUsMira.Role.ModeratorBannedUntilMeeting";
             var text = MiraLocaleManager.Get(key)
-                .Replace("<ban>", banName)
+                .Replace("<ban>", BanListName(timed))
                 .Replace("<time>", Math.Round(duration).ToString(TownOfUsPlugin.Culture));
             Notify(text);
         }
+
+        if (types.Contains(ModeratorBanType.Vote))
+        {
+            Notify(MiraLocaleManager.Get("TownOfUsMira.Role.ModeratorBannedVote"));
+        }
+    }
+
+    /// <summary>One type by its name, several (a ban on everything) as "everything".</summary>
+    private static string BanListName(List<ModeratorBanType> types)
+    {
+        return types.Count == 1
+            ? BanName(types[0])
+            : MiraLocaleManager.Get("TownOfUsMira.Role.ModeratorBanNameEverything", "everything");
     }
 
     public static string BanName(ModeratorBanType type)

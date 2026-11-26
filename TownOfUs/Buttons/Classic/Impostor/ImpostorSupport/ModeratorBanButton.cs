@@ -46,17 +46,16 @@ public sealed class ModeratorBanButton : TownOfUsRoleButton<ModeratorRole, Playe
             return;
         }
 
-        var type = Role.NextBanType();
-        if (type == null)
+        var mask = Role.NextBanMask();
+        if (mask == 0)
         {
             return;
         }
 
+        // One click is one ban, also when it blocks everything (limits per game and per round).
         var opts = OptionGroupSingleton<ModeratorOptions>.Instance;
-        var duration = opts.BanLength is ModeratorBanLength.Timed && type != ModeratorBanType.Vote
-            ? opts.BanDuration.Value
-            : 0f;
+        var duration = opts.BanLength is ModeratorBanLength.Timed ? opts.BanDuration.Value : 0f;
         Role.BansThisRound++;
-        ModeratorRole.RpcModeratorBan(PlayerControl.LocalPlayer, Target, (int)type.Value, duration);
+        ModeratorRole.RpcModeratorBan(PlayerControl.LocalPlayer, Target, mask, duration);
     }
 }

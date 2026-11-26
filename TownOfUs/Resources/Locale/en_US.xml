@@ -4398,9 +4398,9 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TownOfUsMira.Role.Moderator.IntroBlurb">Ban them for anything.</string>
   <string name="TownOfUsMira.Role.Moderator.TabDescription">Ban players from reporting, the meeting button, tasks, vents, gadgets, abilities or voting.</string>
   <string name="TownOfUsMira.Role.Moderator.MedDescription">Bans players from one thing until the meeting.</string>
-  <string name="TownOfUsMira.Role.Moderator.WikiDescription">The Moderator is an Impostor Support role that bans nearby players. A ban blocks one thing until the next meeting (or for a set time): reporting bodies, the meeting button, tasks, getting into vents, cams, admin and vitals (also the portable ones), abilities (kill and sabotage included), or the vote in the next meeting (it doesn't count). By default the type is drawn at random from the ones enabled in the lobby; with an option the Moderator picks it with a second button. The banned player gets a message (option) and the Moderator sees Ø after their name. Sabotage repairs, doors and ladders are never blocked, and a player in a vent can always get out. The Cleric's Cleanse removes bans. Banning counts as an interaction.</string>
+  <string name="TownOfUsMira.Role.Moderator.WikiDescription">The Moderator is an Impostor Support role that bans nearby players. A ban blocks one thing until the next meeting (or for a set time): reporting bodies, the meeting button, tasks, getting into vents, cams, admin and vitals (also the portable ones), abilities (kill and sabotage included), or the vote in the next meeting (it doesn't count). By default the type is drawn at random from the ones enabled in the lobby; with an option the Moderator picks it with a second button, and with another one a ban blocks all the enabled types at once. The banned player gets a message (option) and the Moderator sees Ø after their name. Sabotage repairs, doors and ladders are never blocked, and a player in a vent can always get out. The Cleric's Cleanse removes bans. Banning counts as an interaction.</string>
   <string name="TownOfUsMira.Role.ModeratorBan">Ban</string>
-  <string name="TownOfUsMira.Role.ModeratorBan.WikiDescription">Ban a nearby player from one thing until the next meeting.</string>
+  <string name="TownOfUsMira.Role.ModeratorBan.WikiDescription">Ban a nearby player from one thing (or, with an option, from everything at once) until the next meeting.</string>
   <string name="TownOfUsMira.Role.ModeratorType">Ban Type</string>
   <string name="TownOfUsMira.Role.ModeratorType.WikiDescription">Only with the "Moderator Chooses The Ban" option: switch to the next ban type. The button shows the type the next ban gets.</string>
   <string name="TownOfUsMira.Role.ModeratorBanGiven">[player] got a ban: [ban].</string>
@@ -4422,6 +4422,7 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TownOfUsMira.Role.ModeratorBanShortAbilities">Abilities</string>
   <string name="TownOfUsMira.Role.ModeratorBanNameVote">the vote in the next meeting</string>
   <string name="TownOfUsMira.Role.ModeratorBanShortVote">Vote</string>
+  <string name="TownOfUsMira.Role.ModeratorBanNameEverything">everything</string>
   <string name="TouOptionModeratorBanCooldown">Ban Cooldown</string>
   <string name="TouOptionModeratorMaxBans">Max Bans Per Game</string>
   <string name="TouOptionModeratorBansPerRound">Max Bans Per Round</string>
@@ -4429,6 +4430,7 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionModeratorBanLengthEnumUntilMeeting">Until The Next Meeting</string>
   <string name="TouOptionModeratorBanLengthEnumTimed">A Set Time</string>
   <string name="TouOptionModeratorBanDuration">Ban Duration</string>
+  <string name="TouOptionModeratorBansEverything">A Ban Blocks Everything</string>
   <string name="TouOptionModeratorChoosesType">Moderator Chooses The Ban</string>
   <string name="TouOptionModeratorTargetNotified">Banned Player Gets A Message</string>
   <string name="TouOptionModeratorBanReports">Can Ban: Reporting Bodies</string>

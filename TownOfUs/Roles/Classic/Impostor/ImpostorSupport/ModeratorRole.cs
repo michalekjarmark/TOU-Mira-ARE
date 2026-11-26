@@ -14,8 +14,8 @@ namespace TownOfUs.Roles.Impostor;
 /// <summary>
 ///     Moderator (AmonRa Edition, Impostor Support): bans a nearby player from one thing until the next meeting (or for a
 ///     while): reporting bodies, the meeting button, tasks, vents, cams/admin/vitals, abilities, or the vote in the next
-///     meeting. The type is drawn at random from the enabled ones, or chosen with the second button (option). Logic:
-///     <see cref="ModeratorSystem" />.
+///     meeting. The type is drawn at random from the enabled ones, or chosen with the second button (option), or a ban
+///     blocks all enabled types at once (option). Logic: <see cref="ModeratorSystem" />.
 /// </summary>
 public sealed class ModeratorRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUsRole, IWikiDiscoverable, IDoomable,
     ICrewVariant, IAmonRaContent
@@ -71,26 +71,41 @@ public sealed class ModeratorRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOf
         return Enum.GetValues<ModeratorBanType>().Where(opts.IsEnabled).ToList();
     }
 
-    /// <summary>The type the next ban gets: the chosen one, or a random enabled one. Null when none is enabled.</summary>
-    public ModeratorBanType? NextBanType()
+    /// <summary>Bit of a ban type in the mask sent by <see cref="RpcModeratorBan" />.</summary>
+    public static int MaskOf(ModeratorBanType type)
+    {
+        return 1 << (int)type;
+    }
+
+    /// <summary>
+    ///     The types the next ban gets, as a mask: every enabled one ("a ban blocks everything"), the chosen one, or a
+    ///     random enabled one. 0 when none is enabled.
+    /// </summary>
+    public int NextBanMask()
     {
         var enabled = EnabledTypes();
         if (enabled.Count == 0)
         {
-            return null;
+            return 0;
         }
 
-        if (OptionGroupSingleton<ModeratorOptions>.Instance.ChoosesType)
+        var opts = OptionGroupSingleton<ModeratorOptions>.Instance;
+        if (opts.BansEverything)
+        {
+            return enabled.Aggregate(0, (mask, type) => mask | MaskOf(type));
+        }
+
+        if (opts.ChoosesType.Value)
         {
             if (!enabled.Contains(SelectedType))
             {
                 SelectedType = enabled[0];
             }
 
-            return SelectedType;
+            return MaskOf(SelectedType);
         }
 
-        return enabled[Random.Range(0, enabled.Count)];
+        return MaskOf(enabled[Random.Range(0, enabled.Count)]);
     }
 
     /// <summary>Second button: the next enabled type.</summary>
@@ -107,11 +122,12 @@ public sealed class ModeratorRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOf
     }
 
     /// <summary>
-    ///     A ban on <paramref name="target" />. <paramref name="duration" /> is in seconds, 0 = until the next meeting
-    ///     (decided by the Moderator's client, options aren't read in an RPC body).
+    ///     A ban on <paramref name="target" />: one modifier per type in <paramref name="banMask" /> (see
+    ///     <see cref="MaskOf" />). <paramref name="duration" /> is in seconds, 0 = until the next meeting; a vote ban
+    ///     ignores it (decided by the Moderator's client, options aren't read in an RPC body).
     /// </summary>
     [MethodRpc((uint)TownOfUsRpc.ModeratorBan)]
-    public static void RpcModeratorBan(PlayerControl moderator, PlayerControl target, int banType, float duration)
+    public static void RpcModeratorBan(PlayerControl moderator, PlayerControl target, int banMask, float duration)
     {
         if (LobbyBehaviour.Instance)
         {
@@ -125,6 +141,6 @@ public sealed class ModeratorRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOf
             return;
         }
 
-        ModeratorSystem.HandleBan(moderator, target, banType, duration);
+        ModeratorSystem.HandleBan(moderator, target, banMask, duration);
     }
 }

@@ -7,8 +7,9 @@ using UnityEngine;
 namespace TownOfUs.Buttons.Impostor;
 
 /// <summary>
-///     Moderator's second button (AmonRa Edition), only with the "Moderator chooses the ban" option: switches to the next
-///     enabled ban type, shown as the button's name. Not an ability use (no Aurial).
+///     Moderator's second button (AmonRa Edition), only with the "Moderator chooses the ban" option (and without "a ban
+///     blocks everything"): switches to the next enabled ban type, shown as the button's name. Not an ability use (no
+///     Aurial).
 /// </summary>
 public sealed class ModeratorTypeButton : TownOfUsRoleButton<ModeratorRole>, IAurialBypassButton
 {
@@ -24,7 +25,8 @@ public sealed class ModeratorTypeButton : TownOfUsRoleButton<ModeratorRole>, IAu
 
     public override bool Enabled(RoleBehaviour? role)
     {
-        return base.Enabled(role) && OptionGroupSingleton<ModeratorOptions>.Instance.ChoosesType;
+        var opts = OptionGroupSingleton<ModeratorOptions>.Instance;
+        return base.Enabled(role) && opts.ChoosesType.Value && !opts.BansEverything;
     }
 
     protected override void FixedUpdate(PlayerControl playerControl)

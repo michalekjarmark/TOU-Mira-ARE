@@ -34,9 +34,15 @@ public sealed class ModeratorOptions : AbstractRoleOptionGroup<ModeratorRole>
             Visible = () => OptionGroupSingleton<ModeratorOptions>.Instance.BanLength is ModeratorBanLength.Timed
         };
 
+    // On: one ban blocks every enabled type at once (owner's request, 2026-11-26).
+    [ModdedToggleOption("TouOptionModeratorBansEverything")]
+    public bool BansEverything { get; set; } = false;
+
     // Off: the ban type is drawn at random from the enabled ones ("bans for anything").
-    [ModdedToggleOption("TouOptionModeratorChoosesType")]
-    public bool ChoosesType { get; set; } = false;
+    public ModdedToggleOption ChoosesType { get; } = new("TouOptionModeratorChoosesType", false)
+    {
+        Visible = () => !OptionGroupSingleton<ModeratorOptions>.Instance.BansEverything
+    };
 
     // Off: no message, the banned player finds out when something doesn't work.
     [ModdedToggleOption("TouOptionModeratorTargetNotified")]

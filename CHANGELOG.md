@@ -23,6 +23,14 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   - Lobby options: both cooldowns, number of shows, usable in the first round, and the Seer's colour switches (a
     separate copy, so the Seer's settings don't change the Donosiciel).
 
+### Changed
+
+- **Moderator**: new lobby option "A Ban Blocks Everything" (off by default). With it, one ban blocks all the ban types
+  enabled in the lobby at once (reporting bodies, the meeting button, tasks, vents, cams/admin/vitals, abilities and
+  the vote) instead of one. It still counts as one ban for the limits per game and per round, and "Moderator Chooses
+  The Ban" is hidden while it's on. The banned player gets one message ("everything"), plus the usual one about the
+  vote if the vote is banned too.
+
 <details>
 <summary><i>Po polsku</i></summary>
 
@@ -39,6 +47,14 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
     Donosiciela, tarcze działają jak zwykle), a Audytor liczy pokazanie jako nieprawidłowość.
   - Opcje w lobby: oba cooldowny, liczba pokazań, działanie w pierwszej rundzie i przełączniki kolorów jak u Seera
     (osobne, więc ustawienia Seera nie zmieniają Donosiciela).
+
+**Zmieniono**
+
+- **Moderator**: nowa opcja w lobby „Ban na wszystko naraz” (domyślnie wyłączona). Z nią jeden ban blokuje naraz
+  wszystkie rodzaje włączone w lobby (zgłaszanie ciał, przycisk awaryjny, zadania, wenty, kamery/admin/vitals,
+  umiejętności i głos), a nie jeden. Do limitów na grę i na rundę liczy się jako jeden ban, a opcja „Moderator wybiera
+  rodzaj bana” jest wtedy ukryta. Zbanowany dostaje jeden komunikat („wszystko”), a gdy zbanowany jest też głos,
+  także zwykły komunikat o głosie.
 
 </details>
 

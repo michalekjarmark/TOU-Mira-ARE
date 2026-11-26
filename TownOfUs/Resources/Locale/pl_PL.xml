@@ -1698,9 +1698,9 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TownOfUsMira.Role.Moderator.IntroBlurb">Banuj za byle co.</string>
   <string name="TownOfUsMira.Role.Moderator.TabDescription">Banuj graczy: zgłaszanie, przycisk awaryjny, zadania, wenty, sprzęt, umiejętności albo głos.</string>
   <string name="TownOfUsMira.Role.Moderator.MedDescription">Banuje graczy na jedną rzecz do spotkania.</string>
-  <string name="TownOfUsMira.Role.Moderator.WikiDescription">Moderator to rola Impostor Support, która banuje graczy obok. Ban blokuje jedną rzecz do najbliższego spotkania (albo na określony czas): zgłaszanie ciał, przycisk awaryjny, zadania, wchodzenie do wentów, kamery, admina i vitals (także przenośne), umiejętności (razem z zabijaniem i sabotażem) albo głos na najbliższym spotkaniu (nie liczy się). Domyślnie rodzaj bana jest losowany spośród włączonych w lobby; z opcją Moderator wybiera go drugim przyciskiem. Zbanowany dostaje komunikat (opcja), a Moderator widzi Ø przy jego nicku. Naprawa sabotażu, drzwi i drabiny nigdy nie są blokowane, a gracz w wencie zawsze może z niego wyjść. Oczyszczenie Clerica zdejmuje bany. Ban liczy się jako interakcja.</string>
+  <string name="TownOfUsMira.Role.Moderator.WikiDescription">Moderator to rola Impostor Support, która banuje graczy obok. Ban blokuje jedną rzecz do najbliższego spotkania (albo na określony czas): zgłaszanie ciał, przycisk awaryjny, zadania, wchodzenie do wentów, kamery, admina i vitals (także przenośne), umiejętności (razem z zabijaniem i sabotażem) albo głos na najbliższym spotkaniu (nie liczy się). Domyślnie rodzaj bana jest losowany spośród włączonych w lobby; z opcją Moderator wybiera go drugim przyciskiem, a z inną opcją ban blokuje naraz wszystkie włączone rodzaje. Zbanowany dostaje komunikat (opcja), a Moderator widzi Ø przy jego nicku. Naprawa sabotażu, drzwi i drabiny nigdy nie są blokowane, a gracz w wencie zawsze może z niego wyjść. Oczyszczenie Clerica zdejmuje bany. Ban liczy się jako interakcja.</string>
   <string name="TownOfUsMira.Role.ModeratorBan">Ban</string>
-  <string name="TownOfUsMira.Role.ModeratorBan.WikiDescription">Zbanuj gracza obok na jedną rzecz do najbliższego spotkania.</string>
+  <string name="TownOfUsMira.Role.ModeratorBan.WikiDescription">Zbanuj gracza obok na jedną rzecz (albo, z opcją, na wszystko naraz) do najbliższego spotkania.</string>
   <string name="TownOfUsMira.Role.ModeratorType">Rodzaj bana</string>
   <string name="TownOfUsMira.Role.ModeratorType.WikiDescription">Tylko z opcją „Moderator wybiera rodzaj bana”: przełącza na następny rodzaj. Przycisk pokazuje rodzaj, który dostanie następny ban.</string>
   <string name="TownOfUsMira.Role.ModeratorBanGiven">[player] dostaje bana: [ban].</string>
@@ -1722,6 +1722,7 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TownOfUsMira.Role.ModeratorBanShortAbilities">Umiejętności</string>
   <string name="TownOfUsMira.Role.ModeratorBanNameVote">głos na najbliższym spotkaniu</string>
   <string name="TownOfUsMira.Role.ModeratorBanShortVote">Głos</string>
+  <string name="TownOfUsMira.Role.ModeratorBanNameEverything">wszystko</string>
   <string name="TouOptionModeratorBanCooldown">Cooldown bana</string>
   <string name="TouOptionModeratorMaxBans">Maks. banów na grę</string>
   <string name="TouOptionModeratorBansPerRound">Maks. banów na rundę</string>
@@ -1729,6 +1730,7 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionModeratorBanLengthEnumUntilMeeting">Do najbliższego spotkania</string>
   <string name="TouOptionModeratorBanLengthEnumTimed">Określony czas</string>
   <string name="TouOptionModeratorBanDuration">Czas bana</string>
+  <string name="TouOptionModeratorBansEverything">Ban na wszystko naraz</string>
   <string name="TouOptionModeratorChoosesType">Moderator wybiera rodzaj bana</string>
   <string name="TouOptionModeratorTargetNotified">Zbanowany dostaje komunikat</string>
   <string name="TouOptionModeratorBanReports">Ban na: zgłaszanie ciał</string>

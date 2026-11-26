@@ -407,11 +407,11 @@ public static class AreAssets
         new LoadableResourceAsset($"{CustomPath}.InformantShowButton.png", typeof(TownOfUsPlugin).Assembly, 100f);
 
     /// <summary>
-    ///     Glutton role icon (a pelican). 120px, sized like the 128px icons. From Project: Lotus (GPL-3.0,
-    ///     https://github.com/Lotus-AU/LotusContinued, bundle sprite "Pelican").
+    ///     Glutton role icon (a chubby crewmate with a napkin bib and a fork). 128px.
+    ///     Drawn by tools/are-assets/draw-glutton-icon.ps1.
     /// </summary>
     public static LoadableAsset<Sprite> GluttonIcon { get; } =
-        new LoadableResourceAsset($"{CustomPath}.GluttonIcon.png", typeof(TownOfUsPlugin).Assembly, 120f / 1.44f);
+        new LoadableResourceAsset($"{CustomPath}.GluttonIcon.png", typeof(TownOfUsPlugin).Assembly, RoleIconPpu);
 
     /// <summary>
     ///     Glutton "Swallow" button (a green mouth with teeth). 150px, sized like the 100px buttons. From Project: Lotus

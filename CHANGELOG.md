@@ -11,8 +11,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 ### Added
 
-- **Obżartuch** (Glutton, new Neutral Killing role, the Pelican of
-  [Project: Lotus](https://github.com/Lotus-AU/LotusContinued) with its icons): wins as the last killer alive. Instead
+- **Glutton** (new Neutral Killing role, the Pelican of [Project: Lotus](https://github.com/Lotus-AU/LotusContinued),
+  with its Swallow button icon): wins as the last killer alive. Instead
   of killing, the Glutton swallows a nearby player, who is pulled in spinning and shrinking and disappears.
   - The swallowed player is inside the Glutton: invisible, can't be targeted, can't use abilities, tasks, consoles, the
     map or reports, and moves with the Glutton, seeing what is around them through a dark-red tint.
@@ -60,7 +60,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 **Dodano**
 
 - **Obżartuch** (Glutton, nowa rola Neutral Killing, Pelikan z
-  [Project: Lotus](https://github.com/Lotus-AU/LotusContinued) razem z ikonami): wygrywa jako ostatni żywy zabójca.
+  [Project: Lotus](https://github.com/Lotus-AU/LotusContinued) razem z ikoną przycisku „Połknij”): wygrywa jako
+  ostatni żywy zabójca.
   Zamiast zabijać, połyka gracza obok, który zostaje wciągnięty, kręcąc się i malejąc, i znika.
   - Połknięty jest w brzuchu Obżartucha: niewidzialny, nie da się w niego celować, nie może używać umiejętności, zadań,
     konsol, mapy ani zgłaszać ciał, porusza się razem z Obżartuchem i widzi jego otoczenie przez ciemnoczerwony filtr.

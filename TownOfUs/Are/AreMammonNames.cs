@@ -8,7 +8,8 @@ namespace TownOfUs.Are;
 ///     request, 2026-11-20; on by default, a local setting in Preferences: <c>AreMammonPolishNames</c>). In the texts of
 ///     those roles (name, descriptions, notices, options) every English name of an AmonRa role or Chairman title is
 ///     replaced by its Polish name, e.g. "The Chairman ..." becomes "The Prezes ...". The pairs come from the en_US and
-///     pl_PL names, so a renamed role needs no change here; a new AmonRa role needs its IdPart below.
+///     pl_PL names, so a renamed role needs no change here; a new AmonRa role needs its IdPart below only when the owner
+///     wants its Polish name in every language (not the Glutton: owner's decision, 2026-11-26).
 /// </summary>
 [HarmonyPatch]
 public static class AreMammonNames
@@ -16,7 +17,7 @@ public static class AreMammonNames
     private static readonly string[] RoleParts =
     [
         "Expert", "Chairman", "Handyman", "Comfy", "Cryptid", "Fabulist", "Moderator", "StreamSniper", "BlameShifter",
-        "Informant", "Glutton"
+        "Informant"
     ];
 
     private static readonly string[] ModifierParts = ["AmonRa", "Streamer"];

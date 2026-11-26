@@ -152,7 +152,7 @@ Alliance), **Symulant** (leżący załogant, Impostor Killing), **Krwawiący** (
 banów, Impostor Support), **Prezes** (krawat, Crewmate Support), **Złota Rączka** (skrzynka z narzędziami, Crewmate Support),
 **Streamer** (kamerka internetowa, modyfikatory uniwersalne), **Snajper** (ekran z celownikiem, Impostor Support),
 **Mitoman** (załogant z przezroczystą kopią, Impostor Concealing), **Kryptyda** (wielki ślad stopy, Crewmate
-Afterlife), **Krętacz** (duch wskazujący palcem, Neutral Afterlife), **Donosiciel** (dymek z czerwoną i zieloną kropką, Crewmate Support) i **Obżartuch** (pelikan, Neutral Killing). Kluczowe różnice Town of Us: Mira,
+Afterlife), **Krętacz** (duch wskazujący palcem, Neutral Afterlife), **Donosiciel** (dymek z czerwoną i zieloną kropką, Crewmate Support) i **Obżartuch** (pulchny załogant z widelcem, Neutral Killing). Kluczowe różnice Town of Us: Mira,
 obsługiwane języki i kompatybilność z innymi modami są w [wersji angielskiej](README.md#town-of-us-mira).
 
 
@@ -332,7 +332,8 @@ AmonRa Edition stoi na barkach **[Town of Us: Mira](https://github.com/AU-Avenge
 oraz wszystkich osób, które przyczyniły się do tego moda. Pełna lista podziękowań:
 [Contributions & Credits](README.md#contributions--credits).
 
-Obżartuch to rola Pelikan z [Project: Lotus](https://github.com/Lotus-AU/LotusContinued) (GPL-3.0), razem z jej ikonami.
+Obżartuch to rola Pelikan z [Project: Lotus](https://github.com/Lotus-AU/LotusContinued) (GPL-3.0), razem z ikoną
+przycisku „Połknij”.
 
 # Licencja
 

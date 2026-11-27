@@ -23,6 +23,9 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   locally. Handlers check `LobbyBehaviour.Instance` and call `MiscUtils.RunAnticheatWarning`.
 - Append new `TownOfUsRpc` values at the end (the id is the position). When two branches both append, keep both entries:
   everyone runs the same build after the merge anyway.
+- **A new default of an option doesn't reach players who have it saved:** MiraAPI keeps option values in the BepInEx
+  config under (group type full name, C# property name), and a saved value wins over the default. To give everyone the
+  new default, rename the property; the locale key can stay (`InsiderOptions.TasksCountForCrew`, was `TasksHelpCrew`).
 - **Never read an attribute option (`[ModdedToggleOption] public bool X { get; set; } = ...`) directly in a
   `[MethodRpc]` body.** Reactor compiles a copy of the RPC body when the plugin loads, before MiraAPI patches the option
   getters, so the trivial getter gets inlined and the RPC always sees the initializer value (the Rigger's lethal traps
@@ -126,6 +129,13 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   (owner's test); our Ctrl+V checks the result one frame later in case the game pastes too.
 
 ## Game internals
+
+- **`Instantiate(Camera.main)` clones the whole HUD** (the HUD is a child of the main camera). Every `Awake` under it
+  runs again, and singletons set in `Awake` (`HudManagerHelper.Instance`, MiraAPI's `MiraHudHelper.Instance` and
+  `ModifierDisplayComponent.Instance`) point to the copy, even if its children are destroyed right away. The upstream
+  Parasite camera did this: `HudManagerHelper.Instance.DeathTimer` then never counted down, so a Parasite host's game
+  never ended by kills. Make a new camera with `new GameObject(...).AddComponent<Camera>()` + `CopyFrom(Camera.main)`.
+  `HudManagerHelper.Awake` now keeps the first live instance.
 
 - **A player's body sprites aren't under `cosmetics`:** they are in the child `BodyForms` (index 2); `cosmetics` holds
   the hat, visor, name and so on. Town of Us sets a player's size on the root (`player.transform.localScale` =

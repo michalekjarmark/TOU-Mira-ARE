@@ -1475,7 +1475,7 @@ Uruchom grę ponownie, aktualizacja spróbuje jeszcze raz.</string>
   <string name="TownOfUsMira.Role.Insider">Wtyczka</string>
   <string name="TownOfUsMira.Role.Insider.IntroBlurb">Rób prawdziwe zadania. Zabijaj szybciej.</string>
   <string name="TownOfUsMira.Role.Insider.TabDescription">Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.</string>
-  <string name="TownOfUsMira.Role.Insider.WikiDescription">Wtyczka to rola Impostor Concealing, która naprawdę może robić zadania ze swojej listy. Wszyscy widzą, że są wykonywane, łącznie z zadaniami wizualnymi i raportami Audytora. Każde ukończone zadanie na stałe trochę skraca cooldown zabójstwa Wtyczki, aż do minimum. Domyślnie jej zadania liczą się też do postępu załogi, więc praca na szybsze zabójstwo przybliża też załogę do wygranej na zadania.</string>
+  <string name="TownOfUsMira.Role.Insider.WikiDescription">Wtyczka to rola Impostor Concealing, która naprawdę może robić zadania ze swojej listy. Wszyscy widzą, że są wykonywane, łącznie z zadaniami wizualnymi i raportami Audytora. Każde ukończone zadanie na stałe trochę skraca cooldown zabójstwa Wtyczki, aż do minimum. Z opcją „Zadania liczą się do postępu załogi” (domyślnie wyłączoną) jej zadania liczą się też do postępu załogi, więc praca na szybsze zabójstwo przybliża też załogę do wygranej na zadania.</string>
   <string name="TownOfUsMira.Role.InsiderTaskHeader">Sabotuj i zabijaj wszystkich.
 Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.</string>
   <string name="TownOfUsMira.Role.InsiderTaskDone">Zadanie wykonane: cooldown zabójstwa wynosi teraz [cooldown] s.</string>

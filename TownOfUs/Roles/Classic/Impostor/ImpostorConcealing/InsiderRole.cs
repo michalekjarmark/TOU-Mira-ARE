@@ -103,7 +103,8 @@ public sealed class InsiderRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfUs
 }
 
 /// <summary>
-///     Adds the Insiders' completed tasks to the crew's completed tasks (not to the total) when the option is on. Runs
+///     Adds the Insiders' completed tasks to the crew's completed tasks (not to the total) when the option is on (off by
+///     default since 2026-11-27, owner's decision: the crew wins by tasks only with its own tasks done). Runs
 ///     after the TOU recount (which always leaves impostors out), so the crew can never be blocked from a task win by
 ///     tasks the Insider didn't do.
 /// </summary>
@@ -114,7 +115,7 @@ public static class InsiderTaskCountPatch
     [HarmonyPriority(Priority.Last)]
     public static void Postfix(GameData __instance)
     {
-        if (__instance == null || !OptionGroupSingleton<InsiderOptions>.Instance.TasksHelpCrew)
+        if (__instance == null || !OptionGroupSingleton<InsiderOptions>.Instance.TasksCountForCrew)
         {
             return;
         }

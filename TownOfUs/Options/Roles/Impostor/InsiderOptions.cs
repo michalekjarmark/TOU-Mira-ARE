@@ -18,7 +18,9 @@ public sealed class InsiderOptions : AbstractRoleOptionGroup<InsiderRole>
     [ModdedNumberOption("TouOptionInsiderMinKillCooldown", 5f, 30f, 2.5f, MiraNumberSuffixes.Seconds)]
     public float MinKillCooldown { get; set; } = 10f;
 
-    // The price of the role: every real task of the Insider also moves the crew towards a task win.
+    // Off by default since 2026-11-27 (owner): the crew should win by tasks only when the crew's own tasks are done.
+    // Renamed from TasksHelpCrew so that saved configs get the new default too (MiraAPI saves options under the C#
+    // property name, see CAVEATS).
     [ModdedToggleOption("TouOptionInsiderTasksHelpCrew")]
-    public bool TasksHelpCrew { get; set; } = true;
+    public bool TasksCountForCrew { get; set; } = false;
 }

@@ -43,6 +43,9 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 - Now based on Town of Us: Mira 1.7.9 Beta 2 (its fixes included, see the upstream link above), with MiraAPI 0.6.1.
 - Hunter: the Polish role description now says that killing a caught Crewmate in the same round makes the Hunter leave
   in shame.
+- Insider: their tasks no longer count as crew progress by default, so the crew wins by tasks only when the crew's own
+  tasks are done (before, the game could end with everyone at 7/8). The lobby option "Tasks Count As Crew Progress" is
+  now off for every host, also for those who had it saved.
 
 ### Fixed
 
@@ -56,6 +59,9 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   was restarted.
 - Parasite and Puppeteer: the controlled player's character no longer jumps back now and then (on every screen but
   the controller's, also the controlled player's own), which looked like teleporting.
+- Parasite: when the host was the Parasite, after their first takeover the game could no longer end by kills or votes
+  (for example two Vampires left alone kept playing), only by tasks. The round number on the Parasite's screen also
+  went wrong.
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -95,6 +101,9 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 
 - Teraz na bazie Town of Us: Mira 1.7.9 Beta 2 (z jej poprawkami, patrz link do upstreamu wyżej) i MiraAPI 0.6.1.
 - Łowca: polski opis roli mówi teraz, że zabicie złapanego Załoganta w tej samej rundzie kończy się odejściem w hańbie.
+- Wtyczka: jej zadania domyślnie nie liczą się już do postępu załogi, więc załoga wygrywa na zadania dopiero, gdy zrobi
+  wszystkie swoje (wcześniej gra mogła się skończyć, gdy wszyscy mieli 7/8). Opcja w lobby „Zadania liczą się do
+  postępu załogi” jest teraz wyłączona u każdego hosta, także u tych, którzy mieli ją zapisaną.
 
 **Naprawiono**
 
@@ -109,6 +118,9 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   uruchomienia gry.
 - Pasożyt (Parasite) i Lalkarz (Puppeteer): postać przejętego gracza nie cofa się już co chwilę skokiem (na każdym
   ekranie poza przejmującym, także u samego przejętego), co wyglądało jak teleportowanie.
+- Pasożyt: gdy hostem był Pasożyt, po jego pierwszym przejęciu gracza gra nie mogła się już skończyć przez zabójstwa
+  ani głosowanie (np. dwa wampiry zostały same, a gra trwała dalej), tylko przez zadania. U Pasożyta psuł się też
+  numer rundy.
 
 </details>
 

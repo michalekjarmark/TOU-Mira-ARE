@@ -86,6 +86,14 @@ public sealed class HudManagerHelper(nint cppPtr) : MonoBehaviour(cppPtr)
 
     public void Awake()
     {
+        // AmonRa Edition: a copy of the HUD (cloning an object with the HUD under it, like the Parasite's camera did)
+        // must not take over Instance: the copy is destroyed and its Update never runs, so the DeathTimer would never
+        // count down and the host's game would never end after a death.
+        if (Instance && Instance != this)
+        {
+            return;
+        }
+
         Instance = this;
     }
 

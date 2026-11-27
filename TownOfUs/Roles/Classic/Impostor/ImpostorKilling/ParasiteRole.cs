@@ -564,11 +564,13 @@ public sealed class ParasiteRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfU
 
         MarkPiPSettingsDirty(resetManualThisSession: true);
 
-        parasiteCam = Instantiate(Camera.main);
-        parasiteCam.name = "TOU-ParasiteCam";
+        // AmonRa Edition: a new camera with the main camera's settings, not Instantiate(Camera.main), which also cloned
+        // the HUD under the main camera for a frame. The copy's HudManagerHelper (and MiraAPI's HUD helpers) took over
+        // their Instance and was then destroyed, so the DeathTimer never counted down again and a Parasite host's game
+        // never ended after the next death (only by tasks). CopyFrom also copies the position and the layer.
+        parasiteCam = new GameObject("TOU-ParasiteCam").AddComponent<Camera>();
+        parasiteCam.CopyFrom(Camera.main);
         parasiteCam.orthographicSize = 1.5f;
-        parasiteCam.transform.DestroyChildren();
-        parasiteCam.GetComponent<FollowerCamera>()?.Destroy();
         parasiteCam.nearClipPlane = -1;
         parasiteCam.depth = Camera.main.depth + 1;
         parasiteCam.gameObject.SetActive(true);
@@ -591,7 +593,7 @@ public sealed class ParasiteRole(IntPtr cppPtr) : ImpostorRole(cppPtr), ITownOfU
     {
         if (parasiteCam?.gameObject != null)
         {
-            parasiteCam.Destroy();
+            parasiteCam.gameObject.Destroy(); // AmonRa Edition: the whole object, not only the Camera component
             parasiteCam = null;
         }
 

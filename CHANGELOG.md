@@ -35,6 +35,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   wait is dropped, the same as during a meeting.
 - A player who dies because of a rule is told why, with a notification and a line in the chat: the Hunter who leaves in
   shame (with the name of the Crewmate they killed) and a Lover who dies of a broken heart.
+- **Role Exclusions:** a new lobby option "Donosiciel And Seer Can't Spawn Together", on by default. Both roles tell
+  who is red or green, so by default there is only one of them in a game (like the other role exclusions).
 
 ### Changed
 
@@ -85,6 +87,9 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   tak jak w trakcie spotkania.
 - Gracz, który ginie przez zasadę gry, dowiaduje się dlaczego (powiadomienie i wpis na czacie): Łowca, który odchodzi
   w hańbie (z nickiem zabitego Załoganta), i Kochanek, który umiera ze złamanego serca.
+- **Wykluczenia ról:** nowa opcja w lobby „Donosiciel i Seer nie mogą być w jednej grze”, domyślnie włączona. Obie
+  role pokazują, kto jest czerwony, a kto zielony, więc domyślnie w grze jest tylko jedna z nich (jak przy innych
+  wykluczeniach ról).
 
 **Zmieniono**
 

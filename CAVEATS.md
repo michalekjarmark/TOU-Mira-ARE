@@ -75,7 +75,8 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
 - **AmonRa role names** (`IAmonRaContent`): write their en_US texts with the English name ("The Chairman ..."). With
   the local setting on (default), `AreMammonNames` (postfix on `MiraLocaleManager.Get`) swaps every English name of an
   AmonRa role in those roles' texts for the Polish one in any language but Polish. A new AmonRa role needs its IdPart
-  in `AreMammonNames`.
+  in `AreMammonNames`. A text of another feature that names an AmonRa role (e.g. a role exclusion option) is swapped
+  only when its key is in `AreMammonNames.ExtraTextKeys`; write it with the English name too, never the Polish one.
 - **Locale placeholders:** when loading the XML, `MiraLocaleManager` turns every `[` into `<` and every `]` into `>`.
   Write `[player]` in the XML and replace `"<player>"` in code. Replacing `"[player]"` does nothing and players see
   `<player>`.

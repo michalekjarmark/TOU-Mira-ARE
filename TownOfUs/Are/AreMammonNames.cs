@@ -22,6 +22,9 @@ public static class AreMammonNames
 
     private static readonly string[] ModifierParts = ["AmonRa", "Streamer"];
 
+    // Texts of other features that name an AmonRa role (the Donosiciel and Seer role exclusion).
+    private static readonly string[] ExtraTextKeys = ["TouOptionExclusiveInformingRoles"];
+
     // Titles that are names too (the Chairman's promotions; the top one is the role's own name).
     private static readonly string[] ExtraNameKeys =
     [
@@ -90,7 +93,7 @@ public static class AreMammonNames
             .Concat(ModifierParts.SelectMany(x => new[] { $"TownOfUsMira.Modifier.{x}", $"TouOption{x}" }))
             .ToArray();
 
-        var result = _prefixes.Any(x => key.StartsWith(x, StringComparison.Ordinal));
+        var result = ExtraTextKeys.Contains(key) || _prefixes.Any(x => key.StartsWith(x, StringComparison.Ordinal));
         KeyIsAmonRa[key] = result;
         return result;
     }

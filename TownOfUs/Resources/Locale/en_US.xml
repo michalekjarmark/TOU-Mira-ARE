@@ -4663,5 +4663,5 @@ Your tasks are real: each one lowers your kill cooldown by [reduction] s.</strin
   <string name="TouOptionGluttonSwallowedSeeOutside">The Swallowed See Around The Glutton</string>
   <string name="TouOptionGluttonCanVent">Glutton Can Vent</string>
   <string name="TouOptionGluttonImpostorVision">Glutton Has Impostor Vision</string>
-  <string name="TouOptionExclusiveInformingRoles">Donosiciel And Seer Can't Spawn Together</string>
+  <string name="TouOptionExclusiveInformingRoles">Informant And Seer Can't Spawn Together</string>
 </resources>

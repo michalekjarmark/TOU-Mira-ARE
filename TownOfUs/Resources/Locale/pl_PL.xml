@@ -1963,5 +1963,5 @@ Twoje zadania są prawdziwe: każde skraca cooldown zabójstwa o [reduction] s.<
   <string name="TouOptionGluttonSwallowedSeeOutside">Połknięci widzą otoczenie Obżartucha</string>
   <string name="TouOptionGluttonCanVent">Obżartuch może używać wentów</string>
   <string name="TouOptionGluttonImpostorVision">Obżartuch ma wzrok impostora</string>
-  <string name="TouOptionExclusiveInformingRoles">Donosiciel i Seer nie mogą być w jednej grze</string>
+  <string name="TouOptionExclusiveInformingRoles">Donosiciel i Jasnowidz nie mogą być w jednej grze</string>
 </resources>

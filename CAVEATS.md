@@ -131,13 +131,6 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
 
 ## Game internals
 
-- **`Instantiate(Camera.main)` clones the whole HUD** (the HUD is a child of the main camera). Every `Awake` under it
-  runs again, and singletons set in `Awake` (`HudManagerHelper.Instance`, MiraAPI's `MiraHudHelper.Instance` and
-  `ModifierDisplayComponent.Instance`) point to the copy, even if its children are destroyed right away. The upstream
-  Parasite camera did this: `HudManagerHelper.Instance.DeathTimer` then never counted down, so a Parasite host's game
-  never ended by kills. Make a new camera with `new GameObject(...).AddComponent<Camera>()` + `CopyFrom(Camera.main)`.
-  `HudManagerHelper.Awake` now keeps the first live instance.
-
 - **A player's body sprites aren't under `cosmetics`:** they are in the child `BodyForms` (index 2); `cosmetics` holds
   the hat, visor, name and so on. Town of Us sets a player's size on the root (`player.transform.localScale` =
   appearance `Size`, 0.7 by default). To move, spin or shrink a whole player, change the root transform, and only while
@@ -190,9 +183,14 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   object (the pet has one), and an unused layer collides with everything: copy the original layer's collisions to it
   (`Physics2D.IgnoreLayerCollision`, `StreamerSystem.MatchCollisions`).
 - **`Object.Instantiate(Camera.main)` copies the whole HUD**, which lives under the main camera: every copied component
-  runs `Awake` (MiraAPI's `ModifierDisplayComponent` sets its `Instance` to the copy and throws). Copy the camera under
-  an inactive parent and `DestroyImmediate` its children before it becomes active (`StreamSniperSystem.CopyCamera`).
-  TOU's Parasite still makes a plain copy.
+  runs `Awake`, and singletons set there point to the copy, which is then destroyed (MiraAPI's
+  `ModifierDisplayComponent.Instance`, TOU's `HudManagerHelper.Instance`). Seen in a log (2026-11-27, upstream
+  Parasite): `HudManagerHelper.Awake` on `Hud` under `Main Camera(Clone)`, then its `OnDestroy` while still
+  `Instance`; after that `AfterMurderEventHandler` throws on `Instance.VentButtonDisabledSprite` (null on the copy),
+  and a `DeathTimer` raised on the copy never counts down, which blocks the game end on the host. For a plain camera
+  use `new GameObject(...).AddComponent<Camera>()` + `CopyFrom(Camera.main)` (the ARE Parasite); to copy what's
+  under the camera too, copy it under an inactive parent and `DestroyImmediate` its children before it becomes active
+  (`StreamSniperSystem.CopyCamera`). `HudManagerHelper.Awake` (ARE) keeps the first live instance.
 - **A meeting without a body uses up one of the caller's emergency meetings**: vanilla `CoStartMeeting(null)` lowers
   `RemainingEmergencies` on every client, also for an ability's `RpcStartMeeting(null)`. An ability that is not meant
   to use it up gives it back after the meeting (`ChairmanSystem.RefundBoardMeeting`).

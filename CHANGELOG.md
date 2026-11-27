@@ -60,9 +60,9 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   was restarted.
 - Parasite and Puppeteer: the controlled player's character no longer jumps back now and then (on every screen but
   the controller's, also the controlled player's own), which looked like teleporting.
-- Parasite: when the host was the Parasite, after their first takeover the game could no longer end by kills or votes
-  (for example two Vampires left alone kept playing), only by tasks. The round number on the Parasite's screen also
-  went wrong.
+- Parasite: the first takeover broke part of the game on the Parasite's screen (an error on every kill, the round
+  number went back) and, when the Parasite was the host, could stop the game from ending by kills or votes (most
+  likely why two Vampires left alone kept playing).
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -120,9 +120,9 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
   uruchomienia gry.
 - Pasożyt (Parasite) i Lalkarz (Puppeteer): postać przejętego gracza nie cofa się już co chwilę skokiem (na każdym
   ekranie poza przejmującym, także u samego przejętego), co wyglądało jak teleportowanie.
-- Pasożyt: gdy hostem był Pasożyt, po jego pierwszym przejęciu gracza gra nie mogła się już skończyć przez zabójstwa
-  ani głosowanie (np. dwa wampiry zostały same, a gra trwała dalej), tylko przez zadania. U Pasożyta psuł się też
-  numer rundy.
+- Pasożyt: pierwsze przejęcie psuło część gry na ekranie Pasożyta (błąd przy każdym zabójstwie, cofnięty numer
+  rundy), a gdy Pasożyt był hostem, mogło zablokować koniec gry przez zabójstwa i głosowanie (najpewniej dlatego dwa
+  wampiry zostały same, a gra trwała dalej).
 
 </details>
 

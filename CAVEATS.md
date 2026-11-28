@@ -187,7 +187,12 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   `ModifierDisplayComponent.Instance`, TOU's `HudManagerHelper.Instance`). Seen in a log (2026-11-27, upstream
   Parasite): `HudManagerHelper.Awake` on `Hud` under `Main Camera(Clone)`, then its `OnDestroy` while still
   `Instance`; after that `AfterMurderEventHandler` throws on `Instance.VentButtonDisabledSprite` (null on the copy),
-  and a `DeathTimer` raised on the copy never counts down, which blocks the game end on the host. For a plain camera
+  and a `DeathTimer` raised on the copy never counts down, which blocks the game end on the host. Reproduced on
+  upstream 2026-11-28 (3 windows: Parasite host takes over, a Vampire kills the Parasite, two Vampires stay alive
+  with `WinConditionMet` true and `DeathTimer` 1.00 forever); upstream merged the camera fix (PR #286). Only some
+  deaths raise `DeathTimer`: `PlayerDeathEventHandler` adds 1 only while the stored state is still Alive, and the
+  `CustomTouMurderRpcs` paths (e.g. the Parasite's end-of-control kill) set it to Dead before `Die`, while
+  `RpcCustomMurder` (ordinary kill buttons) does not. A test of the game end needs the latter. For a plain camera
   use `new GameObject(...).AddComponent<Camera>()` + `CopyFrom(Camera.main)` (the ARE Parasite); to copy what's
   under the camera too, copy it under an inactive parent and `DestroyImmediate` its children before it becomes active
   (`StreamSniperSystem.CopyCamera`). `HudManagerHelper.Awake` (ARE) keeps the first live instance.

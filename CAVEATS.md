@@ -77,6 +77,11 @@ one, add a short entry: symptom, cause, what to do. Notes about a single feature
   AmonRa role in those roles' texts for the Polish one in any language but Polish. A new AmonRa role needs its IdPart
   in `AreMammonNames`. A text of another feature that names an AmonRa role (e.g. a role exclusion option) is swapped
   only when its key is in `AreMammonNames.ExtraTextKeys`; write it with the English name too, never the Polish one.
+- **The game's TMP fonts have no Polish letters** (ą ć ę ł ń ś ź ż; ó is there): all static ones (Barlow, Brook,
+  VCR, ...) lack them and `TMP_Settings.fallbackFontAssets` is empty, so outside the Polish game language they show as
+  boxes. `ArePolishLetters` adds a dynamic font made from the game's Barlow-Bold source file to the global fallbacks
+  (checked 2026-11-28 on the English game). Polish text in other languages needs nothing more; a new script (e.g.
+  Cyrillic) would need its own check.
 - **Locale placeholders:** when loading the XML, `MiraLocaleManager` turns every `[` into `<` and every `]` into `>`.
   Write `[player]` in the XML and replace `"<player>"` in code. Replacing `"[player]"` does nothing and players see
   `<player>`.

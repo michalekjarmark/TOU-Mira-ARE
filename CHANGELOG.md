@@ -63,6 +63,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 - Parasite: the first takeover broke part of the game on the Parasite's screen (an error on every kill, the round
   number went back) and, when the Parasite was the host, the next ordinary kill stopped the game from ending by kills
   or votes. That is why two Vampires left alone kept playing (reproduced and fixed, the fix is also in upstream).
+- Polish names of the AmonRa roles in a game set to English: the Polish letters (ą, ć, ę, ł, ń, ś, ź, ż) showed as
+  boxes, e.g. in the role settings. The game now takes them from a font it already has.
 
 <details>
 <summary><i>Po polsku</i></summary>
@@ -123,6 +125,8 @@ Changes of Town of Us: Mira itself are described [upstream](https://github.com/A
 - Pasożyt: pierwsze przejęcie psuło część gry na ekranie Pasożyta (błąd przy każdym zabójstwie, cofnięty numer
   rundy), a gdy Pasożyt był hostem, najbliższe zwykłe zabójstwo blokowało koniec gry przez zabójstwa i głosowanie.
   Dlatego dwa wampiry zostały same, a gra trwała dalej (odtworzone i naprawione, poprawka jest też w upstreamie).
+- Polskie nazwy ról AmonRa w grze ustawionej na angielski: polskie litery (ą, ć, ę, ł, ń, ś, ź, ż) wyświetlały się
+  jako kwadraty, np. w ustawieniach ról. Teraz gra bierze je z czcionki, którą już ma.
 
 </details>
 
